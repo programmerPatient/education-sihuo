@@ -113,7 +113,7 @@ class TableController extends Controller
     }
 
     //报表权限的分配
-    public function auth($id){
+    public function auth(){
         if(Input::method() == 'POST'){
             return '1';
         }else{
