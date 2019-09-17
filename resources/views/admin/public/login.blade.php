@@ -28,13 +28,12 @@
 <body>
 <input type="hidden" id="TenantId" name="TenantId" value="" />
 <!-- <div class="header"></div> -->
-<img src="{{$system->logo_url}}" alt="logo" style="width:100%;height:100px;">
 <div class="loginWraper">
   <div id="loginform" class="loginBox">
     <form class="form form-horizontal" action="/admin/public/check" method="post">
-        <div class="col-xs-9">
-          <div class="row cl" style="text-align:center;">
+        <div class="row cl" style="text-align:center;">
           <label class="form-label col-xs-8">{{$system->web_title}}</label>
+          <img src="{{$system->logo_url}}" alt="logo" style="width:100%;height:50px;">
         </div>
         <div class="row cl">
           <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60d;</i></label>
