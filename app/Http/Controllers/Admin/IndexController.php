@@ -70,6 +70,7 @@ class IndexController extends Controller
                 if ($err) {
                   echo "cURL Error #:" . $err;
                 } else {
+                    dd($chilresponse);
                     $viesdata = json_decode($chilresponse)->workbook->views->view;
                 }
                 if($tableauIds){
