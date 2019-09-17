@@ -74,7 +74,7 @@ class IndexController extends Controller
                 }
                 if($tableauIds){
                     $project = false;
-                    foreach($vaiesdata as $key => $vaie){
+                    foreach($viesdata as $key => $vaie){
                         if(in_array($vaie->contentUrl,$tableauIds)){
                             $project = true;
                         }else{
