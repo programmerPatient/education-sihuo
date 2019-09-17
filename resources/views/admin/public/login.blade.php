@@ -30,11 +30,11 @@
 <!-- <div class="header"></div> -->
 <div class="loginWraper">
   <div id="loginform" class="loginBox">
-    <div class="row cl">
-      <label class="form-label col-xs-8">{{$system->web_title}}</label>
-      <img class="form-label col-xs-4" src="{{$system->logo_img}}" alt="">
-    </div>
     <form class="form form-horizontal" action="/admin/public/check" method="post">
+      <div class="row cl">
+        <img class="form-label col-xs-4" style="color:white;font-size:20px" src="{{$system->logo_img}}" alt="">
+        <label class="form-label col-xs-8">{{$system->web_title}}</label>
+      </div>
       <div class="row cl">
         <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60d;</i></label>
         <div class="formControls col-xs-8">
