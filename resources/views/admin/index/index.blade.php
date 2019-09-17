@@ -32,7 +32,7 @@
     .navbar-logo{
         margin-left: 10px;
     }
-    .second-floor {
+    #second-floor {
         display: none;
     }
 </style>
