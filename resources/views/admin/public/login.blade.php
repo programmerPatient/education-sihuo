@@ -32,8 +32,7 @@
   <div id="loginform" class="loginBox">
     <form class="form form-horizontal" action="/admin/public/check" method="post">
         <div class="row cl" style="text-align:center;">
-          <label class="form-label col-xs-8">{{$system->web_title}}</label>
-          <img class="col-xs-4" src="{{$system->logo_url}}" alt="logo" style="width:40%;height:50px;margin-left:10%;">
+          <div class="form-label col-xs-8">{{$system->web_title}}<img class="col-xs-4" src="{{$system->logo_url}}" alt="logo" style="width:40%;height:50px;margin-left:10%;"></div>
         </div>
         <div class="row cl">
           <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60d;</i></label>
