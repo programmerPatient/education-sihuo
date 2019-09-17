@@ -15,9 +15,12 @@ class IndexController extends Controller
 
     //首页
     public function index(){
-        $tableauIds = [];
         if($user = Auth::guard('member')->check()){
-            $tableauIds = explode(',',$user -> tableauIds);
+            if(!is_null($user -> tableauIds)){
+                $tableauIds = explode(',',$user -> tableauIds);
+            }else{
+               $tableauIds = false;
+            }
         }
         $type = Session::get('user_type');
         $system = System::get()->first();
@@ -72,7 +75,7 @@ class IndexController extends Controller
                 } else {
                     $viesdata = json_decode($chilresponse)->workbook->views->view;
                 }
-                if(!is_null($tableauIds)){
+                if($tableauIds){
                     $project = false;
                     foreach($vaiesdata as $key => $vaie){
                         if(in_array($vaie->contentUrl,$tableauIds)){
