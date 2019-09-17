@@ -53,7 +53,6 @@
                                     <label class="col-xs-3 col-sm-2">
                                         <input type="checkbox" value="{{$VieValue->contentUrl}}" name="tableauIds[]" @if(in_array($VieValue->icontentUrl,$hasTableauIds)) checked @endif>
                                     </label>
-                                    @endif
                                 @endforeach
                             </dd>
                         </dl>
