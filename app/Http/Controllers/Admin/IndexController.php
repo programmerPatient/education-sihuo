@@ -81,7 +81,7 @@ class IndexController extends Controller
                         }
                     }
                 }else{
-                    $project =true;
+                    $project = true;
                 }
                 if($project){
                     //判断是否是重复的父类
@@ -96,9 +96,6 @@ class IndexController extends Controller
                     ];
                 }
             }
-        }
-        if($tableauIds){
-            foreach()
         }
         // FS1Wu4GJRVCaNdtzbAeHlw|j9JPkfLMU0wZtx8c1BB6pkPGuiEim0h
         return view('admin.index.index',compact('p','system','type'));
