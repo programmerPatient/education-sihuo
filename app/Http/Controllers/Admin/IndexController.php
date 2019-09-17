@@ -71,7 +71,7 @@ class IndexController extends Controller
                 } else {
                     $viesdata = json_decode($chilresponse)->workbook->views->view;
                 }
-                if($tableauIds){
+                if(!is_null($tableauIds)){
                     $project = false;
                     foreach($vaiesdata as $key => $vaie){
                         if(in_array($vaie->contentUrl,$tableauIds)){
