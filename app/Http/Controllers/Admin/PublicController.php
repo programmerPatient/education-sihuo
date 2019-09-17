@@ -70,7 +70,7 @@ class PublicController extends Controller
             $result = Auth::guard('member') -> attempt($data,$request -> get('online'));
             $type = '2';
         }
-
+        dd(Auth::guard('membre')->check());
         Session::put('user_type',$type);
         //判断是否成功
         if($result){
