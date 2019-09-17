@@ -149,7 +149,7 @@
 <!--请在下方写此页面业务相关的脚本-->
 <script type="text/javascript" src="/admin/lib/jquery.contextmenu/jquery.contextmenu.r2.js"></script>
 <script type="text/javascript">
- window.history.forward(1);
+window.history.go(1);
 
 jQuery.Huifold = function(obj,obj_c,speed,obj_type,Event){
     if(obj_type == 2){
