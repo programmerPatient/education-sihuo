@@ -78,7 +78,7 @@ class IndexController extends Controller
                         if(in_array($vaie->contentUrl,$tableauIds)){
                             $project = true;
                         }else{
-                            unset($vaiesdata[$key]);//剔除该元素
+                            unset($viesdata[$key]);//剔除该元素
                         }
                     }
                 }else{
