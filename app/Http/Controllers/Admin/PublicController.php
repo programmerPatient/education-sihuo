@@ -21,7 +21,7 @@ class PublicController extends Controller
         $system = System::get()->first();
         $tableau_domain = $system->system_domain;
         Session::put(['tableau_domain' => $tableau_domain]);
-        return view('admin.public.login',compact('$system'));
+        return view('admin.public.login',compact('system'));
     }
 
 
