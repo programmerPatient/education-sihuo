@@ -25,7 +25,7 @@ Route::group(['prefix' => 'admin'],function(){
 });
 
 //需要认证的后台路由
-Route::group(['prefix' => 'admin','middleware' => ['admin.auth','checkrbac']],function(){
+Route::group(['prefix' => 'admin','middleware' => ['admin.auth']],function(){
 
     //后台首页的路由
     Route::get('index/index','Admin\IndexController@index');
