@@ -79,6 +79,8 @@
         <dl id="menu-member">
             <li><a data-href="/admin/member/index" data-title="会员列表" href="javascript:;">会员列表</a></li>
             <li><a data-href="/admin/system/update" data-title="系统设置" href="javascript:void(0)">系统设置</a></li>
+            <li><a data-href="/admin/table/auth" data-title="报表" href="javascript:;">报表列表</a></li>
+
         </dl>
         @endif
         @foreach($p as $val)

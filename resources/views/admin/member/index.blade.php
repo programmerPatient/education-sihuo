@@ -47,6 +47,7 @@
                 <th width="70">状态</th>
                 <!-- <th width="70">类型</th> -->
                 <th width="100">操作</th>
+                <th width="100">权限管理</th>
             </tr>
         </thead>
         <tbody>
@@ -85,6 +86,10 @@
                         <i class="Hui-iconfont">&#xe6df;</i>
                     </a>
                     <a title="删除" href="javascript:;" onclick="member_del(this,'{{$value->id}}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
+                </td>
+                <td class="td-status">
+                    <a onclick="member_auth('权限管理','/admin/table/auth/{{$value->id}}','4','','510')"><span class="label label-success radius">权限管理</span></a>
+                    </span>
                 </td>
             </tr>
             @endforeach
@@ -193,6 +198,11 @@ function member_start(obj,tableau_id,id,type,name){
         });
     });
 }
+
+function member_auth(title,url,id,w,h){
+    layer_show(title,url,w,h);
+}
+
 /*用户-编辑*/
 function member_edit(title,url,id,w,h){
     layer_show(title,url,w,h);

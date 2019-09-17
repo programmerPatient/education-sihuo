@@ -30,41 +30,36 @@
 </head>
 <body>
 <article class="page-container">
-    <form action="" method="post" class="form form-horizontal" id="form-member-add">
+    <form action="" method="post" class="form form-horizontal" id="form-admin-role-add">
+        @foreach($p as $val)
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>性别：</label>
-            <div class="formControls col-xs-8 col-sm-9 skin-minimal">
-                <div class="radio-box">
-                    <input name="gender" type="radio" id="gender-1" checked value="1">
-                    <label for="gender-1">男</label>
-                </div>
-                <div class="radio-box">
-                    <input type="radio" id="gender-2" name="gender">
-                    <label for="gender-2" value="2">女</label>
-                </div>
-                <div class="radio-box">
-                    <input type="radio" id="gender-3" name="gender">
-                    <label for="gender-3" value="13">保密</label>
-                </div>
+            <label class="form-label col-xs-3 col-sm-2">{{$val['name']}}</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <dl class="permission-list">
+                    <dd>
+                        @foreach($val['project'] as $value)
+                        <dl class="cl permission-list2">
+                            <dt>
+                                <label class="form-label col-xs-3 col-sm-2">{{$value['name']}}</label>
+                            </dt>
+                            <dd>
+                                @foreach($value['views'] as $VieValue)
+                                <label class="">
+                                    <input type="checkbox" value="{{$VieValue->contentUrl}}" name="tableauIds[]">
+                                    {{$VieValue->name}}
+                                </label>
+                                @endforeach
+                            </dd>
+                        </dl>
+                        @endforeach
+                    </dd>
+                </dl>
             </div>
         </div>
-<!--         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>账号状态：</label>
-            <div class="formControls col-xs-8 col-sm-9 skin-minimal">
-                <div class="radio-box">
-                    <input name="status" type="radio" id="status-1" checked value="2">
-                    <label for="status-1">禁用</label>
-                </div>
-                <div class="radio-box">
-                    <input type="radio" id="status-2" name="status">
-                    <label for="status-2" value="1">启用</label>
-                </div>
-            </div>
-        </div> -->
         {{csrf_field()}}
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+                <button type="submit" class="btn btn-success radius" id="admin-role-save" name="admin-role-save"><i class="icon-ok"></i> 确定</button>
             </div>
         </div>
     </form>

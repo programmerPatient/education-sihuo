@@ -113,45 +113,76 @@ class TableController extends Controller
     }
 
     //报表权限的分配
-    public function auth(Request $request){
-        $user_id = $request->id;
+    public function auths(Request $request,$id){
         if(Input::method() == 'POST'){
             return '1';
         }else{
             /*拿到所有报表的数据*/
             $curlt = curl_init();
+
+            /*获取用户的信息*/
             curl_setopt_array($curlt, array(
-            CURLOPT_URL => Session::get('tableau_domain')."/api/3.2/sites/fc697b45-5d47-43c0-9e39-5a90812e6273/workbooks/".$val->id,
+            CURLOPT_URL =>  Session::get('tableau_domain')."/api/3.2/sites/fc697b45-5d47-43c0-9e39-5a90812e6273/workbooks/",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
             CURLOPT_TIMEOUT => 30,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "GET",
+            // CURLOPT_COOKIE =>"token=".Session::get('token'),
             CURLOPT_HTTPHEADER => array(
-                "X-Tableau-Auth:".Session::get('token'),
+                "X-Tableau-Auth: ".Session::get('token'),
                 "Accept: application/json",
               ),
             ));
-            $chilresponse = curl_exec($curlt);
+            $response = curl_exec($curlt);
             $err = curl_error($curlt);
             curl_close($curlt);
             if ($err) {
               echo "cURL Error #:" . $err;
             } else {
-                $viesdata = json_decode($chilresponse)->workbook->views->view;
-            }
+              // $response = simplexml_load_string($response);
+                $data = json_decode($response)->workbooks->workbook;
+                $p = [];
+                $pageUrlIds=[];
+                // $rs = $response->toArray();
+                foreach($data as $key=>$val){
+                    $id = $val->project->id;
+                    $curlt = curl_init();
+                    curl_setopt_array($curlt, array(
+                    CURLOPT_URL => Session::get('tableau_domain')."/api/3.2/sites/fc697b45-5d47-43c0-9e39-5a90812e6273/workbooks/".$val->id,
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_ENCODING => "",
+                    CURLOPT_MAXREDIRS => 10,
+                    CURLOPT_TIMEOUT => 30,
+                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                    CURLOPT_CUSTOMREQUEST => "GET",
+                    CURLOPT_HTTPHEADER => array(
+                        "X-Tableau-Auth:".Session::get('token'),
+                        "Accept: application/json",
+                      ),
+                    ));
+                    $chilresponse = curl_exec($curlt);
+                    $err = curl_error($curlt);
+                    curl_close($curlt);
+                    if ($err) {
+                      echo "cURL Error #:" . $err;
+                    } else {
+                        $viesdata = json_decode($chilresponse)->workbook->views->view;
+                    }
 
-            //判断是否是重复的父类
-            if(!array_key_exists($id,$p)){
-                $p[$id]["name"] = $val->project->name;
+                    //判断是否是重复的父类
+                    if(!array_key_exists($id,$p)){
+                        $p[$id]["name"] = $val->project->name;
+                    }
+                    $p[$id]["project"][$val->id] = [
+                    "webpageUrl" =>$val->webpageUrl,
+                    "name" => $val->name,
+                    "id" => $val->id,
+                    "views" => $viesdata
+                    ];
+                }
             }
-            $p[$id]["project"][$val->id] = [
-            "webpageUrl" =>$val->webpageUrl,
-            "name" => $val->name,
-            "id" => $val->id,
-            "views" => $viesdata
-            ];
             return view('admin.table.auth',compact('p'));//展示报表列表
         }
     }
