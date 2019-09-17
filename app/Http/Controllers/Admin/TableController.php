@@ -114,14 +114,12 @@ class TableController extends Controller
 
     //报表权限的分配
     public function auth($id){
+        $user = Member::where('id',$id)->get()->first();
         if(Input::method() == 'POST'){
-            $user = Member::where('id',$id)->get()->first();
             $tableauIds = Input::get('tableauIds');
             $stringIds = implode(',',$tableauIds);
             $user -> tableauIds = $stringIds;
             $user -> save();
-            dd($user);
-
             return '1';
         }else{
             /*拿到所有报表的数据*/
@@ -190,7 +188,8 @@ class TableController extends Controller
                     ];
                 }
             }
-            return view('admin.table.authIndex',compact('p'));//展示报表列表
+            $hasTableauIds = explode(',',$user->tableauIds);
+            return view('admin.table.authIndex',compact('p','hasTableauIds'));//展示报表列表
         }
     }
 }
