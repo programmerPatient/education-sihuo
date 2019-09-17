@@ -62,5 +62,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'admin.auth' => \App\Http\Middleware\AdminAuth::class,
         'checkrbac' => \App\Http\Middleware\CheckRbac::class,
+        'logout' =>\App\Http\Middleware\logout::class,
     ];
 }
