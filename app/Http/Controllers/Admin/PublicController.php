@@ -68,7 +68,7 @@ class PublicController extends Controller
         $type = '1';
         $result = Auth::guard('admin') -> attempt($data,$request -> get('online'));
         if(!$result){
-            $result = Member::where(['username'=>$data['username'],'password'=>bcrypt($data['password'])])->get()->first();
+            $result = Member::where('username',$data['username']])->get()->first();
             dd($result);
             $type = '2';
         }
