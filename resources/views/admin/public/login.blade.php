@@ -32,7 +32,7 @@
   <div id="loginform" class="loginBox">
     <form class="form form-horizontal" action="/admin/public/check" method="post">
         <div class="row cl">
-          <label class="form-label col-xs-3"><img src="{{$system->logo_url}}" alt="" style="height:41px;width:100px;"></label>
+          <label class="form-label col-xs-3"><img src="{{$system->logo_url}}" alt="" style="margin-left:100px;height:41px;width:100px;line-height:41px;"></label>
           <div class="formControls col-xs-8">
             {{$system->web_title}}
           </div>
