@@ -113,8 +113,10 @@ class TableController extends Controller
     }
 
     //报表权限的分配
-    public function auth(){
+    public function auth($id){
         if(Input::method() == 'POST'){
+            dd(Member::where('id',$id)->get()->first());
+
             return '1';
         }else{
             /*拿到所有报表的数据*/
