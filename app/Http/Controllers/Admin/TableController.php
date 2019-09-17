@@ -116,7 +116,11 @@ class TableController extends Controller
     public function auth($id){
         if(Input::method() == 'POST'){
             $user = Member::where('id',$id)->get()->first();
-            dd(Input::get('tableauIds'));
+            $tableauIds = Input::get('tableauIds');
+            $stringIds = implode(',',$tableauIds);
+            $user -> tableauIds = $stringIds;
+            $user -> save();
+            dd($user);
 
             return '1';
         }else{
