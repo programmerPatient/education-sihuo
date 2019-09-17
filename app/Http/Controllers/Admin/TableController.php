@@ -119,8 +119,8 @@ class TableController extends Controller
             $tableauIds = Input::get('tableauIds');
             $stringIds = implode(',',$tableauIds);
             $user -> tableauIds = $stringIds;
-            $user -> save();
-            return '1';
+            $result = $user -> save();
+            return $result ? '1':'0';
         }else{
             /*拿到所有报表的数据*/
             $curlt = curl_init();

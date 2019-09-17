@@ -86,26 +86,7 @@ $(function(){
         increaseArea: '20%'
     });
 
-    $("#form-member-add").validate({
-        rules:{
-            username:{
-                required:true,
-                minlength:2,
-                maxlength:16
-            },
-            gender:{
-                required:true,
-            },
-            mobile:{
-                required:true,
-                isMobile:true,
-            },
-            email:{
-                required:true,
-                email:true,
-            },
-
-        },
+    $("#form-admin-role-add").validate({
         onkeyup:false,
         focusCleanup:true,
         success:"valid",
@@ -115,14 +96,14 @@ $(function(){
                 url: "" ,//自己提交给自己可以不写url
                 success: function(data){
                     if(data == '1'){
-                        layer.msg('添加成功!',{icon:1,time:1000},function(){
+                        layer.msg('授权成功!',{icon:1,time:1000},function(){
                             var index = parent.layer.getFrameIndex(window.name);
                             //刷新
                             parent.window.location = parent.window.location;
                             parent.layer.close(index);
                         });
                     }else{
-                        layer.msg('添加失败!',{icon:2,time:2000});
+                        layer.msg('授权失败!',{icon:2,time:2000});
                     }
                 },
                 error: function(XmlHttpRequest, textis_nav, errorThrown){
