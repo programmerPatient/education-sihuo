@@ -15,12 +15,9 @@ class IndexController extends Controller
 
     //首页
     public function index(){
+        $tableauIds = false;
         if($user = Auth::guard('member')->user()){
-            if(!is_null($user -> tableauIds)){
                 $tableauIds = explode(',',$user -> tableauIds);
-            }else{
-               $tableauIds = false;
-            }
         }
         $type = Session::get('user_type');
         $system = System::get()->first();
