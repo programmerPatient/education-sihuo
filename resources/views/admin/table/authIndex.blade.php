@@ -38,7 +38,7 @@
                 <dl class="permission-list">
                     <dd>
                         @foreach($val['project'] as $value)
-                        <label class="form-label col-xs-3 col-sm-2">{{$value['name']}}</label>
+                        <div class="form-label">{{$value['name']}}</div>
                         <dl class="cl permission-list2">
 <!--                             <dt>
                                 <label class="form-label col-xs-3 col-sm-2">{{$value['name']}}</label>
