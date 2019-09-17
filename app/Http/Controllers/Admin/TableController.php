@@ -183,7 +183,7 @@ class TableController extends Controller
                     ];
                 }
             }
-            return view('admin.table.auth',compact('p'));//展示报表列表
+            return view('admin.table.tableauAuth',compact('p'));//展示报表列表
         }
     }
 }
