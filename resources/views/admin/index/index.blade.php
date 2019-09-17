@@ -32,6 +32,9 @@
     .navbar-logo{
         margin-left: 10px;
     }
+    .second-floor {
+        display: none;
+    }
 </style>
 <body>
 <header class="navbar-wrapper">
@@ -83,29 +86,55 @@
 
         </dl>
         @endif
-        @foreach($p as $val)
-        <dl id="menu-article">
-            <dt style="text-overflow:ellipsis;"><i class="Hui-iconfont">&#xe616;</i>{{$val['name']}}<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul id="Huifold1" class="Huifold">
-                    @foreach($val["project"] as $value)
-                    <li class="item">
-                        <h4 style="font-size:12px;font-weight:2px;text-overflow: ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;"><i class="Hui-iconfont">&#xe681;</i>{{$value['name']}}<b>+</b></h4>
-                        <div class="info">
-                            <ul id="Huifold1" class="Huifold">
-                                @foreach($value['views'] as $vieVule)
-                                <li class="item">
-                                  <a data-href="/admin/table/index?contentUrl={{$vieVule->contentUrl}}" data-title="{{$vieVule->name}}" href="javascript:;" style="text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px">{{$vieVule->name}}</a>
-                                </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </li>
-                    @endforeach
-                </ul>
-            </dd>
-        </dl>
-        @endforeach
+        <div>
+            @foreach($p as $val)
+            <dl class="first-floor" id="menu-article">
+                <dt class="first-title" style="text-overflow:ellipsis;"><i class="Hui-iconfont">&#xe616;</i>{{$val['name']}}<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+                <dd id="second-floor">
+                    <ul id="Huifold1" class="Huifold">
+                        @foreach($val["project"] as $value)
+                        <li class="item">
+                            <h4 style="font-size:12px;font-weight:2px;text-overflow: ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;"><i class="Hui-iconfont">&#xe681;</i>{{$value['name']}}<b>+</b></h4>
+                            <div class="info">
+                                <ul id="Huifold1" class="Huifold">
+                                    @foreach($value['views'] as $vieVule)
+                                    <li class="item">
+                                      <a data-href="/admin/table/index?contentUrl={{$vieVule->contentUrl}}" data-title="{{$vieVule->name}}" href="javascript:;" style="text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px">{{$vieVule->name}}</a>
+                                    </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </li>
+                        @endforeach
+                    </ul>
+                </dd>
+            </dl>
+            @endforeach
+
+            @foreach($p as $val)
+            <dl id="menu-article">
+                <dt style="text-overflow:ellipsis;"><i class="Hui-iconfont">&#xe616;</i>{{$val['name']}}<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+                <dd>
+                    <ul id="Huifold1" class="Huifold">
+                        @foreach($val["project"] as $value)
+                        <li class="item">
+                            <h4 style="font-size:12px;font-weight:2px;text-overflow: ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;"><i class="Hui-iconfont">&#xe681;</i>{{$value['name']}}<b>+</b></h4>
+                            <div class="info">
+                                <ul id="Huifold1" class="Huifold">
+                                    @foreach($value['views'] as $vieVule)
+                                    <li class="item">
+                                      <a data-href="/admin/table/index?contentUrl={{$vieVule->contentUrl}}" data-title="{{$vieVule->name}}" href="javascript:;" style="text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px">{{$vieVule->name}}</a>
+                                    </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </li>
+                        @endforeach
+                    </ul>
+                </dd>
+            </dl>
+            @endforeach
+        </div>
     </div>
 </aside>
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
@@ -148,6 +177,23 @@
 <!--请在下方写此页面业务相关的脚本-->
 <script type="text/javascript" src="/admin/lib/jquery.contextmenu/jquery.contextmenu.r2.js"></script>
 <script type="text/javascript">
+$(document).ready(function(){
+    $("#first-floor #second-floor:eq(0)").show();
+    $("#first-floor .first-title:eq(0)").addClass("current");
+    $("#first-floor .first-title").click(function(){
+        var secondFloor = $(this).next("ul #second-floor");
+        //为啥跟页面显示情况是相反的display")!="none"？？？
+        if (secondFloor.css("display")!="none") {
+            //console.log("none");
+            $(this).removeClass("current");
+        }else{
+            //console.log("block");
+            $(this).addClass("current");
+        }
+        secondFloor.slideToggle(300).siblings("ul #second-floor").slideUp("slow");
+    });
+});
+
 jQuery.Huifold = function(obj,obj_c,speed,obj_type,Event){
     if(obj_type == 2){
         $(obj+":first").find("b").html("-");
