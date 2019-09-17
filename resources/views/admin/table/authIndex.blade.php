@@ -38,10 +38,11 @@
                 <dl class="permission-list">
                     <dd>
                         @foreach($val['project'] as $value)
+                        <label class="form-label col-xs-3 col-sm-2">{{$value['name']}}</label>
                         <dl class="cl permission-list2">
-                            <dt>
+<!--                             <dt>
                                 <label class="form-label col-xs-3 col-sm-2">{{$value['name']}}</label>
-                            </dt>
+                            </dt> -->
                             <dd>
                                 @foreach($value['views'] as $VieValue)
                                 <label class="">
