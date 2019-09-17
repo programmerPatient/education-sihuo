@@ -30,7 +30,7 @@
 <!-- <div class="header"></div> -->
 <div class="loginWraper">
   <div id="loginform" class="loginBox" style="padding-top:0">
-    <div class="formControls">
+    <div class="formControls" style="text-align:center;">
       <h4>{{$system->web_title}}</h4>
     </div>
     <form class="form form-horizontal" action="/admin/public/check" method="post">
