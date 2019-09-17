@@ -68,7 +68,6 @@
 <script type="text/javascript" src="/admin/static/h-ui/js/H-ui.min.js"></script>
 <script type="text/javascript" src="/admin/lib/layer/2.4/layer.js"></script>
 <script type="text/javascript">
-location.replace('/admin/public/login')
   //jquery的载入事件
   $(function(){
     //给kanbuq绑定点击事件
