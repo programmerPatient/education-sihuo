@@ -24,7 +24,7 @@ class MemberController extends Controller
         if(Input::method() == 'POST'){
             $data = Input::only(['username','password','gender','mobile','email']);
             $data['created_at'] = date('Y-m-d H:i:s',time());
-            $data['password'] = bcrypt($data['psssword']);
+            $data['password'] = bcrypt($data['pssword']);
             $data['status'] = Input::get(['tableau_user']);
             if(Input::get(['tableau_user']) == '1'){
                 //创建table用户
