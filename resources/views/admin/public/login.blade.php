@@ -31,9 +31,10 @@
 <div class="loginWraper">
   <div id="loginform" class="loginBox">
     <form class="form form-horizontal" action="/admin/public/check" method="post">
-        <div class="row cl" style="text-align:center;">
-          <div class="form-label col-xs-8" style="height:50px;line-height:50px;">{{$system->web_title}}<img class="col-xs-4" src="{{$system->logo_url}}" alt="logo" style="width:40%;height:50px;margin-left:30%;"></div>
-        </div>
+          <label class="form-label col-xs-3"><img src="{{$system->logo_url}}" alt="" style="height:41px;width:100px;"></label>
+          <div class="formControls col-xs-8">
+            {{$system->web_title}}
+          </div>
         <div class="row cl">
           <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60d;</i></label>
           <div class="formControls col-xs-8">
