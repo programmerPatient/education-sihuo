@@ -29,13 +29,13 @@
 <input type="hidden" id="TenantId" name="TenantId" value="" />
 <!-- <div class="header"></div> -->
 <div class="loginWraper">
-  <div id="loginform" class="loginBox">
+  <div id="loginform" class="loginBox" style="padding-top:0">
+    <div class="formControls col-xs-8">
+      <h4>{{$system->web_title}}</h4>
+    </div>
     <form class="form form-horizontal" action="/admin/public/check" method="post">
         <div class="row cl" style="margin-left:180px;line-height:41px;">
-          <label class="form-label col-xs-3"><img src="{{$system->logo_url}}" alt="" style="height:41px;width:200px;"></label>
-          <div class="formControls col-xs-8">
-            <h4>{{$system->web_title}}</h4>
-          </div>
+          <label class="form-label col-xs-3"><img src="{{$system->logo_url}}" alt="" style="height:41px;width:300px;"></label>
         </div>
         <div class="row cl">
           <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60d;</i></label>
