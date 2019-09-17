@@ -8,16 +8,19 @@ use Session;
 use Auth;
 use Input;
 use App\Models\Admin\Member;
+use App\Models\Admin\Manager;
 
 
 class TableController extends Controller
 {
     public function index(Request $request){
 
+        $name = Manager::get()->first();
+
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => Session::get('tableau_domain')."/trusted?username=".Auth::guard('admin')->user()->username,
+        CURLOPT_URL => Session::get('tableau_domain')."/trusted?username=".$name->username,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => "",
         CURLOPT_MAXREDIRS => 10,
