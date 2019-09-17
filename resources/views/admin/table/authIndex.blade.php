@@ -45,7 +45,7 @@
                             </dt> -->
                             <dd>
                                 @foreach($value['views'] as $VieValue)
-                                <label class="">
+                                <label class="col-xs-3 col-sm-2">
                                     <input type="checkbox" value="{{$VieValue->contentUrl}}" name="tableauIds[]">
                                     {{$VieValue->name}}
                                 </label>
