@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\System;
+use App\Models\Admin\Member;
 
 //引入Auth门面
 use Auth;
@@ -67,7 +68,7 @@ class PublicController extends Controller
         $type = '1';
         $result = Auth::guard('admin') -> attempt($data,$request -> get('online'));
         if(!$result){
-            $result = Auth::guard() -> attempt($data);
+            $result = Member::where(['username'=>$data['username'],'password'=>bcrypt($data['password'])])->get()->first();
             dd($result);
             $type = '2';
         }
