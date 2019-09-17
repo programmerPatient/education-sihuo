@@ -32,7 +32,7 @@
 <article class="page-container">
     <form action="" method="post" class="form form-horizontal" id="form-admin-role-add">
         <div class="row cl">
-            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3" style="margin-right:20px;">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3" style="margin-right:600px;">
                 <button type="submit" class="btn btn-success radius" id="admin-role-save" name="admin-role-save"><i class="icon-ok"></i> 提交</button>
             </div>
         </div>

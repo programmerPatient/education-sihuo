@@ -115,7 +115,8 @@ class TableController extends Controller
     //报表权限的分配
     public function auth($id){
         if(Input::method() == 'POST'){
-            dd(Member::where('id',$id)->get()->first());
+            $user = Member::where('id',$id)->get()->first();
+            dd(Input::get('tableauIds'));
 
             return '1';
         }else{
