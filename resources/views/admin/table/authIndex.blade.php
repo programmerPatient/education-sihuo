@@ -33,12 +33,12 @@
     <form action="" method="post" class="form form-horizontal" id="form-admin-role-add">
         @foreach($p as $val)
         <div class="row cl">
-            <label class="form-label col-xs-3 col-sm-2"><h2>{{$val['name']}}</h2></label>
+            <label class="form-label col-xs-3 col-sm-2"><h4>{{$val['name']}}</h4></label>
             <div class="formControls col-xs-8 col-sm-9">
                 <dl class="permission-list">
                     <dd>
                         @foreach($val['project'] as $value)
-                        <div class="form-label" style="text-align:center;margin-top:30px;margin-bottom: 30px"><h3>{{$value['name']}}</h3></div>
+                        <div class="form-label" style="text-align:center;"><h5>{{$value['name']}}</h5></div>
                         <dl class="cl permission-list2">
 <!--                             <dt>
                                 <label class="form-label col-xs-3 col-sm-2">{{$value['name']}}</label>
