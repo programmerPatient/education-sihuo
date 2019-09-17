@@ -79,7 +79,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\Models\Admin\Member::class,
         ],
 
         //定义admin的provider

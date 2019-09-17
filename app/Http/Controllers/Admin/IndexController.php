@@ -15,6 +15,9 @@ class IndexController extends Controller
 
     //首页
     public function index(){
+        if($user = Auth::guard('member')->check()){
+            $tableauIds = explode(',',$user -> tableauIds);
+        }
         $type = Session::get('user_type');
         $system = System::get()->first();
         $curlt = curl_init();
@@ -68,18 +71,34 @@ class IndexController extends Controller
                 } else {
                     $viesdata = json_decode($chilresponse)->workbook->views->view;
                 }
-
-                //判断是否是重复的父类
-                if(!array_key_exists($id,$p)){
-                    $p[$id]["name"] = $val->project->name;
+                if($tableauIds){
+                    $project = false;
+                    foreach($vaiesdata as $key => $vaie){
+                        if(in_array($vaie->contentUrl,$tableauIds)){
+                            $project = true;
+                        }else{
+                            unset($vaiesdata[$key]);//剔除该元素
+                        }
+                    }
+                }else{
+                    $project =true;
                 }
-                $p[$id]["project"][$val->id] = [
-                "webpageUrl" =>$val->webpageUrl,
-                "name" => $val->name,
-                "id" => $val->id,
-                "views" => $viesdata
-                ];
+                if($project){
+                    //判断是否是重复的父类
+                    if(!array_key_exists($id,$p)){
+                        $p[$id]["name"] = $val->project->name;
+                    }
+                    $p[$id]["project"][$val->id] = [
+                    "webpageUrl" =>$val->webpageUrl,
+                    "name" => $val->name,
+                    "id" => $val->id,
+                    "views" => $viesdata
+                    ];
+                }
             }
+        }
+        if($tableauIds){
+            foreach()
         }
         // FS1Wu4GJRVCaNdtzbAeHlw|j9JPkfLMU0wZtx8c1BB6pkPGuiEim0h
         return view('admin.index.index',compact('p','system','type'));
