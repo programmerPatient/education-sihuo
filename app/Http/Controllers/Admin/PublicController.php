@@ -68,7 +68,6 @@ class PublicController extends Controller
         $result = Auth::guard('admin') -> attempt($data,$request -> get('online'));
         if(!$result){
             $result = Auth::guard('member') -> attempt($data,$request -> get('online'));
-            dd($result);
             $type = '2';
         }
 
