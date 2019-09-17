@@ -72,15 +72,13 @@
                     <input type="text" id="website-title" placeholder="新域名" value="{{$default->web_title}}" class="input-text" name="web_title">
                 </div>
             </div>
-            <div class="tabCon">
-                <div class="row cl">
-                    <label class="form-label col-xs-4 col-sm-2">
-                        <span class="c-red">*</span>
-                        底部信息：
-                    </label>
-                    <div class="formControls col-xs-8 col-sm-9">
-                        <input type="text" id="website-title" placeholder="新信息" value="{{$default->company}}" class="input-text" name="company">
-                    </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2">
+                    <span class="c-red">*</span>
+                    底部信息：
+                </label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" id="website-title" placeholder="新信息" value="{{$default->company}}" class="input-text" name="company">
                 </div>
             </div>
         </div>
