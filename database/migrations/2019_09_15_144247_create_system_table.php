@@ -18,6 +18,7 @@ class CreateSystemTable extends Migration
             $table->string('system_domain');//tableau域名
             $table->string('logo_url');//logo图片的路径
             $table->string('web_title');//网站标题
+            $table->string('company');//所属公司
         });
     }
 

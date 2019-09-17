@@ -16,6 +16,7 @@ class SystemController extends Controller
             //系统设置的修改
             $tableau_domain = Input::only("tableau_domain")["tableau_domain"];
             $web_title = Input::only('web_title')['web_title'];
+            $company = Input::only('company')['company'];
             $file = $request->file('logo_img');
 
             $allowed_extensions = ["png", "jpg", "gif","PNG",'jpeg'];
@@ -37,6 +38,7 @@ class SystemController extends Controller
             $default->system_domain = $tableau_domain;
             $default->logo_url = $filePath;
             $default->web_title = $web_title;
+            $default->company = $company;
 
             return $default->save() ? '1':'0';
             // //修改config配置

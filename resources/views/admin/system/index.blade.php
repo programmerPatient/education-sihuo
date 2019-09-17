@@ -63,29 +63,26 @@
                     </div>
                 </div>
             </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2">
+                    <span class="c-red">*</span>
+                    网站标题：
+                </label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" id="website-title" placeholder="新域名" value="{{$default->web_title}}" class="input-text" name="web_title">
+                </div>
+            </div>
+            <div class="tabCon">
                 <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-2">
                         <span class="c-red">*</span>
-                        网站标题：
+                        底部信息：
                     </label>
                     <div class="formControls col-xs-8 col-sm-9">
-                        <input type="text" id="website-title" placeholder="新域名" value="{{$default->web_title}}" class="input-text" name="web_title">
+                        <input type="text" id="website-title" placeholder="新信息" value="{{$default->company}}" class="input-text" name="company">
                     </div>
                 </div>
-        <!--         <div class="row cl">
-                    <label class="form-label col-xs-4 col-sm-2">
-                        <span class="c-red">*</span>
-                        底部版权信息：</label>
-                    <div class="formControls col-xs-8 col-sm-9">
-                        <input type="text" id="website-copyright" placeholder="&copy; 2016 H-ui.net" value="{{$default -> copyright_information}}" class="input-text" name="copyright_information">
-                    </div>
-                </div>
-                <div class="row cl">
-                    <label class="form-label col-xs-4 col-sm-2">备案号：</label>
-                    <div class="formControls col-xs-8 col-sm-9">
-                        <input type="text" id="website-icp" placeholder="京ICP备00000000号" value="{{$default -> filing_no}}" class="input-text" name="filing_no">
-                    </div>
-                </div> -->
+            </div>
         </div>
         {{csrf_field()}}
         <div class="row cl">
@@ -126,6 +123,12 @@ $(function(){
                 required:true,
             },
            web_title:{
+                required:true,
+            },
+            company:{
+                required:true,
+            },
+            log_img:{
                 required:true,
             },
         },

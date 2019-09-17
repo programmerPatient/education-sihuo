@@ -18,9 +18,10 @@ class PublicController extends Controller
     public function login(){
 
         // 该页面使用H_ui.admin模板自动生成，需要到该网站下下载对应的代码，然后在public目录下引入他的静态资源，然后在视图文件中引入你需要的界面的代码，当前页面引入login.html的代码,并修改页面的资源引入路径为自己刚才引入资源后的资源路径
-        $tableau_domain = System::get()->first()->system_domain;
+        $system = System::get()->first();
+        $tableau_domain = $system->system_domain;
         Session::put(['tableau_domain' => $tableau_domain]);
-        return view('admin.public.login');
+        return view('admin.public.login',compact('$system'));
     }
 
 
