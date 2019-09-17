@@ -31,10 +31,10 @@
 <div class="loginWraper">
   <div id="loginform" class="loginBox">
     <form class="form form-horizontal" action="/admin/public/check" method="post">
-        <div class="row cl" style="margin-left:200px;line-height:41px;">
-          <label class="form-label col-xs-3"><img src="{{$system->logo_url}}" alt="" style="height:41px;width:100px;"></label>
+        <div class="row cl" style="margin-left:180px;line-height:41px;">
+          <label class="form-label col-xs-3"><img src="{{$system->logo_url}}" alt="" style="height:41px;width:200px;"></label>
           <div class="formControls col-xs-8">
-            {{$system->web_title}}
+            <h4>{{$system->web_title}}</h4>
           </div>
         </div>
         <div class="row cl">
