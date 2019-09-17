@@ -15,8 +15,7 @@ class IndexController extends Controller
 
     //首页
     public function index(){
-        if($user = Auth::guard('member')->check()){
-            dd($user);
+        if($user = Auth::guard('member')->user()){
             if(!is_null($user -> tableauIds)){
                 $tableauIds = explode(',',$user -> tableauIds);
             }else{
