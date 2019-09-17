@@ -6,6 +6,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<META HTTP-EQUIV="pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+<META HTTP-EQUIV="expires" CONTENT="0">
 <!--[if lt IE 9]>
 <script type="text/javascript" src="/admin/lib/html5shiv.js"></script>
 <script type="text/javascript" src="/admin/lib/respond.min.js"></script>
@@ -68,6 +72,7 @@
 <script type="text/javascript" src="/admin/static/h-ui/js/H-ui.min.js"></script>
 <script type="text/javascript" src="/admin/lib/layer/2.4/layer.js"></script>
 <script type="text/javascript">
+  window.history.go(1);
   //jquery的载入事件
   $(function(){
     //给kanbuq绑定点击事件
