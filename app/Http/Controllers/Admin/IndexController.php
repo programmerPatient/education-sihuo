@@ -52,6 +52,7 @@ class IndexController extends Controller
           // $response = simplexml_load_string($response);
             $data = json_decode($response)->workbooks->workbook;
             $p = [];
+            if(!$data) return view('admin.error.index')
             // $rs = $response->toArray();
             foreach($data as $key=>$val){
                 $id = $val->project->id;
