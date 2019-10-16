@@ -83,6 +83,7 @@
             <li><a data-href="/admin/system/update" data-title="系统设置" href="javascript:void(0)">系统设置</a></li>
         </dl>
         @endif
+        @if($p)
         @foreach($p as $val)
         <dl id="menu-article">
             <dt style="text-overflow:ellipsis;"><i class="Hui-iconfont">&#xe616;</i>{{$val['name']}}<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
@@ -106,6 +107,7 @@
             </dd>
         </dl>
         @endforeach
+        @endif
 
     </div>
 </aside>
