@@ -99,10 +99,11 @@ class PublicController extends Controller
                 if(!$response) return view('admin.error.index');
                 $res = json_decode($response);
                 Session::put('token',$res->credentials->token);
+                Session::put('credentials',$res->credentials->site->id);
                 /*获取用户列表*/
 
                 curl_setopt_array($curl, array(
-                CURLOPT_URL => Session::get('tableau_domain')."/api/3.2/sites/fc697b45-5d47-43c0-9e39-5a90812e6273/users",
+                CURLOPT_URL => Session::get('tableau_domain')."/api/3.2/sites/".Session::get('credentials',$res->credentials->site->id)."/users",
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => "",
                 CURLOPT_MAXREDIRS => 10,
@@ -120,7 +121,7 @@ class PublicController extends Controller
                 if ($err) {
                   echo "cURL Error #:" . $err;
                 } else {
-                  dd(json_decode($response));
+                  // dd(json_decode($response));
                   $user = json_decode($response)->users->user;
                   $boole = true;
                   foreach($user as $val){
