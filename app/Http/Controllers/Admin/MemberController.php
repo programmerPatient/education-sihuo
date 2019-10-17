@@ -31,7 +31,7 @@ class MemberController extends Controller
                 $curl = curl_init();
 
                 curl_setopt_array($curl, array(
-                CURLOPT_URL => "http://tableau.kalaw.top/api/3.2/sites/fc697b45-5d47-43c0-9e39-5a90812e6273/users",
+                CURLOPT_URL => "http://tableau.kalaw.top/api/3.2/sites/".Session::get('credentials',$res->credentials->site->id)."/users",
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => "",
                 CURLOPT_MAXREDIRS => 10,
@@ -86,7 +86,7 @@ class MemberController extends Controller
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => Session::get('tableau_domain')."/api/3.2/sites/fc697b45-5d47-43c0-9e39-5a90812e6273/users/".$data->tableau_id,
+        CURLOPT_URL => Session::get('tableau_domain')."/api/3.2/sites/".Session::get('credentials',$res->credentials->site->id)."/users/".$data->tableau_id,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => "",
         CURLOPT_MAXREDIRS => 10,
