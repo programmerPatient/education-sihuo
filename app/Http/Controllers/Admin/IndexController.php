@@ -30,7 +30,7 @@ class IndexController extends Controller
 
         /*获取用户的信息*/
         curl_setopt_array($curlt, array(
-        CURLOPT_URL =>  Session::get('tableau_domain')."/api/3.2/sites/".Session::get('credentials',$res->credentials->site->id)."/workbooks/",
+        CURLOPT_URL =>  Session::get('tableau_domain')."/api/3.2/sites/".Session::get('credentials')."/workbooks/",
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => "",
         CURLOPT_MAXREDIRS => 10,
@@ -59,7 +59,7 @@ class IndexController extends Controller
                 $id = $val->project->id;
                 $curlt = curl_init();
                 curl_setopt_array($curlt, array(
-                CURLOPT_URL => Session::get('tableau_domain')."/api/3.2/sites/".Session::get('credentials',$res->credentials->site->id)."/workbooks/".$val->id,
+                CURLOPT_URL => Session::get('tableau_domain')."/api/3.2/sites/".Session::get('credentials')."/workbooks/".$val->id,
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => "",
                 CURLOPT_MAXREDIRS => 10,

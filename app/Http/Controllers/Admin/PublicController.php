@@ -103,7 +103,7 @@ class PublicController extends Controller
                 /*获取用户列表*/
 
                 curl_setopt_array($curl, array(
-                CURLOPT_URL => Session::get('tableau_domain')."/api/3.2/sites/".Session::get('credentials',$res->credentials->site->id)."/users",
+                CURLOPT_URL => Session::get('tableau_domain')."/api/3.2/sites/".Session::get('credentials')."/users",
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => "",
                 CURLOPT_MAXREDIRS => 10,
