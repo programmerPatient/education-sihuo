@@ -50,6 +50,7 @@ class IndexController extends Controller
           echo "cURL Error #:" . $err;
         } else {
           // $response = simplexml_load_string($response);
+            dd($response)
             $data = json_decode($response)->workbooks->workbook;
             $p = [];
             if(!$data) return view('admin.error.index');
