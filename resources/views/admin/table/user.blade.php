@@ -47,9 +47,9 @@
                         <dl class="cl permission-list2">
                             <dd>
 
-                                    <label class="col-xs-4 col-sm-3"   id="checkboxarr">
-                                         @foreach($tsResponse as $key=>$val)
-                                        <input id="check{{$key}}" style="display: inline;float:left" type="checkbox" value="{{$val->name}}" name="tableauid" @if($val->name == $mamber->tableau_id) checked @endif>
+                                    <label id="checkboxarr">
+                                        @foreach($tsResponse as $key=>$val)
+                                        <input id="check{{$key}}" style="display: inline;" type="checkbox" value="{{$val->name}}" name="tableauid" @if($val->name == $mamber->tableau_id) checked @endif>
                                         {{$val->name}}
                                         </br>
                                         @endforeach
