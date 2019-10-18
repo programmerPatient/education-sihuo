@@ -48,7 +48,7 @@
                             <dd>
                                 @foreach($tsResponse as $val)
                                     <label class="col-xs-3 col-sm-2">
-
+                                        <input type="checkbox" value="{{$val->tableau_id}}" name="tableauid">
                                         {{$val->name}}
                                     </label>
                                 @endforeach
