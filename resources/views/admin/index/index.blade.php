@@ -91,12 +91,12 @@
                 <ul id="Huifold1" class="Huifold">
                     @foreach($val["project"] as $value)
                     <li class="item">
-                        <h4 style="color:#333;font-size:12px;font-weight:2px;text-overflow: ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;"><i class="Hui-iconfont">&#xe681;</i>{{$value['name']}}<b>+</b></h4>
+                        <h4 style="color:#333;font-size:12px;font-weight:normal;text-overflow: ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;padding-left:20px;"><i class="Hui-iconfont">&#xe681;</i>{{$value['name']}}<b>+</b></h4>
                         <div class="info">
                             <ul id="Huifold1" class="Huifold">
                                 @foreach($value['views'] as $vieVule)
                                 <li class="item">
-                                  <a data-href="/admin/table/index?contentUrl={{$vieVule->contentUrl}}" data-title="{{$vieVule->name}}" href="javascript:;" style="color:#333;text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px">{{$vieVule->name}}</a>
+                                  <a data-href="/admin/table/index?contentUrl={{$vieVule->contentUrl}}" data-title="{{$vieVule->name}}" href="javascript:;" style="padding-left:0;color:#333;text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px">{{$vieVule->name}}</a>
                                 </li>
                                 @endforeach
                             </ul>
