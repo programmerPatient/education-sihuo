@@ -75,6 +75,7 @@ class PublicController extends Controller
             $tableau_name = $h->tableau_id;
             $type = '2';
         }
+        dd($type);
         Session::put('user_type',$type);
         //判断是否成功
         if($result){
