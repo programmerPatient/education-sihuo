@@ -36,12 +36,27 @@
                 <button type="submit" class="btn btn-success radius" id="admin-role-save" name="admin-role-save"><i class="icon-ok"></i> 提交</button>
             </div>
         </div>
-        @foreach($data as $val)
         <div class="row cl">
             <label class="form-label col-xs-3 col-sm-2">
-                <input type="checkbox" value="{{$val->id}}" name="tableauIds[]" @if(in_array($val->id,$hasTableauIds)) checked @endif>
-                <h4>{{$val->project->name}}</h4>
+
+                <h4>项目分配</h4>
             </label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <dl class="permission-list">
+                    <dd>
+                        <dl class="cl permission-list2">
+                            <dd>
+                                @foreach($data as $val)
+                                    <label class="col-xs-3 col-sm-2">
+                                        <input type="checkbox" value="{{$val->id}}" name="tableauIds[]" @if(in_array($val->id,$hasTableauIds)) checked @endif>
+                                        {{$val->project->name}}
+                                    </label>
+                                @endforeach
+                            </dd>
+                        </dl>
+                    </dd>
+                </dl>
+            </div>
         </div>
         @endforeach
         {{csrf_field()}}

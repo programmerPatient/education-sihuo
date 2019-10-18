@@ -139,7 +139,7 @@ class PublicController extends Controller
         }else{
             //withErrors表示带上错误信息
             return redirect('/admin/public/login') -> withErrors([
-                'loginError' => '用户名或密码错误。'
+                'loginError' => '用户名或密码错误或未授权，请联系管理员。'
             ]);
         }
     }
