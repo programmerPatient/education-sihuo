@@ -64,6 +64,7 @@ class PublicController extends Controller
         $data = $request -> only(['username','password']);
         //继续开始进行身份核实
         $data['status'] = '1';//要求状态为启用的用户登录
+        $data['tableau_name'] = "";
         $admin = DB::table('manager') -> get() ->first();
         $type = '1';
         $result = Auth::guard('admin') -> attempt($data,$request -> get('online'));
@@ -127,7 +128,7 @@ class PublicController extends Controller
                   $user = json_decode($response)->users->user;
                   $boole = true;
                   foreach($user as $val){
-                    if($data['tableau_name'] == $val->name){
+                    if($data['tableau_name'] && $data['tableau_name'] == $val->name){
                         $boole = false;
                     }
                   }
