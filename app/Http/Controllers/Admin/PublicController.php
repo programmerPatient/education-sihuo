@@ -69,6 +69,7 @@ class PublicController extends Controller
         $result = Auth::guard('admin') -> attempt($data,$request -> get('online'));
         if(!$result){
             $result = Auth::guard('member') -> attempt($data,$request -> get('online'));
+            $data['tableau_name'] = $result->tableau_id
             $type = '2';
         }
         Session::put('user_type',$type);
@@ -125,7 +126,7 @@ class PublicController extends Controller
                   $user = json_decode($response)->users->user;
                   $boole = true;
                   foreach($user as $val){
-                    if($data['username'] == $val->name){
+                    if($data['tableau_name'] == $val->name){
                         $boole = false;
                     }
                   }
