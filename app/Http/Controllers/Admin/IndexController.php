@@ -25,7 +25,6 @@ class IndexController extends Controller
 
         }
         $type = Session::get('user_type');
-        dd($type);
         $system = System::get()->first();
         $curlt = curl_init();
 
