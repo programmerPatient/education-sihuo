@@ -48,7 +48,7 @@
                             <dd>
                                 @foreach($tsResponse as $val)
                                     <label class="col-xs-3 col-sm-2">
-                                        <input type="checkbox" value="{{$val->$mamber->tableau_id}}" name="tableau_id" @if($val->name == $mamber->tableau_id) checked @endif>
+                                        <input type="checkbox" value="{{$val->tableau_id}}" name="tableau_id" @if($val->name == $mamber->tableau_id) checked @endif>
                                         {{$val->name}}
                                     </label>
                                 @endforeach
