@@ -189,6 +189,7 @@ class TableController extends Controller
               echo "cURL Error #:" . $err;
             } else {
               $tsResponse = json_decode($response)->users->user;
+              dd($tsResponse);
             }
             return view('admin.table.user',compact('tsResponse','mamber'));
         }
