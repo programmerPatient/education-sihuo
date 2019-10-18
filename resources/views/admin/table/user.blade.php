@@ -81,11 +81,13 @@
 
 $(function(){
     $('#checkboxarr').find('input[type=checkbox]').bind('click', function(){
-        var id = $(this).attr("id");
+
         //当前的checkbox是否选中
         if(this.checked){
-        //除当前的checkbox其他的都不选中
-        $("#checkboxarr").find('input[type=checkbox]').not(this).attr("checked", false);
+            $('input[type="checkbox"]').removeAttr("checked")
+            $(this).attr("checked",true)
+        // //除当前的checkbox其他的都不选中
+        // $("#checkboxarr").find('input[type=checkbox]').not(this).attr("checked", false);
         console.log("点击");
          //选中的checkbox数量
          var selectleng = $("input[type='checkbox']:checked").length;
