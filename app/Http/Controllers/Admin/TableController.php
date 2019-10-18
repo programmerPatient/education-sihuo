@@ -160,7 +160,6 @@ class TableController extends Controller
 
     public function user($id){
         $mamber = Member::where('id',$id)->get()->first();
-        dd($mamber);
         if(Input::method() == 'POST'){
             $tableau_id = Input::get('tableau_id');
             dd($tableau_id);
