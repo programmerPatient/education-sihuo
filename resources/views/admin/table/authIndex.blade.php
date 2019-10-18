@@ -24,7 +24,7 @@
 <![endif]-->
 <!--/meta 作为公共模版分离出去-->
 
-<title>添加用户</title>
+<title>项目分配</title>
 <meta name="keywords" content="H-ui.admin v3.1,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
 <meta name="description" content="H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
 </head>
@@ -36,31 +36,12 @@
                 <button type="submit" class="btn btn-success radius" id="admin-role-save" name="admin-role-save"><i class="icon-ok"></i> 提交</button>
             </div>
         </div>
-        @foreach($p as $val)
+        @foreach($data as $val)
         <div class="row cl">
-            <label class="form-label col-xs-3 col-sm-2"><h4>{{$val['name']}}</h4></label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <dl class="permission-list">
-                    <dd>
-                        @foreach($val['project'] as $value)
-                        <div class="form-label" style="text-align:center;"><h5>{{$value['name']}}</h5></div>
-                        <dl class="cl permission-list2">
-<!--                             <dt>
-                                <label class="form-label col-xs-3 col-sm-2">{{$value['name']}}</label>
-                            </dt> -->
-                            <dd>
-                                @foreach($value['views'] as $VieValue)
-                                    <label class="col-xs-3 col-sm-2">
-                                        <input type="checkbox" value="{{$VieValue->contentUrl}}" name="tableauIds[]" @if(in_array($VieValue->contentUrl,$hasTableauIds)) checked @endif>
-                                        {{$VieValue->name}}
-                                    </label>
-                                @endforeach
-                            </dd>
-                        </dl>
-                        @endforeach
-                    </dd>
-                </dl>
-            </div>
+            <label class="form-label col-xs-3 col-sm-2">
+                <input type="checkbox" value="{{$val->id}}" name="tableauIds[]" @if(in_array($val->id,$hasTableauIds)) checked @endif>
+                <h4>{{$val->project->name}}</h4>
+            </label>
         </div>
         @endforeach
         {{csrf_field()}}
