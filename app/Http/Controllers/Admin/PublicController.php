@@ -70,7 +70,7 @@ class PublicController extends Controller
         $result = Auth::guard('admin') -> attempt($data,$request -> get('online'));
         $tableau_name = $admin->username;
         if(!$result){
-            dd($type);
+
             $result = Auth::guard('member') -> attempt($data,$request -> get('online'));
             $h = Auth::guard('member')->user();
             $tableau_name = $h->tableau_id;
