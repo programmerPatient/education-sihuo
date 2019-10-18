@@ -15,12 +15,13 @@ class TableController extends Controller
 {
     public function index(Request $request){
 
-        $name = Manager::get()->first();
+        // $name = Manager::get()->first();
+        $name = Auth::guard('member')->user();
 
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => Session::get('tableau_domain')."/trusted?username=".$name->username,
+        CURLOPT_URL => Session::get('tableau_domain')."/trusted?username=".$name->tableau_id,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => "",
         CURLOPT_MAXREDIRS => 10,
@@ -154,6 +155,41 @@ class TableController extends Controller
             }
             $hasTableauIds = explode(',',$user->tableauIds);
             return view('admin.table.authIndex',compact('data','hasTableauIds'));//展示报表列表
+        }
+    }
+
+    public function user($id){
+        $mamber = Member::where('id',$id)->get()->first();
+        if(Input::method() == 'POST'){
+            $tableau_id = Input::get('tableau_id');
+            $mamber->tableau_id = $tableau_id;
+            $result = $mamber->save();
+            return $result ? '1':'0';
+        }else{
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+            CURLOPT_URL => "http://tableau.kalaw.top/api/3.2/sites/".Session::get('credentials')."/users",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                "X-Tableau-Auth:".Session::get('token'),
+                "Accept: application/json",
+              ),
+            ));
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+            curl_close($curl);
+            if ($err) {
+              echo "cURL Error #:" . $err;
+            } else {
+              $tsResponse = json_decode($response)->users->user;
+            }
+            return view('admin.table.user',compact('tsResponse','mamber'));
         }
     }
 }

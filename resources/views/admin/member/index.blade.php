@@ -48,6 +48,7 @@
                 <!-- <th width="70">类型</th> -->
                 <th width="100">操作</th>
                 <th width="100">权限管理</th>
+                <th width="100">映射tableau用户</th>
             </tr>
         </thead>
         <tbody>
@@ -89,6 +90,10 @@
                 </td>
                 <td class="td-status">
                     <a onclick="member_auth('权限管理','/admin/table/auth/{{$value->id}}','4','','510')"><span class="label label-success radius">权限管理</span></a>
+                    </span>
+                </td>
+                <td class="td-status">
+                    <a onclick="member_auth('映射tableau用户','/admin/table/user/{{$value->id}}','4','','510')"><span class="label label-success radius">映射tableau用户</span></a>
                     </span>
                 </td>
             </tr>

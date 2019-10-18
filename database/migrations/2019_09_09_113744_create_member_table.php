@@ -21,7 +21,7 @@ class CreateMemberTable extends Migration
             $table->string('mobile',11);
             $table->string('email',40);
             // $table->string('avatar');//头像
-            $table->string('tableau_id')->nullable();//tableauid
+            $table->string('tableau_id')->nullable();//存放映射的用户id
             $table->timestamps();
             // $table->enum('type',[1,2])->notnull()->default('1');
             $table->enum('status',[1,2])->notnull()->default('2');
