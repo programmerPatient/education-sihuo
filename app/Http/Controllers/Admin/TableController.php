@@ -162,7 +162,6 @@ class TableController extends Controller
         $mamber = Member::where('id',$id)->get()->first();
         if(Input::method() == 'POST'){
             $tableau_id = Input::get('tableauid');
-            dd($tableau_id);
             $mamber->tableau_id = $tableau_id;
             $result = $mamber->save();
             return $result ? '1':'0';
