@@ -58,7 +58,7 @@
                     <div class="file-loading">
                         <input id="file-fr" name="logo_img" type="file" multiple value="">
                         <div>
-                            <img id="cropedBigImg" src="{{$default->logo_url}}" value='custom' alt="lorem ipsum dolor sit" data-address='' title="自定义背景" width="100" height="100"/>
+                            <img id="cropedBigImg" src="{{$default->logo_url}}" value='custom' alt="lorem ipsum dolor sit" data-address='' title="logo图片" width="100" height="100"/>
                         </div>
                     </div>
                 </div>
