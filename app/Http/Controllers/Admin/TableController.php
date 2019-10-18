@@ -16,7 +16,8 @@ class TableController extends Controller
     public function index(Request $request){
 
         // $name = Manager::get()->first();
-        $name = Auth::guard('member')->user()->tableau_id;
+        $name = Auth::guard('member')->user();
+        dd($name);
         if(!$name){
             $name = Auth::guard('admin')->user()->username;
         }
