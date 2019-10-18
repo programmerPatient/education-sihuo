@@ -58,7 +58,6 @@
                 </dl>
             </div>
         </div>
-        @endforeach
         {{csrf_field()}}
     </form>
 </article>
