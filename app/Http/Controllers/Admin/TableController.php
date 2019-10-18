@@ -16,12 +16,15 @@ class TableController extends Controller
     public function index(Request $request){
 
         // $name = Manager::get()->first();
-        $name = Auth::guard('member')->user();
+        $name = Auth::guard('member')->user()->tableau_id;
+        if(!$name){
+            $name = Auth::guard('admin')->user()->username;
+        }
 
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => Session::get('tableau_domain')."/trusted?username=".$name->tableau_id,
+        CURLOPT_URL => Session::get('tableau_domain')."/trusted?username=".$name,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => "",
         CURLOPT_MAXREDIRS => 10,
