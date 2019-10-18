@@ -160,6 +160,7 @@ class TableController extends Controller
 
     public function user($id){
         $mamber = Member::where('id',$id)->get()->first();
+        dd($mamber);
         if(Input::method() == 'POST'){
             $tableau_id = Input::get('tableau_id');
             dd($tableau_id);
@@ -189,7 +190,6 @@ class TableController extends Controller
               echo "cURL Error #:" . $err;
             } else {
               $tsResponse = json_decode($response)->users->user;
-              dd($tsResponse);
             }
             return view('admin.table.user',compact('tsResponse','mamber'));
         }
