@@ -69,7 +69,7 @@ class PublicController extends Controller
         $result = Auth::guard('admin') -> attempt($data,$request -> get('online'));
         if(!$result){
             $result = Auth::guard('member') -> attempt($data,$request -> get('online'));
-            $data['tableau_name'] = $result->tableau_id
+            $data['tableau_name'] = $result->tableau_id;
             $type = '2';
         }
         Session::put('user_type',$type);
