@@ -61,7 +61,7 @@ class IndexController extends Controller
                         $u[] = $tab;
                     }
                 }
-                $data = json_decode($u);
+                $data = $u;
             }
             // $rs = $response->toArray();
             foreach($data as $key=>$val){
