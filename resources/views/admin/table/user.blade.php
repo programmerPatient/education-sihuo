@@ -84,8 +84,8 @@ $(function(){
 
         //当前的checkbox是否选中
         if(this.checked){
-            $('input[type="checkbox"]').removeAttr("checked")
-            $(this).attr("checked",true)
+            $('input[type="checkbox"]').prop("checked",false)
+            $(this).prop("checked",true)
         // //除当前的checkbox其他的都不选中
         // $("#checkboxarr").find('input[type=checkbox]').not(this).attr("checked", false);
         console.log("点击");
