@@ -17,9 +17,10 @@ class TableController extends Controller
 
         // $name = Manager::get()->first();
         $name = Auth::guard('member')->user();
-        dd($name);
         if(!$name){
-            $name = Auth::guard('admin')->user()->username;
+            $username = Auth::guard('admin')->user()->username;
+        }else{
+            $username = $name->tableau_id;
         }
 
         $curl = curl_init();
