@@ -46,7 +46,6 @@ class TableController extends Controller
         if ($err) {
           echo "cURL Error #:" . $err;
         } else {
-            dd($response);
             Session::put("ticket",$response);
         }
 
