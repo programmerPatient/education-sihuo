@@ -54,66 +54,10 @@ class TableController extends Controller
 
     public function status(){
         $data = Input::all();
-        // dd($data);
-        if($data['type'] == '1'){
-            //创建table用户
-            $curl = curl_init();
-
-            curl_setopt_array($curl, array(
-            CURLOPT_URL => Session::get('tableau_domain')."/api/3.2/sites/".Session::get('credentials')."/users",
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => "",
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 30,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => "<tsRequest><user name=\"" . $data['username'] ."\" siteRole=\"Interactor\" authSetting=\"ServerDefault\" /></tsRequest>",
-            CURLOPT_HTTPHEADER => array(
-                "X-Tableau-Auth: ". Session::get('token'),
-                "Accept: application/json",
-              ),
-            ));
-            $response = curl_exec($curl);
-            $err = curl_error($curl);
-            curl_close($curl);
-            if ($err) {
-              return '0';
-            } else {
-                $res = json_decode($response);
-                $result = Member::where('id',$data['id'])->get()->first();
-                $result['tableau_id'] = $res->user->id;
-                $result->status = 1;
-                $result->save();
-
-                return '1';
-            }
-        }else{
-            // // dd($data);
-            // //删除用户
-            $curl = curl_init();
-
-            curl_setopt_array($curl, array(
-            CURLOPT_URL => Session::get('tableau_domain')."/api/3.2/sites/".Session::get('credentials')."/users/".$data['tableau_id'],
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => "",
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 30,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => "DELETE",
-            CURLOPT_HTTPHEADER => array(
-                "X-Tableau-Auth: ".Session::get('token'),
-                "Accept: application/json",
-              ),
-            ));
-            $response = curl_exec($curl);
-            $err = curl_error($curl);
-            curl_close($curl);
-            $result = Member::where('tableau_id',$data['tableau_id'])->get()->first();
-            $result['tableau_id'] = null;
-            $result->status = 2;
-            $result->save();
-            return '1';
-        }
+        $result = Member::where('id',$data['id'])->get()->first();
+        $result->status = $data['type'];
+        $res = $result->save();
+        return $res?'1':'0';
     }
 
     //报表权限的分配
