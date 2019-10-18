@@ -46,9 +46,9 @@
                     <dd>
                         <dl class="cl permission-list2">
                             <dd>
-                                @foreach($tsResponse as $val)
+                                @foreach($tsResponse as $key=>$val)
                                     <label class="col-xs-4 col-sm-3" id="checkboxarr">
-                                        <input type="checkbox" value="{{$val->name}}" name="tableauid" @if($val->name == $mamber->tableau_id) checked @endif>
+                                        <input id="check{{$key}}" type="checkbox" value="{{$val->name}}" name="tableauid" @if($val->name == $mamber->tableau_id) checked @endif>
                                         {{$val->name}}
                                     </label>
                                 @endforeach
@@ -85,7 +85,8 @@ $(function(){
         $("#checkboxarr").find('input[type=checkbox]').not(this).attr("checked", false);
          //选中的checkbox数量
          var selectleng = $("input[type='checkbox']:checked").length;
-         console.log("选中的checkbox数量"+selectleng);        }
+         console.log("选中的checkbox数量"+selectleng);
+        }
          else{
          //未选中的处理
           console.log("未选中的处理");
