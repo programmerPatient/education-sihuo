@@ -47,7 +47,7 @@
                         <dl class="cl permission-list2">
                             <dd>
                                 @foreach($tsResponse as $val)
-                                    <label class="col-xs-4 col-sm-3">
+                                    <label class="col-xs-4 col-sm-3" id="checkboxarr">
                                         <input type="checkbox" value="{{$val->name}}" name="tableauid" @if($val->name == $mamber->tableau_id) checked @endif>
                                         {{$val->name}}
                                     </label>
@@ -76,20 +76,18 @@
 <script type="text/javascript">
 
 //多个checkbox只能选择一个
-$(function () {
-            var fanxiBox = $(".permission-list2 input:checkbox");
-            fanxiBox.click(function () {
-               if(this.checked || this.checked=='checked'){
-
-                   fanxiBox.removeAttr("checked");
-                   //这里需注意jquery1.6以后必须用prop()方法
-                   //$(this).attr("checked",true);
-                   $(this).prop("checked", true);
-                 }
-            });
-});
 
 $(function(){
+    $("#form-admin-role-add input:checkbox").click(function () {
+       if(this.checked || this.checked=='checked'){
+
+           fanxiBox.removeAttr("checked");
+           //这里需注意jquery1.6以后必须用prop()方法
+           //$(this).attr("checked",true);
+           $(this).prop("checked", true);
+         }
+    });
+
     $('.skin-minimal input').iCheck({
         checkboxClass: 'icheckbox-blue',
         radioClass: 'iradio-blue',
