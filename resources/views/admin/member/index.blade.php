@@ -54,7 +54,7 @@
         <tbody>
             @foreach($data as $value)
             <tr class="text-c">
-                <td><input type="checkbox" value="{{$value->id}}" name=""></td>
+                <td><input type="checkbox" value="{{$value->id}}" name="ids"></td>
                 <td>{{$value->id}}</td>
                 <td>{{$value->username}}</td>
                 <td>@if($value->gender == '1')
@@ -232,6 +232,33 @@ function member_del(obj,id){
                     layer.msg('已删除!',{icon:1,time:1000});
                 }else{
                     layer.msg('删除失败!',{icon:1,time:1000});
+                }
+            },
+            error:function(data) {
+                console.log(data.msg);
+            },
+        });
+    });
+}
+
+/*用户批量删除*/
+function datadel(){
+    var ids = $('input=[name="ids"]').value;
+    console.log(ids);
+    layer.confirm('确认要删除吗？',function(index,ids){
+        $.ajax({
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            type: 'delete',
+            url: '/admin/members/delete',
+            data:{'ids':ids},
+            dataType: 'json',
+            success: function(data){
+                if(data == '1')
+                {
+                    $(obj).parents("tr").remove();
+                    layer.msg('批量删除成功!',{icon:1,time:1000});
+                }else{
+                    layer.msg('批量删除失败，请注意查看!',{icon:1,time:1000});
                 }
             },
             error:function(data) {

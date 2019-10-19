@@ -55,26 +55,20 @@ class MemberController extends Controller
     public function delete(){
         $id = Input::only('id')['id'];
         $data = Member::where('id',$id)->get()->first();
-        $curl = curl_init();
-
-        curl_setopt_array($curl, array(
-        CURLOPT_URL => Session::get('tableau_domain')."/api/3.2/sites/".Session::get('credentials')."/users/".$data->tableau_id,
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => "",
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 30,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => "DELETE",
-        CURLOPT_HTTPHEADER => array(
-            "X-Tableau-Auth: ".Session::get('token'),
-            "Accept: application/json",
-          ),
-        ));
-        $response = curl_exec($curl);
-        $err = curl_error($curl);
-        curl_close($curl);
-        $data ->delete();
+        $result = $data ->delete();
         // $data->save();
-        return '1';
+        return $result?'1':'0';
     }
+
+    //批量删除会员
+    public function deletes(){
+        $ids = Input::only('ids');
+        foreach($ids as $key=>$val){
+            $data = Member::where('id',$val)->get()->first();
+            $result = $data ->delete();
+        }
+        // $data->save();
+        return $result?'1':'0';
+    }
+
 }

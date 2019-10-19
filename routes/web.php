@@ -47,6 +47,8 @@ Route::group(['prefix' => 'admin','middleware' => ['admin.auth']],function(){
     Route::get('member/index','Admin\MemberController@index');
     Route::any('member/add','Admin\MemberController@add');
     Route::delete('member/delete','Admin\MemberController@delete');
+    //批量删除
+    Route::delete('members/delete','Admin\MemberController@deletes');
     Route::any('member/modify/{id}','Admin\MemberController@modify');
     //异步头像上传
     Route::post('uploader/webuploader','Admin\UploaderController@index');
