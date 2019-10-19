@@ -243,7 +243,10 @@ function member_del(obj,id){
 
 /*用户批量删除*/
 function datadel(){
-    var ids = $('input[name="ids"]').value;
+    var ids =[];
+        $("input[name='ids']").each(function(){
+            ids.push($(this).val());
+        })
     console.log(ids);
     layer.confirm('确认要删除吗？',function(index,ids){
         $.ajax({
