@@ -28,7 +28,7 @@
     <p class="error-info">您可以：
         <a href="javascript:;" onclick="history.go(-1)" class="c-primary">&lt; 返回上一页</a>
         <span class="ml-20">|</span>
-        <a href="/public/login" class="c-primary ml-20">去登录页 &gt;</a>
+        <a href="admin/public/login" class="c-primary ml-20">去登录页 &gt;</a>
     </p>
 </section>
 </body>

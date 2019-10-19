@@ -135,6 +135,8 @@ class PublicController extends Controller
                     }
                   }
                   if($boole){
+                    Auth::guard('admin') -> logout();
+                    Session::flush();
                     return view('admin.error.index');
                   }
                 }
