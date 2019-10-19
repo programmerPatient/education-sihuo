@@ -22,7 +22,7 @@ class MemberController extends Controller
     public function add(){
         //判断请求类型
         if(Input::method() == 'POST'){
-            $data = Input::only(['username','password','gender','mobile','email']);
+            $data = Input::only(['username','password','gender','email']);
             $data['created_at'] = date('Y-m-d H:i:s',time());
             $data['password'] = bcrypt($data['password']);
             $data['status'] = Input::get(['tableau_user']);

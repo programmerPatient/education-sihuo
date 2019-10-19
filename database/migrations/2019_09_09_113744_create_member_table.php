@@ -18,8 +18,8 @@ class CreateMemberTable extends Migration
             $table->string('username',20)->notnull();
             $table->string('password')->notnull();
             $table->enum('gender',[1,2,3])->notnull()->default('1');//性别
-            $table->string('mobile',11);
-            $table->string('email',40);
+            $table->string('mobile',11)->nullable();
+            $table->string('email',40)->nullable();
             // $table->string('avatar');//头像
             $table->string('tableau_id')->nullable();//存放映射的用户id
             $table->timestamps();
