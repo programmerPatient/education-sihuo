@@ -247,24 +247,27 @@ function datadel(){
     $("input[name='ids']:checked").each(function(){
         ids.push($(this).val());
     });
-    $.ajax({
-        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-        type: 'delete',
-        url: '/admin/members/delete',
-        data:{'ids':ids},
-        dataType: 'json',
-        success: function(data){
-            if(data == '1')
-            {
-                $(obj).parents("tr").remove();
-                layer.msg('批量删除成功!',{icon:1,time:1000});
-            }else{
-                layer.msg('批量删除失败，请注意查看!',{icon:1,time:1000});
-            }
-        },
-        error:function(data) {
-            console.log(data.msg);
-        },
+    layer.confirm('确认要删除吗？',function(index){
+        $.ajax({
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            type: 'delete',
+            url: '/admin/members/delete',
+            data:{'ids':ids},
+            dataType: 'json',
+            success: function(data){
+                if(data == '1')
+                {
+                    console.log('1');
+                    $(obj).parents("tr").remove();
+                    layer.msg('批量删除成功!',{icon:1,time:1000});
+                }else{
+                    layer.msg('批量删除失败，请注意查看!',{icon:1,time:1000});
+                }
+            },
+            error:function(data) {
+                console.log(data.msg);
+            },
+        });
     });
 }
 </script>
