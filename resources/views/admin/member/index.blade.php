@@ -105,6 +105,13 @@
 <!--_footer 作为公共模版分离出去-->
 <script type="text/javascript" src="/admin/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="/admin/lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="/admin/static/h-ui/js/H-ui.min.js"></script>
+<script type="text/javascript" src="/admin/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="/admin/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="/admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="/admin/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
 $(function(){
     $('.table-sort').dataTable({
@@ -240,36 +247,26 @@ function datadel(){
     $("input[name='ids']:checked").each(function(){
         ids.push($(this).val());
     });
-    layer.confirm('确认要删除吗？',function(index){
-        $.ajax({
-            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-            type: 'delete',
-            url: '/admin/members/delete',
-            data:{'ids':ids},
-            dataType: 'json',
-            success: function(data){
-                if(data == '1')
-                {
-                    $(obj).parents("tr").remove();
-                    layer.msg('批量删除成功!',{icon:1,time:1000});
-                }else{
-                    layer.msg('批量删除失败，请注意查看!',{icon:1,time:1000});
-                }
-            },
-            error:function(data) {
-                console.log(data.msg);
-            },
-        });
+    $.ajax({
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        type: 'delete',
+        url: '/admin/members/delete',
+        data:{'ids':ids},
+        dataType: 'json',
+        success: function(data){
+            if(data == '1')
+            {
+                $(obj).parents("tr").remove();
+                layer.msg('批量删除成功!',{icon:1,time:1000});
+            }else{
+                layer.msg('批量删除失败，请注意查看!',{icon:1,time:1000});
+            }
+        },
+        error:function(data) {
+            console.log(data.msg);
+        },
     });
 }
 </script>
-<script type="text/javascript" src="/admin/static/h-ui/js/H-ui.min.js"></script>
-<script type="text/javascript" src="/admin/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
-
-<!--请在下方写此页面业务相关的脚本-->
-<script type="text/javascript" src="/admin/lib/My97DatePicker/4.8/WdatePicker.js"></script>
-<script type="text/javascript" src="/admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="/admin/lib/laypage/1.2/laypage.js"></script>
-
 </body>
 </html>
