@@ -247,7 +247,8 @@ function datadel(){
     $("input[name='ids']:checked").each(function(){
         ids.push($(this).val());
     });
-    if(!ids){
+    if(ids == false){
+        console.log(ids);
         layer.msg('请选择要批量删除的对象!',{icon:1,time:1000});
     }else{
         layer.confirm('确认要删除吗？',function(index){
