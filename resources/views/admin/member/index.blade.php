@@ -244,7 +244,7 @@ function member_del(obj,id){
 /*用户批量删除*/
 function datadel(){
     var ids =[];
-        $("input[name='ids']").each(function(){
+        $("input[name='ids']:checked").each(function(){
             ids.push($(this).val());
         })
     console.log(ids);
