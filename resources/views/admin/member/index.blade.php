@@ -41,7 +41,7 @@
                 <th width="40">ID</th>
                 <th width="100">用户名</th>
                 <th width="40">性别</th>
-                <th width="90">手机</th>
+                <!-- <th width="90">手机</th> -->
                 <th width="150">邮箱</th>
                 <th width="130">加入时间</th>
                 <th width="70">状态</th>
@@ -65,7 +65,7 @@
                     保密
                     @endif
                 </td>
-                <td>{{$value->mobile}}</td>
+                <!-- <td>{{$value->mobile}}</td> -->
                 <td>{{$value->email}}</td>
                 <td>{{$value->created_at}}</td>
                 <td class="td-status">
