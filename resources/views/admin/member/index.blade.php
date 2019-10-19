@@ -247,8 +247,7 @@ function datadel(){
         $("input[name='ids']:checked").each(function(){
             ids.push($(this).val());
         })
-    console.log(ids);
-    layer.confirm('确认要删除吗？',function(index,ids){
+    layer.confirm('确认要删除吗？',function(index){
         $.ajax({
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             type: 'delete',
