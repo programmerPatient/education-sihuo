@@ -47,7 +47,7 @@
                         <dl class="cl permission-list2">
                             <label>
                                     @foreach($data as $val)
-                                        <input type="checkbox"  value="{{$val->id}}" name="tableauIds[]" @if(in_array($val->id,$hasTableauIds)) checked @endif>
+                                        <input type="checkbox" style="display: block" value="{{$val->id}}" name="tableauIds[]" @if(in_array($val->id,$hasTableauIds)) checked @endif>
                                         {{$val->project->name}}
                                     @endforeach
                             </label>
