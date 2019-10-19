@@ -105,13 +105,6 @@
 <!--_footer 作为公共模版分离出去-->
 <script type="text/javascript" src="/admin/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="/admin/lib/layer/2.4/layer.js"></script>
-<script type="text/javascript" src="/admin/static/h-ui/js/H-ui.min.js"></script>
-<script type="text/javascript" src="/admin/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
-
-<!--请在下方写此页面业务相关的脚本-->
-<script type="text/javascript" src="/admin/lib/My97DatePicker/4.8/WdatePicker.js"></script>
-<script type="text/javascript" src="/admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="/admin/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
 $(function(){
     $('.table-sort').dataTable({
@@ -244,9 +237,9 @@ function member_del(obj,id){
 /*用户批量删除*/
 function datadel(){
     var ids =[];
-        $("input[name='ids']:checked").each(function(){
-            ids.push($(this).val());
-        })
+    $("input[name='ids']:checked").each(function(){
+        ids.push($(this).val());
+    });
     layer.confirm('确认要删除吗？',function(index){
         $.ajax({
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
@@ -270,5 +263,13 @@ function datadel(){
     });
 }
 </script>
+<script type="text/javascript" src="/admin/static/h-ui/js/H-ui.min.js"></script>
+<script type="text/javascript" src="/admin/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="/admin/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="/admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="/admin/lib/laypage/1.2/laypage.js"></script>
+
 </body>
 </html>
