@@ -45,12 +45,12 @@
                 <dl class="permission-list">
                     <dd>
                         <dl class="cl permission-list2">
-                                @foreach($data as $val)
-                                    <label class="col-xs-3 col-sm-2">
+                            <label class="col-xs-3 col-sm-2">
+                                    @foreach($data as $val)
                                         <input type="checkbox" style="display: inline" value="{{$val->id}}" name="tableauIds[]" @if(in_array($val->id,$hasTableauIds)) checked @endif>
                                         {{$val->project->name}}
-                                    </label>
-                                @endforeach
+                                    @endforeach
+                            </label>
                         </dl>
                     </dd>
                 </dl>

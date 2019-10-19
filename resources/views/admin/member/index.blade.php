@@ -258,7 +258,6 @@ function datadel(){
                 if(data == '1')
                 {
                     console.log('1');
-                    $(obj).parents("tr").remove();
                     layer.msg('批量删除成功!',{icon:1,time:1000});
                 }else{
                     layer.msg('批量删除失败，请注意查看!',{icon:1,time:1000});
