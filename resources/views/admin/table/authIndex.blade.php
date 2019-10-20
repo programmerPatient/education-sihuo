@@ -50,7 +50,6 @@
                         <label>
                             <input type="checkbox" value="" name="user-Character-0" id="user-Character-0">
                             {{$value['name']}}
-                            </br>
                         </label>
                     </dt>
                     <dd>
@@ -59,8 +58,10 @@
                             <dt>
                                 <label class="">
                                     <input type="checkbox" value="" name="user-Character-0-1" id="user-Character-0-1">
-                                    {{$VieValue['name']}}</label>
+                                    {{$VieValue['name']}}
+                                </label>
                             </dt>
+                            </br>
                             <dd>
                                 @foreach($VieValue['views'] as $view)
                                 <label class="">
