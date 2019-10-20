@@ -109,9 +109,9 @@ class TableController extends Controller
     }
     //批量报表权限的分配
     public function auths($ids){
-
+        $id = explode(',',$ids);
         if(Input::method() == 'POST'){
-            foreach($ids as $key=>$val){
+            foreach($id as $key=>$val){
                 $user = Member::where('id',$val)->get()->first();
                 $tableauIds = Input::get('tableauIds');
                 $stringIds = implode(',',$tableauIds);
