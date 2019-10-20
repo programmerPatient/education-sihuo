@@ -56,7 +56,7 @@
                         @foreach($value['project'] as $VieValue)
                         <dl class="cl permission-list2">
                             <dt>
-                                <label class="">
+                                <label class="" style="display:block">
                                     <input type="checkbox" value="" name="user-Character-0-1" id="user-Character-0-1">
                                     {{$VieValue['name']}}
                                 </label>
