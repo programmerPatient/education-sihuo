@@ -101,6 +101,7 @@ class TableController extends Controller
               echo "cURL Error #:" . $err;
             } else {
               // $response = simplexml_load_string($response);
+                dd($response);
                 $data = json_decode($response)->workbooks->workbook;
                 $p = [];
                 $pageUrlIds=[];
