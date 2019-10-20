@@ -44,15 +44,22 @@
             <div class="formControls col-xs-8 col-sm-9">
                 <dl class="permission-list">
                     <dd>
+                         @foreach($val['project'] as $value)
+                        <div class="form-label" style="text-align:center;"><h5>{{$value['name']}}</h5></div>
                         <dl class="cl permission-list2">
-                            <label>
-                                    @foreach($data as $val)
-                                        <input type="checkbox" style="display: inline" value="{{$val->id}}" name="tableauIds[]" @if(in_array($val->id,$hasTableauIds)) checked @endif>
-                                        {{$val->project->name}}
-                                        </br>
-                                    @endforeach
-                            </label>
+<!--                             <dt>
+                                <label class="form-label col-xs-3 col-sm-2">{{$value['name']}}</label>
+                            </dt> -->
+                            <dd>
+                                @foreach($value['views'] as $VieValue)
+                                    <label class="col-xs-3 col-sm-2">
+                                        <input type="checkbox" value="{{$VieValue->contentUrl}}" name="tableauIds[]" @if(in_array($VieValue->contentUrl,$hasTableauIds)) checked @endif>
+                                        {{$VieValue->name}}
+                                    </label>
+                                @endforeach
+                            </dd>
                         </dl>
+                        @endforeach
                     </dd>
                 </dl>
             </div>
