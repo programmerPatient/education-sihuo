@@ -141,6 +141,7 @@ class TableController extends Controller
                     ];
                 }
                 $hasTableauIds = explode(',',$user->tableauIds);
+                dd($p);
                 return view('admin.table.authIndex',compact('p','hasTableauIds'));//展示报表列表
             }
         }
