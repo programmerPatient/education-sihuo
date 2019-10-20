@@ -298,29 +298,9 @@ function mapping(){
         ids.push($(this).val());
     });
     if(ids == false){
-        layer.msg('请选择要批量删除的对象!',{icon:1,time:1000});
+        layer.msg('请选择要批量授权的对象!',{icon:1,time:1000});
     }else{
-        layer.confirm('确认要删除吗？',function(index){
-            $.ajax({
-                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                type: 'delete',
-                url: '/admin/members/delete',
-                data:{'ids':ids},
-                dataType: 'json',
-                success: function(data){
-                    if(data == '1')
-                    {
-                        layer.msg('批量删除成功!',{icon:1,time:1000});
-                        window.location = window.location;
-                    }else{
-                        layer.msg('批量删除失败，请注意查看!',{icon:1,time:1000});
-                    }
-                },
-                error:function(data) {
-                    console.log(data.msg);
-                },
-            });
-        });
+        member_auth('映射tableau用户','/admin/table/users/'+ids,'4','','510');
     }
 }
 </script>

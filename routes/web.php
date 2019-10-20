@@ -64,6 +64,7 @@ Route::group(['prefix' => 'admin','middleware' => ['admin.auth']],function(){
     Route::any('table/auths/{id}','Admin\TableController@auths');
     //站内用户映射tableau用户
     Route::any('table/user/{id}','Admin\TableController@user');
+    Route::any('table/users/{id}','Admin\TableController@users');
     // 刷新tableau票据
     // Route::get('table/refresh','Admin\TableController@refresh');
 

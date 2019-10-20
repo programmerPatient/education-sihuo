@@ -185,4 +185,43 @@ class TableController extends Controller
             return view('admin.table.user',compact('tsResponse','mamber'));
         }
     }
+
+    public function users($ids){
+        $id = explode(',',$ids);
+        if(Input::method() == 'POST'){
+            foreach($id as $key=>$val){
+                $mamber = Member::where('id',$val)->get()->first();
+                $tableau_id = Input::get('tableauid');
+                $mamber->tableau_id = $tableau_id;
+                $result = $mamber->save();
+                $result = $user -> save();
+            }
+            return $result ? '1':'0';
+        }else{
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+            CURLOPT_URL => "http://tableau.kalaw.top/api/3.2/sites/".Session::get('credentials')."/users",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                "X-Tableau-Auth:".Session::get('token'),
+                "Accept: application/json",
+              ),
+            ));
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+            curl_close($curl);
+            if ($err) {
+              echo "cURL Error #:" . $err;
+            } else {
+              $tsResponse = json_decode($response)->users->user;
+            }
+            return view('admin.table.users',compact('tsResponse','mamber'));
+        }
+    }
 }
