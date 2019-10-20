@@ -37,33 +37,83 @@
             </div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-3 col-sm-2">
 
-                <h4>项目分配</h4>
-            </label>
+
             <div class="formControls col-xs-8 col-sm-9">
                 <dl class="permission-list">
+                    <dt>
+                        <label>
+                            <input type="checkbox" value="" name="user-Character-0" id="user-Character-0">
+                            资讯管理</label>
+                    </dt>
                     <dd>
-                        @foreach($p as $value)
-                        <div class="form-label" style="text-align:center;">
-                            <h5>{{$value['name']}}</h5>
-                        </div>
                         <dl class="cl permission-list2">
+                            <dt>
+                                <label class="">
+                                    <input type="checkbox" value="" name="user-Character-0-1" id="user-Character-0-1">
+                                    文章管理</label>
+                            </dt>
                             <dd>
-                                @foreach($value['project'] as $VieValue)
-                                    <label class="col-xs-3 col-sm-2">
-                                        <h6>{{$VieValue['name']}}</h6>
-                                        @foreach($VieValue['views'] as $view)
-                                        <input type="checkbox" style="display: inline" value="{{$view->id}}" name="tableauIds[]" @if(in_array($view->id,$hasTableauIds)) checked @endif>
-                                        {{$view->name}}
-                                        </br>
-                                        @endforeach
-                                    </label>
-                                @endforeach
+                                <label class="">
+                                    <input type="checkbox" value="" name="user-Character-0-1-0" id="user-Character-0-1-0">
+                                    添加</label>
+                                <label class="">
+                                    <input type="checkbox" value="" name="user-Character-0-1-0" id="user-Character-0-1-1">
+                                    修改</label>
+                                <label class="">
+                                    <input type="checkbox" value="" name="user-Character-0-1-0" id="user-Character-0-1-2">
+                                    删除</label>
+                                <label class="">
+                                    <input type="checkbox" value="" name="user-Character-0-1-0" id="user-Character-0-1-3">
+                                    查看</label>
+                                <label class="">
+                                    <input type="checkbox" value="" name="user-Character-0-1-0" id="user-Character-0-1-4">
+                                    审核</label>
+                                <label class="c-orange"><input type="checkbox" value="" name="user-Character-0-2-0" id="user-Character-0-2-5"> 只能操作自己发布的</label>
                             </dd>
                         </dl>
-                        @endforeach
                     </dd>
+                </dl>
+            </div>
+
+            <label class="form-label col-xs-4 col-sm-3">项目分配：</label>
+            <!-- <label class="form-label col-xs-3 col-sm-2">
+
+                <h4>项目分配</h4>
+            </label> -->
+            <div class="formControls col-xs-8 col-sm-9">
+                <dl class="permission-list">
+                    @foreach($p as $value)
+                    <dt>
+                        <label>
+                            <input type="checkbox" value="" name="user-Character-0" id="user-Character-0">
+                            {{$value['name']}}</label>
+                    </dt>
+                    <dd>
+                        <div class="form-label" style="text-align:center;">
+                            <h5></h5>
+                        </div>
+                        <dl class="cl permission-list2">
+                            @foreach($value['project'] as $VieValue)
+                            <dt>
+                                <label class="">
+                                    <input type="checkbox" value="" name="user-Character-0-1" id="user-Character-0-1">
+                                    {{$VieValue['name']}}</label>
+                            </dt>
+                            <dd>
+                                @foreach($VieValue['views'] as $view)
+                                <label class="col-xs-3 col-sm-2">
+
+                                    <input type="checkbox" value="{{$view->id}}" name="tableauIds[]" @if(in_array($view->id,$hasTableauIds)) checked @endif>
+                                    {{$view->name}}
+
+                                </label>
+                                @endforeach
+                            </dd>
+                            @endforeach
+                        </dl>
+                    </dd>
+                    @endforeach
                 </dl>
             </div>
         </div>
