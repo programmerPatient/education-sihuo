@@ -45,18 +45,18 @@
                 <dl class="permission-list">
                     <dd>
                          @foreach($val['project'] as $value)
-                        <div class="form-label" style="text-align:center;"><h5>{{$value['name']}}</h5></div>
+                        <div class="form-label" style="text-align:center;">
+                            <h5>{{$value['name']}}</h5>
+                        </div>
                         <dl class="cl permission-list2">
-<!--                             <dt>
-                                <label class="form-label col-xs-3 col-sm-2">{{$value['name']}}</label>
-                            </dt> -->
                             <dd>
-                                @foreach($value['views'] as $VieValue)
                                     <label class="col-xs-3 col-sm-2">
-                                        <input type="checkbox" value="{{$VieValue->contentUrl}}" name="tableauIds[]" @if(in_array($VieValue->contentUrl,$hasTableauIds)) checked @endif>
+                                        @foreach($value['views'] as $VieValue)
+                                        <input type="checkbox" style="display: inline" value="{{$VieValue->contentUrl}}" name="tableauIds[]" @if(in_array($VieValue->contentUrl,$hasTableauIds)) checked @endif>
                                         {{$VieValue->name}}
+                                        </br>
+                                        @endforeach
                                     </label>
-                                @endforeach
                             </dd>
                         </dl>
                         @endforeach
