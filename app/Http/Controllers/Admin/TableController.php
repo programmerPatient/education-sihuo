@@ -194,7 +194,6 @@ class TableController extends Controller
                 $tableau_id = Input::get('tableauid');
                 $mamber->tableau_id = $tableau_id;
                 $result = $mamber->save();
-                $result = $user -> save();
             }
             return $result ? '1':'0';
         }else{
