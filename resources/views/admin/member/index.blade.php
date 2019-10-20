@@ -134,7 +134,6 @@ function member_show(title,url,id,w,h){
 }
 /*用户-停用*/
 function member_stop(obj,tableau_id,id,type,name){
-    console.log(name);
     layer.confirm('确认要停用吗？',function(index){
         $.ajax({
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
