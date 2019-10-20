@@ -116,6 +116,7 @@ class IndexController extends Controller
                 }
             }
         }
+        dd($p);
         // FS1Wu4GJRVCaNdtzbAeHlw|j9JPkfLMU0wZtx8c1BB6pkPGuiEim0h
         return view('admin.index.index',compact('p','system','type','name'));
     }
