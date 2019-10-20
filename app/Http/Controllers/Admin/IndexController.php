@@ -52,7 +52,6 @@ class IndexController extends Controller
           // $response = simplexml_load_string($response);
 
             $data = json_decode($response)->workbooks->workbook;
-            dd($data);
             $p = [];
             if(!$data) return view('admin.error.index');
             // $u = array();
@@ -65,6 +64,7 @@ class IndexController extends Controller
             //     $data = $u;
             // }
             // $rs = $response->toArray();
+            dd($tableauIds);
             foreach($data as $key=>$val){
                 $id = $val->project->id;
                 $curlt = curl_init();
