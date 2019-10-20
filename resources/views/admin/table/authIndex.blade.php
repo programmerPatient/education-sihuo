@@ -52,8 +52,8 @@
                             {{$value['name']}}</label>
                     </dt>
                     <dd>
+                        @foreach($value['project'] as $VieValue)
                         <dl class="cl permission-list2">
-                            @foreach($value['project'] as $VieValue)
                             <dt>
                                 <label class="">
                                     <input type="checkbox" value="" name="user-Character-0-1" id="user-Character-0-1">
@@ -67,8 +67,8 @@
                                 </label>
                                 @endforeach
                             </dd>
-                            @endforeach
                         </dl>
+                        @endforeach
                     </dd>
                     @endforeach
                 </dl>
