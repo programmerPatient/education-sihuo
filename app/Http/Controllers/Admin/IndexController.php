@@ -64,7 +64,6 @@ class IndexController extends Controller
             //     $data = $u;
             // }
             // $rs = $response->toArray();
-            dd($tableauIds);
             foreach($data as $key=>$val){
                 $id = $val->project->id;
                 $curlt = curl_init();
@@ -93,7 +92,7 @@ class IndexController extends Controller
                 if($tableauIds){
                     $project = false;
                     foreach($viesdata as $key => $vaie){
-                        if(in_array($vaie->contentUrl,$tableauIds)){
+                        if(in_array($vaie->id,$tableauIds)){
                             $project = true;
                         }else{
                             unset($viesdata[$key]);//剔除该元素
