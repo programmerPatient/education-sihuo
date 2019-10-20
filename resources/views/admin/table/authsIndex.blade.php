@@ -47,7 +47,7 @@
                         <dl class="cl permission-list2">
                             <label>
                                     @foreach($data as $val)
-                                        <input type="checkbox" style="display: inline" value="{{$val->id}}" name="tableauIds[]" @if(in_array($val->id,$hasTableauIds)) checked @endif>
+                                        <input type="checkbox" style="display: inline" value="{{$val->id}}" name="tableauIds[]">
                                         {{$val->project->name}}
                                         </br>
                                     @endforeach
@@ -90,14 +90,14 @@ $(function(){
                 url: "" ,//自己提交给自己可以不写url
                 success: function(data){
                     if(data == '1'){
-                        layer.msg('授权成功!',{icon:1,time:1000},function(){
+                        layer.msg('批量授权成功!',{icon:1,time:1000},function(){
                             var index = parent.layer.getFrameIndex(window.name);
                             //刷新
                             parent.window.location = parent.window.location;
                             parent.layer.close(index);
                         });
                     }else{
-                        layer.msg('授权失败!',{icon:2,time:2000});
+                        layer.msg('批量授权失败，请注意用户的授权情况!',{icon:2,time:2000});
                     }
                 },
                 error: function(XmlHttpRequest, textis_nav, errorThrown){
