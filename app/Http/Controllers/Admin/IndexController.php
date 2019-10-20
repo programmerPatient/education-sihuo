@@ -65,7 +65,7 @@ class IndexController extends Controller
             }
             // $rs = $response->toArray();
             foreach($data as $key=>$val){
-                $id = $val->id;
+                $id = $val->project->id;
                 $curlt = curl_init();
                 curl_setopt_array($curlt, array(
                 CURLOPT_URL => Session::get('tableau_domain')."/api/3.2/sites/".Session::get('credentials')."/workbooks/".$id,
