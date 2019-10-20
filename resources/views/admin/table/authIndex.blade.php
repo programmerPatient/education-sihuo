@@ -38,44 +38,6 @@
         </div>
         <div class="row cl">
 
-
-            <div class="formControls col-xs-8 col-sm-9">
-                <dl class="permission-list">
-                    <dt>
-                        <label>
-                            <input type="checkbox" value="" name="user-Character-0" id="user-Character-0">
-                            资讯管理</label>
-                    </dt>
-                    <dd>
-                        <dl class="cl permission-list2">
-                            <dt>
-                                <label class="">
-                                    <input type="checkbox" value="" name="user-Character-0-1" id="user-Character-0-1">
-                                    文章管理</label>
-                            </dt>
-                            <dd>
-                                <label class="">
-                                    <input type="checkbox" value="" name="user-Character-0-1-0" id="user-Character-0-1-0">
-                                    添加</label>
-                                <label class="">
-                                    <input type="checkbox" value="" name="user-Character-0-1-0" id="user-Character-0-1-1">
-                                    修改</label>
-                                <label class="">
-                                    <input type="checkbox" value="" name="user-Character-0-1-0" id="user-Character-0-1-2">
-                                    删除</label>
-                                <label class="">
-                                    <input type="checkbox" value="" name="user-Character-0-1-0" id="user-Character-0-1-3">
-                                    查看</label>
-                                <label class="">
-                                    <input type="checkbox" value="" name="user-Character-0-1-0" id="user-Character-0-1-4">
-                                    审核</label>
-                                <label class="c-orange"><input type="checkbox" value="" name="user-Character-0-2-0" id="user-Character-0-2-5"> 只能操作自己发布的</label>
-                            </dd>
-                        </dl>
-                    </dd>
-                </dl>
-            </div>
-
             <label class="form-label col-xs-4 col-sm-3">项目分配：</label>
             <!-- <label class="form-label col-xs-3 col-sm-2">
 
@@ -90,9 +52,6 @@
                             {{$value['name']}}</label>
                     </dt>
                     <dd>
-                        <div class="form-label" style="text-align:center;">
-                            <h5></h5>
-                        </div>
                         <dl class="cl permission-list2">
                             @foreach($value['project'] as $VieValue)
                             <dt>
@@ -103,10 +62,8 @@
                             <dd>
                                 @foreach($VieValue['views'] as $view)
                                 <label class="col-xs-3 col-sm-2">
-
                                     <input type="checkbox" value="{{$view->id}}" name="tableauIds[]" @if(in_array($view->id,$hasTableauIds)) checked @endif>
                                     {{$view->name}}
-
                                 </label>
                                 @endforeach
                             </dd>
@@ -134,6 +91,30 @@
 <script type="text/javascript" src="/admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript">
 $(function(){
+
+    $(".permission-list dt input:checkbox").click(function(){
+        $(this).closest("dl").find("dd input:checkbox").prop("checked",$(this).prop("checked"));
+    });
+    $(".permission-list2 dd input:checkbox").click(function(){
+        var l =$(this).parent().parent().find("input:checked").length;
+        var l2=$(this).parents(".permission-list").find(".permission-list2 dd").find("input:checked").length;
+        if($(this).prop("checked")){
+            $(this).closest("dl").find("dt input:checkbox").prop("checked",true);
+            $(this).parents(".permission-list").find("dt").first().find("input:checkbox").prop("checked",true);
+        }
+        else{
+            if(l==0){
+                $(this).closest("dl").find("dt input:checkbox").prop("checked",false);
+            }
+            if(l2==0){
+                $(this).parents(".permission-list").find("dt").first().find("input:checkbox").prop("checked",false);
+            }
+        }
+    });
+
+
+
+
     $('.skin-minimal input').iCheck({
         checkboxClass: 'icheckbox-blue',
         radioClass: 'iradio-blue',
