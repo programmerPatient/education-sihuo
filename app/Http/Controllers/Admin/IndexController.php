@@ -54,15 +54,15 @@ class IndexController extends Controller
             $data = json_decode($response)->workbooks->workbook;
             $p = [];
             if(!$data) return view('admin.error.index');
-            $u = array();
-            if($tableauIds){
-                foreach($data as $k=>$tab){
-                    if(in_array($tab->id,$tableauIds)){
-                        $u[] = $tab;
-                    }
-                }
-                $data = $u;
-            }
+            // $u = array();
+            // if($tableauIds){
+            //     foreach($data as $k=>$tab){
+            //         if(in_array($tab->id,$tableauIds)){
+            //             $u[] = $tab;
+            //         }
+            //     }
+            //     $data = $u;
+            // }
             // $rs = $response->toArray();
             foreach($data as $key=>$val){
                 $id = $val->project->id;
@@ -88,16 +88,32 @@ class IndexController extends Controller
                 } else {
                     $viesdata = json_decode($chilresponse)->workbook->views->view;
                 }
-                //判断是否是重复的父类
-                if(!array_key_exists($id,$p)){
-                    $p[$id]["name"] = $val->project->name;
+
+                if($tableauIds){
+                    $project = false;
+                    foreach($viesdata as $key => $vaie){
+                        if(in_array($vaie->contentUrl,$tableauIds)){
+                            $project = true;
+                        }else{
+                            unset($viesdata[$key]);//剔除该元素
+                        }
+                    }
+                }else{
+                    $project = true;
                 }
-                $p[$id]["project"][$val->id] = [
-                "webpageUrl" =>$val->webpageUrl,
-                "name" => $val->name,
-                "id" => $val->id,
-                "views" => $viesdata
-                ];
+
+                if($project){
+                    //判断是否是重复的父类
+                    if(!array_key_exists($id,$p)){
+                        $p[$id]["name"] = $val->project->name;
+                    }
+                    $p[$id]["project"][$val->id] = [
+                    "webpageUrl" =>$val->webpageUrl,
+                    "name" => $val->name,
+                    "id" => $val->id,
+                    "views" => $viesdata
+                    ];
+                }
             }
         }
         // FS1Wu4GJRVCaNdtzbAeHlw|j9JPkfLMU0wZtx8c1BB6pkPGuiEim0h
