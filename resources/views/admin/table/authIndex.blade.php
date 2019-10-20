@@ -61,7 +61,7 @@
                             </dt>
                             <dd>
                                 @foreach($VieValue['views'] as $view)
-                                <label class="col-xs-3 col-sm-2">
+                                <label class="">
                                     <input type="checkbox" value="{{$view->id}}" name="tableauIds[]" @if(in_array($view->id,$hasTableauIds)) checked @endif>
                                     {{$view->name}}
                                 </label>
