@@ -18,6 +18,7 @@ class SystemController extends Controller
             $web_title = Input::only('web_title')['web_title'];
             $company = Input::only('company')['company'];
             $file = $request->file('logo_img');
+            $default = System::get()->first();
             if($file){
 
                 $allowed_extensions = ["png", "jpg", "gif","PNG",'jpeg'];
@@ -35,7 +36,7 @@ class SystemController extends Controller
                 $default->logo_url = $filePath;
             }
             // $post['type'] = '1';
-            $default = System::get()->first();
+
             // $default -> type = '0';
             // $default->save();
             $default->system_domain = $tableau_domain;
