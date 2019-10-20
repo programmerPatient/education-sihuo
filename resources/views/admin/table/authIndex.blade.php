@@ -49,7 +49,9 @@
                     <dt>
                         <label>
                             <input type="checkbox" value="" name="user-Character-0" id="user-Character-0">
-                            {{$value['name']}}</label>
+                            {{$value['name']}}
+                            </br>
+                        </label>
                     </dt>
                     <dd>
                         @foreach($value['project'] as $VieValue)
