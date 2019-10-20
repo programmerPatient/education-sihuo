@@ -72,7 +72,8 @@ class PublicController extends Controller
         if(!$result){
 
             $result = Auth::guard('member') -> attempt($data,$request -> get('online'));
-                if(!$result){
+            dd($result);
+            if(!$result){
                     redirect('admin/public/login')->withErrors([
                     'loginError' => '用户名或密码错误或未授权，请联系管理员。'
                 ]);
