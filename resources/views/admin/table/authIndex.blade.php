@@ -44,7 +44,7 @@
             <div class="formControls col-xs-8 col-sm-9">
                 <dl class="permission-list">
                     <dd>
-                         @foreach($val['project'] as $value)
+                         @foreach($p['project'] as $value)
                         <div class="form-label" style="text-align:center;">
                             <h5>{{$value['name']}}</h5>
                         </div>
