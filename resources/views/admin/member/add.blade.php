@@ -86,7 +86,7 @@
                 </div>
             </div>
         </div> -->
-      <div class="row cl">
+      <!-- <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>是否同时启用tableau功能：</label>
             <div class="formControls col-xs-8 col-sm-9 skin-minimal">
                 <div class="radio-box">
@@ -98,7 +98,7 @@
                     <label for="status-2" value="0">否</label>
                 </div>
             </div>
-        </div>
+        </div> -->
         {{csrf_field()}}
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">

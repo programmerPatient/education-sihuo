@@ -27,10 +27,6 @@ class CreateMemberTable extends Migration
             $table->enum('status',[1,2])->notnull()->default('2');
             $table->text('tableauIds')->nullable();//tableauid的集合
         });
-        Schema::table('users', function($table)
-        {
-            $table->;
-        });
     }
 
     /**

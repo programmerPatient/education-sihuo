@@ -25,7 +25,7 @@ class MemberController extends Controller
             $data = Input::only(['username','password','gender','email']);
             $data['created_at'] = date('Y-m-d H:i:s',time());
             $data['password'] = bcrypt($data['password']);
-            $data['status'] = Input::get(['tableau_user']);
+            $data['status'] = '1';
             // $data['avatar'] = "/images/th.jpg";
             $result = Member::insert($data);
             return $result ? '1':'0';
