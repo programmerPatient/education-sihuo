@@ -68,7 +68,7 @@ class IndexController extends Controller
                 $id = $val->project->id;
                 $curlt = curl_init();
                 curl_setopt_array($curlt, array(
-                CURLOPT_URL => Session::get('tableau_domain')."/api/3.2/sites/".Session::get('credentials')."/workbooks/".$id,
+                CURLOPT_URL => Session::get('tableau_domain')."/api/3.2/sites/".Session::get('credentials')."/workbooks/".$val->id,
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => "",
                 CURLOPT_MAXREDIRS => 10,
