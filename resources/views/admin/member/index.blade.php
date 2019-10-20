@@ -32,7 +32,14 @@
         <input type="text" class="input-text" style="width:250px" placeholder="输入会员名称、电话、邮箱" id="" name="">
         <button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
     </div> -->
-    <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="member_add('添加用户','/admin/member/add','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a></span> <span class="r">共有数据：<strong>88</strong> 条</span> </div>
+    <div class="cl pd-5 bg-1 bk-gray mt-20">
+        <span class="l">
+        <a href="javascript:;" onclick="auth()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量授权</a>
+        <a href="javascript:;" onclick="mapping()" class="btn btn-success radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量映射</a>
+        <a href="javascript:;" onclick="datadel()" class="btn btn-success radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
+        <a href="javascript:;" onclick="member_add('添加用户','/admin/member/add','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a>
+        </span>
+        <span class="r">共有数据：<strong>88</strong> 条</span> </div>
     <div class="mt-20">
     <table class="table table-border table-bordered table-hover table-bg table-sort">
         <thead>
@@ -242,6 +249,48 @@ function member_del(obj,id){
 
 /*用户批量删除*/
 function datadel(){
+    var ids =[];
+    $("input[name='ids']:checked").each(function(){
+        ids.push($(this).val());
+    });
+    if(ids == false){
+        layer.msg('请选择要批量删除的对象!',{icon:1,time:1000});
+    }else{
+        layer.confirm('确认要删除吗？',function(index){
+            $.ajax({
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                type: 'delete',
+                url: '/admin/members/delete',
+                data:{'ids':ids},
+                dataType: 'json',
+                success: function(data){
+                    if(data == '1')
+                    {
+                        layer.msg('批量删除成功!',{icon:1,time:1000});
+                        window.location = window.location;
+                    }else{
+                        layer.msg('批量删除失败，请注意查看!',{icon:1,time:1000});
+                    }
+                },
+                error:function(data) {
+                    console.log(data.msg);
+                },
+            });
+        });
+    }
+/*用户批量授权*/
+function auth(){
+    var ids =[];
+    $("input[name='ids']:checked").each(function(){
+        ids.push($(this).val());
+    });
+    if(ids == false){
+        layer.msg('请选择要批量授权的对象!',{icon:1,time:1000});
+    }else{
+        member_auth('批量授权','/admin/table/auths/'+ids,'4','','510');
+    }
+/*用户批量映射*/
+function mapping(){
     var ids =[];
     $("input[name='ids']:checked").each(function(){
         ids.push($(this).val());

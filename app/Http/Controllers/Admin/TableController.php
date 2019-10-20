@@ -107,6 +107,47 @@ class TableController extends Controller
             return view('admin.table.authIndex',compact('data','hasTableauIds'));//展示报表列表
         }
     }
+    //批量报表权限的分配
+    public function auths($ids){
+        $user = Member::where('id',$id)->get()->first();
+        if(Input::method() == 'POST'){
+            $tableauIds = Input::get('tableauIds');
+            $stringIds = implode(',',$tableauIds);
+            $user -> tableauIds = $stringIds;
+            $result = $user -> save();
+            return $result ? '1':'0';
+        }else{
+            // /*拿到所有报表的数据*/
+            // $curlt = curl_init();
+
+            // /*获取用户的信息*/
+            // curl_setopt_array($curlt, array(
+            // CURLOPT_URL =>  Session::get('tableau_domain')."/api/3.2/sites/".Session::get('credentials')."/workbooks/",
+            // CURLOPT_RETURNTRANSFER => true,
+            // CURLOPT_ENCODING => "",
+            // CURLOPT_MAXREDIRS => 10,
+            // CURLOPT_TIMEOUT => 30,
+            // CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            // CURLOPT_CUSTOMREQUEST => "GET",
+            // // CURLOPT_COOKIE =>"token=".Session::get('token'),
+            // CURLOPT_HTTPHEADER => array(
+            //     "X-Tableau-Auth: ".Session::get('token'),
+            //     "Accept: application/json",
+            //   ),
+            // ));
+            // $response = curl_exec($curlt);
+            // $err = curl_error($curlt);
+            // curl_close($curlt);
+            // if ($err) {
+            //   echo "cURL Error #:" . $err;
+            // } else {
+            //   // $response = simplexml_load_string($response);
+            //     $data = json_decode($response)->workbooks->workbook;
+            // }
+            dd($ids);
+            return view('admin.table.authsIndex',compact('data','hasTableauIds'));//展示报表列表
+        }
+    }
 
     public function user($id){
         $mamber = Member::where('id',$id)->get()->first();

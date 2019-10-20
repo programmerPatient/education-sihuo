@@ -61,6 +61,7 @@ Route::group(['prefix' => 'admin','middleware' => ['admin.auth']],function(){
     Route::post('table/status','Admin\TableController@status');
     //报表权限分配
     Route::any('table/auth/{id}','Admin\TableController@auth');
+    Route::any('table/auths/{id}','Admin\TableController@auths');
     //站内用户映射tableau用户
     Route::any('table/user/{id}','Admin\TableController@user');
     // 刷新tableau票据
