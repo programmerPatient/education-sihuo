@@ -55,7 +55,7 @@
                                         <h6>{{$VieValue['name']}}</h6>
                                         @foreach($VieValue['views'] as $view)
                                         <input type="checkbox" style="display: inline" value="{{$view->id}}" name="tableauIds[]" @if(in_array($view->id,$hasTableauIds)) checked @endif>
-                                        {{$VieValue->name}}
+                                        {{$view->name}}
                                         </br>
                                         @endforeach
                                     </label>
