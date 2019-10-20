@@ -59,10 +59,8 @@ class TableController extends Controller
 
     public function status(){
         $data = Input::get('id');
-        dd(Input::all());
         $type = Input::get('type');
         $result = Member::where('id',$data)->get()->first();
-        dd($result);
         $result->status = $type;
         $res = $result->save();
         return $res?'1':'0';
