@@ -139,9 +139,10 @@ class TableController extends Controller
                     "id" => $val->id,
                     "views" => $viesdata
                     ];
+                }
+                $hasTableauIds = explode(',',$user->tableauIds);
+                return view('admin.table.authIndex',compact('p','hasTableauIds'));//展示报表列表
             }
-            $hasTableauIds = explode(',',$user->tableauIds);
-            return view('admin.table.authIndex',compact('p','hasTableauIds'));//展示报表列表
         }
     }
     //批量报表权限的分配
