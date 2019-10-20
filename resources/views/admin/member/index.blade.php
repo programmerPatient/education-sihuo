@@ -139,7 +139,7 @@ function member_stop(obj,tableau_id,id,type,name){
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             type: 'POST',
             url: '/admin/table/status',
-            data:{'tableau_id':tableau_id,'type':type,'username':name},
+            data:{'id':id,'type':type},
             dataType: 'json',
             success: function(data){
                 if(data == '1'){
