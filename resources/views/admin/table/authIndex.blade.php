@@ -44,8 +44,8 @@
                 <h4>项目分配</h4>
             </label> -->
             <div class="formControls col-xs-8 col-sm-9">
+                @foreach($p as $value)
                 <dl class="permission-list">
-                    @foreach($p as $value)
                     <dt>
                         <label>
                             <input type="checkbox" value="" name="user-Character-0" id="user-Character-0">
@@ -73,8 +73,8 @@
                         </dl>
                         @endforeach
                     </dd>
-                    @endforeach
                 </dl>
+                @endforeach
             </div>
         </div>
         {{csrf_field()}}
@@ -97,7 +97,7 @@ $(function(){
 
     $(".permission-list dt input:checkbox").click(function(){
         // $(this).closest("dl").find("dd input:checkbox").prop("checked",$(this).prop("checked"));
-        console.log($(this))
+        $(this)
     });
     $(".permission-list2 dd input:checkbox").click(function(){
         var l =$(this).parent().parent().find("input:checked").length;
