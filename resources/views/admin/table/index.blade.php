@@ -45,7 +45,7 @@
         </object>
     </div> -->
     <div class='tableauPlaceholder' style='max-width: 1216px; max-height: 1014px;'>
-        <object class='tableauViz' width='1016' height='1014' style='display:none;'>
+        <object class='tableauViz' max-width='1016' max-height='1014' style='display:none;'>
             <param name="ticket" value="{{$ticket}}" />
             <param name='host_url' value='http%3A%2F%2Ftableau.kalaw.top%2F' />
             <param name='embed_code_version' value='3' />
