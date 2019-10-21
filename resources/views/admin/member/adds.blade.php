@@ -30,9 +30,14 @@
 </head>
 <body>
 <article class="page-container">
-     <button type="button" class="layui-btn" id="test1">
-      <i class="layui-icon">&#xe67c;</i>上传文件
-    </button>
+    <form action="" method="post" class="form form-horizontal" id="form-member-add">
+         <div class="ormControls col-xs-8 col-sm-9">
+            <label>文件上传</label>
+            <div class="file-loading">
+                <input id="file-fr" name="file" type="file" multiple value="">
+            </div>
+        </div>
+    </form>
 </article>
 
 <!--_footer 作为公共模版分离出去-->
@@ -47,27 +52,6 @@
 <script type="text/javascript" src="/admin/lib/jquery.validation/1.14.0/validate-methods.js"></script>
 <script type="text/javascript" src="/admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript">
-
-layui.use('upload', function(){
-  var upload = layui.upload;
-
-  //执行实例
-  var uploadInst = upload.render({
-    elem: '#test1' //绑定元素
-    ,url: '/member/adds' //上传接口
-    ,accept:'file'
-    ,auto:true
-    ,multiple:false
-    ,drap:true
-    ,done: function(res){
-      //上传完毕回调
-
-    }
-    ,error: function(){
-      layer.msg('上传失败，请重新上传!',{icon:1,time:1000},
-    }
-  });
-});
 </script>
 <!--/请在上方写此页面业务相关的脚本-->
 </body>
