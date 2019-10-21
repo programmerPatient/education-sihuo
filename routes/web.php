@@ -46,6 +46,7 @@ Route::group(['prefix' => 'admin','middleware' => ['admin.auth']],function(){
     //会员模块
     Route::get('member/index','Admin\MemberController@index');
     Route::any('member/add','Admin\MemberController@add');
+    Route::any('member/adds','Admin\MemberController@adds');
     Route::delete('member/delete','Admin\MemberController@delete');
     //批量删除
     Route::delete('members/delete','Admin\MemberController@deletes');

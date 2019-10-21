@@ -34,6 +34,24 @@ class MemberController extends Controller
             return view('admin.member.add');
         }
     }
+    //批量添加会员
+    public function adds(Request $request){
+
+        //判断请求类型
+        if(Input::method() == 'POST'){
+            dd($request->all());
+            $data = Input::only(['username','password','gender','email']);
+            $data['created_at'] = date('Y-m-d H:i:s',time());
+            $data['password'] = bcrypt($data['password']);
+            $data['status'] = '1';
+            // $data['avatar'] = "/images/th.jpg";
+            $result = Member::insert($data);
+            return $result ? '1':'0';
+        }else{
+            //展示视图
+            return view('admin.member.adds');
+        }
+    }
 
     //四修改会员信息
     public function modify($id){
