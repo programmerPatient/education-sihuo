@@ -45,7 +45,7 @@ class MemberController extends Controller
             //获取文件
             $file = $request->file('file');
             // $realPath = $file->getRealPath();
-            $entension =  $file -> getClientOriginalExtension(); //上传文件的后缀.
+            $entension =  $file -> extension(); //上传文件的后缀.
             $tabl_name = date('YmdHis').mt_rand(100,999);
             $newName = $tabl_name.'.'.'xls';//$entension;
             $path = $file->move(public_path().'/uploads',$newName);
@@ -56,7 +56,7 @@ class MemberController extends Controller
             });
             //校验文件
             if(isset($file) && $file->isValid()){
-                $ext = $file->getClientOriginalExtension(); //上传文件的后缀
+                $ext = $file->extension(); //上传文件的后缀
                 //判断是否是Excel
                 if(empty($ext) or in_array(strtolower($ext),$allowExt) === false){
                     return $this->fail(400, '不允许的文件类型');
