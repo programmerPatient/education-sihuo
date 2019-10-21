@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\Member;
 use Input;
 use Session;
+use Excel;
 
 class MemberController extends Controller
 {
@@ -39,6 +40,22 @@ class MemberController extends Controller
 
         //判断请求类型
         if(Input::method() == 'POST'){
+             //设置文件后缀白名单
+            $allowExt   = ["csv", "xls", "xlsx"];
+            //获取文件
+            $file = $request->file('file');
+            Excel::load($file, function($reader) {
+                $data = $reader->all();
+                dd($data);
+            });
+            //校验文件
+            if(isset($file) && $file->isValid()){
+                $ext = $file->getClientOriginalExtension(); //上传文件的后缀
+                //判断是否是Excel
+                if(empty($ext) or in_array(strtolower($ext),$allowExt) === false){
+                    return $this->fail(400, '不允许的文件类型');
+                }
+            }
             dd($request->all());
             $data = Input::only(['username','password','gender','email']);
             $data['created_at'] = date('Y-m-d H:i:s',time());
