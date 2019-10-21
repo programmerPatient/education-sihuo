@@ -56,7 +56,7 @@
                         @foreach($value['project'] as $VieValue)
                         <dl class="cl permission-list2">
                             <dt>
-                                <label >
+                                <label class="col-xs-12 col-sm-12">
                                     <input type="checkbox" value="" name="user-Character-0-1" id="user-Character-0-1">
                                     {{$VieValue['name']}}
                                 </label>
@@ -64,7 +64,7 @@
                             </br>
                             <dd>
                                 @foreach($VieValue['views'] as $view)
-                                <label class=""  style="display:block">
+                                <label class="col-xs-12 col-sm-12">
                                     <input type="checkbox" value="{{$view->id}}" name="tableauIds[]" @if(in_array($view->id,$hasTableauIds)) checked @endif>
                                     {{$view->name}}
                                 </label>
