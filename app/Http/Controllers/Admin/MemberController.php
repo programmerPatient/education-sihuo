@@ -44,6 +44,12 @@ class MemberController extends Controller
             $allowExt   = ["csv", "xls", "xlsx"];
             //获取文件
             $file = $request->file('file');
+            $realPath = $file->getRealPath();
+            $entension =  $file -> getClientOriginalExtension(); //上传文件的后缀.
+            $tabl_name = date('YmdHis').mt_rand(100,999);
+            $newName = $tabl_name.'.'.'xls';//$entension;
+            $path = $file->move(public_path().'/uploads',$newName);
+            $cretae_path = public_path().'/uploads/'.$newName;
             Excel::load($file, function($reader) {
                 $data = $reader->all();
                 dd($data);
