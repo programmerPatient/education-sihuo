@@ -96,7 +96,8 @@
 $(function(){
 
     $(".permission-list dt input:checkbox").click(function(){
-        $(this).closest("dl").find("dd input:checkbox").prop("checked",$(this).prop("checked"));
+        // $(this).closest("dl").find("dd input:checkbox").prop("checked",$(this).prop("checked"));
+        console.log($(this))
     });
     $(".permission-list2 dd input:checkbox").click(function(){
         var l =$(this).parent().parent().find("input:checked").length;
