@@ -36,7 +36,7 @@ class MemberController extends Controller
             // $data['avatar'] = "/images/th.jpg";
             $result = Member::insert($data);
             $da['error'] = $error;
-            $da['status'] = $ststus;
+            $da['status'] = $status;
             dd($da);
             return $da;
         }else{
