@@ -45,7 +45,7 @@
         </div>
     </form> -->
 
-<form method="post" enctype="multipart/form-data" action="">
+<!-- <form method="post" enctype="multipart/form-data" action=""> -->
     <form action="" method="post" class="form form-horizontal" id="form-member-add">
         <div class="ormControls col-xs-8 col-sm-9">
             <label>选择文件</label>
@@ -60,10 +60,7 @@
             </div>
         </div>
     </form>
-    <input type="file" name="file">
-    {{csrf_field()}}
-    <button type="submit"> 提交 </button>
-</form>
+<!-- </form> -->
 </article>
 
 <!--_footer 作为公共模版分离出去-->
