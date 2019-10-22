@@ -54,7 +54,7 @@
             </div>
         </div>
         <div class="ormControls col-xs-4 col-sm-3">
-            <a href="/admin/member/excel">模板下载</a>
+            <a href="/admin/member/excel" class="btn btn-primary radius">模板下载</a>
         </div>
         {{csrf_field()}}
         <div class="row cl">
