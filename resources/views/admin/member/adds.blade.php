@@ -47,14 +47,11 @@
 
 <!-- <form method="post" enctype="multipart/form-data" action=""> -->
     <form action="" method="post" class="form form-horizontal" id="form-member-add">
-        <div class="ormControls col-xs-8 col-sm-9">
+        <div class="ormControls col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
             <label>选择文件</label>
             <div class="file-loading">
                 <input  name="file" type="file">
             </div>
-        </div>
-        <div class="ormControls col-xs-4 col-sm-3">
-            <a href="/admin/member/excel" class="btn btn-primary radius">模板下载</a>
         </div>
         {{csrf_field()}}
         <div class="row cl">

@@ -34,11 +34,13 @@
     </div> -->
     <div class="cl pd-5 bg-1 bk-gray mt-20">
         <span class="l">
-        <a href="javascript:;" onclick="auth()" class="btn btn-success radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量授权</a>
-        <a href="javascript:;" onclick="mapping()" class="btn btn-success radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量映射</a>
-        <a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
-        <a href="javascript:;" onclick="members_add('批量添加用户','/admin/member/adds','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 批量添加用户</a>
-        <a href="javascript:;" onclick="member_add('添加用户','/admin/member/add','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a>
+            <a href="javascript:;" onclick="member_add('添加用户','/admin/member/add','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户
+            </a>
+            <a href="javascript:;" onclick="members_add('批量添加用户','/admin/member/adds','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 批量添加用户
+            </a>
+            <a href="javascript:;" onclick="auth()" class="btn btn-success radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量授权</a>
+            <a href="javascript:;" onclick="mapping()" class="btn btn-success radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量映射</a>
+            <a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
         </span>
         <span class="r">共有数据：<strong>88</strong> 条</span> </div>
     <div class="mt-20">
