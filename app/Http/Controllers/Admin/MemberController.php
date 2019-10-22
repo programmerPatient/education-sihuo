@@ -37,7 +37,6 @@ class MemberController extends Controller
             $result = Member::insert($data);
             $da['error'] = $error;
             $da['status'] = $status;
-            dd($da);
             return $da;
         }else{
             //展示视图
