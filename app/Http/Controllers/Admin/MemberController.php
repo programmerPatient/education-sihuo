@@ -104,7 +104,6 @@ class MemberController extends Controller
     public function deletes(){
         $ids = Input::get('ids');
         foreach($ids as $key=>$val){
-            dd($val);
             $data = Member::where('id',$val)->get()->first();
             $result = $data ->delete();
         }
