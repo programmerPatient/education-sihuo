@@ -72,10 +72,11 @@ class MemberController extends Controller
                 $data = $reader->all()->toArray();
                 foreach($data as $key=>$val){
                     $re = Member::where('username',$val['username'])->get()->frist();
+                    dd($re);
                     if($re){
                         $error[] = $val['username'];
                         $status = '0';
-                        break;
+                        continue;
                     }
                     $val['status'] = '1';
                     $val['password'] = bcrypt($val['password']);
