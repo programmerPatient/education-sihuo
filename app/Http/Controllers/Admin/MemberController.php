@@ -57,6 +57,7 @@ class MemberController extends Controller
             $newName = $tabl_name.'.'.'xls';//$entension;
             $path = $file->move(public_path().'/uploads',$newName);
             $cretae_path = public_path().'/uploads/'.$newName;
+            $result = false;
             Excel::load($cretae_path, function($reader) {
                 $data = $reader->all()->toArray();
                 foreach($data as $key=>$val){
@@ -67,7 +68,7 @@ class MemberController extends Controller
                 }
             });
             unlink($cretae_path);//删除该文件
-            return redirect()->back();
+            return $result?'1':'0';
 
         }else{
             //展示视图

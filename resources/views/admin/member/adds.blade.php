@@ -46,6 +46,20 @@
     </form> -->
 
 <form method="post" enctype="multipart/form-data" action="">
+    <form action="" method="post" class="form form-horizontal" id="form-member-add">
+        <div class="ormControls col-xs-8 col-sm-9">
+            <label>选择文件</label>
+            <div class="file-loading">
+                <input  name="file" type="file">
+            </div>
+        </div>
+        {{csrf_field()}}
+        <div class="row cl">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+            </div>
+        </div>
+    </form>
     <input type="file" name="file">
     {{csrf_field()}}
     <button type="submit"> 提交 </button>
@@ -64,6 +78,43 @@
 <script type="text/javascript" src="/admin/lib/jquery.validation/1.14.0/validate-methods.js"></script>
 <script type="text/javascript" src="/admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript">
+    $(function(){
+    $('.skin-minimal input').iCheck({
+        checkboxClass: 'icheckbox-blue',
+        radioClass: 'iradio-blue',
+        increaseArea: '20%'
+    });
+
+    $("#form-member-add").validate({
+        rules:{
+
+        },
+        onkeyup:false,
+        focusCleanup:true,
+        success:"valid",
+        submitHandler:function(form){
+            $(form).ajaxSubmit({
+                type: 'post',
+                url: "" ,//自己提交给自己可以不写url
+                success: function(data){
+                    if(data == '1'){
+                        layer.msg('添加成功!',{icon:1,time:1000},function(){
+                            var index = parent.layer.getFrameIndex(window.name);
+                            //刷新
+                            parent.window.location = parent.window.location;
+                            parent.layer.close(index);
+                        });
+                    }else{
+                        layer.msg('添加失败!',{icon:2,time:2000});
+                    }
+                },
+                error: function(XmlHttpRequest, textis_nav, errorThrown){
+                    layer.msg('error!',{icon:2,time:1000});
+                }
+            });
+        }
+    });
+});
 </script>
 <!--/请在上方写此页面业务相关的脚本-->
 </body>
