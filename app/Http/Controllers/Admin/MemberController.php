@@ -65,10 +65,9 @@ class MemberController extends Controller
                     // $val->items->password = bcrypt($val->items->password);
                     $result = Member::insert($val);
                 }
-                dd($cretae_path);
-                unlink($cretae_path);//删除该文件
-                return $result ? '1':'0';
             });
+            unlink($cretae_path);//删除该文件
+            return $result ? '1':'0';
 
         }else{
             //展示视图
