@@ -22,6 +22,10 @@ Route::group(['prefix' => 'admin'],function(){
     Route::post('public/check','Admin\PublicController@check');
 
 
+    //项目初始化
+    // Route::any('public/','Admin\PublicController@index');
+
+
 });
 
 //需要认证的后台路由
