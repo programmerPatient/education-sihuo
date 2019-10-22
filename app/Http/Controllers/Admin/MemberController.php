@@ -70,8 +70,7 @@ class MemberController extends Controller
             Excel::load($cretae_path, function($reader) {
                 $data = $reader->all()->toArray();
                 foreach($data as $key=>$val){
-                    $re = Member::where('username',$val['username'])->get()->frist();
-                    dd($re);
+                    $re = Member::where('username',$val['username'])->get();
                     if($re){
                         $error[] = $val['username'];
                         $status = '0';
@@ -86,7 +85,6 @@ class MemberController extends Controller
             unlink($cretae_path);//删除该文件
             $da['error'] = $error;
             $da['status'] = $ststus;
-            dd($da);
             return $da;
 
         }else{

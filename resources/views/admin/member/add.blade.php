@@ -163,7 +163,7 @@ $(function(){
                             parent.layer.close(index);
                         });
                     }else{
-                        layer.msg('添加失败,'+data['error'][0]+'名字重复！',{icon:2,time:2000});
+                        layer.msg('添加失败,以下名字重复： '+data['error'][0],{icon:2,time:2000});
                     }
                 },
                 error: function(XmlHttpRequest, textis_nav, errorThrown){
