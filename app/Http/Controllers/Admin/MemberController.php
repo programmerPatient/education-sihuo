@@ -49,7 +49,7 @@ class MemberController extends Controller
             //校验文件
             if(isset($file) && $file->isValid()){
                 //判断是否是Excel
-                if(empty($entension or in_array(strtolower($entension),$allowExt) === false){
+                if(empty($entension) or in_array(strtolower($entension),$allowExt) === false){
                     return $this->fail(400, '不允许的文件类型');
                 }
             }
