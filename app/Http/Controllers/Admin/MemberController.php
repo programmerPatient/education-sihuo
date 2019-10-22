@@ -58,9 +58,9 @@ class MemberController extends Controller
             $path = $file->move(public_path().'/uploads',$newName);
             $cretae_path = public_path().'/uploads/'.$newName;
             Excel::load($cretae_path, function($reader) {
-                $data = $reader->all()->items;
-                dd($data);
+                $data = $reader->all();
                 foreach($data as $key=>$val){
+                    dd($val);
                     $val->items->status = '1';
                     // $val->items->password = bcrypt($val->items->password);
                     $result = Member::insert($val->items);
