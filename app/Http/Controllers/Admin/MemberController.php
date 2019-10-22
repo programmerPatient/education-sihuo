@@ -69,21 +69,23 @@ class MemberController extends Controller
             $cretae_path = public_path().'/uploads/'.$newName;
             $error = array();
             $status = '1';
-            Excel::load($cretae_path, function($reader) {
-                $data = $reader->all()->toArray();
-                foreach($data as $key=>$val){
-                    $re = Member::where('username',$val['username'])->get()->first();
-                    if($re){
-                        $error[] = $val['username'];
-                        $status = '0';
-                        continue;
-                    }
-                    $val['status'] = '1';
-                    $val['password'] = bcrypt($val['password']);
-                    // $val->items->password = bcrypt($val->items->password);
-                    $result = Member::insert($val);
+            $data = Excel::load($cretae_path)->get()->toArray();
+            foreach($data as $key=>$val){
+                $re = Member::where('username',$val['username'])->get()->first();
+                if($re){
+                    $error[] = $val['username'];
+                    $status = '0';
+                    continue;
                 }
-            });
+                $val['status'] = '1';
+                $val['password'] = bcrypt($val['password']);
+                // $val->items->password = bcrypt($val->items->password);
+                $result = Member::insert($val);
+            }
+            // Excel::load($cretae_path, function($reader) {
+            //     $data = $reader->all()->toArray();
+
+            // });
             unlink($cretae_path);//删除该文件
             $da['error'] = $error;
             $da['status'] = $status;
