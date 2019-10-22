@@ -28,6 +28,7 @@ class MemberController extends Controller
             $data['password'] = bcrypt($data['password']);
             $data['status'] = '1';
             $status = '1';
+            $error = array();
             $result = Member::where('username',$data['username'])->get()->first();
             if($result){
                 $error[] = $data['username'];
@@ -71,7 +72,7 @@ class MemberController extends Controller
             Excel::load($cretae_path, function($reader) {
                 $data = $reader->all()->toArray();
                 foreach($data as $key=>$val){
-                    $re = Member::where('username',$val['username'])->get();
+                    $re = Member::where('username',$val['username'])->get()->first();
                     if($re){
                         $error[] = $val['username'];
                         $status = '0';
