@@ -59,12 +59,10 @@ class MemberController extends Controller
             $cretae_path = public_path().'/uploads/'.$newName;
             Excel::load($cretae_path, function($reader) {
                 $data = $reader->all()->toArray();
-                dd($data);
                 foreach($data as $key=>$val){
-                    dd($val);
-                    $val->items->status = '1';
+                    $val['status'] = '1';
                     // $val->items->password = bcrypt($val->items->password);
-                    $result = Member::insert($val->items);
+                    $result = Member::insert($val);
                 }
                 unlink($cretae_path);//删除该文件
                 return $result ? '1':'0';
