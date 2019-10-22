@@ -104,7 +104,7 @@
                     }else{
                         var cont = '';
                         for(var i=0;i<data['error'].length;i++){
-                            cont += data['error'][i]+' ';
+                            cont += '</br>'data['error'][i];
                         }
                         layer.msg('添加失败,以下名字出现重复：'+cont,{icon:2,time:2000});
                     }
