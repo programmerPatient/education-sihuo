@@ -19,6 +19,19 @@ class MemberController extends Controller
         return view('admin.member.index',compact('data'));
     }
 
+    //excel模板导出
+    public function excel(){
+         $cellData = [
+            ['username','password','gender','email','status'],
+            ['用户名','密码','性别 1男 2女','邮箱','状态 1开启 2关闭']
+        ];
+        Excel::create('tableau用户模板',function($excel) use ($cellData){
+            $excel->sheet('score', function($sheet) use ($cellData){
+                $sheet->rows($cellData);
+            });
+        })->export('xls');
+    }
+
     //添加会员
     public function add(){
         //判断请求类型

@@ -53,6 +53,9 @@
                 <input  name="file" type="file">
             </div>
         </div>
+        <div class="ormControls col-xs-4 col-sm-3">
+            <a href="/admin/member/excel">模板下载</a>
+        </div>
         {{csrf_field()}}
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">

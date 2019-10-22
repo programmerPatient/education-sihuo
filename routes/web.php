@@ -76,6 +76,10 @@ Route::group(['prefix' => 'admin','middleware' => ['admin.auth']],function(){
     //修改全局配置
     Route::any('system/update','Admin\SystemController@update');
 
+
+    //excel模板导出
+    Route::get('member/excel','Admin\MemberController@excel');
+
 });
 
 
