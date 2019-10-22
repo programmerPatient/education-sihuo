@@ -103,8 +103,8 @@ class MemberController extends Controller
     //批量删除会员
     public function deletes(){
         $ids = Input::only('ids');
-        dd($ids);
         foreach($ids as $key=>$val){
+            dd($val);
             $data = Member::where('id',$val)->get()->first();
             $result = $data ->delete();
         }
