@@ -61,11 +61,11 @@ class MemberController extends Controller
                 $data = $reader->all()->toArray();
                 foreach($data as $key=>$val){
                     $val['status'] = '1';
-                    dd($val['password']);
                     $val['password'] = bcrypt($val['password']);
                     // $val->items->password = bcrypt($val->items->password);
                     $result = Member::insert($val);
                 }
+                dd($cretae_path);
                 unlink($cretae_path);//删除该文件
                 return $result ? '1':'0';
             });
