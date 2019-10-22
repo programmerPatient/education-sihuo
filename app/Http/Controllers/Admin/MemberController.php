@@ -29,7 +29,6 @@ class MemberController extends Controller
             $data['status'] = '1';
             $status = '1';
             $result = Member::where('username',$data['username'])->get();
-            dd($result);
             if($result){
                 $error[] = $val['username'];
                 $status = '0';
