@@ -39,7 +39,7 @@
 <header class="navbar-wrapper">
     <div class="navbar navbar-fixed-top">
         <div class="container-fluid cl">
-            <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/admintwo/index/index">
+            <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/admin/index/index">
                 <img src="{{$system->logo_url}}" alt="logo图片位置" style="width:100px;max-height:30px">
             </a>
             <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/admin/index/index">logo</a>
@@ -54,7 +54,7 @@
                             <!-- <li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li> -->
                             <!-- <li><a href="#">切换账户</a></li> -->
                             <li><a href="/admintwo/index/index">模式2</a></li>
-                            <li><a href="/admintwo/public/logout" onClick="historyClear()">退出</a></li>
+                            <li><a href="/admin/public/logout" onClick="historyClear()">退出</a></li>
                         </ul>
                     </li>
                     <li id="Hui-msg">
@@ -80,8 +80,8 @@
     <div class="menu_dropdown bk_2">
         @if($type == '1')
         <dl id="menu-member">
-            <li><a data-href="/admintwo/member/index" data-title="会员列表" href="javascript:;">会员列表</a></li>
-            <li><a data-href="/admintwo/system/update" data-title="系统设置" href="javascript:void(0)">系统设置</a></li>
+            <li><a data-href="/admin/member/index" data-title="会员列表" href="javascript:;">会员列表</a></li>
+            <li><a data-href="/admin/system/update" data-title="系统设置" href="javascript:void(0)">系统设置</a></li>
         </dl>
         @endif
         @if($p)
@@ -97,7 +97,7 @@
                             <ul id="Huifold1" class="Huifold">
                                 @foreach($value['views'] as $vieVule)
                                 <li class="item">
-                                  <a data-href="/admintwo/table/index?contentUrl={{$vieVule->contentUrl}}" data-title="{{$vieVule->name}}" href="javascript:;" style="padding-left:0;color:#333;text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px">{{$vieVule->name}}</a>
+                                  <a data-href="/admin/table/index?contentUrl={{$vieVule->contentUrl}}" data-title="{{$vieVule->name}}" href="javascript:;" style="padding-left:0;color:#333;text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px">{{$vieVule->name}}</a>
                                 </li>
                                 @endforeach
                             </ul>
@@ -130,7 +130,7 @@
             <div style="display:none" class="loading"></div>
 
             <!-- 修改src引入地址 -->
-            <iframe scrolling="yes" frameborder="0" src="/admintwo/index/welcome"></iframe>
+            <iframe scrolling="yes" frameborder="0" src="/admin/index/welcome"></iframe>
     </div>
 </div>
 </section>

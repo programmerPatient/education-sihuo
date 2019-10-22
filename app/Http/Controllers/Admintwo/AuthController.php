@@ -16,7 +16,7 @@ class AuthController extends Controller
     public function index(){
         //查询数据
         $data = DB::table('auth as t1')->select('t1.*','t2.auth_name as parent_name')->leftJoin('auth as t2','t1.pid','=','t2.id')->get();
-        return view('admin.auth.index',compact('data'));
+        return view('admin2.auth.index',compact('data'));
     }
 
     //
@@ -31,7 +31,7 @@ class AuthController extends Controller
         }else{
             //查询父级权限
             $parents = Auth::where('pid' ,'=' ,'0')->get();
-            return view('admin.auth.add',compact('parents'));
+            return view('admin2.auth.add',compact('parents'));
         }
     }
 }

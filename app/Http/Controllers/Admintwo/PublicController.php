@@ -21,7 +21,7 @@ class PublicController extends Controller
         $system = System::get()->first();
         $tableau_domain = $system->system_domain;
         Session::put(['tableau_domain' => $tableau_domain]);
-        return view('admintwo.public.login',compact('system'));
+        return view('admin2.public.login',compact('system'));
     }
 
 
@@ -96,7 +96,7 @@ class PublicController extends Controller
             if ($err) {
               echo "cURL Error #:" . $err;
             } else {
-                if(!$response) return view('admintwo.error.index');
+                if(!$response) return view('admin2.error.index');
                 $res = json_decode($response);
                 Session::put('token',$res->credentials->token);
                 Session::put('credentials',$res->credentials->site->id);
@@ -130,7 +130,7 @@ class PublicController extends Controller
                     }
                   }
                   if($boole){
-                    return view('admintwo.error.index');
+                    return view('admin2.error.index');
                   }
                 }
             }

@@ -49,7 +49,7 @@ class TableController extends Controller
         array_splice($array,1,1);
         $contentUrl = implode("/", $array);
         $ticket = Session::get('ticket');
-        return view('admintwo.table.index',compact('contentUrl','ticket'));
+        return view('admin2.table.index',compact('contentUrl','ticket'));
     }
 
     public function status(){
@@ -193,7 +193,7 @@ class TableController extends Controller
                 }
             }
             $hasTableauIds = explode(',',$user->tableauIds);
-            return view('admintwo.table.authIndex',compact('p','hasTableauIds'));//展示报表列表
+            return view('admin2.table.authIndex',compact('p','hasTableauIds'));//展示报表列表
         }
     }
 }
