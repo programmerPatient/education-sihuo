@@ -52,7 +52,7 @@
                         <a href="#" class="dropDown_A">{{ $name }} <i class="Hui-iconfont">&#xe6d5;</i></a>
                         <ul class="dropDown-menu menu radius box-shadow">
                             <li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
-                            <li><a href="#">切换账户</a></li>
+                            <li><a href="/admin/index/index">模式1</a></li>
                             <li><a href="/admin2/public/logout" onClick="historyClear()">退出</a></li>
                         </ul>
                     </li>
