@@ -34,7 +34,7 @@
          <div class="ormControls col-xs-8 col-sm-9">
             <label>文件上传</label>
             <div class="file-loading">
-                <input id="file-fr" name="file" type="file" multiple value="">
+                <input  name="file" type="file">
             </div>
         </div>
         {{csrf_field()}}

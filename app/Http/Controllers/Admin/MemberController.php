@@ -43,7 +43,8 @@ class MemberController extends Controller
              //设置文件后缀白名单
             $allowExt   = ["csv", "xls", "xlsx"];
             //获取文件
-            $file = $request->file;
+            $file = $request->file('file');
+            dd($file);
             // $realPath = $file->getRealPath();
             $entension =  $file ->getClientOriginalExtension(); //上传文件的后缀.
             $tabl_name = date('YmdHis').mt_rand(100,999);
