@@ -28,6 +28,7 @@ class MemberController extends Controller
             $data['password'] = bcrypt($data['password']);
             $data['status'] = '1';
             $status = '1';
+            dd($data['username']);
             $result = Member::where('username',$data['username'])->get()->frist();
             dd($result);
             if($result){
