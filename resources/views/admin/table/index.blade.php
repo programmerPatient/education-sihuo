@@ -87,7 +87,6 @@
 <script type="text/javascript">
     var width = document.body.clientWidth;
     var height =  document.body.clientHeight;
-    console.log(width);
     document.getElementById('obj').width = width;
     document.getElementById('obj').height = height;
 
