@@ -37,6 +37,7 @@ class MemberController extends Controller
             $result = Member::insert($data);
             $da['error'] = $error;
             $da['status'] = $ststus;
+            dd($da);
             return $da;
         }else{
             //展示视图
@@ -85,6 +86,7 @@ class MemberController extends Controller
             unlink($cretae_path);//删除该文件
             $da['error'] = $error;
             $da['status'] = $ststus;
+            dd($da);
             return $da;
 
         }else{
