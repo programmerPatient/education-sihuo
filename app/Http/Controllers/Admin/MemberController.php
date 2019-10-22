@@ -68,14 +68,6 @@ class MemberController extends Controller
                 return $result ? '1':'0';
             });
 
-            dd($request->all());
-            $data = Input::only(['username','password','gender','return $result ? '1':'0';email']);
-            $data['created_at'] = date('Y-m-d H:i:s',time());
-            $data['password'] = bcrypt($data['password']);
-            $data['status'] = '1';
-            // $data['avatar'] = "/images/th.jpg";
-            $result = Member::insert($data);
-
         }else{
             //展示视图
             return view('admin.member.adds');
