@@ -73,6 +73,7 @@ class MemberController extends Controller
                 $data = $reader->all()->toArray();
                 foreach($data as $key=>$val){
                     $re = Member::where('username',$val['username'])->get()->first();
+                    dd($re);
                     if($re){
                         $error[] = $val['username'];
                         $status = '0';
