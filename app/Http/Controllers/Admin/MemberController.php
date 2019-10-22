@@ -61,6 +61,7 @@ class MemberController extends Controller
                 $data = $reader->all()->toArray();
                 foreach($data as $key=>$val){
                     $val['status'] = '1';
+                    $val['password'] = bcrpt($val['password']);
                     // $val->items->password = bcrypt($val->items->password);
                     $result = Member::insert($val);
                 }
