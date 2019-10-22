@@ -47,6 +47,7 @@
 
 <form method="post" enctype="multipart/form-data" action="">
     <input type="file" name="file">
+    {{csrf_field()}}
     <button type="submit"> 提交 </button>
 </form>
 </article>
