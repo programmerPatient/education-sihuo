@@ -30,7 +30,7 @@
 </head>
 <body>
 <article class="page-container">
-    <form action="" method="post" class="form form-horizontal" id="form-member-add">
+    <!-- <form action="" method="post" class="form form-horizontal" id="form-member-add">
          <div class="ormControls col-xs-8 col-sm-9">
             <label>文件上传</label>
             <div class="file-loading">
@@ -43,7 +43,12 @@
                 <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
             </div>
         </div>
-    </form>
+    </form> -->
+
+<form method="post" enctype="multipart/form-data" action="">
+    <input type="file" name="file">
+    <button type="submit"> 提交 </button>
+</form>
 </article>
 
 <!--_footer 作为公共模版分离出去-->
