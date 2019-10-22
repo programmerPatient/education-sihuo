@@ -28,7 +28,7 @@ class MemberController extends Controller
             $data['password'] = bcrypt($data['password']);
             $data['status'] = '1';
             $status = '1';
-            $result = Member::where('username',$data['username'])->get();
+            $result = Member::where('username',$data['username'])->get()->first();
             if($result){
                 $error[] = $data['username'];
                 $status = '0';
