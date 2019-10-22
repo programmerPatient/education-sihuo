@@ -58,7 +58,8 @@ class MemberController extends Controller
             $path = $file->move(public_path().'/uploads',$newName);
             $cretae_path = public_path().'/uploads/'.$newName;
             Excel::load($cretae_path, function($reader) {
-                $data = $reader->all();
+                $data = $reader->all()->toArray();
+                dd($data);
                 foreach($data as $key=>$val){
                     dd($val);
                     $val->items->status = '1';
