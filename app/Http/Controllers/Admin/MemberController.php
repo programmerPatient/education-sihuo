@@ -44,7 +44,6 @@ class MemberController extends Controller
             $allowExt   = ["csv", "xls", "xlsx"];
             //获取文件
             $file = $request->file;
-            dd($file);
             // $realPath = $file->getRealPath();
             $entension =  $file -> extension(); //上传文件的后缀.
             $tabl_name = date('YmdHis').mt_rand(100,999);
