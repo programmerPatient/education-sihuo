@@ -30,7 +30,7 @@ class MemberController extends Controller
             $status = '1';
             $result = Member::where('username',$data['username'])->get();
             if($result){
-                $error[] = $val['username'];
+                $error[] = $data['username'];
                 $status = '0';
             }
             // $data['avatar'] = "/images/th.jpg";
