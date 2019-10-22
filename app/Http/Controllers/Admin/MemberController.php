@@ -72,6 +72,7 @@ class MemberController extends Controller
             Excel::load($cretae_path, function($reader) {
                 $data = $reader->all()->toArray();
                 foreach($data as $key=>$val){
+                    dd($val['username']);
                     $re = Member::where('username',$val['username'])->get()->first();
                     dd($re);
                     if($re){
