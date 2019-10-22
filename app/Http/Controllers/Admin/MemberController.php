@@ -68,7 +68,7 @@ class MemberController extends Controller
                 }
             });
             unlink($cretae_path);//删除该文件
-            return $result?'1':'0';
+            return '1';
 
         }else{
             //展示视图
