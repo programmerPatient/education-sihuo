@@ -45,7 +45,7 @@
         </object>
     </div> -->
     <div class='tableauPlaceholder' style='width: 1016px; height: 1014px;'>
-        <object class='tableauViz' width='1016' height='1014' style='display:none;'>
+        <object id="obj" class='tableauViz' width='1016' height='1014' style='display:none;'>
             <param name="ticket" value="{{$ticket}}" />
             <param name='host_url' value='http%3A%2F%2Ftableau.kalaw.top%2F' />
             <param name='embed_code_version' value='3' />
@@ -84,4 +84,11 @@
         vizElement.parentNode.insertBefore(scriptElement, vizElement);
     </script> -->
 </body>
+<script type="text/javascript">
+    var width = document.body.clientWidth;
+    var height =  document.body.clientHeight;
+    document.getElementById('obj').width = width;
+    document.getElementById('obj').height = height;
+
+</script>
 </html>
