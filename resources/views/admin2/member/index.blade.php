@@ -32,7 +32,7 @@
         <input type="text" class="input-text" style="width:250px" placeholder="输入会员名称、电话、邮箱" id="" name="">
         <button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
     </div> -->
-    <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><!-- <a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> --> <a href="javascript:;" onclick="member_add('添加用户','/admin2/member/add','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a></span> <span class="r">共有数据：<strong>88</strong> 条</span> </div>
+    <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><!-- <a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> --> <a href="javascript:;" onclick="member_add('添加用户','/admintwo/member/add','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a></span> <span class="r">共有数据：<strong>88</strong> 条</span> </div>
     <div class="mt-20">
     <table class="table table-border table-bordered table-hover table-bg table-sort">
         <thead>
@@ -82,13 +82,13 @@
                     @else
                     <a style="text-decoration:none" onClick="member_start(this,'{{$value->tableau_id}}','{{$value->id}}','1','{{$value->username}}')" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe631;</i></a>
                     @endif
-                    <a title="编辑" href="javascript:;" onclick="member_edit('编辑','/admin2/member/modify/{{$value->id}}','4','','510')" class="ml-5" style="text-decoration:none">
+                    <a title="编辑" href="javascript:;" onclick="member_edit('编辑','/admintwo/member/modify/{{$value->id}}','4','','510')" class="ml-5" style="text-decoration:none">
                         <i class="Hui-iconfont">&#xe6df;</i>
                     </a>
                     <a title="删除" href="javascript:;" onclick="member_del(this,'{{$value->id}}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
                 </td>
                 <td class="td-status">
-                    <a onclick="member_auth('权限管理','/admin2/table/auth/{{$value->id}}','4','','510')"><span class="label label-success radius">权限管理</span></a>
+                    <a onclick="member_auth('权限管理','/admintwo/table/auth/{{$value->id}}','4','','510')"><span class="label label-success radius">权限管理</span></a>
                     </span>
                 </td>
             </tr>
@@ -134,7 +134,7 @@ function member_stop(obj,tableau_id,id,type,name){
         $.ajax({
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             type: 'POST',
-            url: '/admin2/table/status',
+            url: '/admintwo/table/status',
             data:{'tableau_id':tableau_id,'type':type,'username':name},
             dataType: 'json',
             success: function(data){
@@ -170,7 +170,7 @@ function member_start(obj,tableau_id,id,type,name){
         $.ajax({
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             type: 'POST',
-            url: '/admin2/table/status',
+            url: '/admintwo/table/status',
             data:{'id':id,'type':type,'username':name},
             dataType: 'json',
             success: function(data){
@@ -217,7 +217,7 @@ function member_del(obj,id){
         $.ajax({
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             type: 'delete',
-            url: '/admin2/member/delete',
+            url: '/admintwo/member/delete',
             data:{'id':id},
             dataType: 'json',
             success: function(data){

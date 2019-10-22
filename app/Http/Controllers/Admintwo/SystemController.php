@@ -49,7 +49,7 @@ class SystemController extends Controller
         }else{
             $default = System::get()->first();
                         // dd($tableau_domain);
-            return view('admin2.system.index',compact('default'));
+            return view('admintwo.system.index',compact('default'));
         }
     }
 }

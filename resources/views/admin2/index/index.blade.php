@@ -39,10 +39,10 @@
 <header class="navbar-wrapper">
     <div class="navbar navbar-fixed-top">
         <div class="container-fluid cl">
-            <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/admin2/index/index">
+            <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/admintwo/index/index">
                 <img src="{{$system->logo_url}}" alt="logo图片位置" style="width:100px;max-height:30px">
             </a>
-            <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/admin2/index/index">logo</a>
+            <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/admintwo/index/index">logo</a>
             <span class="logo navbar-slogan f-l mr-10 hidden-xs" style="width:40%;letter-spacing: 8px;margin-left:30%;font-size: 20px">{{$system->web_title}}</span>
             <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
             <!-- <div style="color:white;font-size:15px;">{{$system->web_title}}</div> -->
@@ -53,7 +53,7 @@
                         <ul class="dropDown-menu menu radius box-shadow">
                             <li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
                             <li><a href="/admin/index/index">模式1</a></li>
-                            <li><a href="/admin2/public/logout" onClick="historyClear()">退出</a></li>
+                            <li><a href="/admintwo/public/logout" onClick="historyClear()">退出</a></li>
                         </ul>
                     </li>
                     <li id="Hui-msg">
@@ -79,8 +79,8 @@
     <div class="menu_dropdown bk_2">
         @if($type == '1')
         <dl id="menu-member">
-            <li><a data-href="/admin2/member/index" data-title="会员列表" href="javascript:;">会员列表</a></li>
-            <li><a data-href="/admin2/system/update" data-title="系统设置" href="javascript:void(0)">系统设置</a></li>
+            <li><a data-href="/admintwo/member/index" data-title="会员列表" href="javascript:;">会员列表</a></li>
+            <li><a data-href="/admintwo/system/update" data-title="系统设置" href="javascript:void(0)">系统设置</a></li>
         </dl>
         @endif
         @if($p)
@@ -96,7 +96,7 @@
                             <ul id="Huifold1" class="Huifold">
                                 @foreach($value['views'] as $vieVule)
                                 <li class="item">
-                                  <a data-href="/admin2/table/index?contentUrl={{$vieVule->contentUrl}}" data-title="{{$vieVule->name}}" href="javascript:;" style="text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px">{{$vieVule->name}}</a>
+                                  <a data-href="/admintwo/table/index?contentUrl={{$vieVule->contentUrl}}" data-title="{{$vieVule->name}}" href="javascript:;" style="text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px">{{$vieVule->name}}</a>
                                 </li>
                                 @endforeach
                             </ul>
@@ -118,7 +118,7 @@
             <ul id="min_title_list" class="acrossTab cl">
                 <li class="active">
                     <!-- 修改src引入地址 -->
-                    <span title="我的桌面" data-href="/admin2/index//admin/index/welcome">我的桌面</span>
+                    <span title="我的桌面" data-href="/admintwo/index//admin/index/welcome">我的桌面</span>
                     <em></em></li>
         </ul>
     </div>
@@ -129,7 +129,7 @@
             <div style="display:none" class="loading"></div>
 
             <!-- 修改src引入地址 -->
-            <iframe scrolling="yes" frameborder="0" src="/admin2/index/welcome"></iframe>
+            <iframe scrolling="yes" frameborder="0" src="/admintwo/index/welcome"></iframe>
     </div>
 </div>
 </section>

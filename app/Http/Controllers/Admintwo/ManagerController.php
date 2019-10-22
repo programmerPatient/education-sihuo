@@ -12,6 +12,6 @@ class ManagerController extends Controller
     public function index(){
         //查询数据
         $data = Manager::get();
-        return view('admin2.manager.index',compact('data'));
+        return view('admintwo.manager.index',compact('data'));
     }
 }

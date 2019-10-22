@@ -21,7 +21,7 @@ class PublicController extends Controller
         $system = System::get()->first();
         $tableau_domain = $system->system_domain;
         Session::put(['tableau_domain' => $tableau_domain]);
-        return view('admin2.public.login',compact('system'));
+        return view('admintwo.public.login',compact('system'));
     }
 
 
@@ -96,7 +96,7 @@ class PublicController extends Controller
             if ($err) {
               echo "cURL Error #:" . $err;
             } else {
-                if(!$response) return view('admin2.error.index');
+                if(!$response) return view('admintwo.error.index');
                 $res = json_decode($response);
                 Session::put('token',$res->credentials->token);
                 Session::put('credentials',$res->credentials->site->id);
@@ -130,15 +130,15 @@ class PublicController extends Controller
                     }
                   }
                   if($boole){
-                    return view('admin2.error.index');
+                    return view('admintwo.error.index');
                   }
                 }
             }
             //跳转到后台首页
-            return redirect('admin2/index/index');
+            return redirect('admintwo/index/index');
         }else{
             //withErrors表示带上错误信息
-            return redirect('/admin2/public/login') -> withErrors([
+            return redirect('/admintwo/public/login') -> withErrors([
                 'loginError' => '用户名或密码错误。'
             ]);
         }
@@ -153,7 +153,7 @@ class PublicController extends Controller
 
 
         //跳转到登录界面
-        return redirect('/admin2/public/login');
+        return redirect('/admintwo/public/login');
     }
 
 }

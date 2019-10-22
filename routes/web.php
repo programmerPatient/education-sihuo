@@ -83,45 +83,45 @@ Route::group(['prefix' => 'admin','middleware' => ['admin.auth']],function(){
 });
 
 //后台二需要认证的后台路由
-Route::group(['prefix' => 'admin2','middleware' => ['admin.auth']],function(){
+Route::group(['prefix' => 'admintwo','middleware' => ['admin.auth']],function(){
 
     //后台首页的路由
-    Route::get('index/index','Admin2\IndexController@index');
-    Route::get('index/welcome','Admin2\IndexController@welcome');
+    Route::get('index/index','admintwo\IndexController@index');
+    Route::get('index/welcome','admintwo\IndexController@welcome');
 
     //管理员的管理模块
-    Route::get('manager/index','Admin2\ManagerController@index');
+    Route::get('manager/index','admintwo\ManagerController@index');
 
     //权限的管理模块
-    Route::get('auth/index','Admin2\AuthController@index');
-    Route::any('auth/add','Admin2\AuthController@add');
+    Route::get('auth/index','admintwo\AuthController@index');
+    Route::any('auth/add','admintwo\AuthController@add');
 
     //角色的管理模块
-    Route::get('role/index','Admin2\RoleController@index');
-    Route::any('role/assign','Admin2\RoleController@assign');
-    Route::any('role/add','Admin2\RoleController@add');
+    Route::get('role/index','admintwo\RoleController@index');
+    Route::any('role/assign','admintwo\RoleController@assign');
+    Route::any('role/add','admintwo\RoleController@add');
 
     //会员模块
-    Route::get('member/index','Admin2\MemberController@index');
-    Route::any('member/add','Admin2\MemberController@add');
-    Route::delete('member/delete','Admin2\MemberController@delete');
-    Route::any('member/modify/{id}','Admin2\MemberController@modify');
+    Route::get('member/index','admintwo\MemberController@index');
+    Route::any('member/add','admintwo\MemberController@add');
+    Route::delete('member/delete','admintwo\MemberController@delete');
+    Route::any('member/modify/{id}','admintwo\MemberController@modify');
     //异步头像上传
-    Route::post('uploader/webuploader','Admin2\UploaderController@index');
+    Route::post('uploader/webuploader','admintwo\UploaderController@index');
     //异步四级联动数据获取
     // Route::get('member/getAreaById','Admin\UploaderController@getAreaById');
     //tableau模块
     //tableau测试
-    Route::get('table/index','Admin2\TableController@index');
+    Route::get('table/index','admintwo\TableController@index');
     //tableau用户的状态修改
-    Route::post('table/status','Admin2\TableController@status');
+    Route::post('table/status','admintwo\TableController@status');
     //报表权限分配
-    Route::any('table/auth/{id}','Admin2\TableController@auth');
+    Route::any('table/auth/{id}','admintwo\TableController@auth');
     // 刷新tableau票据
     // Route::get('table/refresh','Admin\TableController@refresh');
 
     //修改全局配置
-    Route::any('system/update','Admin2\SystemController@update');
+    Route::any('system/update','admintwo\SystemController@update');
 
 });
 

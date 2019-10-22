@@ -53,7 +53,7 @@ class IndexController extends Controller
 
             $data = json_decode($response)->workbooks->workbook;
             $p = [];
-            if(!$data) return view('admin2.error.index');
+            if(!$data) return view('admintwo.error.index');
             // $rs = $response->toArray();
             foreach($data as $key=>$val){
                 $id = $val->project->id;
@@ -106,7 +106,7 @@ class IndexController extends Controller
             }
         }
         // FS1Wu4GJRVCaNdtzbAeHlw|j9JPkfLMU0wZtx8c1BB6pkPGuiEim0h
-        return view('admin2.index.index',compact('p','system','type','name'));
+        return view('admintwo.index.index',compact('p','system','type','name'));
     }
 
 
@@ -114,6 +114,6 @@ class IndexController extends Controller
 
     //首页，框架页面
     public function welcome(){
-        return view('admin2.index.welcome');
+        return view('admintwo.index.welcome');
     }
 }

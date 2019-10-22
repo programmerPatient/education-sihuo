@@ -15,7 +15,7 @@ class MemberController extends Controller
         //查询数据
         $data = Member::all();
         //展示视图
-        return view('admin2.member.index',compact('data'));
+        return view('admintwo.member.index',compact('data'));
     }
 
     //添加会员
@@ -59,7 +59,7 @@ class MemberController extends Controller
             return $result ? '1':'0';
         }else{
             //展示视图
-            return view('admin2.member.add');
+            return view('admintwo.member.add');
         }
     }
 
@@ -75,7 +75,7 @@ class MemberController extends Controller
             $data->mobile = $post['mobile'];
             return $data->save() ? '1':'0';
         }else{
-            return view('admin2.member.modify',compact('data'));
+            return view('admintwo.member.modify',compact('data'));
         }    }
 
     //删除会员
