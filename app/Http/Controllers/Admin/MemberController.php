@@ -89,7 +89,6 @@ class MemberController extends Controller
             unlink($cretae_path);//删除该文件
             $da['error'] = $error;
             $da['status'] = $status;
-            dd($da);
             return $da;
 
         }else{
