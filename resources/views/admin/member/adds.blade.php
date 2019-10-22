@@ -94,7 +94,7 @@
                 type: 'post',
                 url: "" ,//自己提交给自己可以不写url
                 success: function(data){
-                    if(data == '1'){
+                    if(data['status'] == '1'){
                         layer.msg('添加成功!',{icon:1,time:1000},function(){
                             var index = parent.layer.getFrameIndex(window.name);
                             //刷新
@@ -102,7 +102,11 @@
                             parent.layer.close(index);
                         });
                     }else{
-                        layer.msg('添加失败!',{icon:2,time:2000});
+                        var cont = '';
+                        for(var i=0;i<data['error'].length;i++){
+                            cont += data['error'][i]+' ';
+                        }
+                        layer.msg('添加失败,以下名字出现重复：'+cont,{icon:2,time:2000});
                     }
                 },
                 error: function(XmlHttpRequest, textis_nav, errorThrown){

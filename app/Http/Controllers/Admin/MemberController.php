@@ -27,9 +27,17 @@ class MemberController extends Controller
             $data['created_at'] = date('Y-m-d H:i:s',time());
             $data['password'] = bcrypt($data['password']);
             $data['status'] = '1';
+            $status = '1';
+            $result = Member::where('username',$data['username'])->get()->frist();
+            if($result){
+                $error[] = $val['username'];
+                $status = '0';
+            }
             // $data['avatar'] = "/images/th.jpg";
             $result = Member::insert($data);
-            return $result ? '1':'0';
+            $da['error'] = $error;
+            $da['status'] = $ststus;
+            return $da;
         }else{
             //展示视图
             return view('admin.member.add');
@@ -57,10 +65,17 @@ class MemberController extends Controller
             $newName = $tabl_name.'.'.'xls';//$entension;
             $path = $file->move(public_path().'/uploads',$newName);
             $cretae_path = public_path().'/uploads/'.$newName;
-            $result = false;
+            $error = array();
+            $status = '1';
             Excel::load($cretae_path, function($reader) {
                 $data = $reader->all()->toArray();
                 foreach($data as $key=>$val){
+                    $re = Member::where('username',$val['username'])->get()->frist();
+                    if($re){
+                        $error[] = $val['username'];
+                        $status = '0';
+                        break;
+                    }
                     $val['status'] = '1';
                     $val['password'] = bcrypt($val['password']);
                     // $val->items->password = bcrypt($val->items->password);
@@ -68,7 +83,9 @@ class MemberController extends Controller
                 }
             });
             unlink($cretae_path);//删除该文件
-            return '1';
+            $da['error'] = $error;
+            $da['status'] = $ststus;
+            return $da;
 
         }else{
             //展示视图
