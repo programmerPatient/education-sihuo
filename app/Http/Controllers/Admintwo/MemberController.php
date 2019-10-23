@@ -22,10 +22,16 @@ class MemberController extends Controller
     public function add(){
         //判断请求类型
         if(Input::method() == 'POST'){
-            $data = Input::only(['username','password','gender','mobile','email']);
+            $data = Input::only(['username','password','gender','email']);
             $data['created_at'] = date('Y-m-d H:i:s',time());
             $data['password'] = bcrypt($data['password']);
             $data['status'] = Input::get(['tableau_user']);
+            $error = array();
+            $result = Member::where('username',$data['username'])->get()->first();
+            if($result){
+                $error[] = $data['username'];
+                $status = '0';
+            }
             if(Input::get(['tableau_user']) == '1'){
                 //创建table用户
                 $curl = curl_init();
@@ -56,7 +62,9 @@ class MemberController extends Controller
             }
             // $data['avatar'] = "/images/th.jpg";
             $result = Member::insert($data);
-            return $result ? '1':'0';
+            $da['error'] = $error;
+            $da['status'] = $status;
+            return $da;
         }else{
             //展示视图
             return view('admin2.member.add');

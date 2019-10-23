@@ -61,12 +61,6 @@
             </div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="" placeholder="" id="mobile" name="mobile">
-            </div>
-        </div>
-        <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>邮箱：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <input type="text" class="input-text" placeholder="@" name="email" id="email">
@@ -137,14 +131,6 @@ $(function(){
             gender:{
                 required:true,
             },
-            mobile:{
-                required:true,
-                isMobile:true,
-            },
-            email:{
-                required:true,
-                email:true,
-            },
 
         },
         onkeyup:false,
@@ -155,7 +141,7 @@ $(function(){
                 type: 'post',
                 url: "" ,//自己提交给自己可以不写url
                 success: function(data){
-                    if(data == '1'){
+                    if(data['status'] == '1'){
                         layer.msg('添加成功!',{icon:1,time:1000},function(){
                             var index = parent.layer.getFrameIndex(window.name);
                             //刷新
@@ -163,7 +149,7 @@ $(function(){
                             parent.layer.close(index);
                         });
                     }else{
-                        layer.msg('添加失败!',{icon:2,time:2000});
+                        layer.msg('添加失败,以下名字重复： '+data['error'][0],{icon:2,time:2000});
                     }
                 },
                 error: function(XmlHttpRequest, textis_nav, errorThrown){
