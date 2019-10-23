@@ -125,6 +125,49 @@ Route::group(['prefix' => 'admintwo','middleware' => ['admin.auth']],function(){
 
 });
 
+//后台三需要认证的后台路由
+Route::group(['prefix' => 'adminthree','middleware' => ['admin.auth']],function(){
+
+    //后台首页的路由
+    Route::get('index/index','Adminthree\IndexController@index');
+    Route::get('index/welcome','Adminthree\IndexController@welcome');
+
+    //管理员的管理模块
+    Route::get('manager/index','Adminthree\ManagerController@index');
+
+    //权限的管理模块
+    Route::get('auth/index','Adminthree\AuthController@index');
+    Route::any('auth/add','Adminthree\AuthController@add');
+
+    //角色的管理模块
+    Route::get('role/index','Adminthree\RoleController@index');
+    Route::any('role/assign','Adminthree\RoleController@assign');
+    Route::any('role/add','Adminthree\RoleController@add');
+
+    //会员模块
+    Route::get('member/index','Adminthree\MemberController@index');
+    Route::any('member/add','Adminthree\MemberController@add');
+    Route::delete('member/delete','Adminthree\MemberController@delete');
+    Route::any('member/modify/{id}','Adminthree\MemberController@modify');
+    //异步头像上传
+    Route::post('uploader/webuploader','Adminthree\UploaderController@index');
+    //异步四级联动数据获取
+    // Route::get('member/getAreaById','Admin\UploaderController@getAreaById');
+    //tableau模块
+    //tableau测试
+    Route::get('table/index','Adminthree\TableController@index');
+    //tableau用户的状态修改
+    Route::post('table/status','Adminthree\TableController@status');
+    //报表权限分配
+    Route::any('table/auth/{id}','Adminthree\TableController@auth');
+    // 刷新tableau票据
+    // Route::get('table/refresh','Admin\TableController@refresh');
+
+    //修改全局配置
+    Route::any('system/update','Adminthree\SystemController@update');
+
+});
+
 
 
 

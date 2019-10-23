@@ -30,80 +30,11 @@
 </head>
 <body>
 <article class="page-container">
-    <form action="" method="post" class="form form-horizontal" id="form-member-add">
-<!--         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户名：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="{{$data->username}}" placeholder="" id="username" name="username">
-            </div>
-        </div> -->
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>密码：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="{{$data->password}}" placeholder="" id="password" name="password">
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>性别：</label>
-            <div class="formControls col-xs-8 col-sm-9 skin-minimal">
-                <div class="radio-box">
-                    @if($data->gender == '1')
-                    <input name="gender" type="radio" id="gender-1" checked value="1">
-                    @else
-                    <input name="gender" type="radio" id="gender-1" value="1">
-                    @endif
-                    <label for="gender-1">男</label>
-                </div>
-                <div class="radio-box">
-                    @if($data->gender == '2')
-                    <input type="radio" id="gender-2" checked name="gender">
-                    @else
-                    <input type="radio" id="gender-2"  name="gender">
-                    @endif
-                    <label for="gender-2" value="2">女</label>
-                </div>
-                <div class="radio-box">
-                    @if($data->gender == '3')
-                    <input type="radio" id="gender-3" checked name="gender">
-                    @else
-                    <input type="radio" id="gender-3" name="gender">
-                    @endif
-                    <label for="gender-3" value="13">保密</label>
-                </div>
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="{{$data->mobile}}" placeholder="" id="mobile" name="mobile">
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>邮箱：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="{{$data->email}}" placeholder="@" name="email" id="email">
-            </div>
-        </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>账号状态：</label>
-            <div class="formControls col-xs-8 col-sm-9 skin-minimal">
-                <div class="radio-box">
-                    @if($data->status == '2')
-                    <input name="status" type="radio" id="status-1" checked value="2">
-                    @else
-                    <input name="status" type="radio" id="status-1" checked value="2">
-                    @endif
-                    <label for="status-1">禁用</label>
-                </div>
-                <div class="radio-box">
-                     @if($data->status == '1')
-                    <input type="radio" id="status-2" name="status" checked value="1">
-                    @else
-                    <input type="radio" id="status-2" name="status" value="1">
-                    @endif
-                    <label for="status-2" value="2">启用</label>
-                </div>
+    <!-- <form action="" method="post" class="form form-horizontal" id="form-member-add">
+         <div class="ormControls col-xs-8 col-sm-9">
+            <label>文件上传</label>
+            <div class="file-loading">
+                <input  name="file" type="file">
             </div>
         </div>
         {{csrf_field()}}
@@ -112,7 +43,28 @@
                 <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
             </div>
         </div>
+    </form> -->
+
+<!-- <form method="post" enctype="multipart/form-data" action=""> -->
+    <form action="" method="post" class="form form-horizontal" id="form-member-add">
+        <div class="ormControls col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+            <label>选择文件</label>
+            <div class="file-loading">
+                <input  name="file" type="file">
+            </div>
+        </div>
+        </br>
+        {{csrf_field()}}
+        <div class="row cl">
+            <div class="col-xs-2 col-sm-3 col-xs-offset-4 col-sm-offset-3">
+                <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+            </div>
+            <div class="ormControls col-xs-2 col-sm-3 col-xs-offset-1 col-sm-offset-1">
+                <a href="/admin/member/excel" class="btn btn-primary radius">模板下载</a>
+            </div>
+        </div>
     </form>
+<!-- </form> -->
 </article>
 
 <!--_footer 作为公共模版分离出去-->
@@ -127,7 +79,7 @@
 <script type="text/javascript" src="/admin/lib/jquery.validation/1.14.0/validate-methods.js"></script>
 <script type="text/javascript" src="/admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript">
-$(function(){
+    $(function(){
     $('.skin-minimal input').iCheck({
         checkboxClass: 'icheckbox-blue',
         radioClass: 'iradio-blue',
@@ -136,9 +88,7 @@ $(function(){
 
     $("#form-member-add").validate({
         rules:{
-            gender:{
-                required:true,
-            },
+
         },
         onkeyup:false,
         focusCleanup:true,
@@ -148,15 +98,19 @@ $(function(){
                 type: 'post',
                 url: "" ,//自己提交给自己可以不写url
                 success: function(data){
-                    if(data == '1'){
-                        layer.msg('修改成功!',{icon:1,time:1000},function(){
+                    if(data['status'] == '1'){
+                        layer.msg('添加成功!',{icon:1,time:1000},function(){
                             var index = parent.layer.getFrameIndex(window.name);
                             //刷新
                             parent.window.location = parent.window.location;
                             parent.layer.close(index);
                         });
                     }else{
-                        layer.msg('修改失败!',{icon:2,time:2000});
+                        var cont = '';
+                        for(var i=0;i<data['error'].length;i++){
+                            cont += data['error'][i]+'、';
+                        }
+                        layer.msg('添加失败,以下名字出现重复：'+cont,{icon:2,time:2000});
                     }
                 },
                 error: function(XmlHttpRequest, textis_nav, errorThrown){

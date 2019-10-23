@@ -53,7 +53,8 @@
                         <ul class="dropDown-menu menu radius box-shadow">
                             <li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
                             <li><a href="/admin/index/index">模式1</a></li>
-                            <li><a href="/admintwo/public/logout" onClick="historyClear()">退出</a></li>
+                            <li><a href="/adminthree/index/index">模式2</a></li>
+                            <li><a href="/admin/public/logout" onClick="historyClear()">退出</a></li>
                         </ul>
                     </li>
                     <li id="Hui-msg">

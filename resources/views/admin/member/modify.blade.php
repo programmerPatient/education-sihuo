@@ -139,14 +139,6 @@ $(function(){
             gender:{
                 required:true,
             },
-            mobile:{
-                required:true,
-                isMobile:true,
-            },
-            email:{
-                required:true,
-                email:true,
-            },
 
         },
         onkeyup:false,
