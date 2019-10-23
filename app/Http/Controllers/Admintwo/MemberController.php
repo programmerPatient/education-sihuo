@@ -58,8 +58,7 @@ class MemberController extends Controller
                       echo "cURL Error #:" . $err;
                     } else {
                         $res = json_decode($response);
-                        dd($res);
-                        $data['tableau_id'] = $res->user->id;
+                        $data['tableau_id'] = $res->user->name;
                     }
                 }
                 // $data['avatar'] = "/images/th.jpg";
