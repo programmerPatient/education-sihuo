@@ -24,7 +24,7 @@
 <![endif]-->
 <!--/meta 作为公共模版分离出去-->
 
-<title>添加用户</title>
+<title>项目分配</title>
 <meta name="keywords" content="H-ui.admin v3.1,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
 <meta name="description" content="H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
 </head>
@@ -32,37 +32,51 @@
 <article class="page-container">
     <form action="" method="post" class="form form-horizontal" id="form-admin-role-add">
         <div class="row cl">
-            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3" style="margin-right:600px;">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3" style="float:right;">
                 <button type="submit" class="btn btn-success radius" id="admin-role-save" name="admin-role-save"><i class="icon-ok"></i> 提交</button>
             </div>
         </div>
-        @foreach($p as $val)
         <div class="row cl">
-            <label class="form-label col-xs-3 col-sm-2"><h4>{{$val['name']}}</h4></label>
+
+            <label class="form-label col-xs-4 col-sm-3">项目分配：</label>
+            <!-- <label class="form-label col-xs-3 col-sm-2">
+
+                <h4>项目分配</h4>
+            </label> -->
             <div class="formControls col-xs-8 col-sm-9">
+                @foreach($p as $value)
                 <dl class="permission-list">
+                    <dt>
+                        <label>
+                            <input type="checkbox" value="" name="user-Character-0" id="user-Character-0">
+                            {{$value['name']}}
+                        </label>
+                    </dt>
                     <dd>
-                        @foreach($val['project'] as $value)
-                        <div class="form-label" style="text-align:center;"><h5>{{$value['name']}}</h5></div>
+                        @foreach($value['project'] as $VieValue)
                         <dl class="cl permission-list2">
-<!--                             <dt>
-                                <label class="form-label col-xs-3 col-sm-2">{{$value['name']}}</label>
-                            </dt> -->
+                            <dt>
+                                <label class="col-xs-12 col-sm-12">
+                                    <input type="checkbox" value="" name="user-Character-0-1" id="user-Character-0-1">
+                                    {{$VieValue['name']}}
+                                </label>
+                            </dt>
+                            </br>
                             <dd>
-                                @foreach($value['views'] as $VieValue)
-                                    <label class="col-xs-3 col-sm-2">
-                                        <input type="checkbox" value="{{$VieValue->contentUrl}}" name="tableauIds[]" @if(in_array($VieValue->contentUrl,$hasTableauIds)) checked @endif>
-                                        {{$VieValue->name}}
-                                    </label>
+                                @foreach($VieValue['views'] as $view)
+                                <label class="col-xs-12 col-sm-12">
+                                    <input type="checkbox" value="{{$view->id}}" name="tableauIds[]" @if(in_array($view->id,$hasTableauIds)) checked @endif>
+                                    {{$view->name}}
+                                </label>
                                 @endforeach
                             </dd>
                         </dl>
                         @endforeach
                     </dd>
                 </dl>
+                @endforeach
             </div>
         </div>
-        @endforeach
         {{csrf_field()}}
     </form>
 </article>
@@ -80,6 +94,30 @@
 <script type="text/javascript" src="/admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript">
 $(function(){
+
+    $(".permission-list dt input:checkbox").click(function(){
+        $(this).closest("dl").find("dd input:checkbox").prop("checked",$(this).prop("checked"));
+    });
+    $(".permission-list2 dd input:checkbox").click(function(){
+        var l =$(this).parent().parent().find("input:checked").length;
+        var l2=$(this).parents(".permission-list").find(".permission-list2 dd").find("input:checked").length;
+        if($(this).prop("checked")){
+            $(this).closest("dl").find("dt input:checkbox").prop("checked",true);
+            $(this).parents(".permission-list").find("dt").first().find("input:checkbox").prop("checked",true);
+        }
+        else{
+            if(l==0){
+                $(this).closest("dl").find("dt input:checkbox").prop("checked",false);
+            }
+            if(l2==0){
+                $(this).parents(".permission-list").find("dt").first().find("input:checkbox").prop("checked",false);
+            }
+        }
+    });
+
+
+
+
     $('.skin-minimal input').iCheck({
         checkboxClass: 'icheckbox-blue',
         radioClass: 'iradio-blue',
