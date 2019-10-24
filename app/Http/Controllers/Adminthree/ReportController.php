@@ -68,6 +68,7 @@ class ReportController extends Controller
                 }
                 $p[] = $viesdata;
             }
+            dd($p);
         }
         $data = RelationReport::all();
         foreach($data as $o => $vl){
