@@ -115,8 +115,6 @@ class IndexController extends Controller
                 }else{
                     $project = true;
                 }
-                dd()
-
                 if($project){
                     //判断是否是重复的父类
                     if(!array_key_exists($id,$p)){
