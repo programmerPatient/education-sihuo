@@ -101,7 +101,7 @@
                             <ul id="Huifold1" class="Huifold">
                                 @foreach($value['views'] as $vieVule)
                                 <li class="item">
-                                  <a id="tableindex" onclick="ajaxindex(this,'{{$vieVule->contentUrl}}','{{$vieVule->filter}}')" data-href="" data-title="{{$vieVule->name}}" href="javascript:;" style="padding-left:0;color:#333;text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px">{{$vieVule->name}}</a>
+                                   <a data-href="/admintwo/table/index?contentUrl={{$vieVule->contentUrl}}&filter={{$viewVule->filter}}" data-title="{{$vieVule->name}}" href="javascript:;" style="text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px">{{$vieVule->name}}</a></a>
                                 </li>
                                 @endforeach
                             </ul>
@@ -190,6 +190,7 @@ function ajaxindex(obj,contentUrl,filter){
             type: "POST",
             dataType: "json",
             success: function(data) {
+
             });
     })
 }
