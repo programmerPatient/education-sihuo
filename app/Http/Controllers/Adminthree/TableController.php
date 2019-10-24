@@ -49,12 +49,14 @@ class TableController extends Controller
             Session::put("ticket",$response);
         }
 
-        $contentUrl = $request->all()['contentUrl'];
+        // $contentUrl = $request->all()['contentUrl'];
+         $contentUrl = $request->contentUrl;
+         $filter = $request->filter;
         $array = explode("/", $contentUrl);
         array_splice($array,1,1);
         $contentUrl = implode("/", $array);
         $ticket = Session::get('ticket');
-        return view('admin3.table.index',compact('contentUrl','ticket'));
+        return view('admin3.table.index',compact('contentUrl','ticket','filter'));
     }
 
     public function status(){

@@ -101,7 +101,7 @@
                             <ul id="Huifold1" class="Huifold">
                                 @foreach($value['views'] as $vieVule)
                                 <li class="item">
-                                  <a data-href="/adminthree/table/index?contentUrl={{$vieVule->contentUrl}}" data-title="{{$vieVule->name}}" href="javascript:;" style="padding-left:0;color:#333;text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px">{{$vieVule->name}}</a>
+                                  <a id="tableindex" onclick="ajaxindex(this,'{{$vieVule->contentUrl}}','{{$vieVule->filter}}')" data-href="" data-title="{{$vieVule->name}}" href="javascript:;" style="padding-left:0;color:#333;text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px">{{$vieVule->name}}</a>
                                 </li>
                                 @endforeach
                             </ul>
@@ -181,6 +181,18 @@ jQuery.Huifold = function(obj,obj_c,speed,obj_type,Event){
                 $(this).find("b").html("-")}
         }
     })}
+function ajaxindex(obj,contentUrl,filter){
+     $('#tableindex').click(function(){
+        $.ajax({
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            url: "adminthree/table/index",
+            data: {'contentUrl':contentUrl,'filter':filter},
+            type: "POST",
+            dataType: "json",
+            success: function(data) {
+            });
+    })
+}
 $(function(){
     /*$("#min_title_list li").contextMenu('Huiadminmenu', {
         bindings: {
