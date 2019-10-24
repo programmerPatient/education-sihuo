@@ -65,7 +65,6 @@ class ReportController extends Controller
                       echo "cURL Error #:" . $err;
                     } else {
                         $viesdata = json_decode($chilresponse)->workbook->views->view;
-                        dd($viesdata);
                     }
                     //判断是否是重复的父类
                     if(!array_key_exists($id,$p)){
