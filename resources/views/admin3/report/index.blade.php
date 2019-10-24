@@ -110,16 +110,17 @@ $(function(){
                 type: 'post',
                 url: "" ,//自己提交给自己可以不写url
                 success: function(data){
-                    if(data == '1'){
-                        layer.msg('项目组映射成功!',{icon:1,time:1000},function(){
-                            var index = parent.layer.getFrameIndex(window.name);
-                            //刷新
-                            parent.window.location = parent.window.location;
-                            parent.layer.close(index);
-                        });
-                    }else{
-                        layer.msg('项目组映射失败',{icon:2,time:2000});
-                    }
+                    console.log(data);
+                    // if(data == '1'){
+                    //     layer.msg('项目组映射成功!',{icon:1,time:1000},function(){
+                    //         var index = parent.layer.getFrameIndex(window.name);
+                    //         //刷新
+                    //         parent.window.location = parent.window.location;
+                    //         parent.layer.close(index);
+                    //     });
+                    // }else{
+                    //     layer.msg('项目组映射失败',{icon:2,time:2000});
+                    // }
                 },
                 error: function(XmlHttpRequest, textis_nav, errorThrown){
                     layer.msg('error!',{icon:2,time:1000});
