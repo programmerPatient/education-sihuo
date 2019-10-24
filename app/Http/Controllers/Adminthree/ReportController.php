@@ -72,6 +72,7 @@ class ReportController extends Controller
             }
         }
         $data = RelationReport::all();
+        dd($data);
         foreach($data as $o => $vl){
             $k = false;
             foreach($p as $pk=>$valu){
