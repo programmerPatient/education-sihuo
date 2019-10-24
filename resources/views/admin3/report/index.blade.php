@@ -34,13 +34,13 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>项目组(请不要使用 | 符号)：</label>
             <div id="inputarray" class="formControls col-xs-8 col-sm-9">
-                <!-- @if(isset($project_group)) -->
+               <!--  @if(isset($project_group))
                     @foreach($project_group as $val)
                         <textarea class="input-text" style="margin-top:20px;height:40px;width:500px;" value="" placeholder="" id="project_group" name="project_group[]">{{$val}}</textarea>
                     @endforeach
                 @elseif
                     <textarea class="input-text" style="margin-top:20px;height:40px;width:500px;" value="" placeholder="" id="project_group" name="project_group[]"></textarea>
-                @endif
+                @endif -->
             </div>
         </div>
         {{csrf_field()}}
