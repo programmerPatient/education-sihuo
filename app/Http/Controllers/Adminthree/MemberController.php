@@ -153,7 +153,7 @@ class MemberController extends Controller
             $project_group = implode("|",$project_group);
             $data['member_id'] = $user->id;
             $data['project_group'] = $project_group;
-            $re = Relationmember::where('memner_id',$id)->get()->first();
+            $re = Relationmember::where('member_id',$id)->get()->first();
             if($re){
                 $result = Relationmember::update($data);
             }else{
