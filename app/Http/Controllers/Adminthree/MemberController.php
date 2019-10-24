@@ -150,6 +150,10 @@ class MemberController extends Controller
         $user = Member::where('id',$id)->get()->first();
         if(Input::method() == 'POST'){
             $project_group = Input::get('project_group');
+            foreach($peoject_group as $key=>$value){
+                if($value == null)
+                    unset($value);
+            }
             dd($project_group);
             $project_group = implode("|",$project_group);
             $data['member_id'] = $user->id;
