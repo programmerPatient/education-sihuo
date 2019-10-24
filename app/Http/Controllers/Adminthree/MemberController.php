@@ -151,8 +151,9 @@ class MemberController extends Controller
         if(Input::method() == 'POST'){
             $project_group = Input::get('project_group');
             foreach($project_group as $key=>$value){
-                if($value == null)
-                    unset($value);
+                if($value == null){
+                    unset($project_group[$key]);
+                }
             }
             dd($project_group);
             $project_group = implode("|",$project_group);
