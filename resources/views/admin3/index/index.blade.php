@@ -181,19 +181,19 @@ jQuery.Huifold = function(obj,obj_c,speed,obj_type,Event){
                 $(this).find("b").html("-")}
         }
     })}
-function ajaxindex(obj,contentUrl,filter){
-     $('#tableindex').click(function(){
-        $.ajax({
-            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-            url: "adminthree/table/index",
-            data: {'contentUrl':contentUrl,'filter':filter},
-            type: "POST",
-            dataType: "json",
-            success: function(data) {
+// function ajaxindex(obj,contentUrl,filter){
+//      $('#tableindex').click(function(){
+//         $.ajax({
+//             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+//             url: "adminthree/table/index",
+//             data: {'contentUrl':contentUrl,'filter':filter},
+//             type: "POST",
+//             dataType: "json",
+//             success: function(data) {
 
-            });
-    })
-}
+//             });
+//     })
+// }
 $(function(){
     /*$("#min_title_list li").contextMenu('Huiadminmenu', {
         bindings: {
