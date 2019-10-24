@@ -48,7 +48,7 @@
         {{csrf_field()}}
         <div class="row cl">
             <div class="col-xs-2 col-sm-3 col-xs-offset-4 col-sm-offset-3">
-                <a id="" class="btn btn-primary radius">添加节点</a>
+                <button id="" type="button" class="btn btn-primary radius">添加节点</button>
             </div>
             <div class="col-xs-2 col-sm-3 col-xs-offset-4 col-sm-offset-3">
                 <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
