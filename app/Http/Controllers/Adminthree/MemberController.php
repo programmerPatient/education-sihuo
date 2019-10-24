@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Adminthree;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Member;
+use App\Models\Admin\Relationmember;
 use Input;
 use Session;
 use Excel;
@@ -149,9 +150,15 @@ class MemberController extends Controller
         $user = Member::where('id',$id)->get()->first();
         if(Input::method() == 'POST'){
             $project_group = Input::get('project_group');
-            dd(implode("|",$project_group));
+            $project_group = implode("|",$project_group));
+            $data['member_id'] = $user->id;
+            $data9['project_group'] = $project_group;
+            $result = Relationmember::insert($data);
+            return $result ? '1':'0';
         }else{
-            return view('admin3.report.index');
+            $da = Relationmember::where('member_id',$id)->get()->first();
+            $project_group = explode('|',$da->project_group);
+            return view('admin3.report.index','project_group');
         }
     }
 }
