@@ -157,6 +157,7 @@ class MemberController extends Controller
             return $result ? '1':'0';
         }else{
             $da = RelationMember::where('member_id',$id)->get()->first();
+            dd($da);
             if(!$da){
                 $project_group = null;
             }else{
