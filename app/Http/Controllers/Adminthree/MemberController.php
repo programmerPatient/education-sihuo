@@ -155,7 +155,7 @@ class MemberController extends Controller
             $data['project_group'] = $project_group;
             $re = Relationmember::where('member_id',$id)->get()->first();
             if($re){
-                $result = Relationmember::update($data);
+                $result = $re->update($data);
             }else{
                 $result = Relationmember::insert($data);
             }
