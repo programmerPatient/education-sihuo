@@ -158,10 +158,11 @@ class MemberController extends Controller
         }else{
             $da = RelationMember::where('member_id',$id)->get()->first();
             if(!$da){
-                $project_group = $da;
+                $project_group = array();
             }else{
                 $project_group = explode('|',$da->project_group);
             }
+            dd($project_group);
             return view('admin3.report.index','project_group');
         }
     }
