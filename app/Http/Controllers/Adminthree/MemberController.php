@@ -160,6 +160,7 @@ class MemberController extends Controller
             if(!$da){
                 return view('admin3.report.index');
             }else{
+                dd($da);
                 $project_group = explode('|',$da->project_group);
             }
             return view('admin3.report.index','project_group');
