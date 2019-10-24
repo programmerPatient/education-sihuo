@@ -85,6 +85,7 @@
         <dl id="menu-member">
             <li><a data-href="/adminthree/member/index" data-title="会员列表" href="javascript:;">会员列表</a></li>
             <li><a data-href="/adminthree/system/update" data-title="系统设置" href="javascript:void(0)">系统设置</a></li>
+            <li><a data-href="/adminthree/report/index" data-title="报表列表" href="javascript:;">报表列表</a></li>
         </dl>
         @endif
         @if($p)

@@ -14,5 +14,5 @@ class RelationReport extends Model implements AuthenticatableContract
     //使用trait，就相当于将trait代码段复制到这个位置
     use Authenticatable;
 
-    protected $fillable =['report_id','project_group'];
+    protected $fillable =['report_name','report_id','project_group'];
 }
