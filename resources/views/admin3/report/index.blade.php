@@ -31,9 +31,9 @@
 <body>
 <article class="page-container">
     <form action="" method="post" class="form form-horizontal" id="form-member-add">
-        <div class="row cl" id="inputarray">
+        <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>项目组：</label>
-            <div class="formControls col-xs-8 col-sm-9">
+            <div id="inputarray" class="formControls col-xs-8 col-sm-9">
                 <textarea class="input-text" value="" placeholder="" id="project_group" name="project_group[]"></textarea>
             </div>
         </div>
@@ -64,9 +64,7 @@
 $(function(){
 
     $("#btn1").click(function(){
-        $("#inputarray").append('<div class="formControls col-xs-8 col-sm-9">'+
-                '<textarea class="input-text" value="" placeholder="" id="project_group" name="project_group[]"></textarea>'+
-            '</div>');
+        $("#inputarray").append('<textarea class="input-text" value="" placeholder="" id="project_group" name="project_group[]"></textarea>');
     });
 
 
