@@ -106,6 +106,7 @@ Route::group(['prefix' => 'admintwo','middleware' => ['admin.auth']],function(){
     Route::any('member/add','Admintwo\MemberController@add');
     Route::delete('member/delete','Admintwo\MemberController@delete');
     Route::any('member/modify/{id}','Admintwo\MemberController@modify');
+
     //异步头像上传
     Route::post('uploader/webuploader','Admintwo\UploaderController@index');
     //异步四级联动数据获取
@@ -147,8 +148,11 @@ Route::group(['prefix' => 'adminthree','middleware' => ['admin.auth']],function(
     //会员模块
     Route::get('member/index','Adminthree\MemberController@index');
     Route::any('member/add','Adminthree\MemberController@add');
+    Route::any('member/adds','Adminthree\MemberController@adds');
     Route::delete('member/delete','Adminthree\MemberController@delete');
     Route::any('member/modify/{id}','Adminthree\MemberController@modify');
+    //批量删除
+    Route::delete('members/delete','Adminthree\MemberController@deletes');
     //异步头像上传
     Route::post('uploader/webuploader','Adminthree\UploaderController@index');
     //异步四级联动数据获取
@@ -168,11 +172,14 @@ Route::group(['prefix' => 'adminthree','middleware' => ['admin.auth']],function(
 
     //报表权限分配
     Route::any('table/auth/{id}','Adminthree\TableController@auth');
+    Route::any('table/auths/{id}','Adminthree\TableController@auths');
     // 刷新tableau票据
     // Route::get('table/refresh','Admin\TableController@refresh');
 
     //修改全局配置
     Route::any('system/update','Adminthree\SystemController@update');
+    //excel模板导出
+    Route::get('member/excel','Admin\MemberController@excel');
 
 });
 
