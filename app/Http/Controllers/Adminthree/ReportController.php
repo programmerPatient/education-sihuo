@@ -104,14 +104,14 @@ class ReportController extends Controller
                 }
             }
             dd($p);
-            $da = RelationReport::where('report_id',$id)->get()->first();
-            if(!$da){
-                return view('admin3.relation.index');
-            }else{
-                $project_group = explode('|',$da->project_group);
+            // $da = RelationReport::where('report_id',$id)->get()->first();
+            // if(!$da){
+            //     return view('admin3.relation.index');
+            // }else{
+            //     $project_group = explode('|',$da->project_group);
 
-            }
-            return view('admin3.report.relation',compact('project_group'));
+            // }
+            // return view('admin3.report.relation',compact('project_group'));
         }
    }
 }
