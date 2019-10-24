@@ -37,7 +37,7 @@
             </tr>
         </thead>
         <tbody>
-<!--             @foreach($data as $value)
+            @foreach($date as $value)
             <tr class="text-c">
                 <td><input type="checkbox" value="{{$value->id}}" name="ids"></td>
                 <td>{{$value->id}}</td>
@@ -45,11 +45,11 @@
                 <td>{{$value->created_at}}</td>
                 <td>{{$value->updated_at}}</td>
                 <td class="td-status">
-                    <a onclick="member_auth('项目组映射','/adminthree/report/{{$value->reid}}','4','','510')"><span class="label label-success radius">项目组映射</span></a>
+                    <a onclick="member_auth('项目组映射','/adminthree/report/{{$value->report_id}}','4','','510')"><span class="label label-success radius">项目组映射</span></a>
                     </span>
                 </td>
             </tr>
-            @endforeach -->
+            @endforeach
         </tbody>
     </table>
     </div>
