@@ -153,6 +153,7 @@ class MemberController extends Controller
             $project_group = implode("|",$project_group);
             $data['member_id'] = $user->id;
             $data['project_group'] = $project_group;
+            dd($data);
             $result = Relationmember::insert($data);
             return $result ? '1':'0';
         }else{
