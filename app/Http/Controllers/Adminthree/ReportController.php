@@ -75,8 +75,8 @@ class ReportController extends Controller
         foreach($data as $o => $vl){
             $k = false;
             foreach($p as $pk=>$valu){
-                dd($valu);
-                if($vl->report_id == $valu['id']){
+                dd($valu->id);
+                if($vl->report_id == $valu->id){
                     $k = true;
                     break;
                 }
