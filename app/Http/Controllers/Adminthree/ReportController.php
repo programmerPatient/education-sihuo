@@ -64,10 +64,10 @@ class ReportController extends Controller
                 if ($err) {
                   echo "cURL Error #:" . $err;
                 } else {
-                    $viesdata = json_decode($chilresponse)->workbook->views->view->toArray();
+                    $viesdata = json_decode($chilresponse)->workbook->views->view;
                 }
-                foreach($viesdata as $hj=>$p){
-                    $p[] = $p;
+                for($i=0 ; $i< count($viesdata);$i++ ){
+                    $p[] = $viesdata[$i];
                 }
             }
             dd($p);
