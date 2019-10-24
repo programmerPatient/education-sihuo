@@ -150,7 +150,7 @@ class MemberController extends Controller
         $user = Member::where('id',$id)->get()->first();
         if(Input::method() == 'POST'){
             $project_group = Input::get('project_group');
-            foreach($peoject_group as $key=>$value){
+            foreach($project_group as $key=>$value){
                 if($value == null)
                     unset($value);
             }
