@@ -159,10 +159,9 @@ class MemberController extends Controller
             $da = RelationMember::where('member_id',$id)->get()->first();
             dd($da);
             if(!$da){
-                $project_group = null;
-            }else{
-                $project_group = explode('|',$da->project_group);
+                return view('admin3.report.index');
             }
+            $project_group = explode('|',$da->project_group);
             return view('admin3.report.index','project_group');
         }
     }
