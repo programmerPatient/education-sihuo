@@ -83,8 +83,8 @@ class ReportController extends Controller
             }
         }
         foreach($p as $u => $l){
+            $h = false;
             foreach($data as $p=>$r){
-                $h = false;
                 if($l->id == $r->report_id){
                     $h = true;
                 }
