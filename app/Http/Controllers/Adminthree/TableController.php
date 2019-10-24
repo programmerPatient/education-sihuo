@@ -14,6 +14,7 @@ use App\Models\Admin\Manager;
 class TableController extends Controller
 {
     public function index(Request $request){
+        echo "ss";
 dd($request->filter);
         // $name = Manager::get()->first();
         $name = Auth::guard('member')->user();
