@@ -54,7 +54,7 @@
             <param name='tabs' value='yes' />
             <param name='toolbar' value='yes' />
             <param name='showAppBanner' value='false' />
-            <param name='filter' value='iframeSizedToWindow=true' />
+            <param name='filter' value='{{$filter}}' />
         </object>
     </div>
 <script type="text/javascript" src="/admin/lib/jquery/1.9.1/jquery.min.js"></script>
