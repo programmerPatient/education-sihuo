@@ -110,6 +110,7 @@ class ReportController extends Controller
                 }
             }
             $project_group = implode("|",$project_group);
+            dd($project_group);
             $data['project_id'] = $id;
             // $data[]
             $data['project_group'] = $project_group;
