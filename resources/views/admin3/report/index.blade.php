@@ -34,7 +34,7 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>项目组：</label>
             <div id="inputarray" class="formControls col-xs-8 col-sm-9">
-                <textarea class="input-text" style="margin-top:20px;height:80px;width:500px;" value="" placeholder="" id="project_group" name="project_group[]"></textarea>
+                <textarea class="input-text" style="margin-top:20px;height:40px;width:500px;" value="" placeholder="" id="project_group" name="project_group[]"></textarea>
             </div>
         </div>
         {{csrf_field()}}
@@ -64,7 +64,7 @@
 $(function(){
 
     $("#btn1").click(function(){
-        $("#inputarray").append('<textarea class="input-text" value="" placeholder="" id="project_group" name="project_group[]"></textarea>');
+        $("#inputarray").append('<textarea class="input-text"  style="margin-top:20px;height:40px;width:500px;" value="" placeholder="" id="project_group" name="project_group[]"></textarea>');
     });
 
 
