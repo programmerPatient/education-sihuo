@@ -33,13 +33,24 @@
     <form action="" method="post" class="form form-horizontal" id="form-member-add">
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户名：</label>
-            <div id="inputarray" class="formControls col-xs-8 col-sm-9">
-                 <textarea class="input-text" style="margin-top:20px;height:40px;width:500px;" value="" placeholder="" id="project_group" name="project_group[]"></textarea>
-            </div>
+            @if(isset($project_group))
+                @foreach($project_group as $val)
+                    <div id="inputarray" class="formControls col-xs-8 col-sm-9">
+                        <textarea class="input-text" style="margin-top:20px;height:40px;width:500px;" value="" placeholder="" id="project_group" name="project_group[]">{{$val}}</textarea>
+                    </div>
+                @endforeach
+            @else
+               <div id="inputarray" class="formControls col-xs-8 col-sm-9">
+                    <textarea class="input-text" style="margin-top:20px;height:40px;width:500px;" value="" placeholder="" id="project_group" name="project_group[]"></textarea>
+                </div>
+            @endif
         </div>
         {{csrf_field()}}
         <div class="row cl">
-            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+            <div class="col-xs-2 col-sm-3 col-xs-offset-4 col-sm-offset-3">
+                <button id="" class="btn btn-primary radius">添加节点</button>
+            </div>
+            <div class="col-xs-2 col-sm-3 col-xs-offset-4 col-sm-offset-3">
                 <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
             </div>
         </div>
@@ -59,8 +70,9 @@
 <script type="text/javascript" src="/admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript">
 $(function(){
-
-    $("#inputarray").append('<textarea class="input-text"  style="margin-top:20px;height:40px;width:500px;" value="" placeholder="" id="project_group" name="project_group[]"></textarea>');
+    $("#btn1").click(function(){
+        $("#inputarray").append('<textarea class="input-text"  style="margin-top:20px;height:40px;width:500px;" value="" placeholder="" id="project_group" name="project_group[]"></textarea>');
+        });
     });
 
 
