@@ -91,7 +91,7 @@ class IndexController extends Controller
                     $viesdata = json_decode($chilresponse)->workbook->views->view;
                     $dat = RelationReport::all();
                     for($i=0 ; $i< count($viesdata);$i++ ){
-                        foreach($dat as $p=>$r){
+                        foreach($dat as $g=>$r){
                             if($viesdata[$i]->id == $r->report_id){
                                 if($r->project_group){
                                     $viesdata[$i]->filter = implode(' ',explode('|',$r->project_group));
@@ -115,6 +115,7 @@ class IndexController extends Controller
                 }else{
                     $project = true;
                 }
+                dd()
 
                 if($project){
                     //判断是否是重复的父类
