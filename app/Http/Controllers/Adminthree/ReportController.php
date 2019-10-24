@@ -73,10 +73,9 @@ class ReportController extends Controller
         }
         $data = RelationReport::all();
         foreach($data as $o => $vl){
-            dd($vl);
             $k = false;
             foreach($p as $pk=>$valu){
-                if($val->report_id == $valu['id']){
+                if($vl->report_id == $valu['id']){
                     $k = true;
                     break;
                 }
