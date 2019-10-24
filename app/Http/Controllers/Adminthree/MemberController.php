@@ -149,7 +149,7 @@ class MemberController extends Controller
         $user = Member::where('id',$id)->get()->first();
         if(Input::method() == 'POST'){
             $project_group = Input::get('project_group');
-            dd(import(',',$project_group);
+            dd(implode(",",$project_group);
         }else{
             return view('admin3.report.index');
         }
