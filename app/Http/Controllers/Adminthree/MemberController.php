@@ -148,7 +148,8 @@ class MemberController extends Controller
     public function report($id){
         $user = Member::where('id',$id)->get()->first();
         if(Input::method() == 'POST'){
-            dd(Input::get('project_group')->toString());
+            $project_group = Input::get('project_group');
+            dd(import(',',$project_group);
         }else{
             return view('admin3.report.index');
         }
