@@ -150,7 +150,7 @@ class MemberController extends Controller
         $user = Member::where('id',$id)->get()->first();
         if(Input::method() == 'POST'){
             $project_group = Input::get('project_group');
-            $project_group = implode("|",$project_group));
+            $project_group = implode("|",$project_group);
             $data['member_id'] = $user->id;
             $data9['project_group'] = $project_group;
             $result = Relationmember::insert($data);
