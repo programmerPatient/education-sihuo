@@ -165,10 +165,10 @@ class MemberController extends Controller
             if(!$da){
                 return view('admin3.report.index');
             }else{
-                $project_group = json_encode(explode('|',$da->project_group));
+                $project_group = explode('|',$da->project_group);
 
             }
-            return view('admin3.report.index','project_group');
+            return view('admin3.report.index',compact('project_group'));
         }
     }
 }
