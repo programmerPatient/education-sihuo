@@ -110,15 +110,12 @@ class ReportController extends Controller
                 }
             }
             $project_group = implode("|",$project_group);
-            dd($project_group);
-            $data['project_id'] = $id;
-            // $data[]
             $data['project_group'] = $project_group;
-            $re = Relationmember::where('member_id',$id)->get()->first();
+            $re = RelationReport::where('report_id',$id)->get()->first();
             if($re){
                 $result = $re->update($data);
             }else{
-                $result = Relationmember::insert($data);
+                return '0';
             }
             return $result ? '1':'0';
         }else{
