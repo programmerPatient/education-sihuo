@@ -66,7 +66,7 @@ class ReportController extends Controller
                 } else {
                     $viesdata = json_decode($chilresponse)->workbook->views->view;
                 }
-                foreach($viesdata as $p){
+                foreach($viesdata as $hj=>$p){
                     $p[] = $p;
                 }
             }
