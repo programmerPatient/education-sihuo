@@ -157,7 +157,6 @@ class MemberController extends Controller
             return $result ? '1':'0';
         }else{
             $da = RelationMember::where('member_id',$id)->get()->first();
-            dd($da);
             if(!$da){
                 return view('admin3.report.index');
             }
