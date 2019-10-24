@@ -32,7 +32,7 @@
 <article class="page-container">
     <form action="" method="post" class="form form-horizontal" id="form-member-add">
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>项目组(请不要使用 | 符号)：</label>
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>项目组：</label>
             <div id="inputarray" class="formControls col-xs-8 col-sm-9">
                <!--  @if(isset($project_group))
                     @foreach($project_group as $val)
