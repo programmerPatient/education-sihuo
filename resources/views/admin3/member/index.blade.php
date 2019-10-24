@@ -25,13 +25,6 @@
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户中心 <span class="c-gray en">&gt;</span> 用户管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
-    <!-- <div class="text-c"> 日期范围：
-        <input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}' })" id="datemin" class="input-text Wdate" style="width:120px;">
-        -
-        <input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'datemin\')}',maxDate:'%y-%M-%d' })" id="datemax" class="input-text Wdate" style="width:120px;">
-        <input type="text" class="input-text" style="width:250px" placeholder="输入会员名称、电话、邮箱" id="" name="">
-        <button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
-    </div> -->
     <div class="cl pd-5 bg-1 bk-gray mt-20">
         <span class="l">
             <a href="javascript:;" onclick="member_add('添加用户','/adminthree/member/add','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户
@@ -58,6 +51,7 @@
                 <!-- <th width="70">类型</th> -->
                 <th width="100">操作</th>
                 <th width="100">权限管理</th>
+                <th width="100">项目组映射</th>
                 <th width="100">映射tableau用户</th>
             </tr>
         </thead>
@@ -103,9 +97,14 @@
                     </span>
                 </td>
                 <td class="td-status">
+                    <a onclick="member_auth('项目组映射','/adminthree/report/user/{{$value->id}}','4','','510')"><span class="label label-success radius">项目组映射</span></a>
+                    </span>
+                </td>
+                <td class="td-status">
                     <a onclick="member_auth('映射tableau用户','/adminthree/table/user/{{$value->id}}','4','','510')"><span class="label label-success radius">映射tableau用户</span></a>
                     </span>
                 </td>
+
             </tr>
             @endforeach
         </tbody>

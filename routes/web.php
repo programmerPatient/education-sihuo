@@ -158,6 +158,14 @@ Route::group(['prefix' => 'adminthree','middleware' => ['admin.auth']],function(
     Route::get('table/index','Adminthree\TableController@index');
     //tableau用户的状态修改
     Route::post('table/status','Adminthree\TableController@status');
+
+    //站内用户映射tableau用户
+    Route::any('table/user/{id}','Adminthree\TableController@user');
+    Route::any('table/users/{id}','Adminthree\TableController@users');
+
+    //站内用户项目组的映射
+    Route::any('report/user/{id}','Adminthree\MemberController@report');
+
     //报表权限分配
     Route::any('table/auth/{id}','Adminthree\TableController@auth');
     // 刷新tableau票据

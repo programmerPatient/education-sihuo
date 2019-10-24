@@ -144,4 +144,13 @@ class MemberController extends Controller
         return $result?'1':'0';
     }
 
+    //项目组的映射
+    public function report($id){
+        $user = Member::where('id',$id)->get()->first();
+        if(Input::method() == 'POST'){
+
+        }else{
+            return view('admin3.report.index');
+        }
+    }
 }
