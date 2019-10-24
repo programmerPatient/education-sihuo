@@ -152,7 +152,7 @@ class MemberController extends Controller
             $project_group = Input::get('project_group');
             $project_group = implode("|",$project_group);
             $data['member_id'] = $user->id;
-            $data9['project_group'] = $project_group;
+            $data['project_group'] = $project_group;
             $result = Relationmember::insert($data);
             return $result ? '1':'0';
         }else{
@@ -160,7 +160,6 @@ class MemberController extends Controller
             if(!$da){
                 return view('admin3.report.index');
             }else{
-                dd($da);
                 $project_group = explode('|',$da->project_group);
             }
             return view('admin3.report.index','project_group');
