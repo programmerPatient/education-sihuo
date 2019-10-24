@@ -32,23 +32,14 @@
 <article class="page-container">
     <form action="" method="post" class="form form-horizontal" id="form-member-add">
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>项目组(请不要使用 | 符号)：</label>
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户名：</label>
             <div id="inputarray" class="formControls col-xs-8 col-sm-9">
-                @if($project_group)
-                    @foreach($project_group as $val)
-                        <textarea class="input-text" style="margin-top:20px;height:40px;width:500px;" value="" placeholder="" id="project_group" name="project_group[]">{{$val}}</textarea>
-                    @endforeach
-                @elseif
-                    <textarea class="input-text" style="margin-top:20px;height:40px;width:500px;" value="" placeholder="" id="project_group" name="project_group[]"></textarea>
-                @endif
+                 <textarea class="input-text" style="margin-top:20px;height:40px;width:500px;" value="" placeholder="" id="project_group" name="project_group[]"></textarea>
             </div>
         </div>
         {{csrf_field()}}
         <div class="row cl">
-            <div class="col-xs-2 col-sm-3 col-xs-offset-4 col-sm-offset-3">
-                <button class="btn btn-primary radius" id="btn1">添加节点</button>
-            </div>
-            <div class="col-xs-2 col-sm-3  col-xs-offset-4 col-sm-offset-3">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
                 <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
             </div>
         </div>
@@ -69,10 +60,8 @@
 <script type="text/javascript">
 $(function(){
 
-    $("#btn1").click(function(){
-        $("#inputarray").append('<textarea class="input-text"  style="margin-top:20px;height:40px;width:500px;" value="" placeholder="" id="project_group" name="project_group[]"></textarea>');
+    $("#inputarray").append('<textarea class="input-text"  style="margin-top:20px;height:40px;width:500px;" value="" placeholder="" id="project_group" name="project_group[]"></textarea>');
     });
-
 
 
     $('.skin-minimal input').iCheck({
@@ -83,6 +72,23 @@ $(function(){
 
     $("#form-member-add").validate({
         rules:{
+            username:{
+                required:true,
+                minlength:2,
+                maxlength:16
+            },
+            gender:{
+                required:true,
+            },
+            // mobile:{
+            //     required:true,
+            //     isMobile:true,
+            // },
+            // email:{
+            //     required:true,
+            //     email:true,
+            // },
+
         },
         onkeyup:false,
         focusCleanup:true,
@@ -92,15 +98,15 @@ $(function(){
                 type: 'post',
                 url: "" ,//自己提交给自己可以不写url
                 success: function(data){
-                    if(data == '1'){
-                        layer.msg('分配项目组成功!',{icon:1,time:1000},function(){
+                    if(data['status'] == '1'){
+                        layer.msg('添加成功!',{icon:1,time:1000},function(){
                             var index = parent.layer.getFrameIndex(window.name);
                             //刷新
                             parent.window.location = parent.window.location;
                             parent.layer.close(index);
                         });
                     }else{
-                        layer.msg('分配项目组!',{icon:2,time:2000});
+                        layer.msg('添加失败,以下名字重复： '+data['error'][0],{icon:2,time:2000});
                     }
                 },
                 error: function(XmlHttpRequest, textis_nav, errorThrown){
