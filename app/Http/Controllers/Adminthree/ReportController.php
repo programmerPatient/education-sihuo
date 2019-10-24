@@ -90,7 +90,12 @@ class ReportController extends Controller
                     } else {
                         $viesdata = json_decode($chilresponse)->workbook->views->view;
                     }
-                    $p[] = $viesdata;
+                    $p[] = [
+                    "webpageUrl" =>$val->webpageUrl,
+                    "name" => $val->name,
+                    "id" => $val->id,
+                    "views" => $viesdata
+                    ];
                 }
             }
             dd($p);
