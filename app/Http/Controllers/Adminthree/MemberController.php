@@ -158,9 +158,10 @@ class MemberController extends Controller
         }else{
             $da = RelationMember::where('member_id',$id)->get()->first();
             if(!$da){
-                return view('admin3.report.index');
+                $project_group = $da;
+            }else{
+                $project_group = explode('|',$da->project_group);
             }
-            $project_group = explode('|',$da->project_group);
             return view('admin3.report.index','project_group');
         }
     }
