@@ -9,6 +9,8 @@ use Redirect;
 use Session;
 use DB;
 use App\Models\Admin\System;
+use App\Models\Admin\RelationReport;
+
 class IndexController extends Controller
 {
 
@@ -87,6 +89,14 @@ class IndexController extends Controller
                   echo "cURL Error #:" . $err;
                 } else {
                     $viesdata = json_decode($chilresponse)->workbook->views->view;
+                    $dat = RelationReport::all();
+                    for($i=0 ; $i< count($viesdata);$i++ ){
+                        foreach($dat as $p=>$r){
+                            if($viesdata[$i]->id == $r->report_id){
+                               $viesdata[$i]->filter = explode(' ',impoled('|',$r->project_group));
+                            }
+                        }
+                    }
                 }
 
                 if($tableauIds){
@@ -116,6 +126,7 @@ class IndexController extends Controller
                 }
             }
         }
+        dd($p);
         // FS1Wu4GJRVCaNdtzbAeHlw|j9JPkfLMU0wZtx8c1BB6pkPGuiEim0h
         return view('admin3.index.index',compact('p','system','type','name'));
     }
