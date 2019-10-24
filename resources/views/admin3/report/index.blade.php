@@ -36,7 +36,9 @@
             @if(isset($project_group))
                 <div id="inputarray" class="formControls col-xs-8 col-sm-9">
                     @foreach($project_group as $val)
+                        @if(isset($val))
                         <textarea class="input-text" style="margin-top:20px;height:40px;width:500px;" value="" placeholder="" id="project_group" name="project_group[]">{{$val}}</textarea>
+                        @endif
                     @endforeach
                 </div>
             @else
