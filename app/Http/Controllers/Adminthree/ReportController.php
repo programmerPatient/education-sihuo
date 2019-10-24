@@ -28,7 +28,7 @@ class ReportController extends Controller
             }
             $project_group = implode("|",$project_group);
             $data['project_id'] = $id;
-            $data[]
+            // $data[]
             $data['project_group'] = $project_group;
             $re = Relationmember::where('member_id',$id)->get()->first();
             if($re){
