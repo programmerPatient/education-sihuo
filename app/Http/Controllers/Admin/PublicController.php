@@ -175,7 +175,7 @@ class PublicController extends Controller
                 }
             }
             //跳转到后台首页
-            return redirect('admin/index/index');
+            return redirect('adminthree/index/index');
         }else{
             //withErrors表示带上错误信息
             return redirect('/admin/public/login') -> withErrors([
