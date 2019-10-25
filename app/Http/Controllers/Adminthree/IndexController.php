@@ -93,6 +93,7 @@ class IndexController extends Controller
                     for($i=0 ; $i< count($viesdata);$i++ ){
                         if(is_null($dat)){
                             $viesdata[$i]->filter = "iframeSizedToWindow=true";
+                            continue;
                         }
                         foreach($dat as $g=>$r){
                             if($viesdata[$i]->id == $r->report_id){
