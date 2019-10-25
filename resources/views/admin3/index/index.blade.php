@@ -101,7 +101,11 @@
                             <ul id="Huifold1" class="Huifold">
                                 @foreach($value['views'] as $vieVule)
                                 <li class="item">
-                                   <a data-href="/adminthree/table/index?contentUrl={{$vieVule->contentUrl}}&filter={{$vieVule->filter}}" data-title="{{$vieVule->name}}" href="javascript:;" style="text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px">{{$vieVule->name}}</a>
+                                    @if($type == '1')
+                                    <a data-href="/adminthree/table/index?contentUrl={{$vieVule->contentUrl}}&filter=iframeSizedToWindow=true" data-title="{{$vieVule->name}}" href="javascript:;" style="text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px">{{$vieVule->name}}</a>
+                                    @else
+                                        <a data-href="/adminthree/table/index?contentUrl={{$vieVule->contentUrl}}&filter={{$vieVule->filter}}" data-title="{{$vieVule->name}}" href="javascript:;" style="text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px">{{$vieVule->name}}</a>
+                                    @endif
                                 </li>
                                 @endforeach
                             </ul>
