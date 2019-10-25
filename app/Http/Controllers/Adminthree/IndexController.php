@@ -91,6 +91,9 @@ class IndexController extends Controller
                     $viesdata = json_decode($chilresponse)->workbook->views->view;
                     $dat = RelationReport::all();
                     for($i=0 ; $i< count($viesdata);$i++ ){
+                        if(!$dat){
+                            $viesdata[$i]->filter = "iframeSizedToWindow=true";
+                        }
                         foreach($dat as $g=>$r){
                             if($viesdata[$i]->id == $r->report_id){
                                 if($r->project_group){
