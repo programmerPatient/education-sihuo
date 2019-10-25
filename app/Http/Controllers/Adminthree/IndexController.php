@@ -98,7 +98,7 @@ class IndexController extends Controller
                         foreach($dat as $g=>$r){
                             if($viesdata[$i]->id == $r->report_id){
                                 if($r->project_group){
-                                    $viesdata[$i]->filter = implode(' ',explode('|',$r->project_group));
+                                    $viesdata[$i]->filter = implode('&',explode('|',$r->project_group));
                                 }else{
                                     $viesdata[$i]->filter = "iframeSizedToWindow=true";
                                 }
