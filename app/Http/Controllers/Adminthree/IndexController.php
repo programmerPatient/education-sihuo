@@ -90,7 +90,7 @@ class IndexController extends Controller
                 } else {
                     $viesdata = json_decode($chilresponse)->workbook->views->view;
                     $dat = RelationReport::all();
-                    dd(is_null(json_decode($dat)));
+                    dd(json_decode($dat));
                     for($i=0 ; $i< count($viesdata);$i++ ){
                         if(is_null(json_decode($dat))){
                             $viesdata[$i]->filter = "iframeSizedToWindow=true";
