@@ -100,7 +100,7 @@ class IndexController extends Controller
                             if($viesdata[$i]->id == $r->report_id){
                                 if($r->project_group){
                                     if($user){
-                                        $r->project_group=RelationMember::where('member_id',$user->id)->get()->first()->project_group.'|'.$r->project_group
+                                        $r->project_group=RelationMember::where('member_id',$user->id)->get()->first()->project_group.'|'.$r->project_group;
                                     }
                                     $viesdata[$i]->filter = implode('&',explode('|',$r->project_group));
                                 }else{
