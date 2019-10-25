@@ -10,6 +10,7 @@ use Session;
 use DB;
 use App\Models\Admin\System;
 use App\Models\Admin\RelationReport;
+use App\Models\Admin\RelationMember;
 
 class IndexController extends Controller
 {
@@ -98,7 +99,7 @@ class IndexController extends Controller
                         foreach($dat as $g=>$r){
                             if($viesdata[$i]->id == $r->report_id){
                                 if($r->project_group){
-                                    dd(explode('|',$r->project_group));
+                                    dd(RelationMember::where('member_id',$user->id)->get()->first());
                                     $viesdata[$i]->filter = implode('&',explode('|',$r->project_group));
                                 }else{
                                     $viesdata[$i]->filter = "iframeSizedToWindow=true";
