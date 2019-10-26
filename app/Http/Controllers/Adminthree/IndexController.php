@@ -122,7 +122,8 @@ class IndexController extends Controller
                                                 $pror[] = $proj;
                                             }
                                         }
-                                        $r->project_group = $pro;
+                                        dd($pror);
+                                        $r->project_group = $pror;
                                     }
                                     $viesdata[$i]->filter = implode('&',explode('|',$r->project_group));
                                 }else{
