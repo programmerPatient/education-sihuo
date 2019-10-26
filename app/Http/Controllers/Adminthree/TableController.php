@@ -9,6 +9,7 @@ use Auth;
 use Input;
 use App\Models\Admin\Member;
 use App\Models\Admin\Manager;
+use App\Models\Admin\RelationReport;
 
 
 class TableController extends Controller
