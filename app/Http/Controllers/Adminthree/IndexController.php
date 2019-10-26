@@ -111,13 +111,13 @@ class IndexController extends Controller
                                                 if($pl[0] == explode('=',$proj2)[0]){
                                                     $pl[1] = $pl[1] .',' . explode('=',$proj2)[1];
                                                     $u = true;
-                                                    $p = $po2;
+                                                    $pj = $po2;
                                                     $pro[$po] = implode('=',$pl);
                                                     break;
                                                 }
                                             }
                                             if($u){
-                                                $pror[$po2] = $pro[$po];
+                                                $pror[$pj] = $pro[$po];
                                             }else{
                                                 $pror[] = $proj;
                                             }
