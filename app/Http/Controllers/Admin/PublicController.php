@@ -130,11 +130,12 @@ class PublicController extends Controller
               ),
             ));
             $response = curl_exec($curl);
+            return $response;
             $err = curl_error($curl);
             if ($err) {
               echo "cURL Error #:" . $err;
             } else {
-                dd($response);
+                return $response;
                 if(!$response) return view('admin.error.index');
                 $res = json_decode($response);
                 Session::put('token',$res->credentials->token);
