@@ -47,7 +47,6 @@
                 <td>{{$value->workBook_name}}</td>
                 <td>{{$value->report_name}}</td>
                 <td>{{$value->created_at}}</td>
-                <td>{{$value->updated_at}}</td>
                 <td class="td-status">
                     <a onclick="member_auth('项目组映射','/adminthree/report/{{$value->report_id}}','4','','510')"><span class="label label-success radius">项目组映射</span></a>
                     </span>

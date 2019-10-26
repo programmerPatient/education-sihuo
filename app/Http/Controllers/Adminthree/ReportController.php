@@ -101,6 +101,7 @@ class ReportController extends Controller
                 $reportData['project_name'] = $l['project'];
                 $reportData['workBook_name'] = $l['workBook'];
                 $reportData['report_id'] = $l['view']->id;
+                $reportData['created_at'] = date('Y-m-d H:i:s',time());
                 RelationReport::insert($reportData);
             }
         }
