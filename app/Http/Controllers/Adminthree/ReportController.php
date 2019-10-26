@@ -71,7 +71,6 @@ class ReportController extends Controller
                     $vies['view'] = $viesdata[$i];
                     $vies['project'] = $wok->project->name;
                     $vies['workBook'] = $wok->name;
-                    dd($vies);
                     $p[] = $vies;
                 }
                 dd($p);
