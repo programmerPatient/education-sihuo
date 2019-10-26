@@ -73,7 +73,6 @@ class ReportController extends Controller
                     $vies['workBook'] = $wok->name;
                     $p[] = $vies;
                 }
-                dd($p);
             }
         }
         $data = RelationReport::all();
