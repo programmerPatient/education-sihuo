@@ -24,7 +24,7 @@
     <p class="error-title"><i class="Hui-iconfont va-m" style="font-size:80px">&#xe688;</i>
         <span class="va-m"> 403</span>
     </p>
-    <p class="error-description">不好意思，您可能没有被授予权限访问,请联系管理员~</p>
+    <p class="error-description">不好意思，您可能没有被授予权限访问或者tableau服务未开启,请联系管理员~</p>
     <p class="error-info">您可以：
         <a href="javascript:;" onclick="history.go(-1)" class="c-primary">&lt; 返回上一页</a>
         <span class="ml-20">|</span>
