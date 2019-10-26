@@ -90,7 +90,9 @@ class IndexController extends Controller
                   echo "cURL Error #:" . $err;
                 } else {
                     $viesdata = json_decode($chilresponse)->workbook->views->view;
-                    $member_group = RelationReport::where('member_id',$user->id)->get();
+                    if($user){
+                        $member_group = RelationReport::where('member_id',$user->id)->get();
+                    }
                     if(!$user || !$member_group){
                         for($i=0 ; $i< count($viesdata);$i++ ){
                             $viesdata[$i]->filter = "iframeSizedToWindow=true";
