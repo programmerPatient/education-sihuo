@@ -163,20 +163,20 @@ class PublicController extends Controller
                 } else {
                   // dd(json_decode($response));
                     if(!$response) {
-                    return view('admin.error.index');
+                        return view('admin.error.index');
                     }
-                  $user = json_decode($response)->users->user;
-                  $boole = true;
-                  foreach($user as $val){
-                    if($tableau_name && $tableau_name == $val->name){
-                        $boole = false;
+                    $user = json_decode($response)->users->user;
+                    $boole = true;
+                    foreach($user as $val){
+                        if($tableau_name && $tableau_name == $val->name){
+                            $boole = false;
+                        }
                     }
-                  }
-                  if($boole){
-                    Auth::guard('admin') -> logout();
-                    Session::flush();
-                    return view('admin.error.index');
-                  }
+                    if($boole){
+                        Auth::guard('admin') -> logout();
+                        Session::flush();
+                        return view('admin.error.index');
+                    }
                 }
             }
             //跳转到后台首页

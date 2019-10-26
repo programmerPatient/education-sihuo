@@ -30,6 +30,7 @@
             <tr class="text-c">
                 <th width="25"><input type="checkbox" name="" value=""></th>
                 <th width="40">ID</th>
+                <th width="40">用户名</th>
                 <th width="100">项目名</th>
                 <th width="100">工作簿名</th>
                 <th width="100">报表名</th>
@@ -42,12 +43,13 @@
             <tr class="text-c">
                 <td><input type="checkbox" value="{{$value->id}}" name="ids"></td>
                 <td>{{$value->id}}</td>
+                <td>{{$value->member->username}}</td>
                 <td>{{$value->project_name}}</td>
                 <td>{{$value->workBook_name}}</td>
                 <td>{{$value->report_name}}</td>
                 <td>{{$value->created_at}}</td>
                 <td class="td-status">
-                    <a onclick="member_auth('项目组映射','/adminthree/report/{{$value->report_id}}','4','','510')"><span class="label label-success radius">项目组映射</span></a>
+                    <a onclick="member_auth('项目组映射','/adminthree/report/{{$value->id}}','4','','510')"><span class="label label-success radius">项目组映射</span></a>
                     </span>
                 </td>
             </tr>

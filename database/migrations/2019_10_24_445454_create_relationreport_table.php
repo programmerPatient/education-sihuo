@@ -15,6 +15,7 @@ class CreateRelationreportTable extends Migration
     {
         Schema::create('relationreport', function (Blueprint $table) {
             $table->increments('id');
+            $table->Integer('member_id');
             $table->string('project_name');//项目名
             $table->string('workBook_name');//工作簿名
             $table->string('report_name');//报表名

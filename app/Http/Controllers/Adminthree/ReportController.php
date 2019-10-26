@@ -88,23 +88,22 @@ class ReportController extends Controller
                 $val->delete();
             }
         }
-        foreach($p as $u => $l){
-            $h = false;
-            foreach($data as $g=>$r){
-                if($l['view']->id == $r->report_id){
-                    $h = true;
-                }
-            }
-            if(!$h){
-
-                $reportData['report_name'] = $l['view']->name;
-                $reportData['project_name'] = $l['project'];
-                $reportData['workBook_name'] = $l['workBook'];
-                $reportData['report_id'] = $l['view']->id;
-                $reportData['created_at'] = date('Y-m-d H:i:s',time());
-                RelationReport::insert($reportData);
-            }
-        }
+        // foreach($p as $u => $l){
+        //     $h = false;
+        //     foreach($data as $g=>$r){
+        //         if($l['view']->id == $r->report_id){
+        //             $h = true;
+        //         }
+        //     }
+        //     if(!$h){
+        //         $reportData['report_name'] = $l['view']->name;
+        //         $reportData['project_name'] = $l['project'];
+        //         $reportData['workBook_name'] = $l['workBook'];
+        //         $reportData['report_id'] = $l['view']->id;
+        //         $reportData['created_at'] = date('Y-m-d H:i:s',time());
+        //         RelationReport::insert($reportData);
+        //     }
+        // }
         $date = RelationReport::all();
         return view('admin3.report.reportindex',compact('date'));
     }
@@ -119,7 +118,7 @@ class ReportController extends Controller
             }
             $project_group = implode("|",$project_group);
             $data['project_group'] = $project_group;
-            $re = RelationReport::where('report_id',$id)->get()->first();
+            $re = RelationReport::where('id',$id)->get()->first();
             if($re){
                 $result = $re->update($data);
             }else{
