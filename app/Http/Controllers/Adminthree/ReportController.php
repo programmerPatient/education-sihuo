@@ -127,9 +127,9 @@ class ReportController extends Controller
             return $result ? '1':'0';
         }else{
 
-            $da = RelationReport::where('report_id',$id)->get()->first();
+            $da = RelationReport::where('id',$id)->get()->first();
             if(!$da){
-                return view('admin3.relation.index');
+                return view('admin3.report.index');
             }else{
                 $project_group = explode('|',$da->project_group);
 
