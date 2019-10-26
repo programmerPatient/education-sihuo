@@ -43,7 +43,7 @@
             <tr class="text-c">
                 <td><input type="checkbox" value="{{$value->id}}" name="ids"></td>
                 <td>{{$value->id}}</td>
-                <td>{{$value->member->username}}</td>
+                <td>{{$value->member_id}}</td>
                 <td>{{$value->project_name}}</td>
                 <td>{{$value->workBook_name}}</td>
                 <td>{{$value->report_name}}</td>
