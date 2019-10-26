@@ -75,7 +75,7 @@ class ReportController extends Controller
                 }
             }
         }
-        $data = RelationReport::all();
+        $data = RelationReport::orderBy('id','desc')->get();
         foreach($data as $o => $vl){
             $k = false;
             foreach($p as $pk=>$valu){
