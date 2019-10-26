@@ -99,7 +99,6 @@ class IndexController extends Controller
                         foreach($dat as $g=>$r){
                             if($viesdata[$i]->id == $r->report_id){
                                 if($r->project_group){
-                                    dd($user);
                                     if($user){
                                         $pror = RelationMember::where('member_id',$user->id)->get()->first()->project_group;
                                         $pro = explode('|',$r->project_group);
@@ -124,8 +123,8 @@ class IndexController extends Controller
                                             }
                                         }
                                         $r->project_group = $pror;
+                                        $viesdata[$i]->filter = implode('&',$r->project_group);
                                     }
-                                    $viesdata[$i]->filter = implode('&',$r->project_group);
                                 }else{
                                     $viesdata[$i]->filter = "iframeSizedToWindow=true";
                                 }
