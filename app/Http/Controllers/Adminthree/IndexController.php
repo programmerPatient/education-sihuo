@@ -103,6 +103,11 @@ class IndexController extends Controller
                                         $pror = RelationMember::where('member_id',$user->id)->get()->first()->project_group;
                                         $pro = explode('|',$r->project_group);
                                         $pror = explode('|',$pror);
+
+                                        /*
+                                        *进行用户与报表项目组的组合
+                                        *
+                                        */
                                         foreach($pro as $po=>$proj){
                                             $u = false;
                                             $pj = null;

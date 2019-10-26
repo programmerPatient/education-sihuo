@@ -39,7 +39,6 @@ class ReportController extends Controller
         } else {
           // $response = simplexml_load_string($response);
             $data = json_decode($response)->workbooks->workbook;
-            dd($data);
             $p = [];
             $pageUrlIds=[];
             // $rs = $response->toArray();
