@@ -123,7 +123,6 @@ class IndexController extends Controller
                                             }
                                         }
                                         $r->project_group = $pror;
-                                        var_dump($pror);
                                     }
                                     $viesdata[$i]->filter = implode('&',$r->project_group);
                                 }else{
@@ -159,7 +158,6 @@ class IndexController extends Controller
                     ];
                 }
             }
-            dd($p);
         }
         // FS1Wu4GJRVCaNdtzbAeHlw|j9JPkfLMU0wZtx8c1BB6pkPGuiEim0h
         return view('admin3.index.index',compact('p','system','type','name'));
