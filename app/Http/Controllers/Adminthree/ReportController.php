@@ -65,9 +65,12 @@ class ReportController extends Controller
                   echo "cURL Error #:" . $err;
                 } else {
                     $viesdata = json_decode($chilresponse)->workbook->views->view;
-                    dd(json_decode($chilresponse)->workbook);
+                    $wok = json_decode($chilresponse)->workbook);
                 }
                 for($i=0 ; $i< count($viesdata);$i++ ){
+                    $viesdata[$i]['view'] = $viesdata[$i];
+                    $viesdata[$i]['project'] = $wok->project->name;
+                    $viesdata[$i]['workBook'] = $wok->name;
                     $p[] = $viesdata[$i];
                 }
             }
@@ -76,7 +79,7 @@ class ReportController extends Controller
         foreach($data as $o => $vl){
             $k = false;
             foreach($p as $pk=>$valu){
-                if($vl->report_id == $valu->id){
+                if($vl->report_id == $valu['view']->id){
                     $k = true;
                     break;
                 }
@@ -87,15 +90,17 @@ class ReportController extends Controller
         }
         foreach($p as $u => $l){
             $h = false;
-            foreach($data as $p=>$r){
-                if($l->id == $r->report_id){
+            foreach($data as $g=>$r){
+                if($l['view']->id == $r->report_id){
                     $h = true;
                 }
             }
             if(!$h){
 
-                $reportData['report_name'] = $l->name;
-                $reportData['report_id'] = $l->id;
+                $reportData['report_name'] = $l['view']->name;
+                $reportData['project_name'] = $l['project'];
+                $reportData['workBook_name'] = $l['workBook'];
+                $reportData['report_id'] = $l['view']->id;
                 RelationReport::insert($reportData);
             }
         }
