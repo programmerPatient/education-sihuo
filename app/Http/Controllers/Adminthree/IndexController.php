@@ -107,7 +107,10 @@ class IndexController extends Controller
                                                 if($po == $po2){
                                                     continue;
                                                 }else{
-                                                    dd(explode('=',$proj));
+                                                    if(explode('=',$proj)[0] == explode('=',$proj2)[0]){
+                                                        $proj = explode('=',$proj)[1] .',' . explode('=',$proj2)[1];
+                                                        dd($proj);
+                                                    }
                                                 }
                                             }
                                         }
