@@ -130,7 +130,7 @@ class PublicController extends Controller
               ),
             ));
             $response = curl_exec($curl);
-            return $response;
+            dd($response);
             $err = curl_error($curl);
             if ($err) {
               echo "cURL Error #:" . $err;
