@@ -66,6 +66,7 @@ class ReportController extends Controller
                   echo "cURL Error #:" . $err;
                 } else {
                     $viesdata = json_decode($chilresponse)->workbook->views->view;
+                    dd($viesdata);
                 }
                 for($i=0 ; $i< count($viesdata);$i++ ){
                     $p[] = $viesdata[$i];
@@ -93,6 +94,7 @@ class ReportController extends Controller
                 }
             }
             if(!$h){
+
                 $reportData['report_name'] = $l->name;
                 $reportData['report_id'] = $l->id;
                 RelationReport::insert($reportData);
