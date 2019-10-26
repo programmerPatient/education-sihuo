@@ -68,11 +68,11 @@ class ReportController extends Controller
                     $wok = json_decode($chilresponse)->workbook;
                 }
                 for($i=0 ; $i< count($viesdata);$i++ ){
-                    dd($viesdata[$i]);
-                    $viesdata[$i]['view'] = $viesdata[$i];
-                    $viesdata[$i]['project'] = $wok->project->name;
-                    $viesdata[$i]['workBook'] = $wok->name;
-                    $p[] = $viesdata[$i];
+                    $vies['view'] = $viesdata[$i];
+                    $vies['project'] = $wok->project->name;
+                    $vies['workBook'] = $wok->name;
+                    dd($vies);
+                    $p[] = $vies;
                 }
                 dd($p);
             }
