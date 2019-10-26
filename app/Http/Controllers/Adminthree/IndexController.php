@@ -124,7 +124,7 @@ class IndexController extends Controller
                                         }
                                         $r->project_group = $pror;
                                     }
-                                    $viesdata[$i]->filter = implode('&'$r->project_group);
+                                    $viesdata[$i]->filter = implode('&',$r->project_group);
                                 }else{
                                     $viesdata[$i]->filter = "iframeSizedToWindow=true";
                                 }
