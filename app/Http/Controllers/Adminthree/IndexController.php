@@ -123,7 +123,7 @@ class IndexController extends Controller
                                             }
                                         }
                                         $r->project_group = $pror;
-                                        dd($pror);
+                                        var_dump($pror);
                                     }
                                     $viesdata[$i]->filter = implode('&',$r->project_group);
                                 }else{
