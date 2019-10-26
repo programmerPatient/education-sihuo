@@ -107,7 +107,7 @@ class IndexController extends Controller
                                                 if($po == $po2){
                                                     continue;
                                                 }else{
-                                                    dd($proj);
+                                                    dd(explode('=',$proj));
                                                 }
                                             }
                                         }
