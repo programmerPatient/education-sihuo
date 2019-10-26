@@ -30,6 +30,8 @@
             <tr class="text-c">
                 <th width="25"><input type="checkbox" name="" value=""></th>
                 <th width="40">ID</th>
+                <th width="100">项目名</th>
+                <th width="100">工作簿名</th>
                 <th width="100">报表名</th>
                 <th width="40">创建时间</th>
                 <th width="150">更新时间</th>
@@ -41,6 +43,8 @@
             <tr class="text-c">
                 <td><input type="checkbox" value="{{$value->id}}" name="ids"></td>
                 <td>{{$value->id}}</td>
+                <td>{{$value->report_name}}</td>
+                <td>{{$value->report_name}}</td>
                 <td>{{$value->report_name}}</td>
                 <td>{{$value->created_at}}</td>
                 <td>{{$value->updated_at}}</td>
