@@ -134,7 +134,6 @@ class PublicController extends Controller
             if ($err) {
               echo "cURL Error #:" . $err;
             } else {
-                dd($response);
                 if(!$response) return view('admin.error.index');
                 $res = json_decode($response);
                 Session::put('token',$res->credentials->token);
@@ -161,7 +160,7 @@ class PublicController extends Controller
                   echo "cURL Error #:" . $err;
                 } else {
                   // dd(json_decode($response));
-                    dd($reponse);
+                    dd($response);
                   $user = json_decode($response)->users->user;
                   $boole = true;
                   foreach($user as $val){
