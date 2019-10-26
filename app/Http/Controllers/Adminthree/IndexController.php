@@ -100,19 +100,26 @@ class IndexController extends Controller
                             if($viesdata[$i]->id == $r->report_id){
                                 if($r->project_group){
                                     if($user){
-                                        $r->project_group=RelationMember::where('member_id',$user->id)->get()->first()->project_group.'|'.$r->project_group;
+                                        $pror = RelationMember::where('member_id',$user->id)->get()->first()->project_group
                                         $pro = explode('|',$r->project_group);
+                                        $pror = explode('|',$pror);
                                         foreach($pro as $po=>$proj){
-                                            foreach($pro as $po2=>$proj2){
-                                                if($po == $po2){
-                                                    continue;
-                                                }else{
-                                                    $pl = explode('=',$proj);
-                                                    if($pl[0] == explode('=',$proj2)[0]){
-                                                        $pl[1] = $pl[1] .',' . explode('=',$proj2)[1];
-                                                        $pro[$po] = implode('=',$pl);
-                                                    }
+                                            $u = false;
+                                            $p = null;
+                                            foreach($pror as $po2=>$proj2){
+                                                $pl = explode('=',$proj);
+                                                if($pl[0] == explode('=',$proj2)[0]){
+                                                    $pl[1] = $pl[1] .',' . explode('=',$proj2)[1];
+                                                    $u = true;
+                                                    $p = $po2;
+                                                    $pro[$po] = implode('=',$pl);
+                                                    break;
                                                 }
+                                            }
+                                            if($u){
+                                                $pror[$po2] = $pro[$po];
+                                            }else{
+                                                $pror[] = $proj;
                                             }
                                         }
                                         $r->project_group = $pro;
