@@ -123,8 +123,6 @@ class IndexController extends Controller
                                             }
                                         }
                                         $r->project_group = $pro;
-                                        dd($pro);
-
                                     }
                                     $viesdata[$i]->filter = implode('&',explode('|',$r->project_group));
                                 }else{
@@ -134,6 +132,7 @@ class IndexController extends Controller
                         }
                     }
                 }
+                dd($viesdata);
 
                 if($tableauIds){
                     $project = false;
