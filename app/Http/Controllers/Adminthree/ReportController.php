@@ -65,7 +65,7 @@ class ReportController extends Controller
                   echo "cURL Error #:" . $err;
                 } else {
                     $viesdata = json_decode($chilresponse)->workbook->views->view;
-                    $wok = json_decode($chilresponse)->workbook);
+                    $wok = json_decode($chilresponse)->workbook;
                 }
                 for($i=0 ; $i< count($viesdata);$i++ ){
                     $viesdata[$i]['view'] = $viesdata[$i];
