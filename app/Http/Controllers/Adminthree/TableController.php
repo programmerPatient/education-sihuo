@@ -146,7 +146,7 @@ class TableController extends Controller
                     foreach($VieValue['views'] as $view){
                         if(in_array($view->id,$hasTableauIds)){
                             $bo = true;
-                            foreach($group $as $g=>$up){
+                            foreach($group as $g=>$up){
                                 if($up->report_id == $view->id){
                                     $bo = false;
                                     break;
