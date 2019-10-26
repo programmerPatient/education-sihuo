@@ -66,7 +66,6 @@ class ReportController extends Controller
                 } else {
                     $viesdata = json_decode($chilresponse)->workbook->views->view;
                     $wok = json_decode($chilresponse)->workbook;
-                    dd($wok->name);
                 }
                 for($i=0 ; $i< count($viesdata);$i++ ){
                     $vies['view'] = $viesdata[$i];

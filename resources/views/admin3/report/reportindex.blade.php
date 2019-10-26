@@ -44,7 +44,7 @@
                 <td><input type="checkbox" value="{{$value->id}}" name="ids"></td>
                 <td>{{$value->id}}</td>
                 <td>{{$value->project_name}}</td>
-                <td>{{$value->workbook_name}}</td>
+                <td>{{$value->workBook_name}}</td>
                 <td>{{$value->report_name}}</td>
                 <td>{{$value->created_at}}</td>
                 <td>{{$value->updated_at}}</td>
