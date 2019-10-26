@@ -91,7 +91,7 @@ class IndexController extends Controller
                 } else {
                     $viesdata = json_decode($chilresponse)->workbook->views->view;
                     $member_group = RelationReport::where('member_id',$user->id)->get();
-                    if(!$user){
+                    if(!$user || !$member_group){
                         for($i=0 ; $i< count($viesdata);$i++ ){
                             $viesdata[$i]->filter = "iframeSizedToWindow=true";
                         }

@@ -71,6 +71,7 @@ class TableController extends Controller
     //报表权限的分配
     public function auth($id){
         $user = Member::where('id',$id)->get()->first();
+        $group = RelationReport::where('member_id',$user->id)->get();
         if(Input::method() == 'POST'){
             $tableauIds = Input::get('tableauIds');
             $hasTableauIds = $tableauIds;
@@ -144,11 +145,20 @@ class TableController extends Controller
                 foreach($value['project'] as $VieValue){
                     foreach($VieValue['views'] as $view){
                         if(in_array($view->id,$hasTableauIds)){
-                            $insert[$view->id]['project_name'] = $value['name'];
-                            $insert[$view->id]['workBook_name'] = $VieValue['name'];
-                            $insert[$view->id]['report_name'] = $view->name;
-                            $insert[$view->id]['report_id'] = $view->id;
-                            $insert[$view->id]['member_id'] = $id;
+                            $bo = true;
+                            foreach($group $as $g=>$up){
+                                if($up->report_id == $view->id){
+                                    $bo = false;
+                                    break;
+                                }
+                            }
+                            if($bo){
+                                $insert[$view->id]['project_name'] = $value['name'];
+                                $insert[$view->id]['workBook_name'] = $VieValue['name'];
+                                $insert[$view->id]['report_name'] = $view->name;
+                                $insert[$view->id]['report_id'] = $view->id;
+                                $insert[$view->id]['member_id'] = $id;
+                            }
                         }
                     }
                 }
