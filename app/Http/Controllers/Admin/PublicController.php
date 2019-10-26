@@ -154,13 +154,14 @@ class PublicController extends Controller
                   ),
                 ));
                 $response = curl_exec($curl);
+                dd($response);
                 $err = curl_error($curl);
                 curl_close($curl);
                 if ($err) {
                   echo "cURL Error #:" . $err;
                 } else {
                   // dd(json_decode($response));
-                    dd($response);
+
                   $user = json_decode($response)->users->user;
                   $boole = true;
                   foreach($user as $val){
