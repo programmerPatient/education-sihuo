@@ -142,7 +142,7 @@ class TableController extends Controller
             foreach($p as $k=>$value){
                 foreach($value['project'] as $VieValue){
                     foreach($VieValue['views'] as $view){
-                        if(in_array($view->id,$hasTableauIds){
+                        if(in_array($view->id,$hasTableauIds)){
                             $insert[$view->id]['project_name'] = $value['name'];
                             $insert[$view->id]['workBook_name'] = $VieValue['name'];
                             $insert[$view->id]['report_name'] = $view->name;
