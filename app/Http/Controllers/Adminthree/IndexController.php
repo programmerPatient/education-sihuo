@@ -105,7 +105,7 @@ class IndexController extends Controller
                                         $pror = explode('|',$pror);
                                         foreach($pro as $po=>$proj){
                                             $u = false;
-                                            $p = null;
+                                            $pj = null;
                                             foreach($pror as $po2=>$proj2){
                                                 $pl = explode('=',$proj);
                                                 if($pl[0] == explode('=',$proj2)[0]){
