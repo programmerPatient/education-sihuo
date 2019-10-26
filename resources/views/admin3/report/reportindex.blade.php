@@ -34,7 +34,6 @@
                 <th width="100">工作簿名</th>
                 <th width="100">报表名</th>
                 <th width="40">创建时间</th>
-                <th width="150">更新时间</th>
                 <th width="100">项目组映射</th>
             </tr>
         </thead>
