@@ -101,6 +101,17 @@ class IndexController extends Controller
                                 if($r->project_group){
                                     if($user){
                                         $r->project_group=RelationMember::where('member_id',$user->id)->get()->first()->project_group.'|'.$r->project_group;
+                                        $pro = explode('|',$r->project_group);
+                                        foreach($pro as $po=>$proj){
+                                            foreach($pro as $po2=>$proj2){
+                                                if($po == $po2){
+                                                    continue;
+                                                }else{
+                                                    dd($proj);
+                                                }
+                                            }
+                                        }
+
                                     }
                                     $viesdata[$i]->filter = implode('&',explode('|',$r->project_group));
                                 }else{
