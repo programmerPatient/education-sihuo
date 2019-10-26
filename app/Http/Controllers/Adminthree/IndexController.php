@@ -109,11 +109,12 @@ class IndexController extends Controller
                                                 }else{
                                                     if(explode('=',$proj)[0] == explode('=',$proj2)[0]){
                                                         $proj = explode('=',$proj)[1] .',' . explode('=',$proj2)[1];
-                                                        dd($proj);
                                                     }
                                                 }
                                             }
                                         }
+                                        $r->project_group = $pro;
+                                        dd($pro);
 
                                     }
                                     $viesdata[$i]->filter = implode('&',explode('|',$r->project_group));
