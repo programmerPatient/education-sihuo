@@ -121,11 +121,21 @@
 $(function(){
     $('#toolbr').find('input[type=checkbox]').bind('click', function(){
 
-        //当前的checkbox是否选中
+       //当前的checkbox是否选中
         if(this.checked){
             $('input[type="checkbox"]').prop("checked",false)
             $(this).prop("checked",true)
+        // //除当前的checkbox其他的都不选中
+        // $("#checkboxarr").find('input[type=checkbox]').not(this).attr("checked", false);
+        console.log("点击");
+         //选中的checkbox数量
+         var selectleng = $("input[type='checkbox']:checked").length;
+         console.log("选中的checkbox数量"+selectleng);
         }
+         else{
+         //未选中的处理
+          console.log("未选中的处理");
+          }
     });
 
 
