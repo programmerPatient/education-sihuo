@@ -71,7 +71,6 @@ class TableController extends Controller
     //报表权限的分配
     public function auth($id){
         $user = Member::where('id',$id)->get()->first();
-        dd($user->id);
         $group = RelationReport::where('member_id',$user->id)->get();
         if(Input::method() == 'POST'){
             $tableauIds = Input::get('tableauIds');
@@ -159,7 +158,7 @@ class TableController extends Controller
                                 $insert[$view->id]['workBook_name'] = $VieValue['name'];
                                 $insert[$view->id]['report_name'] = $view->name;
                                 $insert[$view->id]['report_id'] = $view->id;
-                                $insert[$view->id]['member_id'] = $id;
+                                $insert[$view->id]['member_id'] = $user->id;
                             }
                         }
                     }
