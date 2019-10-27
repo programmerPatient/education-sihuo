@@ -22,10 +22,10 @@ Route::group(['prefix' => 'admin'],function(){
     Route::post('public/check','Admin\PublicController@check');
 
     //初始化后台的系统设置
-    Route::any('public/lnitialization','Admin\SystemController@lnitialization');
+    Route::post('public/inization','Admin\SystemController@inization');
 
     //初始化管理员信息
-    Route::post('manager/initzation','Admin\ManagerController@lnitialization')->middleware('initzation.auth');
+    Route::post('manager/initzation','Admin\ManagerController@inization')->middleware('initzation.auth');
 
 
     //项目初始化
