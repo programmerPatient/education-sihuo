@@ -90,7 +90,7 @@ class ReportController extends Controller
         }
         // foreach($p as $u => $l){
         //     $h = false;
-        //     foreach($data as $g=>$r){
+        //     foreach($data as $g=>->$r){
         //         if($l['view']->id == $r->report_id){
         //             $h = true;
         //         }
@@ -105,6 +105,9 @@ class ReportController extends Controller
         //     }
         // }
         $date = RelationReport::all();
+        foreach($date as $key=>$value){
+            $data[$key]->username = $data[$key]->member->username;
+        }
         return view('admin3.report.reportindex',compact('date'));
     }
 
