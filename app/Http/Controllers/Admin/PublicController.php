@@ -98,6 +98,7 @@ class PublicController extends Controller
             // 'captcha' => 'required|size:4|captcha'
         ]);
         $data = $request -> only(['username','password']);
+        dd($data);
         //继续开始进行身份核实
         $data['status'] = '1';//要求状态为启用的用户登录
 
