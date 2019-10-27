@@ -56,7 +56,6 @@ class TableController extends Controller
         array_splice($array,1,1);
         $contentUrl = implode("/", $array);
         $ticket = Session::get('ticket');
-        dd($filter);
         return view('admin3.table.index',compact('contentUrl','ticket','filter'));
     }
 
