@@ -115,7 +115,7 @@ $(function(){
         submitHandler:function(form){
             $(form).ajaxSubmit({
                 type: 'post',
-                url: "/admin/mamger/initzation" ,//自己提交给自己可以不写url
+                url: "/admin/manager/initzation" ,//自己提交给自己可以不写url
                 success: function(data){
                     if(data == '1'){
                         layer.msg('设置成功!',{icon:1,time:1000},function(){

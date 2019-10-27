@@ -12,20 +12,6 @@ use Excel;
 class MemberController extends Controller
 {
 
-
-    public function lnitialization(){
-        //初始化
-        $data['username'] = Input::get('username');
-        $data['password'] = bcrypt(Input::get('password'));
-        $result = Manager::insert($data);
-        if($result){
-            return redirect('admin/public/login');
-        }else{
-            return '0';
-        }
-
-    }
-
     //列表展示
     public function index(){
         //查询数据

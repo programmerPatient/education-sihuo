@@ -8,6 +8,19 @@ use App\Models\Admin\Manager;
 
 class ManagerController extends Controller
 {
+
+    public function inization(){
+        //初始化
+        $data['username'] = Input::get('username');
+        $data['password'] = bcrypt(Input::get('password'));
+        $result = Manager::insert($data);
+        if($result){
+            return redirect('admin/public/login');
+        }else{
+            return '0';
+        }
+
+    }
     //管理员列表操作
     public function index(){
         //查询数据
