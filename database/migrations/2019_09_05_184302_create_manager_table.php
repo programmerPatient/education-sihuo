@@ -19,7 +19,7 @@ class CreateManagerTable extends Migration
             $table->string('password')->notnull();//密码
             $table->timestamps();//创建时间和更新时间
             $table->rememberToken();//记住登陆状态的额字段
-            $table->enum('status',[1,2])->notnull()->default('2');//账号的状态，1=禁用，2=正常
+            $table->enum('status',[1,2])->notnull()->default('1');//账号的状态，1=禁用，2=正常
         });
     }
 
