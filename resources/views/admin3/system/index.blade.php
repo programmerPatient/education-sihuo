@@ -87,11 +87,11 @@
                     报表页面的操作导航栏的位置：
                 </label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="checkbox" id="website-title" value="top" class="input-text" name="toolbar">
+                    <input type="checkbox" id="website-title" value="top" class="input-checkbox" name="toolbar">
                     工具栏在顶部
-                    <input type="checkbox" id="website-title" value="yes" class="input-text" name="toolbar">
+                    <input type="checkbox" id="website-title" value="yes" class="input-checkbox" name="toolbar">
                     工具栏在底部
-                    <input type="checkbox" id="website-title" value="no" class="input-text" name="toolbar">
+                    <input type="checkbox" id="website-title" value="no" class="input-checkbox" name="toolbar">
                     工具栏不显示
                 </div>
             </div>
