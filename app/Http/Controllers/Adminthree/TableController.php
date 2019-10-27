@@ -53,6 +53,7 @@ class TableController extends Controller
          $contentUrl = $request->contentUrl;
         if(!$request->filter){
           $filter = "iframeSizedToWindow=true";
+          dd($filter);
         }else{
             $filter = implode('&',explode('@',$request->filter));
         }
