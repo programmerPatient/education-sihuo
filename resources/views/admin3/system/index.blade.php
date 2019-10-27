@@ -86,7 +86,7 @@
                     <span class="c-red">*</span>
                     报表页面的操作导航栏的位置：
                 </label>
-                <div class="formControls col-xs-8 col-sm-9">
+                <div class="formControls col-xs-8 col-sm-9" id="toolbar">
                     <input type="checkbox" id="website-title" value="top" class="input-checkbox" name="toolbar">
                     工具栏在顶部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" id="website-title" value="yes" class="input-checkbox" name="toolbar">
@@ -119,6 +119,16 @@
 <script type="text/javascript" src="/admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript">
 $(function(){
+    $('#toolbr').find('input[type=checkbox]').bind('click', function(){
+
+        //当前的checkbox是否选中
+        if(this.checked){
+            $('input[type="checkbox"]').prop("checked",false)
+            $(this).prop("checked",true)
+        }
+    });
+
+
     $('.skin-minimal input').iCheck({
         checkboxClass: 'icheckbox-blue',
         radioClass: 'iradio-blue',
