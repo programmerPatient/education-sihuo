@@ -107,7 +107,6 @@ class ReportController extends Controller
         $date = RelationReport::all();
         foreach($date as $key=>$value){
             $data[$key]['username'] = $data[$key]->member->username;
-            dd($data[$key]);
         }
         return view('admin3.report.reportindex',compact('date'));
     }
