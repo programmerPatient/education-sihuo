@@ -51,7 +51,7 @@ class TableController extends Controller
 
         // $contentUrl = $request->all()['contentUrl'];
          $contentUrl = $request->contentUrl;
-         $filter = $request->filter;
+         dd($filter = $request->filter);
         $array = explode("/", $contentUrl);
         array_splice($array,1,1);
         $contentUrl = implode("/", $array);
