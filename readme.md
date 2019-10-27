@@ -5,7 +5,7 @@
 
     创建.env文件
         
-        执行cp .env.example .env
+        执行 cp .env.example .env
 
     修改 .env文件
 
