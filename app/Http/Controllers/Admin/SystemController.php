@@ -39,7 +39,7 @@ class SystemController extends Controller
         // $default->save();
         $post['system_domain'] = $tableau_domain;
         $post['web_title'] = $web_title;
-        $post['company ']= $company;
+        $post['company']= $company;
         $pos['toolbar'] = $toolbar;
         $result = System::insert($post);
         if($result){
