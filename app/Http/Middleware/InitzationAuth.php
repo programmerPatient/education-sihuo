@@ -16,7 +16,7 @@ class InitzationAuth
      */
     public function handle($request, Closure $next)
     {
-        if(!Manager::all();){
+        if(!Manager::get()->first()){
             return view('admin.error.index');
         }
 
