@@ -158,7 +158,7 @@ $(function(){
         submitHandler:function(form){
             $(form).ajaxSubmit({
                 type: 'post',
-                url: "" ,//自己提交给自己可以不写url
+                url: "/admin/public/lnitialization" ,//自己提交给自己可以不写url
                 success: function(data){
                     if(data == '1'){
                         layer.msg('初始化成功!',{icon:1,time:1000},function(){

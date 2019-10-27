@@ -49,7 +49,7 @@ class PublicController extends Controller
         // 该页面使用H_ui.admin模板自动生成，需要到该网站下下载对应的代码，然后在public目录下引入他的静态资源，然后在视图文件中引入你需要的界面的代码，当前页面引入login.html的代码,并修改页面的资源引入路径为自己刚才引入资源后的资源路径
         $system = System::get()->first();
         if(!$system){
-            return redirect('admin/public/Initialization');
+            return view('admin3.lnitialization.system');
         }
         $result = Manager::all();
         if(!$result){
