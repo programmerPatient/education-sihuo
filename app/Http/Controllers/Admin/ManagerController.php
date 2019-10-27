@@ -15,9 +15,8 @@ class ManagerController extends Controller
         $data['username'] = Input::get('username');
         $data['password'] = bcrypt(Input::get('password'));
         $result = Manager::insert($data);
-        dd($result);
         if($result){
-            return redirect('admin/public/login');
+            redirect('admin/public/login');
         }else{
             return '0';
         }

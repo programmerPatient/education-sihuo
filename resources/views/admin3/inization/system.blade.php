@@ -31,7 +31,7 @@
     初始化基本设置
 </nav>
 <div class="page-container">
-    <form class="form form-horizontal" id="form-article-add">
+    <form class="form form-horizontal" id="form-article-add" action="/admin/public/inization" method="post">
         <div id="tab-system" class="HuiTab">
             <div class="tabBar cl">
                 <span>初始化基本设置</span>
@@ -155,26 +155,26 @@ $(function(){
         onkeyup:false,
         focusCleanup:true,
         success:"valid",
-        submitHandler:function(form){
-            $(form).ajaxSubmit({
-                type: 'post',
-                url: "/admin/public/inization" ,//自己提交给自己可以不写url
-                success: function(data){
-                    if(data == '1'){
-                        layer.msg('初始化成功!',{icon:1,time:1000},function(){
-                            var index = parent.layer.getFrameIndex(window.name);
-                            // //刷新
-                            // window.location = window.location;
-                        });
-                    }else{
-                        layer.msg('初始化失败,请重试!',{icon:2,time:2000});
-                    }
-                },
-                error: function(XmlHttpRequest, textis_nav, errorThrown){
-                    layer.msg('error!',{icon:2,time:1000});
-                }
-            });
-        }
+        // submitHandler:function(form){
+        //     $(form).ajaxSubmit({
+        //         type: 'post',
+        //         url: "/admin/public/inization" ,//自己提交给自己可以不写url
+        //         success: function(data){
+        //             if(data == '1'){
+        //                 layer.msg('初始化成功!',{icon:1,time:1000},function(){
+        //                     var index = parent.layer.getFrameIndex(window.name);
+        //                     // //刷新
+        //                     // window.location = window.location;
+        //                 });
+        //             }else{
+        //                 layer.msg('初始化失败,请重试!',{icon:2,time:2000});
+        //             }
+        //         },
+        //         error: function(XmlHttpRequest, textis_nav, errorThrown){
+        //             layer.msg('error!',{icon:2,time:1000});
+        //         }
+        //     });
+        // }
     });
 
      $('#file-fr').on('change',function(){
