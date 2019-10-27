@@ -87,11 +87,11 @@
                     报表页面的操作导航栏的位置：
                 </label>
                 <div class="formControls col-xs-8 col-sm-9" id="toolbar">
-                    <input type="checkbox" id="website-title" value="top" class="input-checkbox" name="toolbar">
+                    <input type="checkbox" id="website-title" value="top" class="input-checkbox" name="toolbar" @if($default->toolbar == 'top') checked @endif>
                     工具栏在顶部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" id="website-title" value="yes" class="input-checkbox" name="toolbar">
+                    <input type="checkbox" id="website-title" value="yes" class="input-checkbox" name="toolbar" @if($default->toolbar == 'yes') checked @endif>
                     工具栏在底部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" id="website-title" value="no" class="input-checkbox" name="toolbar">
+                    <input type="checkbox" id="website-title" value="no" class="input-checkbox" name="toolbar" @if($default->toolbar == 'no') checked @endif>
                     工具栏不显示
                 </div>
             </div>
