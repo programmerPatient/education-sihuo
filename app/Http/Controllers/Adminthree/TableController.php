@@ -71,6 +71,7 @@ class TableController extends Controller
     //报表权限的分配
     public function auth($id){
         $user = Member::where('id',$id)->get()->first();
+        dd($user->id);
         $group = RelationReport::where('member_id',$user->id)->get();
         if(Input::method() == 'POST'){
             $tableauIds = Input::get('tableauIds');
