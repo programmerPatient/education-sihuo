@@ -54,7 +54,7 @@ class TableController extends Controller
         if(!$request->filter){
           $filter = "iframeSizedToWindow=true";
         }else{
-            $filter = implode('&',explode('@',$request->filter));
+          $filter = implode('&',explode('@',$request->filter));
         }
         $array = explode("/", $contentUrl);
         array_splice($array,1,1);

@@ -81,6 +81,20 @@
                     <input type="text" id="website-title" placeholder="新信息" value="{{$default->company}}" class="input-text" name="company">
                 </div>
             </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2">
+                    <span class="c-red">*</span>
+                    报表页面的操作导航栏的位置：
+                </label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="checkbox" id="website-title" value="top" class="input-text" name="toolbar">
+                    工具栏在顶部
+                    <input type="checkbox" id="website-title" value="yes" class="input-text" name="toolbar">
+                    工具栏在底部
+                    <input type="checkbox" id="website-title" value="no" class="input-text" name="toolbar">
+                    工具栏不显示
+                </div>
+            </div>
         </div>
         {{csrf_field()}}
         <div class="row cl">
