@@ -143,7 +143,6 @@ class ReportController extends Controller
    public function relations($id){
         if(Input::method() == 'POST'){
             $ids = explode(',',$id);
-            dd($ids);
             $project_group = Input::get('project_group');
             foreach($project_group as $key=>$value){
                 if($value == null){
@@ -152,11 +151,14 @@ class ReportController extends Controller
             }
             $project_group = implode("|",$project_group);
             $data['project_group'] = $project_group;
-            $re = RelationReport::where('id',$id)->get()->first();
-            if($re){
-                $result = $re->update($data);
-            }else{
-                return '0';
+            $result = true;
+            foreach($ids as $k=$id){
+                $re = RelationReport::where('id',$id)->get()->first();
+                if($re){
+                    $result = $re->update($data);
+                }else{
+                    return '0';
+                }
             }
             return $result ? '1':'0';
         }else{
