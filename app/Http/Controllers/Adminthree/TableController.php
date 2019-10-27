@@ -60,7 +60,8 @@ class TableController extends Controller
         array_splice($array,1,1);
         $contentUrl = implode("/", $array);
         $ticket = Session::get('ticket');
-        return view('admin3.table.index',compact('contentUrl','ticket','filter'));
+        $toolbar = System::get()->first()->toolbar;
+        return view('admin3.table.index',compact('contentUrl','ticket','filter','toolbar'));
     }
 
     public function status(){

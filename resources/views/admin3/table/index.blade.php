@@ -52,7 +52,7 @@
             <param name='site_root' value='' />
             <param name='name' value='{{$contentUrl}}' />
             <param name='tabs' value='yes' />
-            <param name='toolbar' value='yes' />
+            <param name='toolbar' value='{{$toolbar}}' />
             <param name='showAppBanner' value='false' />
             <param name='filter' value='{{$filter}}' />
         </object>

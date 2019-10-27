@@ -17,6 +17,7 @@ class SystemController extends Controller
             $tableau_domain = Input::only("tableau_domain")["tableau_domain"];
             $web_title = Input::only('web_title')['web_title'];
             $company = Input::only('company')['company'];
+            $toolbar = Input::only('toolbar')['toolbar'];
             $file = $request->file('logo_img');
             $default = System::get()->first();
             if($file){
@@ -42,7 +43,7 @@ class SystemController extends Controller
             $default->system_domain = $tableau_domain;
             $default->web_title = $web_title;
             $default->company = $company;
-
+            $default->toolbar = $toolbar;
             return $default->save() ? '1':'0';
             // //修改config配置
             // $data =  System::get()->first();
