@@ -11,6 +11,7 @@ class ManagerController extends Controller
 {
 
     public function inization(){
+        dd(Input::all());
         //初始化
         $data['username'] = Input::get('username');
         $data['password'] = bcrypt(Input::get('password'));
