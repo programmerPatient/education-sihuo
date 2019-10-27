@@ -40,7 +40,7 @@ class SystemController extends Controller
         $post['system_domain'] = $tableau_domain;
         $post['web_title'] = $web_title;
         $post['company']= $company;
-        $pos['toolbar'] = $toolbar;
+        $post['toolbar'] = $toolbar;
         $result = System::insert($post);
         if($result){
             return redirect('admin/public/login');
