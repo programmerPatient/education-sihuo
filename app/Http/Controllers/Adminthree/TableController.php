@@ -51,12 +51,11 @@ class TableController extends Controller
 
         // $contentUrl = $request->all()['contentUrl'];
          $contentUrl = $request->contentUrl;
-         dd($filter = $request->filter);
+        $filter = implode('&',explode('@',$request->filter));
         $array = explode("/", $contentUrl);
         array_splice($array,1,1);
         $contentUrl = implode("/", $array);
         $ticket = Session::get('ticket');
-        dd($filter);
         return view('admin3.table.index',compact('contentUrl','ticket','filter'));
     }
 
