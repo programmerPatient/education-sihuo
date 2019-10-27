@@ -90,7 +90,7 @@ function member_auth(title,url,id,w,h){
 }
 
 /*报表批量映射*/
-function mapping(){
+function groups(){
     var ids =[];
     $("input[name='ids']:checked").each(function(){
         ids.push($(this).val());
