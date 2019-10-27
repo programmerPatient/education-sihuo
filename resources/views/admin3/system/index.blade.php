@@ -119,7 +119,7 @@
 <script type="text/javascript" src="/admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript">
 $(function(){
-    $('#toolbr').find('input[type=checkbox]').bind('click', function(){
+    $('#toolbar').find('input[type=checkbox]').bind('click', function(){
 
        //当前的checkbox是否选中
         if(this.checked){
