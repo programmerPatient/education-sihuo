@@ -25,7 +25,7 @@ Route::group(['prefix' => 'admin'],function(){
     Route::post('public/inization','Admin\SystemController@inization');
 
     //初始化管理员信息
-    Route::post('manager/initzation','Admin\ManagerController@inization')->middleware('initzation.auth');
+    Route::post('manager/initzation','Admin\ManagerController@inization');
 
 
     //项目初始化
