@@ -11,7 +11,7 @@ use App\Models\Admin\System;
 
 class SystemController extends Controller
 {
-    public function inization(){
+    public function inization(Request $request){
         //系统设置的修改
         $tableau_domain = Input::only("tableau_domain")["tableau_domain"];
         $web_title = Input::only('web_title')['web_title'];
