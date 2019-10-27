@@ -88,9 +88,9 @@
                 </label>
                 <div class="formControls col-xs-8 col-sm-9">
                     <input type="checkbox" id="website-title" value="top" class="input-checkbox" name="toolbar">
-                    工具栏在顶部&nbsp;
+                    工具栏在顶部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" id="website-title" value="yes" class="input-checkbox" name="toolbar">
-                    工具栏在底部&nbsp;
+                    工具栏在底部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" id="website-title" value="no" class="input-checkbox" name="toolbar">
                     工具栏不显示
                 </div>
