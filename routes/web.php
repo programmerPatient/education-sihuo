@@ -21,6 +21,12 @@ Route::group(['prefix' => 'admin'],function(){
     //后台登陆处理页面
     Route::post('public/check','Admin\PublicController@check');
 
+    //初始化后台的系统设置
+    Route::any('public/lnitialization','Admin\SystemController@lnitialization');
+
+    //初始化管理员信息
+    Route::post('manager/initzation','Admin\ManagerController@lnitialization')->middleware('initzation.auth');
+
 
     //项目初始化
     // Route::any('public/','Admin\PublicController@index');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Adminthree;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\System;
+use App\Models\Admin\Manager;
 
 //引入Auth门面
 use Auth;

@@ -11,6 +11,48 @@ use App\Models\Admin\System;
 
 class SystemController extends Controller
 {
+    public function Initialzation(){
+        if(Input::method() == 'POST'){
+            //系统设置的修改
+            $tableau_domain = Input::only("tableau_domain")["tableau_domain"];
+            $web_title = Input::only('web_title')['web_title'];
+            $company = Input::only('company')['company'];
+            $toolbar = Input::only('toolbar')['toolbar'];
+            $file = $request->file('logo_img');
+            $default = System::get()->first();
+            if($file){
+
+                $allowed_extensions = ["png", "jpg", "gif","PNG",'jpeg'];
+                if ($file->getClientOriginalExtension() && !in_array($file->getClientOriginalExtension(), $allowed_extensions)) {
+                    return ['error' => 'You may only upload png, jpg , PNG , jpeg or gif.'];
+                }
+                $destinationPath = 'images/'; //public 文件夹下面建 imges 文件夹
+
+                $extension = $file->getClientOriginalExtension();
+                $fileName = str_random(10).'.'.$extension;
+                $file->move($destinationPath, $fileName);
+                $filePath = asset($destinationPath.$fileName);
+                $post['logo_url'] = $filePath;
+            }
+            // $post['type'] = '1';
+
+            // $default -> type = '0';
+            // $default->save();
+            $post['system_domain'] = $tableau_domain;
+            $post['web_title'] = $web_title;
+            $default->system_domain = $tableau_domain;
+            $post['company ']= $company;
+            $pos['toolbar'] = $toolbar;
+            $result = System::insert($post);
+            if($result){
+                return redirect('admin/public/login');
+            }
+            return '0';
+        }else{
+            return view('admin3.Initialization.system');
+        }
+    }
+
     public function update(Request $request){
         if(Input::method() == 'POST'){
             //系统设置的修改
