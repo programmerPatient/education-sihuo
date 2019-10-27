@@ -51,7 +51,7 @@ class PublicController extends Controller
         if(!$system){
             return view('admin3.inization.system');
         }
-        $result = Manager::all();
+        $result = Manager::get()->first();
         if(!$result){
             return view('admin3.inization.index');//初始化基本信息
         }

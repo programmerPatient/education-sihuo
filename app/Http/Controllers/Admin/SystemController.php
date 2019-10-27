@@ -44,8 +44,9 @@ class SystemController extends Controller
         $result = System::insert($post);
         if($result){
             return redirect('admin/public/login');
+        }else{
+            return '0';
         }
-        return '0';
     }
 
     public function update(Request $request){
