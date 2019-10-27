@@ -49,6 +49,7 @@ class SystemController extends Controller
             }
             return '0';
         }else{
+            dd('ss');
             return view('admin3.Initialization.system');
         }
     }
