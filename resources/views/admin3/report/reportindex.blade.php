@@ -25,6 +25,11 @@
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 报表管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
+    <div class="cl pd-5 bg-1 bk-gray mt-20">
+        <span class="l">
+            <a href="javascript:;" onclick="groups()" class="btn btn-success radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量项目组映射</a>
+        </span>
+    </div>
     <table class="table table-border table-bordered table-hover table-bg table-sort">
         <thead>
             <tr class="text-c">
@@ -84,6 +89,18 @@ function member_auth(title,url,id,w,h){
     layer_show(title,url,w,h);
 }
 
+/*报表批量映射*/
+function mapping(){
+    var ids =[];
+    $("input[name='ids']:checked").each(function(){
+        ids.push($(this).val());
+    });
+    if(ids == false){
+        layer.msg('请选择要批量授权的对象!',{icon:1,time:1000});
+    }else{
+        member_auth('映射tableau用户','/adminthree/report/groups/'+ids,'4','','510');
+    }
+}
 </script>
 </body>
 </html>

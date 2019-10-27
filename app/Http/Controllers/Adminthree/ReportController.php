@@ -140,4 +140,26 @@ class ReportController extends Controller
             return view('admin3.report.relation',compact('project_group'));
         }
    }
+   public function relations($id){
+        if(Input::method() == 'POST'){
+            dd($id);
+            $project_group = Input::get('project_group');
+            foreach($project_group as $key=>$value){
+                if($value == null){
+                    unset($project_group[$key]);
+                }
+            }
+            $project_group = implode("|",$project_group);
+            $data['project_group'] = $project_group;
+            $re = RelationReport::where('id',$id)->get()->first();
+            if($re){
+                $result = $re->update($data);
+            }else{
+                return '0';
+            }
+            return $result ? '1':'0';
+        }else{
+            return view('admin3.report.index');
+        }
+   }
 }

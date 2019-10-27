@@ -184,6 +184,7 @@ Route::group(['prefix' => 'adminthree','middleware' => ['admin.auth']],function(
     //报表操作
     Route::get('report/index','Adminthree\ReportController@index');
     Route::any('report/{id}','Adminthree\ReportController@relation');
+    Route::any('report/groups/{id}','Adminthree\ReportController@relations');
 
 });
 
