@@ -142,7 +142,8 @@ class ReportController extends Controller
    }
    public function relations($id){
         if(Input::method() == 'POST'){
-            dd($id);
+            $ids = explode(',',$id);
+            dd($ids);
             $project_group = Input::get('project_group');
             foreach($project_group as $key=>$value){
                 if($value == null){
