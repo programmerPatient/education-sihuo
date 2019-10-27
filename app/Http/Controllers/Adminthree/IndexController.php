@@ -153,7 +153,7 @@ class IndexController extends Controller
                             foreach($member_group as $o=>$me){
                                 if($me->report_id == $vaie->id){
                                     $project = explode('|',$me->project_group);
-                                    $project = implode('&',$project);
+                                    $project = implode('@',$project);
                                     $viesdata[$key]->filter = $project;
                                 }
                             }
