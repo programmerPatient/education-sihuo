@@ -51,7 +51,7 @@
                 <!-- <th width="70">类型</th> -->
                 <th width="100">操作</th>
                 <th width="100">权限管理</th>
-                <th width="100">项目组映射</th>
+                <!-- <th width="100">项目组映射</th> -->
                 <th width="100">映射tableau用户</th>
             </tr>
         </thead>
@@ -96,10 +96,10 @@
                     <a onclick="member_auth('权限管理','/adminthree/table/auth/{{$value->id}}','4','','510')"><span class="label label-success radius">权限管理</span></a>
                     </span>
                 </td>
-                <td class="td-status">
+                <!-- <td class="td-status">
                     <a onclick="member_auth('项目组映射','/adminthree/report/user/{{$value->id}}','4','','510')"><span class="label label-success radius">项目组映射</span></a>
                     </span>
-                </td>
+                </td> -->
                 <td class="td-status">
                     <a onclick="member_auth('映射tableau用户','/adminthree/table/user/{{$value->id}}','4','','510')"><span class="label label-success radius">映射tableau用户</span></a>
                     </span>
