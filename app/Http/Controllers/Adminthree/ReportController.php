@@ -152,7 +152,7 @@ class ReportController extends Controller
             $project_group = implode("|",$project_group);
             $data['project_group'] = $project_group;
             $result = true;
-            foreach($ids as $k=$id){
+            foreach($ids as $k=>$id){
                 $re = RelationReport::where('id',$id)->get()->first();
                 if($re){
                     $result = $re->update($data);
