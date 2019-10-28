@@ -10,6 +10,7 @@ use Input;
 use Excel;
 use Session;
 use DB;
+use Config;
 use App\Models\Admin\System;
 use App\Models\Admin\RelationReport;
 use App\Models\Admin\RelationMember;
@@ -203,7 +204,7 @@ class IndexController extends Controller
             $port = $request->port;
             $database_name = $request->database_name;
             $table_name = $request->table_name;
-            config::set(['database.connections.onlymysql'=>[
+            Config::set(['database.connections.onlymysql'=>[
                 'driver' => 'mysql',
                 'host' => env('DB_HOST',$servername ),
                 'port' => env('DB_PORT', $port),
