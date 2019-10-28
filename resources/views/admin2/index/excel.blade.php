@@ -39,7 +39,7 @@
                     excel数据导入：
                 </label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input  name="file" type="file" value="选择文件" class="btn btn-primary radius">
+                    <input  name="file" type="file" value="选择文件"">
                 </div>
             </div>
             <div class="row cl">
