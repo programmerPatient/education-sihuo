@@ -242,7 +242,7 @@ class IndexController extends Controller
                 $value = '';
                 foreach($val as $k=>$va){
                     $p .= $k.',';
-                    $value .= $va.',';
+                    $value .= '\''.$va.'\''.',';
                 }
                 $p =  substr($p,0,strlen($p)-1);
                 $value =  substr($value,0,strlen($value)-1);
