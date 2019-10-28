@@ -52,7 +52,6 @@ class SystemController extends Controller
 
     public function update(Request $request){
         if(Input::method() == 'POST'){
-if(Input::method() == 'POST'){
             //系统设置的修改
             $tableau_domain = Input::only("tableau_domain")["tableau_domain"];
             $web_title = Input::only('web_title')['web_title'];
