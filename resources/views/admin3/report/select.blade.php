@@ -66,7 +66,7 @@ $(function(){
         "bStateSave": true,//状态保存
         "aoColumnDefs": [
           //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
-          {"orderable":false,"aTargets":[0,3]}// 制定列不参与排序
+          {"orderable":false,"aTargets":[0,2]}// 制定列不参与排序
         ]
     });
 
