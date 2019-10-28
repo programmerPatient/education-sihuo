@@ -197,7 +197,6 @@ class IndexController extends Controller
     //excel数据的导入
     public function excel(Request $request){
         if(Input::method() == 'POST'){
-            dd($request->all());
             $servername = $request->host;
             $username = $request->user;
             $password = $request->password;
