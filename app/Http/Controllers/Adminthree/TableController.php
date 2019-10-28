@@ -80,7 +80,12 @@ class TableController extends Controller
         $group = RelationReport::where('member_id',$user->id)->get();
         if(Input::method() == 'POST'){
             $tableauIds = Input::get('tableauIds');
-            $hasTableauIds = $tableauIds;
+            if($tableauIds){
+                $hasTableauIds = $tableauIds;
+            }else{
+                $hasTableauIds = array();
+            }
+
              /*拿到所有报表的数据*/
             $curlt = curl_init();
 

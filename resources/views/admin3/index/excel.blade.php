@@ -133,6 +133,9 @@ $(function(){
     $("#form-article-add").validate({
         //表单验证
         rules:{
+            file:{
+                required:true,
+            },
             host:{
                 required:true,
             },
