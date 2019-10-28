@@ -28,7 +28,6 @@
     <table class="table table-border table-bordered table-hover table-bg table-sort">
         <thead>
             <tr class="text-c">
-                <th width="25"><input type="checkbox" name="" value=""></th>
                 <th width="100">项目名</th>
                 <th width="100">工作簿名</th>
                 <th width="100">报表名</th>
@@ -59,7 +58,7 @@
 <script type="text/javascript">
 $(function(){
     $('.table-sort').dataTable({
-        // "aaSorting": [[ 1, "desc" ]],//默认第几个排序
+        "aaSorting": [[ 1, "desc" ]],//默认第几个排序
         "bStateSave": true,//状态保存
         "aoColumnDefs": [
           //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
