@@ -35,6 +35,7 @@
                 <th width="100">项目名</th>
                 <th width="100">工作簿名</th>
                 <th width="100">报表名</th>
+                <th width="100">跳转到该页面</th>
             </tr>
         </thead>
         <tbody>
@@ -43,6 +44,7 @@
                         <td>{{$value['project']}}</td>
                         <td>{{$value['workBook']}}</td>
                         <td>{{$value['view']->name}}</td>
+                        <td><a data-href="/adminthree/table/index?contentUrl={{$value['view']->contentUrl}}&filter={{$value['filter']}}" data-title="{{$value['view']->name}}" href="javascript:;" style="text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px">跳转</a></td>
                     </tr>
             @endforeach
         </tbody>
