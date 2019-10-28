@@ -198,26 +198,18 @@ class IndexController extends Controller
     //excel数据的导入
     public function excel(Request $request){
         if(Input::method() == 'POST'){
-            $servername = $request->host;
+            $host = $request->host;
             $username = $request->user;
             $password = $request->password;
             $port = $request->port;
             $database_name = $request->database_name;
             $table_name = $request->table_name;
-            Config::set(['database.connections.mysql'=>[
-                'driver' => 'mysql',
-                'host' => env('DB_HOST',$servername ),
-                'port' => env('DB_PORT', $port),
-                'database' => env('DB_DATABASE', $database_name),
-                'username' => env('DB_USERNAME', $username),
-                'password' => env('DB_PASSWORD', $password),
-                'unix_socket' => env('DB_SOCKET', ''),
-                'charset' => 'utf8mb4',
-                'collation' => 'utf8mb4_unicode_ci',
-                'prefix' => '',
-                'strict' => false,
-                'engine' => null,
-            ]]);
+            Config::set(['database.connections.onlymysql.database'=>$database_name]);
+            Config::set(['database.connections.onlymysql.host'=>$host]);
+            Config::set(['database.connections.onlymysql.port'=>$port]);
+            Config::set(['database.connections.onlymysql.username'=>$username]);
+            Config::set(['database.connections.onlymysql.password'=>$password]);
+            DB::purge('onlymysql');
              //设置文件后缀白名单
             $allowExt   = ["csv", "xls", "xlsx"];
             //获取文件
@@ -247,7 +239,7 @@ class IndexController extends Controller
                 }
                 $p =  substr($p,0,strlen($p)-1);
                 $value =  substr($value,0,strlen($value)-1);
-                DB::insert("insert into ".$table_name." (".$p.") "."values(".$value.")");
+                DB::connection('onlymysql')->insert("insert into ".$table_name." (".$p.") "."values(".$value.")");
             }
 
             // // 创建连接
