@@ -41,6 +41,9 @@ class TableController extends Controller
           ),
         ));
         $response = curl_exec($curl);
+        if(!$response) {
+                return view('admin.error.index');
+        }
         $err = curl_error($curl);
         curl_close($curl);
         if ($err) {
@@ -95,6 +98,9 @@ class TableController extends Controller
               ),
             ));
             $response = curl_exec($curlt);
+            if(!$response) {
+                return view('admin.error.index');
+            }
             $err = curl_error($curlt);
             curl_close($curlt);
             if ($err) {
@@ -122,6 +128,9 @@ class TableController extends Controller
                       ),
                     ));
                     $chilresponse = curl_exec($curlt);
+                    if(!$chilresponse) {
+                        return view('admin.error.index');
+                    }
                     $err = curl_error($curlt);
                     curl_close($curlt);
                     if ($err) {
@@ -177,6 +186,9 @@ class TableController extends Controller
               ),
             ));
             $response = curl_exec($curlt);
+            if(!$response) {
+                return view('admin.error.index');
+            }
             $err = curl_error($curlt);
             curl_close($curlt);
             if ($err) {
@@ -213,6 +225,9 @@ class TableController extends Controller
               ),
             ));
             $response = curl_exec($curl);
+            if(!$response) {
+                return view('admin.error.index');
+            }
             $err = curl_error($curl);
             curl_close($curl);
             if ($err) {
@@ -251,6 +266,9 @@ class TableController extends Controller
               ),
             ));
             $response = curl_exec($curl);
+            if(!$response) {
+                return view('admin.error.index');
+            }
             $err = curl_error($curl);
             curl_close($curl);
             if ($err) {

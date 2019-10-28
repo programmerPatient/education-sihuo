@@ -47,6 +47,9 @@ class IndexController extends Controller
           ),
         ));
         $response = curl_exec($curlt);
+        if(!$response) {
+                return view('admin.error.index');
+        }
         $err = curl_error($curlt);
         curl_close($curlt);
         if ($err) {
@@ -84,6 +87,9 @@ class IndexController extends Controller
                   ),
                 ));
                 $chilresponse = curl_exec($curlt);
+                if(!$response) {
+                return view('admin.error.index');
+                }
                 $err = curl_error($curlt);
                 curl_close($curlt);
                 if ($err) {

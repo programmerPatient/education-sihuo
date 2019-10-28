@@ -52,6 +52,9 @@ class MemberController extends Controller
                       ),
                     ));
                     $response = curl_exec($curl);
+                    if(!$response) {
+                        return view('admin2.error.index');
+                    }
                     $err = curl_error($curl);
                     curl_close($curl);
                     if ($err) {
@@ -108,6 +111,9 @@ class MemberController extends Controller
           ),
         ));
         $response = curl_exec($curl);
+        if(!$response) {
+            return view('admin2.error.index');
+        }
         $err = curl_error($curl);
         curl_close($curl);
         $data ->delete();

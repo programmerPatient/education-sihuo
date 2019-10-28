@@ -131,7 +131,7 @@ class PublicController extends Controller
               ),
             ));
             $response = curl_exec($curl);
-            if(!$response) return view('admin.error.index');
+            if(!$response) return view('admin3.error.index');
             $err = curl_error($curl);
             if ($err) {
               echo "cURL Error #:" . $err;

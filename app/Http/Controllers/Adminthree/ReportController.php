@@ -32,6 +32,9 @@ class ReportController extends Controller
           ),
         ));
         $response = curl_exec($curlt);
+        if(!$response) {
+                return view('admin3.error.index');
+        }
         $err = curl_error($curlt);
         curl_close($curlt);
         if ($err) {
@@ -59,6 +62,9 @@ class ReportController extends Controller
                   ),
                 ));
                 $chilresponse = curl_exec($curlt);
+                if(!$chilresponse) {
+                    return view('admin3.error.index');
+                }
                 $err = curl_error($curlt);
                 curl_close($curlt);
                 if ($err) {
