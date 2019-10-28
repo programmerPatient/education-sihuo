@@ -44,7 +44,7 @@
                         <td>{{$value['project']}}</td>
                         <td>{{$value['workBook']}}</td>
                         <td>{{$value['view']->name}}</td>
-                        <td><a href="/adminthree/table/index?contentUrl={{$value['view']->contentUrl}}&filter={{$value['filter']}}" data-title="{{$value['view']->name}}" href="javascript:;" style="text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px">跳转</a></td>
+                        <td><a href="/adminthree/table/index?contentUrl={{$value['view']->contentUrl}}&filter={{$value['filter']}}" data-title="{{$value['view']->name}}" href="javascript:;"><span class="label label-success radius">跳转</span></a></td>
                     </tr>
             @endforeach
         </tbody>
