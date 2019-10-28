@@ -8,6 +8,9 @@ use Auth;
 use Redirect;
 use Session;
 use DB;
+use Input;
+use Config;
+use Excel;
 use App\Models\Admin\System;
 class IndexController extends Controller
 {
