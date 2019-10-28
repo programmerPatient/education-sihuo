@@ -18,6 +18,7 @@ class SystemController extends Controller
             $web_title = Input::only('web_title')['web_title'];
             $company = Input::only('company')['company'];
             $toolbar = Input::only('toolbar')['toolbar'];
+            $model = Input::only('model')['model'];
             $file = $request->file('logo_img');
             $default = System::get()->first();
             if($file){
@@ -32,7 +33,7 @@ class SystemController extends Controller
                 $fileName = str_random(10).'.'.$extension;
                 $file->move($destinationPath, $fileName);
                 $filePath = asset($destinationPath.$fileName);
-                $post['logo_url'] = $filePath;
+                $post['logo_url'] = $destinationPath.$fileName;
                 $post['system_domain'] = $tableau_domain;
                 $default->logo_url = $filePath;
             }
@@ -44,6 +45,7 @@ class SystemController extends Controller
             $default->web_title = $web_title;
             $default->company = $company;
             $default->toolbar = $toolbar;
+            $default->model = $model;
             return $default->save() ? '1':'0';
             // //修改config配置
             // $data =  System::get()->first();

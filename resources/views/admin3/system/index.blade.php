@@ -84,6 +84,20 @@
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">
                     <span class="c-red">*</span>
+                    模式选择：
+                </label>
+                <div class="formControls col-xs-8 col-sm-9" id="model">
+                    <input type="checkbox" id="website-title" value="1" class="input-checkbox" name="model" @if($default->model == '1') checked @endif>
+                    模式一&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" id="website-title" value="2" class="input-checkbox" name="model" @if($default->model == '2') checked @endif>
+                    模式二&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" id="website-title" value="3" class="input-checkbox" name="model" @if($default->model == '3') checked @endif>
+                    模式三
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2">
+                    <span class="c-red">*</span>
                     报表页面的操作导航栏的位置：
                 </label>
                 <div class="formControls col-xs-8 col-sm-9" id="toolbar">
@@ -128,6 +142,15 @@ $(function(){
         }
     });
 
+    $('#model').find('input[type=checkbox]').bind('click', function(){
+
+       //当前的checkbox是否选中
+        if(this.checked){
+            $('input[type="checkbox"]').prop("checked",false)
+            $(this).prop("checked",true)
+        }
+    });
+
 
     $('.skin-minimal input').iCheck({
         checkboxClass: 'icheckbox-blue',
@@ -153,6 +176,12 @@ $(function(){
             log_img:{
                 required:true,
             },
+            model:{
+                required:true,
+            },
+            toolbar:{
+                required:true,
+            }
         },
         onkeyup:false,
         focusCleanup:true,

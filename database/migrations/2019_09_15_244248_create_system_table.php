@@ -20,6 +20,7 @@ class CreateSystemTable extends Migration
             $table->string('web_title');//网站标题
             $table->text('company');//所属公司
             $table->string('toolbar');//tablau报表的操作位置
+            $table->enum('model',[1,2,3]);//用户默认访问的模式
         });
     }
 

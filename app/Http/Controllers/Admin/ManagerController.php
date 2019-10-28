@@ -14,6 +14,7 @@ class ManagerController extends Controller
         //初始化
         $data['username'] = Input::get('username');
         $data['password'] = bcrypt(Input::get('password'));
+        $data['model'] = Input::get('model');
         $result = Manager::insert($data);
         if($result){
             return redirect('admin/public/login');

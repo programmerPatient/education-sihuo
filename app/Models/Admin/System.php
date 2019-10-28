@@ -9,7 +9,7 @@ class System extends Model
     //
     protected $table = 'system';
 
-    protected $fillable = ['system_domain','logo_url','web_title','toolbar'];
+    protected $fillable = ['system_domain','logo_url','web_title','toolbar','model'];
 
     public $timestamps = false;
 }
