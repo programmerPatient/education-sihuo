@@ -32,23 +32,23 @@
 <article class="page-container">
     <form action="" method="post" class="form form-horizontal" id="form-member-add">
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户名：</label>
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>权限参数：</label>
             @if(isset($project_group))
                 <div id="inputarray" class="formControls col-xs-8 col-sm-9">
                     @foreach($project_group as $val)
-                        <textarea class="input-text" style="margin-top:20px;height:40px;width:500px;" value="" placeholder="" id="project_group" name="project_group[]">{{$val}}</textarea>
+                        <textarea class="input-text" style="margin-bottom:20px;height:40px;width:500px;" value="" placeholder="" id="project_group" name="project_group[]">{{$val}}</textarea>
                     @endforeach
                 </div>
             @else
                <div id="inputarray" class="formControls col-xs-8 col-sm-9">
-                    <textarea class="input-text" style="margin-top:20px;height:40px;width:500px;" value="" placeholder="" id="project_group" name="project_group[]"></textarea>
+                    <textarea class="input-text" style="margin-bottom:20px;height:40px;width:500px;" value="" placeholder="" id="project_group" name="project_group[]"></textarea>
                 </div>
             @endif
         </div>
         {{csrf_field()}}
         <div class="row cl">
             <div class="col-xs-2 col-sm-3 col-xs-offset-4 col-sm-offset-3">
-                <button id="btn1" type="button" class="btn btn-primary radius">添加节点</button>
+                <button id="btn1" type="button" class="btn btn-primary radius">添加参数</button>
             </div>
             <div class="col-xs-2 col-sm-3 col-xs-offset-4 col-sm-offset-3">
                 <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
