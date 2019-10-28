@@ -34,8 +34,11 @@
     <form class="form form-horizontal" id="form-article-add">
         <div id="tab-system" class="HuiTab">
             <div class="row cl">
-                <label>excel数据导入：</label>
-                <div class="file-loading">
+                <label class="form-label col-xs-4 col-sm-2">
+                    <span class="c-red">*</span>
+                    excel数据导入：
+                </label>
+                <div class="formControls col-xs-8 col-sm-9">
                     <input  name="file" type="file" value="选择文件" class="btn btn-primary radius">
                 </div>
             </div>
