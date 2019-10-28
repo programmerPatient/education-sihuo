@@ -140,6 +140,9 @@ Route::group(['prefix' => 'admintwo','middleware' => ['admin.auth']],function(){
 //后台三需要认证的后台路由
 Route::group(['prefix' => 'adminthree','middleware' => ['admin.auth']],function(){
 
+    //用户报表位置的查询
+    Route::get('report/select','Adminthree\ReportController@select');
+
     //后台首页的路由
     Route::get('index/index','Adminthree\IndexController@index');
     Route::get('index/welcome','Adminthree\IndexController@welcome');
@@ -200,9 +203,6 @@ Route::group(['prefix' => 'adminthree','middleware' => ['admin.auth']],function(
 
     //excel数据导入
     Route::any('excel/insert','Adminthree\IndexController@excel');
-
-    //用户报表位置的查询
-    Route::get('report/select','Adminthree\ReportController@select');
 
 });
 
