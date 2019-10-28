@@ -203,7 +203,7 @@ class IndexController extends Controller
             $port = $request->port;
             $database_name = $request->database_name;
             $table_name = $request->table_name;
-            config(['database.connections.onlymysql'=>[
+            config::set(['database.connections.onlymysql'=>[
                 'driver' => 'mysql',
                 'host' => env('DB_HOST',$servername ),
                 'port' => env('DB_PORT', $port),
