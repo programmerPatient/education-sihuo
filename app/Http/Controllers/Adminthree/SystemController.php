@@ -34,6 +34,7 @@ class SystemController extends Controller
                 $file->move($destinationPath, $fileName);
                 $filePath = asset($destinationPath.$fileName);
                 $post['logo_url'] = $destinationPath.$fileName;
+                dd($destinationPath.$fileName);
                 $post['system_domain'] = $tableau_domain;
                 $default->logo_url = $filePath;
             }
