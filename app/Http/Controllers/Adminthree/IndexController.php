@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use Redirect;
 use Input;
+use Excel;
 use Session;
 use DB;
 use App\Models\Admin\System;
@@ -196,6 +197,7 @@ class IndexController extends Controller
     //excel数据的导入
     public function excel(Request $request){
         if(Input::method() == 'POST'){
+            dd($request->all());
             $servername = $request->host;
             $username = $request->user;
             $password = $request->password;
