@@ -237,9 +237,18 @@ class IndexController extends Controller
             $error = array();
             $status = '1';
             $data = Excel::load($cretae_path)->get()->toArray();
-            dd($data);
+            foreach($data as $key=>$val){
+                $p = '';
+                $value = '';
+                foreach($val as $k=>$va){
+                    $p .= $k.',';
+                    $value = $va.',';
+                }
+                $p =  substr($p,0,strlen($p)-1);
+                $value =  substr($value,0,strlen($value)-1);
+                Db::connections('onlymysql')->insert('insert into '.$table_name.' ('.$p.') '.'values('.$value.')');
+            }
 
-            DB::connection('onlymysql')->insert("insert into".$table_name."");
             // // 创建连接
             // $conn = mysql_connect($servername, $username, $password,$port);
 
@@ -248,9 +257,7 @@ class IndexController extends Controller
             //     die("连接失败: " . $conn->connect_error);
             // }else{
             //     dd($data);
-                foreach($data as $key=>$val){
-                    $result = Member::insert($val);
-                }
+
             //     $sql = "CREATE TABLE ".$database_name." (
             //             id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
             //             firstname VARCHAR(30) NOT NULL,
