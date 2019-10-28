@@ -186,7 +186,7 @@ class TableController extends Controller
             foreach($group as $gk=>$gv){
                 if(!in_array($gv->report_id,$hasTableauIds)){
                     $user = RelationReport::find($gv->id);
-                    $usre->delete();
+                    $user->delete();
                 }
             }
             RelationReport::insert($insert);
