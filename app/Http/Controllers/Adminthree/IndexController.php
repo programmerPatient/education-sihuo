@@ -202,6 +202,21 @@ class IndexController extends Controller
             $password = $request->password;
             $port = $request->port;
             $database_name = $request->database_name;
+            $table_name = $request->table_name;
+            config(['database.connections.onlymysql'=>[
+                'driver' => 'mysql',
+                'host' => env('DB_HOST',$servername ),
+                'port' => env('DB_PORT', $port),
+                'database' => env('DB_DATABASE', $database_name),
+                'username' => env('DB_USERNAME', $username),
+                'password' => env('DB_PASSWORD', $password),
+                'unix_socket' => env('DB_SOCKET', ''),
+                'charset' => 'utf8mb4',
+                'collation' => 'utf8mb4_unicode_ci',
+                'prefix' => '',
+                'strict' => false,
+                'engine' => null,
+            ]]);
              //设置文件后缀白名单
             $allowExt   = ["csv", "xls", "xlsx"];
             //获取文件
@@ -222,25 +237,28 @@ class IndexController extends Controller
             $error = array();
             $status = '1';
             $data = Excel::load($cretae_path)->get()->toArray();
-            // 创建连接
-            $conn = mysql_connect($servername, $username, $password,$port);
+            dd($data);
+
+            DB::connection('onlymysql')->insert("insert into".$table_name."");
+            // // 创建连接
+            // $conn = mysql_connect($servername, $username, $password,$port);
 
             // 检测连接
-            if ($conn->connect_error) {
-                die("连接失败: " . $conn->connect_error);
-            }else{
-                dd($data);
+            // if ($conn->connect_error) {
+            //     die("连接失败: " . $conn->connect_error);
+            // }else{
+            //     dd($data);
                 foreach($data as $key=>$val){
                     $result = Member::insert($val);
                 }
-                $sql = "CREATE TABLE ".$database_name." (
-                        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                        firstname VARCHAR(30) NOT NULL,
-                        lastname VARCHAR(30) NOT NULL,
-                        email VARCHAR(50),
-                        reg_date TIMESTAMP
-                        )";
-            }
+            //     $sql = "CREATE TABLE ".$database_name." (
+            //             id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+            //             firstname VARCHAR(30) NOT NULL,
+            //             lastname VARCHAR(30) NOT NULL,
+            //             email VARCHAR(50),
+            //             reg_date TIMESTAMP
+            //             )";
+            // }
             // Excel::load($cretae_path, function($reader) {
             //     $data = $reader->all()->toArray();
 

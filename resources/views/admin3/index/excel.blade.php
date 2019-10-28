@@ -87,6 +87,15 @@
                     <input type="text" id="website-title" placeholder="连接的库名" value="" class="input-text" name="database_name">
                 </div>
             </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2">
+                    <span class="c-red">*</span>
+                    连接的表名：
+                </label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" id="website-title" placeholder="连接的库名" value="" class="input-text" name="table_name">
+                </div>
+            </div>
         </div>
         {{csrf_field()}}
         <div class="row cl">
@@ -137,6 +146,9 @@ $(function(){
                 required:true,
             },
             database_name:{
+                required:true
+            },
+            table_name:{
                 required:true
             }
         },
