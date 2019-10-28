@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
 use Redirect;
+use Input;
 use Session;
 use DB;
 use App\Models\Admin\System;
