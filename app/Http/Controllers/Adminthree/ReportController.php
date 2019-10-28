@@ -15,15 +15,6 @@ class ReportController extends Controller
 {
 
     public function index(){
-
-        if($user = Auth::guard('member')->user()){
-                $name = $user->username;
-                $tableauIds = explode(',',$user -> tableauIds);
-        }else{
-            $tableauIds = false;
-            $name = Auth::guard('admin')->user()->username;
-
-        }
         /*拿到所有报表的数据*/
         $curlt = curl_init();
 
@@ -84,17 +75,6 @@ class ReportController extends Controller
                     $wok = json_decode($chilresponse)->workbook;
                 }
                 for($i=0 ; $i< count($viesdata);$i++ ){
-                    if($user){
-                        $report = RelationReport::where('report_id',$viesdata[$i]->id)->where('member_id',$user->id)->get()->first();
-                        if(!$report) {
-                            $vies['filter'] = '';
-                        }else{
-                            $project = explode('|',$report->project_group);
-                            $vies['filter'] = implode('@',$project);
-                        }
-                    }else{
-                        $vies['filter'] = "iframeSizedToWindow=true";
-                    }
                     $vies['view'] = $viesdata[$i];
                     $vies['project'] = $wok->project->name;
                     $vies['workBook'] = $wok->name;
@@ -102,7 +82,6 @@ class ReportController extends Controller
                 }
             }
         }
-        dd($p);
         $data = RelationReport::orderBy('id','desc')->get();
         foreach($data as $o => $vl){
             $k = false;
@@ -276,6 +255,17 @@ class ReportController extends Controller
                     }
                 }
                 for($i=0 ; $i< count($viesdata);$i++ ){
+                    if($user){
+                        $report = RelationReport::where('report_id',$viesdata[$i]->id)->where('member_id',$user->id)->get()->first();
+                        if(!$report) {
+                            $vies['filter'] = '';
+                        }else{
+                            $project = explode('|',$report->project_group);
+                            $vies['filter'] = implode('@',$project);
+                        }
+                    }else{
+                        $vies['filter'] = "iframeSizedToWindow=true";
+                    }
                     $vies['view'] = $viesdata[$i];
                     $vies['project'] = $wok->project->name;
                     $vies['workBook'] = $wok->name;
