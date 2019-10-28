@@ -116,6 +116,7 @@ class MemberController extends Controller
         }
         $err = curl_error($curl);
         curl_close($curl);
+        RelationReport::where('member_id',$id)->get()->first()->delete();
         $data ->delete();
         // $data->save();
         return '1';
