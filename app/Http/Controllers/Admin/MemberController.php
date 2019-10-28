@@ -130,7 +130,7 @@ class MemberController extends Controller
     public function delete(){
         $id = Input::only('id')['id'];
         $data = Member::where('id',$id)->get()->first();
-         RelationReport::where('member_id',$id)->get()->first()->delete();
+         RelationReport::where('member_id',$id)->delete();
         $result = $data ->delete();
         // $data->save();
         return $result?'1':'0';
@@ -141,7 +141,7 @@ class MemberController extends Controller
         $ids = Input::get('ids');
         foreach($ids as $key=>$val){
             $data = Member::where('id',$val)->get()->first();
-            RelationReport::where('member_id',$val)->get()->first()->delete();
+            RelationReport::where('member_id',$val)->delete();
             $result = $data ->delete();
         }
         // $data->save();
