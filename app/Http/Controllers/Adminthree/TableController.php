@@ -184,7 +184,7 @@ class TableController extends Controller
                 }
             }
             foreach($group as $gk=>$gv){
-                if(!in_array($gv->report_id,$hasTableauIds){
+                if(!in_array($gv->report_id,$hasTableauIds)){
                     RelationReport::delete($gv->id);
                 }
             }
