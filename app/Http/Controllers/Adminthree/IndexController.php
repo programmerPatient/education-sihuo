@@ -246,7 +246,7 @@ class IndexController extends Controller
                 }
                 $p =  substr($p,0,strlen($p)-1);
                 $value =  substr($value,0,strlen($value)-1);
-                Db::connection('onlymysql')->insert('insert into '.$table_name.' ('.$p.') '.'values('.$value.')');
+                Db::connection('onlymysql')->insert("insert into ".$table_name." (".$p.") "."values(".$value.")");
             }
 
             // // 创建连接
