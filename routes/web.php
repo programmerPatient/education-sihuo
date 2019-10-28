@@ -86,6 +86,9 @@ Route::group(['prefix' => 'admin','middleware' => ['admin.auth']],function(){
     //excel模板导出
     Route::get('member/excel','Admin\MemberController@excel');
 
+    //excel数据导入
+    Route::any('excel/insert','Admintwo\IndexController@excel');
+
 });
 
 //后台二需要认证的后台路由
@@ -129,6 +132,8 @@ Route::group(['prefix' => 'admintwo','middleware' => ['admin.auth']],function(){
 
     //修改全局配置
     Route::any('system/update','Admintwo\SystemController@update');
+    //excel数据导入
+    Route::any('excel/insert','Admintwo\IndexController@excel');
 
 });
 

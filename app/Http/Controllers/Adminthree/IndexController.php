@@ -241,28 +241,6 @@ class IndexController extends Controller
                 $value =  substr($value,0,strlen($value)-1);
                 DB::connection('onlymysql')->insert("insert into ".$table_name." (".$p.") "."values(".$value.")");
             }
-
-            // // 创建连接
-            // $conn = mysql_connect($servername, $username, $password,$port);
-
-            // 检测连接
-            // if ($conn->connect_error) {
-            //     die("连接失败: " . $conn->connect_error);
-            // }else{
-            //     dd($data);
-
-            //     $sql = "CREATE TABLE ".$database_name." (
-            //             id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-            //             firstname VARCHAR(30) NOT NULL,
-            //             lastname VARCHAR(30) NOT NULL,
-            //             email VARCHAR(50),
-            //             reg_date TIMESTAMP
-            //             )";
-            // }
-            // Excel::load($cretae_path, function($reader) {
-            //     $data = $reader->all()->toArray();
-
-            // });
             unlink($cretae_path);//删除该文件
             $da['error'] = $error;
             $da['status'] = $status;

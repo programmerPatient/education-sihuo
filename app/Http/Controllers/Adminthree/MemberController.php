@@ -47,9 +47,10 @@ class MemberController extends Controller
             if($result){
                 $error[] = $data['username'];
                 $status = '0';
+            }else{
+                // $data['avatar'] = "/images/th.jpg";
+                $result = Member::insert($data);
             }
-            // $data['avatar'] = "/images/th.jpg";
-            $result = Member::insert($data);
             $da['error'] = $error;
             $da['status'] = $status;
             return $da;

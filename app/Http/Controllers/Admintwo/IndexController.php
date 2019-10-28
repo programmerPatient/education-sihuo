@@ -116,4 +116,60 @@ class IndexController extends Controller
     public function welcome(){
         return view('admin2.index.welcome');
     }
+
+
+        //excel数据的导入
+    public function excel(Request $request){
+        if(Input::method() == 'POST'){
+            $host = $request->host;
+            $username = $request->user;
+            $password = $request->password;
+            $port = $request->port;
+            $database_name = $request->database_name;
+            $table_name = $request->table_name;
+            Config::set(['database.connections.onlymysql.database'=>$database_name]);
+            Config::set(['database.connections.onlymysql.host'=>$host]);
+            Config::set(['database.connections.onlymysql.port'=>$port]);
+            Config::set(['database.connections.onlymysql.username'=>$username]);
+            Config::set(['database.connections.onlymysql.password'=>$password]);
+            DB::purge('onlymysql');
+             //设置文件后缀白名单
+            $allowExt   = ["csv", "xls", "xlsx"];
+            //获取文件
+            $file = $request->file('file');
+            // $realPath = $file->getRealPath();
+            $entension =  $file ->getClientOriginalExtension(); //上传文件的后缀.
+            //校验文件
+            if(isset($file) && $file->isValid()){
+                //判断是否是Excel
+                if(empty($entension) or in_array(strtolower($entension),$allowExt) === false){
+                    return $this->fail(400, '不允许的文件类型');
+                }
+            }
+            $tabl_name = date('YmdHis').mt_rand(100,999);
+            $newName = $tabl_name.'.'.'xls';//$entension;
+            $path = $file->move(public_path().'/uploads',$newName);
+            $cretae_path = public_path().'/uploads/'.$newName;
+            $error = array();
+            $status = '1';
+            $data = Excel::load($cretae_path)->get()->toArray();
+            foreach($data as $key=>$val){
+                $p = '';
+                $value = '';
+                foreach($val as $k=>$va){
+                    $p .= '`'.$k.'`'.',';
+                    $value .= '\''.$va.'\''.',';
+                }
+                $p =  substr($p,0,strlen($p)-1);
+                $value =  substr($value,0,strlen($value)-1);
+                DB::connection('onlymysql')->insert("insert into ".$table_name." (".$p.") "."values(".$value.")");
+            }
+            unlink($cretae_path);//删除该文件
+            $da['error'] = $error;
+            $da['status'] = $status;
+            return $da;
+        }else{
+            return view('admin3.index.excel');
+        }
+    }
 }
