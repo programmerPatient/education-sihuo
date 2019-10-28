@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Input;
 use DB;
+use Auth;
 use Session;
 use App\Models\Admin\System;
 use App\Models\Admin\RelationReport;
