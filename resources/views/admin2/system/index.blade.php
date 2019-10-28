@@ -137,7 +137,7 @@ $(function(){
 
        //当前的checkbox是否选中
         if(this.checked){
-            $('input[type="checkbox"]').prop("checked",false)
+            $('#toolbar input[type="checkbox"]').prop("checked",false)
             $(this).prop("checked",true)
         }
     });
@@ -146,7 +146,7 @@ $(function(){
 
        //当前的checkbox是否选中
         if(this.checked){
-            $('input[type="checkbox"]').prop("checked",false)
+            $('#model input[type="checkbox"]').prop("checked",false)
             $(this).prop("checked",true)
         }
     });
