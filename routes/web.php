@@ -201,6 +201,9 @@ Route::group(['prefix' => 'adminthree','middleware' => ['admin.auth']],function(
     //excel数据导入
     Route::any('excel/insert','Adminthree\IndexController@excel');
 
+    //用户报表位置的查询
+    Route::get('report/select','Adminthree\ReportController@select');
+
 });
 
 

@@ -171,4 +171,96 @@ class ReportController extends Controller
             return view('admin3.report.index');
         }
    }
+
+
+   //报表位置的查询
+   public function select(){
+
+        if($user = Auth::guard('member')->user()){
+                $name = $user->username;
+                $tableauIds = explode(',',$user -> tableauIds);
+        }else{
+            $tableauIds = false;
+            $name = Auth::guard('admin')->user()->username;
+
+        }
+        /*拿到所有报表的数据*/
+        $curlt = curl_init();
+
+        curl_setopt_array($curlt, array(
+        CURLOPT_URL =>  Session::get('tableau_domain')."/api/3.2/sites/".Session::get('credentials')."/workbooks/",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+        // CURLOPT_COOKIE =>"token=".Session::get('token'),
+        CURLOPT_HTTPHEADER => array(
+            "X-Tableau-Auth: ".Session::get('token'),
+            "Accept: application/json",
+          ),
+        ));
+        $response = curl_exec($curlt);
+        if(!$response) {
+                return view('admin3.error.index');
+        }
+        $err = curl_error($curlt);
+        curl_close($curlt);
+        if ($err) {
+          echo "cURL Error #:" . $err;
+        } else {
+          // $response = simplexml_load_string($response);
+            $data = json_decode($response)->workbooks->workbook;
+            $p = [];
+            $pageUrlIds=[];
+            // $rs = $response->toArray();
+            foreach($data as $key=>$val){
+                $id = $val->project->id;
+                $curlt = curl_init();
+                curl_setopt_array($curlt, array(
+                CURLOPT_URL => Session::get('tableau_domain')."/api/3.2/sites/".Session::get('credentials')."/workbooks/".$val->id,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => "",
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 30,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => "GET",
+                CURLOPT_HTTPHEADER => array(
+                    "X-Tableau-Auth:".Session::get('token'),
+                    "Accept: application/json",
+                  ),
+                ));
+                $chilresponse = curl_exec($curlt);
+                if(!$chilresponse) {
+                    return view('admin3.error.index');
+                }
+                $err = curl_error($curlt);
+                curl_close($curlt);
+                if ($err) {
+                  echo "cURL Error #:" . $err;
+                } else {
+                    $viesdata = json_decode($chilresponse)->workbook->views->view;
+                    $wok = json_decode($chilresponse)->workbook;
+                }
+
+                if($tableauIds){
+                    foreach($viesdata as $key => $vaie){
+                        if(in_array($vaie->id,$tableauIds)){
+                            $project = true;
+                        }else{
+                            unset($viesdata[$key]);//剔除该元素
+                        }
+                    }
+                }
+                for($i=0 ; $i< count($viesdata);$i++ ){
+                    $vies['view'] = $viesdata[$i];
+                    $vies['project'] = $wok->project->name;
+                    $vies['workBook'] = $wok->name;
+                    $p[] = $vies;
+                }
+            }
+        }
+        return view('admin3.report.select',compact('p'));
+   }
 }
