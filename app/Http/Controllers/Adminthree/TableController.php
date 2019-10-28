@@ -191,6 +191,7 @@ class TableController extends Controller
             RelationReport::insert($insert);
             $stringIds = implode(',',$hasTableauIds);
             $user -> tableauIds = $stringIds;
+            dd($stringIds);
             $result = $user -> save();
             return $result ? '1':'0';
         }else{
