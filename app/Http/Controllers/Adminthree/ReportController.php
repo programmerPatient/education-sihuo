@@ -86,8 +86,12 @@ class ReportController extends Controller
                 for($i=0 ; $i< count($viesdata);$i++ ){
                     if($user){
                         $report = RelationReport::where('report_id',$viesdata[$i]->id)->where('member_id',$user->id)->get()->first();
-                        $project = explode('|',$report->project_group);
-                        $vies['filter'] = implode('@',$project);
+                        if(!$report) {
+                            $vies['filter'] = '';
+                        }else{
+                            $project = explode('|',$report->project_group);
+                            $vies['filter'] = implode('@',$project);
+                        }
                     }else{
                         $vies['filter'] = "iframeSizedToWindow=true";
                     }
@@ -98,6 +102,7 @@ class ReportController extends Controller
                 }
             }
         }
+        dd($p);
         $data = RelationReport::orderBy('id','desc')->get();
         foreach($data as $o => $vl){
             $k = false;
