@@ -34,7 +34,6 @@ class SystemController extends Controller
                 $file->move($destinationPath, $fileName);
                 $filePath = asset($destinationPath.$fileName);
                 $post['logo_url'] = $destinationPath.$fileName;
-                dd($destinationPath.$fileName);
                 $post['system_domain'] = $tableau_domain;
                 $default->logo_url = $filePath;
             }
@@ -43,6 +42,7 @@ class SystemController extends Controller
             // $default -> type = '0';
             // $default->save();
             $default->system_domain = $tableau_domain;
+            $default->logo_url = $destinationPath.$fileName;
             $default->web_title = $web_title;
             $default->company = $company;
             $default->toolbar = $toolbar;

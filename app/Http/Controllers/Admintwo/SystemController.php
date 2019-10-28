@@ -43,6 +43,7 @@ class SystemController extends Controller
             // $default->save();
             $default->system_domain = $tableau_domain;
             $default->web_title = $web_title;
+            $default->logo_url = $destinationPath.$fileName;
             $default->company = $company;
             $default->toolbar = $toolbar;
             $default->model = $model;
