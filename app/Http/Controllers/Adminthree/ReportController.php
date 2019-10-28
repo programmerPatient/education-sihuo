@@ -112,6 +112,7 @@ class ReportController extends Controller
         //     }
         // }
         $date = RelationReport::all();
+        dd($date);
         foreach($date as $key=>$value){
             $date[$key]['username'] = $date[$key]->member->username;
         }
