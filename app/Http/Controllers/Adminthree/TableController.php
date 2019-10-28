@@ -183,6 +183,11 @@ class TableController extends Controller
                     }
                 }
             }
+            foreach($group as $gk=>$gv){
+                if(!in_array($gv->report_id,$hasTableauIds){
+                    RelationReport::delete($gv->id);
+                }
+            }
             RelationReport::insert($insert);
             $stringIds = implode(',',$hasTableauIds);
             $user -> tableauIds = $stringIds;
