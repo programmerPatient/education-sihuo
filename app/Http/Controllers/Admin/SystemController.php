@@ -32,7 +32,7 @@ class SystemController extends Controller
             $fileName = str_random(10).'.'.$extension;
             $file->move($destinationPath, $fileName);
             $filePath = asset($destinationPath.$fileName);
-            $post['logo_url'] = $destinationPath.$fileName;
+            $post['logo_url'] ='/'.$destinationPath.$fileName;
         }
         // $post['type'] = '1';
 
