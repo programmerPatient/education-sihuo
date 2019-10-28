@@ -204,7 +204,7 @@ class IndexController extends Controller
             $port = $request->port;
             $database_name = $request->database_name;
             $table_name = $request->table_name;
-            Config::set(['database.connections.onlymysql'=>[
+            Config::set(['database.connections.mysql'=>[
                 'driver' => 'mysql',
                 'host' => env('DB_HOST',$servername ),
                 'port' => env('DB_PORT', $port),
@@ -247,7 +247,7 @@ class IndexController extends Controller
                 }
                 $p =  substr($p,0,strlen($p)-1);
                 $value =  substr($value,0,strlen($value)-1);
-                Db::connection('onlymysql')->insert("insert into ".$table_name." (".$p.") "."values(".$value.")");
+                DB::insert("insert into ".$table_name." (".$p.") "."values(".$value.")");
             }
 
             // // 创建连接
