@@ -87,7 +87,7 @@
             <li><a data-href="/admin/system/update" data-title="系统设置" href="javascript:void(0)">系统设置</a></li>
             <li><a data-href="/admin/excel/insert" data-title="数据导入" href="javascript:;">数据导入</a></li>
             @endif
-            <li><a data-href="/admin/excel/insert" data-title="报表查询" href="javascript:;">报表查询</a></li>
+            <li><a data-href="/adminthree/report/select" data-title="报表查询" href="javascript:;">报表查询</a></li>
         </dl>
 
         @if($p)
