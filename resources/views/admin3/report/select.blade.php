@@ -40,7 +40,7 @@
                     <tr class="text-c">
                         <td>{{$value['project']}}</td>
                         <td>{{$value['workBook']}}</td>
-                        <td>{{$value->name}}</td>
+                        <td>{{$va->name}}</td>
                     </tr>
                 @endforeach
             @endforeach
