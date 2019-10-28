@@ -36,7 +36,7 @@
         </thead>
         <tbody>
             @foreach($p as $value)
-                foreach($value['view'] as $va)
+                @foreach($value['view'] as $va)
                     <tr class="text-c">
                         <td>{{$value['project']}}</td>
                         <td>{{$value['workBook']}}</td>
