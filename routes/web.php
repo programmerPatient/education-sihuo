@@ -192,6 +192,10 @@ Route::group(['prefix' => 'adminthree','middleware' => ['admin.auth']],function(
     Route::any('report/{id}','Adminthree\ReportController@relation');
     Route::any('report/groups/{id}','Adminthree\ReportController@relations');
 
+
+    //excel数据导入
+    Route::any('excel/insert','Adminthree\IndexController@excel');
+
 });
 
 

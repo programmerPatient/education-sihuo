@@ -190,4 +190,65 @@ class IndexController extends Controller
     public function welcome(){
         return view('admin3.index.welcome');
     }
+
+
+    //excel数据的导入
+    public function excel(Request $request){
+        if(Input::method() == 'POST'){
+            $servername = $request->host;
+            $username = $request->user;
+            $password = $request->password;
+            $port = $request->port;
+            $database_name = $request->database_name;
+             //设置文件后缀白名单
+            $allowExt   = ["csv", "xls", "xlsx"];
+            //获取文件
+            $file = $request->file('file');
+            // $realPath = $file->getRealPath();
+            $entension =  $file ->getClientOriginalExtension(); //上传文件的后缀.
+            //校验文件
+            if(isset($file) && $file->isValid()){
+                //判断是否是Excel
+                if(empty($entension) or in_array(strtolower($entension),$allowExt) === false){
+                    return $this->fail(400, '不允许的文件类型');
+                }
+            }
+            $tabl_name = date('YmdHis').mt_rand(100,999);
+            $newName = $tabl_name.'.'.'xls';//$entension;
+            $path = $file->move(public_path().'/uploads',$newName);
+            $cretae_path = public_path().'/uploads/'.$newName;
+            $error = array();
+            $status = '1';
+            $data = Excel::load($cretae_path)->get()->toArray();
+            // 创建连接
+            $conn = mysql_connect($servername, $username, $password,$port);
+
+            // 检测连接
+            if ($conn->connect_error) {
+                die("连接失败: " . $conn->connect_error);
+            }else{
+                dd($data);
+                foreach($data as $key=>$val){
+                    $result = Member::insert($val);
+                }
+                $sql = "CREATE TABLE ".$database_name." (
+                        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                        firstname VARCHAR(30) NOT NULL,
+                        lastname VARCHAR(30) NOT NULL,
+                        email VARCHAR(50),
+                        reg_date TIMESTAMP
+                        )";
+            }
+            // Excel::load($cretae_path, function($reader) {
+            //     $data = $reader->all()->toArray();
+
+            // });
+            unlink($cretae_path);//删除该文件
+            $da['error'] = $error;
+            $da['status'] = $status;
+            return $da;
+        }else{
+            return view('admin3.index.excel');
+        }
+    }
 }

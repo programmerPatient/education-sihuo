@@ -24,27 +24,49 @@
 <![endif]-->
 <!--/meta 作为公共模版分离出去-->
 
-<title>初始化管理员信息</title>
+<title>excel数据导入</title>
 </head>
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页
-    初始化管理员信息
+    excel数据导入
 </nav>
 <div class="page-container">
-    <form class="form form-horizontal" id="form-article-add" action="/admin/manager/initzation" method="post">
+    <form class="form form-horizontal" id="form-article-add">
         <div id="tab-system" class="HuiTab">
             <div class="tabBar cl">
-                <span>管理员信息：</span>
+                <span>excel数据导入：</span>
             </div>
-            <div class="tabCon">
-                <div class="row cl">
-                    <label class="form-label col-xs-4 col-sm-2">
-                        <span class="c-red">*</span>
-                        用户名：
-                    </label>
-                    <div class="formControls col-xs-8 col-sm-9">
-                        <input type="text" id="website-title" placeholder="用户名" value="" class="input-text" name="username">
-                    </div>
+            <div class="ormControls col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                <label>选择文件</label>
+                <div class="file-loading">
+                    <input  name="file" type="file">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2">
+                    <span class="c-red">*</span>
+                    服务器ip或域名：
+                </label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" id="website-title" placeholder="服务器ip或域名" value="" class="input-text" name="host">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2">
+                    <span class="c-red">*</span>
+                    端口号：
+                </label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" id="website-title" placeholder="端口号" value="" class="input-text" name="port">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2">
+                    <span class="c-red">*</span>
+                    数据库用户名：
+                </label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" id="website-title" placeholder="用户名" value="" class="input-text" name="user">
                 </div>
             </div>
             <div class="row cl">
@@ -54,6 +76,15 @@
                 </label>
                 <div class="formControls col-xs-8 col-sm-9">
                     <input type="text" id="website-title" placeholder="密码" value="" class="input-text" name="password">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2">
+                    <span class="c-red">*</span>
+                    连接的库名：
+                </label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" id="website-title" placeholder="连接的库名" value="" class="input-text" name="database_name">
                 </div>
             </div>
         </div>
@@ -79,14 +110,6 @@
 <script type="text/javascript" src="/admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript">
 $(function(){
-    $('#toolbar').find('input[type=checkbox]').bind('click', function(){
-
-       //当前的checkbox是否选中
-        if(this.checked){
-            $('input[type="checkbox"]').prop("checked",false)
-            $(this).prop("checked",true)
-        }
-    });
 
 
     $('.skin-minimal input').iCheck({
@@ -101,17 +124,50 @@ $(function(){
     $("#form-article-add").validate({
         //表单验证
         rules:{
-            username:{
+            host:{
                 required:true,
-        },
-           password:{
-                required:true,
-                min:6
             },
+            port:{
+                required:true,
+            },
+            user:{
+                required:true,
+            },
+            password:{
+                required:true,
+            },
+            database_name:{
+                required:true
+            }
         },
         onkeyup:false,
         focusCleanup:true,
         success:"valid",
+        submitHandler:function(form){
+            $(form).ajaxSubmit({
+                type: 'post',
+                url: "" ,//自己提交给自己可以不写url
+                success: function(data){
+                    if(data['status'] == '1'){
+                        layer.msg('添加成功!',{icon:1,time:1000},function(){
+                            var index = parent.layer.getFrameIndex(window.name);
+                            //刷新
+                            parent.window.location = parent.window.location;
+                            parent.layer.close(index);
+                        });
+                    }else{
+                        var cont = '';
+                        for(var i=0;i<data['error'].length;i++){
+                            cont += data['error'][i]+'、';
+                        }
+                        layer.msg('添加失败,以下名字出现重复：'+cont,{icon:2,time:2000});
+                    }
+                },
+                error: function(XmlHttpRequest, textis_nav, errorThrown){
+                    layer.msg('error!',{icon:2,time:1000});
+                }
+            });
+        }
     });
 
      $('#file-fr').on('change',function(){
