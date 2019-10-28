@@ -33,13 +33,13 @@
 <div class="page-container">
     <form class="form form-horizontal" id="form-article-add">
         <div id="tab-system" class="HuiTab">
-            <div class="tabBar cl">
-                <span>excel数据导入：</span>
-            </div>
-            <div class="ormControls col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                <label>选择文件</label>
-                <div class="file-loading">
-                    <input  name="file" type="file">
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2">
+                    <span class="c-red">*</span>
+                    excel数据导入：
+                </label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input  name="file" type="file" value="选择文件" class="btn btn-primary radius">
                 </div>
             </div>
             <div class="row cl">
