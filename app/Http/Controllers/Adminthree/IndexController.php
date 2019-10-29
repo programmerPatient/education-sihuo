@@ -246,7 +246,15 @@ class IndexController extends Controller
                     }
                     $p =  substr($p,0,strlen($p)-4);
                     $res = DB::connection('onlymysql')->select("select * from ".$table_name." where ".$p);
-                    dd($res);
+                    if(!$res){
+                        foreach($val as $k=>$va){
+                            $v .= '`'.$k.'`'.',';
+                            $value .= '\''.$va.'\''.',';
+                        }
+                        $v =  substr($v,0,strlen($v)-1);
+                        $value =  substr($value,0,strlen($value)-1);
+                        DB::connection('onlymysql')->insert("insert into ".$table_name." (".$p.") "."values(".$value.")");
+                    }
                 }
                 foreach($data as $key=>$val){
                     $p = '';
@@ -257,7 +265,7 @@ class IndexController extends Controller
                     }
                     $p =  substr($p,0,strlen($p)-1);
                     $value =  substr($value,0,strlen($value)-1);
-                    DB::connection('onlymysql')->select("insert into ".$table_name." (".$p.") "."values(".$value.")");
+                    DB::connection('onlymysql')->insert("insert into ".$table_name." (".$p.") "."values(".$value.")");
                 }
                 unlink($cretae_path);//删除该文件
                 $da['error'] = $error;
