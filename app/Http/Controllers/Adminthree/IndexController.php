@@ -242,7 +242,7 @@ class IndexController extends Controller
                     $p = '';
                     $value = '';
                     foreach($val as $k=>$va){
-                        $p .= $k.'='.$va.' AND';
+                        $p .= $k.'='.$va.' AND ';
                     }
                     $p =  substr($p,0,strlen($p)-3);
                     $res = DB::connection('onlymysql')->select("select * from ".$table_name." where ".$p);
