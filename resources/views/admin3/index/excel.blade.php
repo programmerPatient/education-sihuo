@@ -97,8 +97,11 @@
                 </div>
             </div>
             <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>选择提交的方式：</label>
-            <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+            <label class="form-label col-xs-4 col-sm-2">
+                <span class="c-red">*</span>
+                选择提交的方式：
+            </label>
+            <div class="formControls col-xs-8 col-sm-9">
                 <div class="radio-box">
                     <input name="type" type="radio" id="status-1" checked value="1">
                     <label for="status-1">更新已有数据</label>
