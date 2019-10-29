@@ -247,6 +247,7 @@ class IndexController extends Controller
                     $p =  substr($p,0,strlen($p)-4);
                     $res = DB::connection('onlymysql')->select("select * from ".$table_name." where ".$p);
                     if(!$res){
+                        dd('ss');
                         foreach($val as $k=>$va){
                             $v .= '`'.$k.'`'.',';
                             $value .= '\''.$va.'\''.',';
