@@ -254,7 +254,7 @@ class IndexController extends Controller
                         }
                         $v =  substr($v,0,strlen($v)-1);
                         $value =  substr($value,0,strlen($value)-1);
-                        DB::connection('onlymysql')->insert("insert into ".$table_name." (".$p.") "."values(".$value.")");
+                        DB::connection('onlymysql')->insert("insert into ".$table_name." (".$v.") "."values(".$value.")");
                     }
                 }
                 unlink($cretae_path);//删除该文件
