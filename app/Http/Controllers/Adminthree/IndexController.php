@@ -330,7 +330,7 @@ class IndexController extends Controller
                 $error = array();
                 $status = '1';
                 $data = Excel::load($cretae_path)->get()->toArray();
-                DB::connection('onlymysql')->delete("delete from ".$table_name." where "."id"." > "."0");
+                DB::connection('onlymysql')->delete("delete from ".$table_name);
                 foreach($data as $key=>$val){
                     $p = '';
                     $value = '';
