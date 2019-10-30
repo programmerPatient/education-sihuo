@@ -241,6 +241,7 @@ class IndexController extends Controller
                 foreach($data as $key=>$val){
                     $p = '';
                     $value = '';
+                    $v = '';
                     foreach($val as $k=>$va){
                         $p .= $k.'='.'\''.$va.'\''.' AND ';
                     }
