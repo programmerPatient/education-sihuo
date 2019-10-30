@@ -110,6 +110,10 @@
                     <input type="radio" id="status-2" name="type" value="2">
                     <label for="status-2" value="0">插入新的数据</label>
                 </div>
+                <div class="radio-box">
+                    <input name="type" type="radio" id="status-3" checked value="3">
+                    <label for="status-3">完全覆盖</label>
+                </div>
             </div>
         </div>
         </div>
