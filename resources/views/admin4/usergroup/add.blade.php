@@ -70,7 +70,7 @@
 $(function(){
 
     $("#btn1").click(function(){
-        $("#inputarray").append('<textarea class="input-text"  style="margin-top:20px;height:40px;width:500px;" value="" placeholder="" id="project_group" name="project_group[]"></textarea>');
+        $("#inputarray").append('<textarea class="input-text"  style="margin-bottom:20px;height:40px;width:500px;" value="" placeholder="" id="project_group" name="project_group[]"></textarea>');
     });
 
     $('.skin-minimal input').iCheck({
