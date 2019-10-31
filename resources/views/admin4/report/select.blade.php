@@ -86,7 +86,7 @@ function groups(){
     if(ids == false){
         layer.msg('请选择要批量授权的对象!',{icon:1,time:1000});
     }else{
-        member_auth('映射tableau用户','/adminthree/report/groups/'+ids,'4','','510');
+        member_auth('映射tableau用户','/adminfour/report/groups/'+ids,'4','','510');
     }
 }
 </script>

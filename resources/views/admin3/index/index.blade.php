@@ -56,6 +56,7 @@
                             @if($type == '1')
                             <li><a href="/admin/index/index">模式1</a></li>
                             <li><a href="/admintwo/index/index">模式2</a></li>
+                            <li><a href="/adminfour/index/index">模式4</a></li>
                             @endif
                             <li><a href="/admin/public/logout" onClick="historyClear()">退出</a></li>
                         </ul>
