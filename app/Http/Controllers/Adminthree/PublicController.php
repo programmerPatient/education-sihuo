@@ -194,7 +194,7 @@ class PublicController extends Controller
 
 
         //跳转到登录界面
-        return redirect('/admin/public/login');
+        return redirect('/');
     }
 
 }
