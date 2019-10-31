@@ -15,7 +15,7 @@ class CreateUsergroupTable extends Migration
     {
         Schema::create('usergroup', function (Blueprint $table) {
             $table->increments('id');
-            $table->Integer('group_name');//组名
+            $table->string('group_name');//组名
             $table->text('project_group');//拥有的工作组
             $table->timestamps();//创建时间和更新时间
         });
