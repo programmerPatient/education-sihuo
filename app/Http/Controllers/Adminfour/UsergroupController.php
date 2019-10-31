@@ -10,7 +10,7 @@ use Input;
 class UsergroupController extends Controller
 {
     //用户组操作
-    public function index(){
+    public function group(){
         //查询数据
         $data = UserGroup::get();
         return view('admin4.usergroup.index',compact('data'));
