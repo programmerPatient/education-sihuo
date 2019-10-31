@@ -103,6 +103,9 @@ class UsergroupController extends Controller
             if($s){
                 $error[] = $dat['group_name'];
                 $status = '0';
+                $da['error'] = $error;
+                $da['status'] = $status;
+                return $da;
             }
             $data->update($dat);
             $da['error'] = $error;
