@@ -36,7 +36,7 @@ class UsergroupController extends Controller
                 $error[] = $data['group_name'];
                 $status = '0';
             }else{
-                $result = UserGroup::insert($data);
+                UserGroup::insert($data);
             }
             $da['error'] = $error;
             $da['status'] = $status;
