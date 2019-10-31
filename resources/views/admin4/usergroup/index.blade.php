@@ -108,7 +108,7 @@ function member_del(obj,id){
     layer.confirm('确认要删除吗？',function(index){
         $.ajax({
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-            type: 'delete',
+            type: 'post',
             url: '/adminfour/usergroup/delete',
             data:{'id':id},
             dataType: 'json',

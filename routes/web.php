@@ -281,7 +281,7 @@ Route::group(['prefix' => 'adminfour','middleware' => ['admin.auth']],function()
     Route::any('usergroup/report/{id}','Adminfour\UsergroupController@report');
     Route::any('usergroup/{id}','Adminfour\UsergroupController@usergroup');
     Route::any('usergroup/modify/{id}','Adminfour\UsergroupController@modify');
-    Route::delete('usergroup/delete','Adminfour\UsergroupController@delete');
+    Route::post('usergroup/delete','Adminfour\UsergroupController@delete');
 
 });
 
