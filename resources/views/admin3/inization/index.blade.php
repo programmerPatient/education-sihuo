@@ -106,7 +106,6 @@ $(function(){
         },
            password:{
                 required:true,
-                min:6
             },
         },
         onkeyup:false,

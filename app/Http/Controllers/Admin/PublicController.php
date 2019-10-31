@@ -94,7 +94,7 @@ class PublicController extends Controller
         $this -> validate($request,[
             //验证语法  需要验证的字段名 => "验证规则1|验证规则2...."
             'username' => 'required|min:2|max:20',
-            'password' => 'required|min:6',
+            'password' => 'required',
             // 'captcha' => 'required|size:4|captcha'
         ]);
         $data = $request -> only(['username','password']);
