@@ -29,6 +29,7 @@ class UsergroupController extends Controller
             $project_group = implode("|",$project_group);
             $data['project_group'] = $project_group;
             $data['created_at'] = date('Y-m-d H:i:s');
+            $status = '1';
             $error = array();
             $result = UserGroup::where('group_name',$data['group_name'])->get()->first();
             if($result){
