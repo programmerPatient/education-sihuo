@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Adminfour;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\UserGroup;
+use App\Models\Admin\RelationReport;
 use Input;
 
 class UsergroupController extends Controller

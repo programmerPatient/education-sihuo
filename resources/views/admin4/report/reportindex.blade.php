@@ -57,7 +57,7 @@
                 <td>{{$value->created_at}}</td>
                 <td>{{$value->user_group_name}}</td>
                 <td class="td-status">
-                    <a onclick="member_auth('用户组映射','/adminfour/usergroup/{{$value->id}}','4','','510')"><span class="label label-success radius">项目组映射</span></a>
+                    <a onclick="member_auth('用户组映射','/adminfour/usergroup/{{$value->id}}','4','','510')"><span class="label label-success radius">用户组映射</span></a>
                     </span>
                 </td>
                 <td class="td-status">
