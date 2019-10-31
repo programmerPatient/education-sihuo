@@ -101,6 +101,7 @@ class UsergroupController extends Controller
             return $result ? '1' : '0';
         }else{
             $project_group = explode('|',$data->project_group);
+            dd($project_group);
             return view('admin4.usergroup.modify',compact('data','project_group'));
         }
     }
