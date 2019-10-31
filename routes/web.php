@@ -276,12 +276,12 @@ Route::group(['prefix' => 'adminfour','middleware' => ['admin.auth']],function()
     Route::any('excel/insert','Adminfour\IndexController@excel');
 
     //用户组操作
+    Route::post('usergroup/delete','Adminfour\UsergroupController@delete');
     Route::any('usergroup/add','Adminfour\UsergroupController@add');
     Route::get('user/group','Adminfour\UsergroupController@group');
     Route::any('usergroup/report/{id}','Adminfour\UsergroupController@report');
     Route::any('usergroup/{id}','Adminfour\UsergroupController@usergroup');
     Route::any('usergroup/modify/{id}','Adminfour\UsergroupController@modify');
-    Route::post('usergroup/delete','Adminfour\UsergroupController@delete');
 
 });
 
