@@ -116,7 +116,7 @@ class IndexController extends Controller
                             //判断该报表是属于用户
                             foreach($member_group as $o=>$me){
                                 if($me->report_id == $vaie->id){
-                                    if($me->usergroup->project_group){
+                                    if($me->usergroup && $me->usergroup->project_group){
                                         $project = explode('|',$me->usergroup->project_group);
                                         $project = implode('@',$project);
                                         $viesdata[$key]->filter = $project;
