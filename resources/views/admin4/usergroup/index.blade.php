@@ -55,7 +55,7 @@
                 </td>
                 <td>{{$value->created_at}}</td>
                 <td class="td-manage">
-                    <a title="编辑" href="javascript:;" onclick="member_edit('编辑','/admin/member/modify/{{$value->id}}','4','','510')" class="ml-5" style="text-decoration:none">
+                    <a title="编辑" href="javascript:;" onclick="member_edit('编辑','/adminfour/usergroup/modify/{{$value->id}}','4','','510')" class="ml-5" style="text-decoration:none">
                         <i class="Hui-iconfont">&#xe6df;</i>
                     </a>
                     <a title="删除" href="javascript:;" onclick="member_del(this,'{{$value->id}}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
@@ -109,7 +109,7 @@ function member_del(obj,id){
         $.ajax({
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             type: 'delete',
-            url: '/adminfour/member/delete',
+            url: '/adminfour/usergroup/delete',
             data:{'id':id},
             dataType: 'json',
             success: function(data){

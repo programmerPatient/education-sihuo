@@ -90,4 +90,29 @@ class UsergroupController extends Controller
             return view('admin4.report.usergroup',compact('data','has'));
         }
     }
+
+    //修改用户组信息
+    public function modify($id){
+        $data = UserGroup::where('usergroup_id',$id)->get()->first();
+        if(Input::method() == 'POST'){
+            $data['group_name'] = Input::get('group_name');
+            $data['group_name'] = implode('|',Input::get('project_group'));
+            $result = $data->update($data);
+            return $result ? '1' : '0';
+        }else{
+            $project_group = explode('|',$data->project_group);
+            return view('admin4.usergroup.modify',compact('data','project_group'));
+        }
+    }
+
+    //删除用户组
+    public function delete($id){
+        $data = RelationReport::where('usergroup_id',$id)->get();
+        foreach($data as $key=>$value){
+            $value->usergroup_id = null;
+            $value->save();
+        }
+        $result = UserGroup::where('id',$id)->delete();
+        return $result? '1' : '0';
+    }
 }
