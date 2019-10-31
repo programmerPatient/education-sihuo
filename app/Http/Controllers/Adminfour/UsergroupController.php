@@ -95,9 +95,9 @@ class UsergroupController extends Controller
     public function modify($id){
         $data = UserGroup::where('id',$id)->get()->first();
         if(Input::method() == 'POST'){
-            $data['group_name'] = Input::get('group_name');
-            $data['group_name'] = implode('|',Input::get('project_group'));
-            $result = $data->update($data);
+            $dat['group_name'] = Input::get('group_name');
+            $dat['group_name'] = implode('|',Input::get('project_group'));
+            $result = $data->update($dat);
             return $result ? '1' : '0';
         }else{
             $project_group = explode('|',$data->project_group);
