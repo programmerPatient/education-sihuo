@@ -93,7 +93,7 @@ class UsergroupController extends Controller
 
     //修改用户组信息
     public function modify($id){
-        $data = UserGroup::where('usergroup_id',$id)->get()->first();
+        $data = UserGroup::where('id',$id)->get()->first();
         if(Input::method() == 'POST'){
             $data['group_name'] = Input::get('group_name');
             $data['group_name'] = implode('|',Input::get('project_group'));
