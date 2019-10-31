@@ -24,36 +24,44 @@
 <![endif]-->
 <!--/meta 作为公共模版分离出去-->
 
-<title>添加用户</title>
+<title>用户组映射</title>
 <meta name="keywords" content="H-ui.admin v3.1,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
 <meta name="description" content="H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
 </head>
 <body>
 <article class="page-container">
-    <form action="" method="post" class="form form-horizontal" id="form-member-add">
+    <form action="" method="post" class="form form-horizontal" id="form-admin-role-add">
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>权限参数：</label>
-            @if(isset($project_group))
-                <div id="inputarray" class="formControls col-xs-8 col-sm-9">
-                    @foreach($project_group as $val)
-                        <textarea class="input-text" style="margin-top:20px;height:40px;width:500px;" value="" placeholder="" id="project_group" name="project_group[]">{{$val}}</textarea>
-                    @endforeach
-                </div>
-            @else
-               <div id="inputarray" class="formControls col-xs-8 col-sm-9">
-                    <textarea class="input-text" style="margin-top:20px;height:40px;width:500px;" value="" placeholder="" id="project_group" name="project_group[]"></textarea>
-                </div>
-            @endif
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3" style="float:right;">
+                <button type="submit" class="btn btn-success radius" id="admin-role-save" name="admin-role-save"><i class="icon-ok"></i> 提交</button>
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-2">
+
+                <h4>用户组列表</h4>
+            </label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <dl class="permission-list">
+                    <dd>
+                        <dl class="cl permission-list2">
+                            <dd>
+
+                                    <label id="checkboxarr">
+                                        @foreach($data as $key=>$val)
+                                        <input id="check{{$key}}" style="display: inline;" type="checkbox" value="{{$val->id}}" name="usergroup_id" @if($val->id == $has->usergroup_id) checked @endif>
+                                        {{$val->group_name}}
+                                        </br>
+                                        @endforeach
+                                    </label>
+
+                            </dd>
+                        </dl>
+                    </dd>
+                </dl>
+            </div>
         </div>
         {{csrf_field()}}
-        <div class="row cl">
-            <div class="col-xs-2 col-sm-3 col-xs-offset-4 col-sm-offset-3">
-                <button id="btn1" type="button" class="btn btn-primary radius">添加节点</button>
-            </div>
-            <div class="col-xs-2 col-sm-3 col-xs-offset-4 col-sm-offset-3">
-                <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
-            </div>
-        </div>
     </form>
 </article>
 
@@ -69,11 +77,28 @@
 <script type="text/javascript" src="/admin/lib/jquery.validation/1.14.0/validate-methods.js"></script>
 <script type="text/javascript" src="/admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript">
-$(function(){
-    $("#btn1").click(function(){
-        $("#inputarray").append('<textarea class="input-text"  style="margin-top:20px;height:40px;width:500px;" value="" placeholder="" id="project_group" name="project_group[]"></textarea>');
-    });
 
+//多个checkbox只能选择一个
+
+$(function(){
+    $('#checkboxarr').find('input[type=checkbox]').bind('click', function(){
+
+        //当前的checkbox是否选中
+        if(this.checked){
+            $('input[type="checkbox"]').prop("checked",false)
+            $(this).prop("checked",true)
+        // //除当前的checkbox其他的都不选中
+        // $("#checkboxarr").find('input[type=checkbox]').not(this).attr("checked", false);
+        console.log("点击");
+         //选中的checkbox数量
+         var selectleng = $("input[type='checkbox']:checked").length;
+         console.log("选中的checkbox数量"+selectleng);
+        }
+         else{
+         //未选中的处理
+          console.log("未选中的处理");
+          }
+    });
 
     $('.skin-minimal input').iCheck({
         checkboxClass: 'icheckbox-blue',
@@ -81,26 +106,7 @@ $(function(){
         increaseArea: '20%'
     });
 
-    $("#form-member-add").validate({
-        rules:{
-            username:{
-                required:true,
-                minlength:2,
-                maxlength:16
-            },
-            gender:{
-                required:true,
-            },
-            // mobile:{
-            //     required:true,
-            //     isMobile:true,
-            // },
-            // email:{
-            //     required:true,
-            //     email:true,
-            // },
-
-        },
+    $("#form-admin-role-add").validate({
         onkeyup:false,
         focusCleanup:true,
         success:"valid",
@@ -109,14 +115,15 @@ $(function(){
                 type: 'post',
                 url: "" ,//自己提交给自己可以不写url
                 success: function(data){
-                    console.log(data);
                     if(data == '1'){
-                        layer.msg('项目组映射成功!',{icon:1,time:1000},function(){
+                        layer.msg('用户组映射成功!',{icon:1,time:1000},function(){
                             var index = parent.layer.getFrameIndex(window.name);
+                            //刷新
+                            parent.window.location = parent.window.location;
                             parent.layer.close(index);
                         });
                     }else{
-                        layer.msg('项目组映射失败',{icon:2,time:2000});
+                        layer.msg('用户组映射失败，请注意查看!',{icon:2,time:2000});
                     }
                 },
                 error: function(XmlHttpRequest, textis_nav, errorThrown){

@@ -39,10 +39,10 @@
 <header class="navbar-wrapper">
     <div class="navbar navbar-fixed-top">
         <div class="container-fluid cl">
-            <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/adminthree/index/index">
+            <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/adminfour/index/index">
                 <img src="{{$system->logo_url}}" alt="logo图片位置" style="width:100px;max-height:30px">
             </a>
-            <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/adminthree/index/index">logo</a>
+            <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/adminfour/index/index">logo</a>
             <span class="logo navbar-slogan f-l mr-10 hidden-xs" style="width:40%;letter-spacing: 8px;margin-left:30%;font-size: 20px">{{$system->web_title}}</span>
             <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
             <!-- <div style="color:white;font-size:15px;">{{$system->web_title}}</div> -->
@@ -83,12 +83,13 @@
     <div class="menu_dropdown bk_2">
         <dl id="menu-member">
             @if($type == '1')
-            <li><a data-href="/adminthree/member/index" data-title="会员列表" href="javascript:;">会员列表</a></li>
-            <li><a data-href="/adminthree/system/update" data-title="系统设置" href="javascript:void(0)">系统设置</a></li>
-            <li><a data-href="/adminthree/report/index" data-title="报表列表" href="javascript:;">报表列表</a></li>
-            <li><a data-href="/adminthree/excel/insert" data-title="数据导入" href="javascript:;">数据导入</a></li>
+            <li><a data-href="/adminfour/member/index" data-title="会员列表" href="javascript:;">会员列表</a></li>
+            <li><a data-href="/adminfour/system/update" data-title="系统设置" href="javascript:void(0)">系统设置</a></li>
+            <li><a data-href="/adminfour/report/index" data-title="报表列表" href="javascript:;">报表列表</a></li>
+            <li><a data-href="/adminfour/excel/insert" data-title="数据导入" href="javascript:;">数据导入</a></li>
+            <li><a data-href="/adminfour/user/group" data-title="用户组列表" href="javascript:;">用户组列表</a></li>
             @endif
-            <li><a data-href="/adminthree/report/select" data-title="报表查询" href="javascript:;">报表查询</a></li>
+            <li><a data-href="/adminfour/report/select" data-title="报表查询" href="javascript:;">报表查询</a></li>
         </dl>
         @if($p)
         @foreach($p as $val)
@@ -104,9 +105,9 @@
                                 @foreach($value['views'] as $vieVule)
                                 <li class="item">
                                     @if($type == '1')
-                                    <a data-href="/adminthree/table/index?contentUrl={{$vieVule->contentUrl}}&filter=iframeSizedToWindow=true" data-title="{{$vieVule->name}}" href="javascript:;" style="text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px">{{$vieVule->name}}</a>
+                                    <a data-href="/adminfour/table/index?contentUrl={{$vieVule->contentUrl}}&filter=iframeSizedToWindow=true" data-title="{{$vieVule->name}}" href="javascript:;" style="text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px">{{$vieVule->name}}</a>
                                     @else
-                                        <a data-href="/adminthree/table/index?contentUrl={{$vieVule->contentUrl}}&filter={{$vieVule->filter}}" data-title="{{$vieVule->name}}" href="javascript:;" style="text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px">{{$vieVule->name}}</a>
+                                        <a data-href="/adminfour/table/index?contentUrl={{$vieVule->contentUrl}}&filter={{$vieVule->filter}}" data-title="{{$vieVule->name}}" href="javascript:;" style="text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px">{{$vieVule->name}}</a>
                                     @endif
                                 </li>
                                 @endforeach
@@ -129,7 +130,7 @@
             <ul id="min_title_list" class="acrossTab cl">
                 <li class="active">
                     <!-- 修改src引入地址 -->
-                    <span title="我的桌面" data-href="/adminthree/index//admin/index/welcome">我的桌面</span>
+                    <span title="我的桌面" data-href="/adminfour/index//admin/index/welcome">我的桌面</span>
                     <em></em></li>
         </ul>
     </div>
@@ -140,7 +141,7 @@
             <div style="display:none" class="loading"></div>
 
             <!-- 修改src引入地址 -->
-            <iframe scrolling="yes" frameborder="0" src="/adminthree/index/welcome"></iframe>
+            <iframe scrolling="yes" frameborder="0" src="/adminfour/index/welcome"></iframe>
     </div>
 </div>
 </section>
@@ -191,7 +192,7 @@ jQuery.Huifold = function(obj,obj_c,speed,obj_type,Event){
 //      $('#tableindex').click(function(){
 //         $.ajax({
 //             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-//             url: "adminthree/table/index",
+//             url: "adminfour/table/index",
 //             data: {'contentUrl':contentUrl,'filter':filter},
 //             type: "POST",
 //             dataType: "json",

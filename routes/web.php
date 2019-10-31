@@ -275,6 +275,11 @@ Route::group(['prefix' => 'adminfour','middleware' => ['admin.auth']],function()
     //excel数据导入
     Route::any('excel/insert','Adminfour\IndexController@excel');
 
+    //用户组操作
+    Route::get('user/group','Adminfour\UsergroupController@group');
+    Route::any('adminfour/usergroup/report/{id}','Adminfour\UsergroupController@report');
+    Route::any('adminfour/usergroup/{id}','Adminfour\UsergroupController@usergroup');
+
 });
 
 

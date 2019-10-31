@@ -40,6 +40,8 @@
                 <th width="100">工作簿名</th>
                 <th width="100">报表名</th>
                 <th width="40">创建时间</th>
+                <th width="40">已有用户组</th>
+                <th width="100">用户组映射</th>
                 <th width="100">项目组映射</th>
             </tr>
         </thead>
@@ -53,8 +55,13 @@
                 <td>{{$value->workBook_name}}</td>
                 <td>{{$value->report_name}}</td>
                 <td>{{$value->created_at}}</td>
+                <td>{{$value->user_group_name}}</td>
                 <td class="td-status">
-                    <a onclick="member_auth('项目组映射','/adminthree/report/{{$value->id}}','4','','510')"><span class="label label-success radius">项目组映射</span></a>
+                    <a onclick="member_auth('用户组映射','/adminfour/usergroup/{{$value->id}}','4','','510')"><span class="label label-success radius">项目组映射</span></a>
+                    </span>
+                </td>
+                <td class="td-status">
+                    <a onclick="member_auth('项目组映射','/adminfour/report/{{$value->id}}','4','','510')"><span class="label label-success radius">项目组映射</span></a>
                     </span>
                 </td>
             </tr>
@@ -80,7 +87,7 @@ $(function(){
         "bStateSave": true,//状态保存
         "aoColumnDefs": [
           //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
-          {"orderable":false,"aTargets":[0,6]}// 制定列不参与排序
+          {"orderable":false,"aTargets":[0,10]}// 制定列不参与排序
         ]
     });
 
@@ -98,7 +105,7 @@ function groups(){
     if(ids == false){
         layer.msg('请选择要批量授权的对象!',{icon:1,time:1000});
     }else{
-        member_auth('映射tableau用户','/adminthree/report/groups/'+ids,'4','','510');
+        member_auth('映射tableau用户','/adminfour/report/groups/'+ids,'4','','510');
     }
 }
 </script>

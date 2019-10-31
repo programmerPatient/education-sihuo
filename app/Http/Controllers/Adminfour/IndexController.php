@@ -107,63 +107,24 @@ class IndexController extends Controller
                             $viesdata[$i]->filter = "iframeSizedToWindow=true";
                         }
                     }
-                    // $dat = RelationReport::all();
-                    // for($i=0 ; $i< count($viesdata);$i++ ){
-                    //     if(json_decode($dat) == null){
-                    //         $viesdata[$i]->filter = "iframeSizedToWindow=true";
-                    //         continue;
-                    //     }
-                    //     foreach($dat as $g=>$r){
-                    //         $viesdata[$i]->filter = "iframeSizedToWindow=true";
-                    //         // if($viesdata[$i]->id == $r->report_id){
-                    //         //     if($r->project_group){
-                    //         //         if($user){
-                    //         //             $pror = RelationMember::where('member_id',$user->id)->get()->first()->project_group;
-                    //         //             $pro = explode('|',$r->project_group);
-                    //         //             $pror = explode('|',$pror);
-
-                    //         //             /*
-                    //         //             *进行用户与报表项目组的组合
-                    //         //             *
-                    //         //             */
-                    //         //             foreach($pro as $po=>$proj){
-                    //         //                 $u = false;
-                    //         //                 $pj = null;
-                    //         //                 foreach($pror as $po2=>$proj2){
-                    //         //                     $pl = explode('=',$proj);
-                    //         //                     if($pl[0] == explode('=',$proj2)[0]){
-                    //         //                         $pl[1] = $pl[1] .',' . explode('=',$proj2)[1];
-                    //         //                         $u = true;
-                    //         //                         $pj = $po2;
-                    //         //                         $pro[$po] = implode('=',$pl);
-                    //         //                         break;
-                    //         //                     }
-                    //         //                 }
-                    //         //                 if($u){
-                    //         //                     $pror[$pj] = $pro[$po];
-                    //         //                 }else{
-                    //         //                     $pror[] = $proj;
-                    //         //                 }
-                    //         //             }
-                    //         //             $r->project_group = $pror;
-                    //         //             $viesdata[$i]->filter = implode('&',$r->project_group);
-                    //         //         }
-                    //         //     }else{
-                    //             // }
-                    //         }
-                    //     }
-                    // }
                 }
 
                 if($tableauIds){
                     $project = false;
                     foreach($viesdata as $key => $vaie){
                         if(in_array($vaie->id,$tableauIds)){
+                            //判断该报表是属于用户
                             foreach($member_group as $o=>$me){
                                 if($me->report_id == $vaie->id){
-                                    $project = explode('|',$me->project_group);
-                                    $project = implode('@',$project);
-                                    $viesdata[$key]->filter = $project;
+                                    if($me->usergroup->project_group){
+                                        $project = explode('|',$me->usergroup->project_group);
+                                        $project = implode('@',$project);
+                                        $viesdata[$key]->filter = $project;
+                                    }else{
+                                        $project = explode('|',$me->project_group);
+                                        $project = implode('@',$project);
+                                        $viesdata[$key]->filter = $project;
+                                    }
                                 }
                             }
                             $project = true;

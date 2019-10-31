@@ -20,4 +20,8 @@ class RelationReport extends Model implements AuthenticatableContract
     public function member(){
         return $this->hasOne('App\Models\Admin\Member','id','member_id');
     }
+
+    public function usergroup(){
+        return $this->hasOne('App\Models\Admin\UserGroup','id','usergroup_id');
+    }
 }

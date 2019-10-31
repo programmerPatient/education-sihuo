@@ -115,6 +115,14 @@ class ReportController extends Controller
         foreach($date as $key=>$value){
             $date[$key]['username'] = $date[$key]->member->username;
         }
+        //查询用户组名
+        foreach($date as $key=>$value){
+            if($value->usergroup_id){
+                $date[$key]['user_group_name'] = $value->usergroup->group_name;
+            }else{
+                $date[$key]['user_group_name'] = '';
+            }
+        }
         return view('admin4.report.reportindex',compact('date'));
     }
 
