@@ -17,7 +17,7 @@ class AdminAuth
     public function handle($request, Closure $next)
     {
         if(!Auth::guard('admin')->check() && !Auth::guard('member')->check()){
-            return redirect('./admin/public/login');
+            return redirect('/');
         }
 
         return $next($request);
