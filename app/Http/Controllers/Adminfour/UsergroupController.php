@@ -99,7 +99,7 @@ class UsergroupController extends Controller
             $dat['project_group'] = implode('|',Input::get('project_group'));
             $error = array();
             $status = '1';
-            $s = UserGroup::where('group_name',$dat['group_name'])->get()->first();
+            $s = UserGroup::where('id','!=',$id)->where('group_name',$dat['group_name'])->get()->first();
             if($s){
                 $error[] = $dat['group_name'];
                 $status = '0';
