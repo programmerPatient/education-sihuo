@@ -74,7 +74,7 @@ class SystemController extends Controller
                 $filePath = asset($destinationPath.$fileName);
                 $post['logo_url'] = $destinationPath.$fileName;
                 $post['system_domain'] = $tableau_domain;
-                $default->logo_url = $filePath;
+                $default->logo_url = '/'.$destinationPath.$fileName;
             }
             // $post['type'] = '1';
 
@@ -82,7 +82,6 @@ class SystemController extends Controller
             // $default->save();
             $default->system_domain = $tableau_domain;
             $default->web_title = $web_title;
-            $default->logo_url = '/'.$destinationPath.$fileName;
             $default->company = $company;
             $default->toolbar = $toolbar;
             $default->model = $model;
