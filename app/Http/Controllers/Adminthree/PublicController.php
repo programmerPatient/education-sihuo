@@ -179,7 +179,7 @@ class PublicController extends Controller
             return redirect('adminthree/index/index');
         }else{
             //withErrors表示带上错误信息
-            return redirect('/adminthree/public/login') -> withErrors([
+            return redirect('/') -> withErrors([
                 'loginError' => '用户名或密码错误或未授权，请联系管理员。'
             ]);
         }

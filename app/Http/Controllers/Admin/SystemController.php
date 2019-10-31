@@ -44,7 +44,7 @@ class SystemController extends Controller
         $post['toolbar'] = $toolbar;
         $result = System::insert($post);
         if($result){
-            return redirect('admin/public/login');
+            return redirect('/');
         }else{
             return '0';
         }
