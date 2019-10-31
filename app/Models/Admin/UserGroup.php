@@ -9,7 +9,7 @@ class UserGroup extends Model
     //
     protected $table = 'usergroup';
 
-    protected $fillable = ['group_name','project_group','created_at','update_at'];
+    protected $fillable = ['group_name','project_group','created_at','updated_at'];
 
     public $timestamps = false;
 }

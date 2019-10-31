@@ -16,6 +16,34 @@ class UsergroupController extends Controller
         return view('admin4.usergroup.index',compact('data'));
     }
 
+    //添加用户组
+    public function add($id){
+        if(Input::method() == 'POST'){
+            $data['group_name'] = Input::get('group_name');
+            $project_group = Input::get('project_group');
+            foreach($project_group as $key=>$value){
+                if($value == null){
+                    unset($project_group[$key]);
+                }
+            }
+            $project_group = implode("|",$project_group);
+            $data['project_group'] = $project_group;
+            $data['created_at'] = date('Y-m-d H:i:s');
+            $result = UserGroup::where('group_name',$data['group_name'])->get()->first();
+            if($result){
+                $error[] = $data['group_name'];
+                $status = '0';
+            }else{
+                $result = UserGroup::insert($data);
+            }
+            $da['error'] = $error;
+            $da['status'] = $status;
+            return $da;
+        }else{
+            return view('admin4.usergroup.add');
+        }
+    }
+
     //项目组映射
     public function report($id){
         if(Input::method() == 'POST'){
