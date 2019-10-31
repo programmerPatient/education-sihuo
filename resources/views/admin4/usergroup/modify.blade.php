@@ -41,7 +41,7 @@
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>初始化工作组：</label>
             <div class="formControls col-xs-8 col-sm-9" id="inputarray">
                 @foreach($project_group as $value)
-                <textarea class="input-text" style="margin-bottom:20px;height:40px;width:500px;" value="{{$value}}" placeholder="" id="project_group" name="project_group[]"></textarea>
+                <textarea class="input-text" style="margin-bottom:20px;height:40px;width:500px;" value="" placeholder="" id="project_group" name="project_group[]">{{$value}}</textarea>
                 @endforeach
             </div>
         </div>
