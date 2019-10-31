@@ -17,7 +17,7 @@ class UsergroupController extends Controller
     }
 
     //添加用户组
-    public function add($id){
+    public function add(){
         if(Input::method() == 'POST'){
             $data['group_name'] = Input::get('group_name');
             $project_group = Input::get('project_group');
