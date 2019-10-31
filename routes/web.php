@@ -278,8 +278,8 @@ Route::group(['prefix' => 'adminfour','middleware' => ['admin.auth']],function()
     //用户组操作
     Route::any('usergroup/add','Adminfour\UsergroupController@add');
     Route::get('user/group','Adminfour\UsergroupController@group');
-    Route::any('adminfour/usergroup/report/{id}','Adminfour\UsergroupController@report');
-    Route::any('adminfour/usergroup/{id}','Adminfour\UsergroupController@usergroup');
+    Route::any('usergroup/report/{id}','Adminfour\UsergroupController@report');
+    Route::any('usergroup/{id}','Adminfour\UsergroupController@usergroup');
 
 });
 
