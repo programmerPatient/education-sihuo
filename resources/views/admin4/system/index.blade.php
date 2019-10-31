@@ -92,7 +92,9 @@
                     <input type="checkbox" id="website-title" value="2" class="input-checkbox" name="model" @if($default->model == '2') checked @endif>
                     模式二&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" id="website-title" value="3" class="input-checkbox" name="model" @if($default->model == '3') checked @endif>
-                    模式三
+                    模式三&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" id="website-title" value="4" class="input-checkbox" name="model"@if($default->model == '4') checked @endif>
+                    模式四
                 </div>
             </div>
             <div class="row cl">

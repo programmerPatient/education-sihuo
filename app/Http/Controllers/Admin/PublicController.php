@@ -201,6 +201,9 @@ class PublicController extends Controller
                 if($model == '3'){
                     return redirect('adminthree/index/index');
                 }
+                if($model == '4'){
+                    return redirect('adminfour/index/index');
+                }
             }
         }else{
             //withErrors表示带上错误信息
