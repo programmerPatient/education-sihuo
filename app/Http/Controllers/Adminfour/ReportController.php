@@ -118,6 +118,7 @@ class ReportController extends Controller
         //查询用户组名
         foreach($date as $key=>$value){
             if($value->usergroup_id){
+                dd($value->usergroup_id);
                 $date[$key]['user_group_name'] = $value->usergroup->group_name;
             }else{
                 $date[$key]['user_group_name'] = '';
