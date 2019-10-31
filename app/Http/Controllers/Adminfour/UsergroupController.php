@@ -96,9 +96,18 @@ class UsergroupController extends Controller
         $data = UserGroup::where('id',$id)->get()->first();
         if(Input::method() == 'POST'){
             $dat['group_name'] = Input::get('group_name');
-            $dat['group_name'] = implode('|',Input::get('project_group'));
-            $result = $data->update($dat);
-            return $result ? '1' : '0';
+            $dat['project_group'] = implode('|',Input::get('project_group'));
+            $error = array();
+            $status = '1';
+            $s = UserGroup::where('group_name',$dat['group_name'])->get()->first();
+            if($s){
+                $error[] = $dat['group_name'];
+                $status = '0';
+            }
+            $data->update($dat);
+            $da['error'] = $error;
+            $da['status'] = $status;
+            return $da;
         }else{
             $project_group = explode('|',$data->project_group);
             return view('admin4.usergroup.modify',compact('data','project_group'));

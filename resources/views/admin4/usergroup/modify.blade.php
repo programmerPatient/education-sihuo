@@ -96,14 +96,14 @@ $(function(){
                 url: "" ,//自己提交给自己可以不写url
                 success: function(data){
                     if(data['status'] == '1'){
-                        layer.msg('添加成功!',{icon:1,time:1000},function(){
+                        layer.msg('修改成功!',{icon:1,time:1000},function(){
                             var index = parent.layer.getFrameIndex(window.name);
                             //刷新
                             parent.window.location = parent.window.location;
                             parent.layer.close(index);
                         });
                     }else{
-                        layer.msg('添加失败,以下名字重复： '+data['error'][0],{icon:2,time:2000});
+                        layer.msg('修改失败,以下名字重复： '+data['error'][0],{icon:2,time:2000});
                     }
                 },
                 error: function(XmlHttpRequest, textis_nav, errorThrown){
