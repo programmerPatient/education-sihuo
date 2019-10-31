@@ -11,10 +11,11 @@
 |
 */
 
+//后台登陆页面
+    Route::get('/','Admin\PublicController@login')->name('login');
+
 //后台路由
 Route::group(['prefix' => 'admin'],function(){
-    //后台登陆页面
-    Route::get('/public/login','Admin\PublicController@login')->name('login');
     //后台退出地址
     Route::get('public/logout','Admin\PublicController@logout');
 
@@ -203,6 +204,76 @@ Route::group(['prefix' => 'adminthree','middleware' => ['admin.auth']],function(
 
     //excel数据导入
     Route::any('excel/insert','Adminthree\IndexController@excel');
+
+});
+
+
+//后台四需要认证的后台路由
+Route::group(['prefix' => 'adminfour','middleware' => ['admin.auth']],function(){
+
+    //用户报表位置的查询
+    Route::get('report/select','Adminfour\ReportController@select');
+
+    //后台首页的路由
+    Route::get('index/index','Adminfour\IndexController@index');
+    Route::get('index/welcome','Adminfour\IndexController@welcome');
+
+    //管理员的管理模块
+    Route::get('manager/index','Adminfour\ManagerController@index');
+
+    //权限的管理模块
+    Route::get('auth/index','Adminfour\AuthController@index');
+    Route::any('auth/add','Adminfour\AuthController@add');
+
+    //角色的管理模块
+    Route::get('role/index','Adminfour\RoleController@index');
+    Route::any('role/assign','Adminfour\RoleController@assign');
+    Route::any('role/add','Adminfour\RoleController@add');
+
+    //会员模块
+    Route::get('member/index','Adminfour\MemberController@index');
+    Route::any('member/add','Adminfour\MemberController@add');
+    Route::any('member/adds','Adminfour\MemberController@adds');
+    Route::delete('member/delete','Adminfour\MemberController@delete');
+    Route::any('member/modify/{id}','Adminfour\MemberController@modify');
+    //批量删除
+    Route::delete('members/delete','Adminfour\MemberController@deletes');
+    //异步头像上传
+    Route::post('uploader/webuploader','Adminfour\UploaderController@index');
+    //异步四级联动数据获取
+    // Route::get('member/getAreaById','Admin\UploaderController@getAreaById');
+    //tableau模块
+    //tableau测试
+    Route::get('table/index','Adminfour\TableController@index');
+    //tableau用户的状态修改
+    Route::post('table/status','Adminfour\TableController@status');
+
+    //站内用户映射tableau用户
+    Route::any('table/user/{id}','Adminfour\TableController@user');
+    Route::any('table/users/{id}','Adminfour\TableController@users');
+
+    //站内用户项目组的映射
+    Route::any('report/user/{id}','Adminfour\MemberController@report');
+
+    //报表权限分配
+    Route::any('table/auth/{id}','Adminfour\TableController@auth');
+    Route::any('table/auths/{id}','Adminfour\TableController@auths');
+    // 刷新tableau票据
+    // Route::get('table/refresh','Admin\TableController@refresh');
+
+    //修改全局配置
+    Route::any('system/update','Adminfour\SystemController@update');
+    //excel模板导出
+    Route::get('member/excel','Admin\MemberController@excel');
+
+    //报表操作
+    Route::get('report/index','Adminfour\ReportController@index');
+    Route::any('report/{id}','Adminfour\ReportController@relation');
+    Route::any('report/groups/{id}','Adminfour\ReportController@relations');
+
+
+    //excel数据导入
+    Route::any('excel/insert','Adminfour\IndexController@excel');
 
 });
 
