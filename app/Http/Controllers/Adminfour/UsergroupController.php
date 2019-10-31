@@ -118,7 +118,8 @@ class UsergroupController extends Controller
     }
 
     //删除用户组
-    public function delete($id){
+    public function delete(){
+        $id = Input::get('id');
         $data = RelationReport::where('usergroup_id',$id)->get();
         foreach($data as $key=>$value){
             $value->usergroup_id = null;
