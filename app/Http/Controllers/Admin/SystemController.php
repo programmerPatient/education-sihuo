@@ -28,7 +28,6 @@ class SystemController extends Controller
         $toolbar = Input::only('toolbar')['toolbar'];
         $model = Input::only('model')['model'];
         $file = $request->file('logo_img');
-        dd($file);
         $post['system_domain'] = $tableau_domain;
         $post['web_title'] = $web_title;
         $post['company']= $company;
@@ -52,7 +51,6 @@ class SystemController extends Controller
 
         // $default -> type = '0';
         // $default->save();
-        dd($post);
         $result = System::insert($post);
         if($result){
             return redirect('/');
