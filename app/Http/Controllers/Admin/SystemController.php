@@ -35,7 +35,7 @@ class SystemController extends Controller
         $post['model'] = $model;
         $default = System::get()->first();
         if($file){
-
+            dd('ss');
             $allowed_extensions = ["png", "jpg", "gif","PNG",'jpeg'];
             if ($file->getClientOriginalExtension() && !in_array($file->getClientOriginalExtension(), $allowed_extensions)) {
                 return ['error' => 'You may only upload png, jpg , PNG , jpeg or gif.'];
