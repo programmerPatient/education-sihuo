@@ -194,6 +194,7 @@ $(function(){
                 success: function(data){
                     if(data == '1'){
                         layer.msg('提交成功!',{icon:1,time:1000},function(){
+                            console.log('ss');
                             var index = parent.layer.getFrameIndex(window.name);
                             // //刷新
                             window.location.reload()
