@@ -102,7 +102,7 @@ class PublicController extends Controller
 
             $result = Auth::guard('member') -> attempt($data,$request -> get('online'));
             if(!$result){
-                return redirect('/admin/public/login') -> withErrors([
+                return redirect('/') -> withErrors([
                 'loginError' => '用户名或密码错误或未授权，请联系管理员。'
                 ]);
             }
@@ -176,10 +176,10 @@ class PublicController extends Controller
                 }
             }
             //跳转到后台首页
-            return redirect('Adminfour/index/index');
+            return redirect('adminfour/index/index');
         }else{
             //withErrors表示带上错误信息
-            return redirect('/Adminfour/public/login') -> withErrors([
+            return redirect('/') -> withErrors([
                 'loginError' => '用户名或密码错误或未授权，请联系管理员。'
             ]);
         }

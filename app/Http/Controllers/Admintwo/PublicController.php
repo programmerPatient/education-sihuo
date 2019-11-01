@@ -138,7 +138,7 @@ class PublicController extends Controller
             return redirect('admintwo/index/index');
         }else{
             //withErrors表示带上错误信息
-            return redirect('/admintwo/public/login') -> withErrors([
+            return redirect('/') -> withErrors([
                 'loginError' => '用户名或密码错误。'
             ]);
         }
