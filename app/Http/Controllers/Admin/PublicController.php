@@ -188,22 +188,18 @@ class PublicController extends Controller
                 }
             }
             //跳转到后台首页
-            if($type == 1){
+            $model = System::get()->first()->model;
+            if($model == '1'){
+                return redirect('admin/index/index');
+            }
+            if($model == '2'){
+                return redirect('admintwo/index/index');
+            }
+            if($model == '3'){
                 return redirect('adminthree/index/index');
-            }else{
-                $model = System::get()->first()->model;
-                if($model == '1'){
-                    return redirect('admin/index/index');
-                }
-                if($model == '2'){
-                    return redirect('admintwo/index/index');
-                }
-                if($model == '3'){
-                    return redirect('adminthree/index/index');
-                }
-                if($model == '4'){
-                    return redirect('adminfour/index/index');
-                }
+            }
+            if($model == '4'){
+                return redirect('adminfour/index/index');
             }
         }else{
             //withErrors表示带上错误信息
