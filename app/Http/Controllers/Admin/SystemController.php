@@ -13,6 +13,15 @@ class SystemController extends Controller
 {
     public function inization(Request $request){
         //系统设置的修改
+        $this -> validate($request,[
+        //验证语法  需要验证的字段名 => "验证规则1|验证规则2...."
+            'tableau_domain' => 'required',
+            'web_title' => 'required',
+            'company' => 'required',
+            'toolbar' => 'required',
+            'model' => 'required',
+        // 'captcha' => 'required|size:4|captcha'
+        ]);
         $tableau_domain = Input::only("tableau_domain")["tableau_domain"];
         $web_title = Input::only('web_title')['web_title'];
         $company = Input::only('company')['company'];
@@ -43,7 +52,6 @@ class SystemController extends Controller
         $post['company']= $company;
         $post['toolbar'] = $toolbar;
         $post['model'] = $model;
-        dd($post);
         $result = System::insert($post);
         if($result){
             return redirect('/');
