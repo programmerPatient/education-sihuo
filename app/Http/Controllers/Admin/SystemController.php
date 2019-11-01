@@ -28,6 +28,7 @@ class SystemController extends Controller
         $toolbar = Input::only('toolbar')['toolbar'];
         $model = Input::only('model')['model'];
         $file = $request->file('logo_img');
+        dd($file);
         $post['system_domain'] = $tableau_domain;
         $post['web_title'] = $web_title;
         $post['company']= $company;
@@ -35,7 +36,6 @@ class SystemController extends Controller
         $post['model'] = $model;
         $default = System::get()->first();
         if($file){
-            dd('ss');
             $allowed_extensions = ["png", "jpg", "gif","PNG",'jpeg'];
             if ($file->getClientOriginalExtension() && !in_array($file->getClientOriginalExtension(), $allowed_extensions)) {
                 return ['error' => 'You may only upload png, jpg , PNG , jpeg or gif.'];
