@@ -58,6 +58,7 @@
                             <li><a href="/admintwo/index/index">模式2</a></li>
                             <li><a href="/adminthree/index/index">模式3</a></li>
                             @endif
+
                             <li><a href="/admin/public/logout" onClick="historyClear()">退出</a></li>
                         </ul>
                     </li>
@@ -90,6 +91,7 @@
             <li><a data-href="/adminfour/excel/insert" data-title="数据导入" href="javascript:;">数据导入</a></li>
             <li><a data-href="/adminfour/user/group" data-title="用户组列表" href="javascript:;">用户组列表</a></li>
             @endif
+            <li><a data-href="/adminfour/user/group" data-title="用户组列表" href="javascript:;">收藏列表</a></li>
             <li><a data-href="/adminfour/report/select" data-title="报表查询" href="javascript:;">报表查询</a></li>
         </dl>
         @if($p)

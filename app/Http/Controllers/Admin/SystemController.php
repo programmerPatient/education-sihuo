@@ -42,6 +42,8 @@ class SystemController extends Controller
         $post['web_title'] = $web_title;
         $post['company']= $company;
         $post['toolbar'] = $toolbar;
+        $post['model'] = $model;
+        dd($post);
         $result = System::insert($post);
         if($result){
             return redirect('/');
