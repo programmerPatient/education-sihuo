@@ -195,9 +195,8 @@ $(function(){
                     if(data == '1'){
                         layer.msg('更新成功!',{icon:1,time:1000},function(){
                             var index = parent.layer.getFrameIndex(window.name);
-                            window.location.replace("/");
                             // //刷新
-                            // window.location = window.location;
+                            window.location = window.location;
                         });
                     }else{
                         layer.msg('更新失败!',{icon:2,time:2000});
