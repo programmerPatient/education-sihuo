@@ -29,9 +29,10 @@
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页
     初始化基本设置
+    <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
 </nav>
 <div class="page-container">
-    <form class="form form-horizontal" id="form-article-add" action="/admin/public/inization" method="post">
+    <form class="form form-horizontal" id="form-article-add">
         <div id="tab-system" class="HuiTab">
             <div class="tabBar cl">
                 <span>初始化基本设置</span>
@@ -68,7 +69,7 @@
                     网站标题：
                 </label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" id="website-title" placeholder="新域名" value="" class="input-text" name="web_title">
+                    <input type="text" id="website-title" placeholder="" value="" class="input-text" name="web_title">
                 </div>
             </div>
             <div class="row cl">
@@ -77,7 +78,7 @@
                     底部信息：
                 </label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" id="website-title" placeholder="新信息" value="" class="input-text" name="company">
+                    <input type="text" id="website-title" placeholder="" value="" class="input-text" name="company">
                 </div>
             </div>
             <div class="row cl">
@@ -114,7 +115,7 @@
         {{csrf_field()}}
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-                <button class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i>提交</button>
+                <button class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
             </div>
         </div>
     </form>
@@ -176,30 +177,37 @@ $(function(){
             log_img:{
                 required:true,
             },
+            model:{
+                required:true,
+            },
+            toolbar:{
+                required:true,
+            }
         },
         onkeyup:false,
         focusCleanup:true,
         success:"valid",
-        // submitHandler:function(form){
-        //     $(form).ajaxSubmit({
-        //         type: 'post',
-        //         url: "/admin/public/inization" ,//自己提交给自己可以不写url
-        //         success: function(data){
-        //             if(data == '1'){
-        //                 layer.msg('初始化成功!',{icon:1,time:1000},function(){
-        //                     var index = parent.layer.getFrameIndex(window.name);
-        //                     // //刷新
-        //                     // window.location = window.location;
-        //                 });
-        //             }else{
-        //                 layer.msg('初始化失败,请重试!',{icon:2,time:2000});
-        //             }
-        //         },
-        //         error: function(XmlHttpRequest, textis_nav, errorThrown){
-        //             layer.msg('error!',{icon:2,time:1000});
-        //         }
-        //     });
-        // }
+        submitHandler:function(form){
+            $(form).ajaxSubmit({
+                type: 'post',
+                url: "/admin/public/inization" ,//自己提交给自己可以不写url
+                success: function(data){
+                    if(data == '1'){
+                        layer.msg('更新成功!',{icon:1,time:1000},function(){
+                            var index = parent.layer.getFrameIndex(window.name);
+                            window.location.replace("/");
+                            // //刷新
+                            // window.location = window.location;
+                        });
+                    }else{
+                        layer.msg('更新失败!',{icon:2,time:2000});
+                    }
+                },
+                error: function(XmlHttpRequest, textis_nav, errorThrown){
+                    layer.msg('error!',{icon:2,time:1000});
+                }
+            });
+        }
     });
 
      $('#file-fr').on('change',function(){

@@ -52,11 +52,7 @@ class SystemController extends Controller
         // $default -> type = '0';
         // $default->save();
         $result = System::insert($post);
-        if($result){
-            return redirect('/');
-        }else{
-            return '0';
-        }
+        return $result ? '1':'0';
     }
 
     public function update(Request $request){
