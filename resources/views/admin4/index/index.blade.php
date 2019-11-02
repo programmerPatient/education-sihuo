@@ -91,7 +91,7 @@
             <li><a data-href="/adminfour/excel/insert" data-title="数据导入" href="javascript:;">数据导入</a></li>
             <li><a data-href="/adminfour/user/group" data-title="用户组列表" href="javascript:;">用户组列表</a></li>
             @endif
-            <li><a data-href="/adminfour/user/group" data-title="用户组列表" href="javascript:;">收藏列表</a></li>
+            <li><a data-href="/adminfour/report/collection/index" data-title="收藏列表" href="javascript:;">收藏列表</a></li>
             <li><a data-href="/adminfour/report/select" data-title="报表查询" href="javascript:;">报表查询</a></li>
         </dl>
         @if($p)
@@ -108,7 +108,7 @@
                                 @foreach($value['views'] as $vieVule)
                                 <li class="item">
                                     @if($type == '1')
-                                    <a  data-href="/adminfour/table/index?contentUrl={{$vieVule->contentUrl}}&filter=iframeSizedToWindow=true$id={{$vieVule->id}}"" data-title="{{$vieVule->name}}" href="javascript:;" style="text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px">{{$vieVule->name}}</a>
+                                    <a  data-href="/adminfour/table/index?contentUrl={{$vieVule->contentUrl}}&filter=iframeSizedToWindow=true&id={{$vieVule->id}}"" data-title="{{$vieVule->name}}" href="javascript:;" style="text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px">{{$vieVule->name}}</a>
                                     @else
                                         <a data-href="/adminfour/table/index?contentUrl={{$vieVule->contentUrl}}&filter={{$vieVule->filter}}" data-title="{{$vieVule->name}}" href="javascript:;" style="text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px">{{$vieVule->name}}</a>
                                     @endif
