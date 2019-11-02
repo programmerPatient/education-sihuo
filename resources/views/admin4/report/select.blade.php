@@ -44,11 +44,11 @@
                     <tr class="text-c">
                         <td>
                             @if($value['collection'] == '0')
-                            <i onClick="collectionpush('{{$value['project']}}','{{$value['workBook']}}','{{$value['view']->name}}','{{$value['view']->id}}','{{$value['view']->contentUrl}}','{{$value['filter']}}')" class="Hui-iconfont" id="collec">
+                            <i onClick="collectionpush(this,'{{$value['project']}}','{{$value['workBook']}}','{{$value['view']->name}}','{{$value['view']->id}}','{{$value['view']->contentUrl}}','{{$value['filter']}}')" class="Hui-iconfont" id="collec">
                                 &#xe69e;
                             </i>
                             @else
-                            <i onClick="collectionpop('{{$value['project']}}','{{$value['workBook']}}','{{$value['view']->name}}','{{$value['view']->id}}','{{$value['view']->contentUrl}}','{{$value['filter']}}')" class="Hui-iconfont" id="collec">
+                            <i onClick="collectionpop(this,'{{$value['project']}}','{{$value['workBook']}}','{{$value['view']->name}}','{{$value['view']->id}}','{{$value['view']->contentUrl}}','{{$value['filter']}}')" class="Hui-iconfont" id="collec">
                                 &#xe630;
                             </i>
                             @endif
@@ -89,8 +89,8 @@ function member_auth(title,url,id,w,h){
     layer_show(title,url,w,h);
 }
 
-function collectionpush(project,workBook,report_name,report_id,contentUrl,filter){
-    console.log($(this).html());
+function collectionpush(obj,project,workBook,report_name,report_id,contentUrl,filter){
+    console.log(obj.html());
     $.ajax({
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         type: 'POST',
@@ -119,7 +119,8 @@ function collectionpush(project,workBook,report_name,report_id,contentUrl,filter
     });
 }
 
-function collectionpop(project,workBook,report_name,report_id,contentUrl,filter){
+function collectionpop(obj,project,workBook,report_name,report_id,contentUrl,filter){
+    console.log($(obj).html());
     $.ajax({
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         type: 'POST',
