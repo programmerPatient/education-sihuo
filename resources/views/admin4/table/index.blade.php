@@ -6,6 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <!--[if lt IE 9]>
 <script type="text/javascript" src="/admin/lib/html5shiv.js"></script>
 <script type="text/javascript" src="/admin/lib/respond.min.js"></script>
@@ -45,7 +46,6 @@
         </object>
     </div> -->
     <div class='tableauPlaceholder' style='width: 1016px; height: 1014px;'>
-        {{csrf_field()}}
         <button onClick="collection('{{$filter}}','{{$contentUrl}}','{{$report_id}}')" class="btn btn-primary radius" style="position:fixed;right:0;top:48%;bottom:0;">收藏</button>
         <object id="obj" class='tableauViz' width='500' height='1014' style='display:none;'>
             <param name="ticket" value="{{$ticket}}" />
