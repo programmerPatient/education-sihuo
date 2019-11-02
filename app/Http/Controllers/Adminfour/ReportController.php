@@ -322,7 +322,7 @@ class ReportController extends Controller
         return $result ? '1' : '0';
    }
    //报表收藏
-   public function index(){
+   public function collectindex(){
         if($user = Auth::guard('member')->user()){
             $id = $user->id;
             $type = '2';
