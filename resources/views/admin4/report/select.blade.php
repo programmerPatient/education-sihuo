@@ -90,6 +90,7 @@ function member_auth(title,url,id,w,h){
 }
 
 function collectionpush(project,workBook,report_name,report_id,contentUrl,filter){
+    console.log($(this).html());
     $.ajax({
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         type: 'POST',
@@ -101,7 +102,7 @@ function collectionpush(project,workBook,report_name,report_id,contentUrl,filter
                 console.log('sss');
                     layer.msg('收藏成功!',{icon:1,time:1000},function(){
                         // var index = parent.layer.getFrameIndex(window.name);
-                        console.log($(this).html());
+
                         // $(this).find('i').remove();
                         // $(this).replaceWith('<i onClick="collectionpop('+'\''+report_id+'\''+')"'+' class="Hui-iconfont" id="collec"'+'>'+'&#xe630;</i>');
 
