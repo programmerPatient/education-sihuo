@@ -138,7 +138,7 @@ function collectionpop(obj,project,workBook,report_name,report_id,contentUrl,fil
                         // obj.innerText = '&#xe69e;';
                         // $(this).remove();
                         // obj.after('<i onClick="collectionpush('+'this'+','+project+','+workBook+','+report_name+','+report_id+','+contentUrl+','+filter+')" class="Hui-iconfont" id="collec">&#xe69e;</i>');
-                        obj.after($('<i onClick="collectionpush()" class="Hui-iconfont" id="collec">&#xe69e;</i>'));
+                        obj.after($("<i onClick="+"\""+"collectionpush()"+"\""+" class="+"\""+"Hui-iconfont"+"\""+" id="+"\""+"collec"+"\""+">&#xe69e;</i>"));
                         obj.remove();
                         // obj.replaceWith($('<i onClick="collectionpush('+'this'+','+project+','+workBook+','+report_name+','+report_id+','+contentUrl+','+filter+')" class="Hui-iconfont" id="collec">&#xe69e;</i>').html());
                         // $(this).text('&#xe69e;');
