@@ -211,6 +211,9 @@ Route::group(['prefix' => 'adminthree','middleware' => ['admin.auth']],function(
 //后台四需要认证的后台路由
 Route::group(['prefix' => 'adminfour','middleware' => ['admin.auth']],function(){
 
+    //报表收藏
+    Route::post('report/collection','Adminfour\ReportController@collection');
+
     //用户报表位置的查询
     Route::get('report/select','Adminfour\ReportController@select');
 
@@ -283,8 +286,6 @@ Route::group(['prefix' => 'adminfour','middleware' => ['admin.auth']],function()
     Route::any('usergroup/{id}','Adminfour\UsergroupController@usergroup');
     Route::any('usergroup/modify/{id}','Adminfour\UsergroupController@modify');
 
-    //报表收藏
-    Route::post('report/collection','Adminfour\ReportController@collection');
 
 });
 
