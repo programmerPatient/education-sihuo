@@ -136,7 +136,7 @@ function collectionpop(obj,project,workBook,report_name,report_id,contentUrl,fil
                         // console.log('ssssss');
                         // obj.innerText = '&#xe69e;';
                         // $(this).remove();
-                        obj.replaceWith('<i onClick="collectionpush('+'this'+'\''+project+'\''+','+'\''+workBook+'\''+','+'\''+report_name+'\''+','+'\''+report_id+'\''+','+'\''+contentUrl+'\''+','+'\''+filter+'\''+')" class="Hui-iconfont" id="collec">&#xe69e;</i>');
+                        obj.replaceWith($('<i onClick="collectionpush('+'this'+'\''+project+'\''+','+'\''+workBook+'\''+','+'\''+report_name+'\''+','+'\''+report_id+'\''+','+'\''+contentUrl+'\''+','+'\''+filter+'\''+')" class="Hui-iconfont" id="collec">&#xe69e;</i>').html());
                         // $(this).text('&#xe69e;');
                         // parent.layer.close(index);
                     });
