@@ -317,6 +317,6 @@ class ReportController extends Controller
             $result = Collection::where('report_id',$rep)->where('user_id',$id)->delete();
         }
 
-        return '1';
+        return $result ? '1' : '0';
    }
 }
