@@ -44,11 +44,11 @@
                     <tr class="text-c">
                         <td>
                             @if($value['collection'] == '0')
-                            <i onClick="collectionpush(value'{{$['project']}}','{{$value['workBook']}}','{{$value['view']->name}}','{{$value['view']->id}}','{{$value['view']->contentUrl}}','{{$value['filter']}}')" class="Hui-iconfont" id="collec">
+                            <i onClick="collectionpush('{{$value['project']}}','{{$value['workBook']}}','{{$value['view']->name}}','{{$value['view']->id}}','{{$value['view']->contentUrl}}','{{$value['filter']}}')" class="Hui-iconfont" id="collec">
                                 &#xe69e;
                             </i>
                             @else
-                            <i onClick="collectionpop(value'{{$['project']}}','{{$value['workBook']}}','{{$value['view']->name}}','{{$value['view']->id}}','{{$value['view']->contentUrl}}','{{$value['filter']}}')" class="Hui-iconfont" id="collec">
+                            <i onClick="collectionpop('{{$value['project']}}','{{$value['workBook']}}','{{$value['view']->name}}','{{$value['view']->id}}','{{$value['view']->contentUrl}}','{{$value['filter']}}')" class="Hui-iconfont" id="collec">
                                 &#xe630;
                             </i>
                             @endif
