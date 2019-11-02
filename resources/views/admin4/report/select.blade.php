@@ -20,8 +20,6 @@
 <script type="text/javascript" src="/admin/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
-
-
 <title>报表定位</title>
 </head>
 <body>
@@ -53,48 +51,6 @@
     </table>
     </div>
 </div>
-
-
-
-<!-- <title>报表定位</title>
-</head>
-<body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 报表定位 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
-<div class="page-container">
-    <div class="cl pd-5 bg-1 bk-gray mt-20">
-        <span class="l">
-        </span>
-    </div>
-    <table class="table table-border table-bordered table-hover table-bg table-sort">
-        <thead>
-            <tr class="text-c">
-                <th width="50">收藏</th>
-                <th width="100">项目名</th>
-                <th width="100">工作簿名</th>
-                <th width="100">报表名</th>
-                <th width="100">跳转到该页面</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($p as $value)
-                    <tr class="text-c">
-                        <td onClick="collection('{{$value}}')">
-                            @if($value['collection'] == '0')
-                                 <i class="Hui-iconfont">&#xe69e;</i>
-                            @elseif($value['collection'] == '1')
-                                 <i class="Hui-iconfont">&#xe630;</i>
-                            @endif
-                        </td>
-                        <td>{{$value['project']}}</td>
-                        <td>{{$value['workBook']}}</td>
-                        <td>{{$value['view']->name}}</td>
-                        <td class="td-status"><a href="/adminthree/table/index?contentUrl={{$value['view']->contentUrl}}&filter={{$value['filter']}}" data-title="{{$value['view']->name}}" href="javascript:;"><span class="label label-success radius">跳转</span></a></td>
-                    </tr>
-            @endforeach
-        </tbody>
-    </table>
-    </div>
-</div> -->
 <!--_footer 作为公共模版分离出去-->
 <script type="text/javascript" src="/admin/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="/admin/lib/layer/2.4/layer.js"></script>
@@ -106,7 +62,6 @@
 <script type="text/javascript" src="/admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="/admin/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
-
 $(function(){
     $('.table-sort').dataTable({
         "aaSorting": [[ 1, "desc" ]],//默认第几个排序
@@ -134,67 +89,6 @@ function groups(){
         member_auth('映射tableau用户','/adminthree/report/groups/'+ids,'4','','510');
     }
 }
-
-
-
-// $(function(){
-//     $('.table-sort').dataTable({
-//         "aaSorting": [[ 1, "desc" ]],//默认第几个排序
-//         "bStateSave": true,//状态保存
-//         "aoColumnDefs": [
-//           //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
-//           {"orderable":false,"aTargets":[0,2]}// 制定列不参与排序
-//         ]
-//     });
-
-// });
-
-// function collection(value){
-//     $.ajax({
-//         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-//         type: 'delete',
-//         url: '/adminfour/report/collection',
-//         data:{
-//             'project_name':value['project_name'],
-//             'workBook_name':value['workBook_name'],
-//             'report_name':value['view']->name,
-//             'report_id':value['view']->id,
-//             'contentUrl':value['view']->contentUrl,
-//             'filter':value['filter'],
-//         },
-//         dataType: 'json',
-//         success: function(data){
-//             if(data == '1')
-//             {
-//                 layer.msg('收藏成功!',{icon:1,time:1000});
-//                 $('#collection').val() = "&#xe630;";
-//                 window.location = window.location;
-//             }else{
-//                 layer.msg('收藏失败，请注意查看!',{icon:1,time:1000});
-//             }
-//         },
-//         error:function(data) {
-//             console.log(data.msg);
-//         },
-//     });
-// }
-
-// function member_auth(title,url,id,w,h){
-//     layer_show(title,url,w,h);
-// }
-
-/*报表批量映射*/
-// function groups(){
-//     var ids =[];
-//     $("input[name='ids']:checked").each(function(){
-//         ids.push($(this).val());
-//     });
-//     if(ids == false){
-//         layer.msg('请选择要批量授权的对象!',{icon:1,time:1000});
-//     }else{
-//         member_auth('映射tableau用户','/adminfour/report/groups/'+ids,'4','','510');
-//     }
-// }
 </script>
 </body>
 </html>
