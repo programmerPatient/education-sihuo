@@ -90,6 +90,7 @@ function member_auth(title,url,id,w,h){
 }
 
 function collectionpush(obj,project,workBook,report_name,report_id,contentUrl,filter){
+    alter(obj);
     console.log(obj.html());
     $.ajax({
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
@@ -104,7 +105,7 @@ function collectionpush(obj,project,workBook,report_name,report_id,contentUrl,fi
                         // var index = parent.layer.getFrameIndex(window.name);
 
                         // $(this).find('i').remove();
-                        // $(this).replaceWith('<i onClick="collectionpop('+'\''+report_id+'\''+')"'+' class="Hui-iconfont" id="collec"'+'>'+'&#xe630;</i>');
+                        // $(this).replaceWith('<i onClick="collectionpop('+'this'+'\''+report_id+'\''+')"'+' class="Hui-iconfont" id="collec"'+'>'+'&#xe630;</i>');
 
                         $(this).text('&#xe630;');
                         // parent.layer.close(index);
@@ -120,7 +121,7 @@ function collectionpush(obj,project,workBook,report_name,report_id,contentUrl,fi
 }
 
 function collectionpop(obj,project,workBook,report_name,report_id,contentUrl,filter){
-    console.log($(obj).html());
+    console.log(obj.innerText);
     $.ajax({
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         type: 'POST',
@@ -134,7 +135,7 @@ function collectionpop(obj,project,workBook,report_name,report_id,contentUrl,fil
                         // var index = parent.layer.getFrameIndex(window.name);
                         console.log('ssssss');
                         // $(this).remove();
-                        $(this).replaceWith('<i onClick="collectionpush('+'\''+project+'\''+','+'\''+workBook+'\''+','+'\''+report_name+'\''+','+'\''+report_id+'\''+','+'\''+contentUrl+'\''+','+'\''+filter+'\''+')" class="Hui-iconfont" id="collec">&#xe69e;</i>');
+                        $(this).replaceWith('<i onClick="collectionpush('+'this'+'\''+project+'\''+','+'\''+workBook+'\''+','+'\''+report_name+'\''+','+'\''+report_id+'\''+','+'\''+contentUrl+'\''+','+'\''+filter+'\''+')" class="Hui-iconfont" id="collec">&#xe69e;</i>');
                         // $(this).text('&#xe69e;');
                         // parent.layer.close(index);
                     });
