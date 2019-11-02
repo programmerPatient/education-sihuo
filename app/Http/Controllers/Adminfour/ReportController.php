@@ -275,12 +275,12 @@ class ReportController extends Controller
                     }else{
                         $vies['filter'] = "iframeSizedToWindow=true";
                     }
-                    $coll = Collection::where('report_id',$viesdata[$i]->id)->get()->first();
-                    if($coll){
-                        $vies['collection'] = '1';//如果为1表示被收藏
-                    }else{
-                        $vies['collection'] = '1';//如果为0表示未收藏
-                    }
+                    // $coll = Collection::where('report_id',$viesdata[$i]->id)->get()->first();
+                    // if($coll){
+                    //     $vies['collection'] = '1';//如果为1表示被收藏
+                    // }else{
+                    //     $vies['collection'] = '1';//如果为0表示未收藏
+                    // }
                     $vies['view'] = $viesdata[$i];
                     $vies['project'] = $wok->project->name;
                     $vies['workBook'] = $wok->name;
