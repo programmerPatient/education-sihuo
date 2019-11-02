@@ -301,19 +301,14 @@ class ReportController extends Controller
             $id = $manager->id;
             $type = '1';
         }
-        $value = $request->value;
-        if($value){
-            $insert['project_name'] = $value['project_name'];
-            $insert['workBook_name'] = $value['workBook_name'];
-            $insert['report_name'] = $value['view']->name;
-            $insert['report_id'] = $value['view']->id;
-            $insert['user_id'] = $id;
-            $insert['type'] = $type;
-            $insert['filter'] = $value['filter'];
-            $insert['contentUrl'] = $value['view']->contentUrl;
-        }else{
-            return '0';
-        }
+        $insert['project_name'] = $request->project_name;
+        $insert['workBook_name'] = $request->workBook_name;
+        $insert['report_name'] = $request->report_name;
+        $insert['report_id'] = $request->report_id;
+        $insert['user_id'] = $id;
+        $insert['type'] = $type;
+        $insert['filter'] = $request->filter;
+        $insert['contentUrl'] = $request->contentUrl;
         $result = Collection::insert($insert);
         return $result ? '1' : '0';
    }

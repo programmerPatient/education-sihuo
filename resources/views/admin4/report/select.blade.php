@@ -86,8 +86,15 @@ function collection(value){
     $.ajax({
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         type: 'delete',
-        url: '/adminfour/members/delete',
-        data:{'value':value},
+        url: '/adminfour/report/collection',
+        data:{
+            'project_name':value['project_name'],
+            'workBook_name':value['workBook_name'],
+            'report_name':value['view']->name,
+            'report_id':value['view']->id,
+            'contentUrl':value['view']->contentUrl,
+            'filter':value['filter'],
+        },
         dataType: 'json',
         success: function(data){
             if(data == '1')
