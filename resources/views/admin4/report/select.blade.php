@@ -90,8 +90,8 @@ function member_auth(title,url,id,w,h){
 }
 
 function collectionpush(obj,project,workBook,report_name,report_id,contentUrl,filter){
-    alter(obj);
-    console.log(obj.html());
+    // alter(obj);
+    // console.log(obj.html());
     $.ajax({
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         type: 'POST',
@@ -100,7 +100,7 @@ function collectionpush(obj,project,workBook,report_name,report_id,contentUrl,fi
         dataType: 'json',
         success: function(data){
              if(data == '1'){
-                console.log('sss');
+                // console.log('sss');
                     layer.msg('收藏成功!',{icon:1,time:1000},function(){
                         // var index = parent.layer.getFrameIndex(window.name);
 
@@ -130,10 +130,10 @@ function collectionpop(obj,project,workBook,report_name,report_id,contentUrl,fil
         dataType: 'json',
         success: function(data){
              if(data == '1'){
-                console.log('sss');
+                // console.log('sss');
                     layer.msg('取消收藏成功!',{icon:1,time:1000},function(){
                         // var index = parent.layer.getFrameIndex(window.name);
-                        console.log('ssssss');
+                        // console.log('ssssss');
                         // obj.innerText = '&#xe69e;';
                         // $(this).remove();
                         obj.replaceWith('<i onClick="collectionpush('+'this'+'\''+project+'\''+','+'\''+workBook+'\''+','+'\''+report_name+'\''+','+'\''+report_id+'\''+','+'\''+contentUrl+'\''+','+'\''+filter+'\''+')" class="Hui-iconfont" id="collec">&#xe69e;</i>');
