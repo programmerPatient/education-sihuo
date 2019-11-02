@@ -275,7 +275,7 @@ class ReportController extends Controller
                     }else{
                         $vies['filter'] = "iframeSizedToWindow=true";
                     }
-                    $coll = Collection::where('report_id',$viesdata[$i]->id)->where('user_id',$user->id)->get()->first();
+                    $coll = Collection::where('report_id',$viesdata[$i]->id)->get()->first();
                     if($coll){
                         $vies['collection'] = '1';//如果为1表示被收藏
                     }else{
