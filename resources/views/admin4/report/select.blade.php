@@ -42,14 +42,16 @@
         <tbody>
             @foreach($p as $value)
                     <tr class="text-c">
-                        <td onClick="collection('{{$value['project']}}','{{$value['workBook']}}','{{$value['view']->name}}','{{$value['view']->id}}','{{$value['view']->contentUrl}}','{{$value['filter']}}')">
-                            <i class="Hui-iconfont" id="collec">
-                                @if($value['collection'] == '0')
+                        <td>
+                            @if($value['collection'] == '0')
+                            <i onClick="collectionpush(value'{{$['project']}}','{{$value['workBook']}}','{{$value['view']->name}}','{{$value['view']->id}}','{{$value['view']->contentUrl}}','{{$value['filter']}}')" class="Hui-iconfont" id="collec">
                                 &#xe69e;
-                                @else
-                                &#xe630;
-                                @endif
                             </i>
+                            @else
+                            <i onClick="collectionpop(value'{{$['project']}}','{{$value['workBook']}}','{{$value['view']->name}}','{{$value['view']->id}}','{{$value['view']->contentUrl}}','{{$value['filter']}}')" class="Hui-iconfont" id="collec">
+                                &#xe630;
+                            </i>
+                            @endif
                         </td>
                         <td>{{$value['project']}}</td>
                         <td>{{$value['workBook']}}</td>
@@ -87,19 +89,19 @@ function member_auth(title,url,id,w,h){
     layer_show(title,url,w,h);
 }
 
-function collection(project,workBook,report_name,report_id,contentUrl,filter){
-    console.log($(this).find('i').text());
+function collectionpush(project,workBook,report_name,report_id,contentUrl,filter){
     $.ajax({
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         type: 'POST',
         url: '/adminfour/report/collection',
-        data:{'project_name':project,'workBook_name':workBook,'report_id':report_id,'report_name':report_name,'contentUrl':contentUrl,'filter':filter},
+        data:{'project_name':project,'workBook_name':workBook,'report_id':report_id,'report_name':report_name,'contentUrl':contentUrl,'filter':filter,'co':true},
         dataType: 'json',
         success: function(data){
              if(data == '1'){
                     layer.msg('收藏成功!',{icon:1,time:1000},function(){
                         var index = parent.layer.getFrameIndex(window.name);
-                        $('#collec').text('&#xe630;');
+                        $(this).find('i').remove();
+                        $(this).append('<i onClick="collectionpop('+'\''+report_id+'\''+')"'+' class="Hui-iconfont" id="collec"'+'>'+'&#xe630;</i>');
                         parent.layer.close(index);
                     });
                 }else{
@@ -108,6 +110,31 @@ function collection(project,workBook,report_name,report_id,contentUrl,filter){
         },
         error:function(data) {
             alert('停用失败，请联系管理员是否存在相同的名称！');
+        },
+    });
+}
+
+function collectionpop(project,workBook,report_name,report_id,contentUrl,filter){
+    $.ajax({
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        type: 'POST',
+        url: '/adminfour/report/collection',
+        data:{'report_id':report_id,'co':false},
+        dataType: 'json',
+        success: function(data){
+             if(data == '1'){
+                    layer.msg('取消收藏成功!',{icon:1,time:1000},function(){
+                        var index = parent.layer.getFrameIndex(window.name);
+                        $(this).find('i').remove();
+                        $(this).append('<i onClick="collectionpush('+'\''+project+'\''+','+'\''+workBook+'\''+','+'\''+report_name+'\''+','+'\''+report_id+'\''+','+'\''+contentUrl+'\''+','+'\''+filter+'\''+')" class="Hui-iconfont" id="collec">&#xe69e;</i>');
+                        parent.layer.close(index);
+                    });
+                }else{
+                    layer.msg('取消收藏失败!',{icon:2,time:2000});
+                }
+        },
+        error:function(data) {
+            alert('取消失败！');
         },
     });
 }

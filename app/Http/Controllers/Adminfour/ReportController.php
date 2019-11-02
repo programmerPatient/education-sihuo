@@ -279,7 +279,7 @@ class ReportController extends Controller
                     if($coll){
                         $vies['collection'] = '1';//如果为1表示被收藏
                     }else{
-                        $vies['collection'] = '1';//如果为0表示未收藏
+                        $vies['collection'] = '0';//如果为0表示未收藏
                     }
                     $vies['view'] = $viesdata[$i];
                     $vies['project'] = $wok->project->name;
@@ -301,15 +301,22 @@ class ReportController extends Controller
             $id = $manager->id;
             $type = '1';
         }
-        $insert['project_name'] = $request->project_name;
-        $insert['workBook_name'] = $request->workBook_name;
-        $insert['report_name'] = $request->report_name;
-        $insert['report_id'] = $request->report_id;
-        $insert['user_id'] = $id;
-        $insert['type'] = $type;
-        $insert['filter'] = $request->filter;
-        $insert['contentUrl'] = $request->contentUrl;
-        $result = Collection::insert($insert);
+        $co = $request->co;
+        if($co){
+            $insert['project_name'] = $request->project_name;
+            $insert['workBook_name'] = $request->workBook_name;
+            $insert['report_name'] = $request->report_name;
+            $insert['report_id'] = $request->report_id;
+            $insert['user_id'] = $id;
+            $insert['type'] = $type;
+            $insert['filter'] = $request->filter;
+            $insert['contentUrl'] = $request->contentUrl;
+            $result = Collection::insert($insert);
+        }else{
+            $rep = $request->report_id;
+            $result = Collection::where('report_id',$rep)->where('user_id',$id)->delete();
+        }
+
         return $result ? '1' : '0';
    }
 }
