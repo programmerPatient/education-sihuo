@@ -275,12 +275,12 @@ class ReportController extends Controller
                     }else{
                         $vies['filter'] = "iframeSizedToWindow=true";
                     }
-                    // $coll = Collection::where('report_id',$viesdata[$i]->id)->get()->first();
-                    // if($coll){
-                    //     $vies['collection'] = '1';//如果为1表示被收藏
-                    // }else{
-                    //     $vies['collection'] = '1';//如果为0表示未收藏
-                    // }
+                    $coll = Collection::where('report_id',$viesdata[$i]->id)->get()->first();
+                    if($coll){
+                        $vies['collection'] = '1';//如果为1表示被收藏
+                    }else{
+                        $vies['collection'] = '1';//如果为0表示未收藏
+                    }
                     $vies['view'] = $viesdata[$i];
                     $vies['project'] = $wok->project->name;
                     $vies['workBook'] = $wok->name;
@@ -291,25 +291,25 @@ class ReportController extends Controller
         return view('admin4.report.select',compact('p'));
    }
 
-   // //报表收藏
-   // public function collection(Request $request){
-   //      if($user = Auth::guard('member')->user()){
-   //          $id = $user->id;
-   //          $type = '2';
-   //      }
-   //      if($manager = Auth::guard('admin')->user()){
-   //          $id = $manager->id;
-   //          $type = '1';
-   //      }
-   //      $insert['project_name'] = $request->project_name;
-   //      $insert['workBook_name'] = $request->workBook_name;
-   //      $insert['report_name'] = $request->report_name;
-   //      $insert['report_id'] = $request->report_id;
-   //      $insert['user_id'] = $id;
-   //      $insert['type'] = $type;
-   //      $insert['filter'] = $request->filter;
-   //      $insert['contentUrl'] = $request->contentUrl;
-   //      $result = Collection::insert($insert);
-   //      return $result ? '1' : '0';
-   // }
+   //报表收藏
+   public function collection(Request $request){
+        if($user = Auth::guard('member')->user()){
+            $id = $user->id;
+            $type = '2';
+        }
+        if($manager = Auth::guard('admin')->user()){
+            $id = $manager->id;
+            $type = '1';
+        }
+        $insert['project_name'] = $request->project_name;
+        $insert['workBook_name'] = $request->workBook_name;
+        $insert['report_name'] = $request->report_name;
+        $insert['report_id'] = $request->report_id;
+        $insert['user_id'] = $id;
+        $insert['type'] = $type;
+        $insert['filter'] = $request->filter;
+        $insert['contentUrl'] = $request->contentUrl;
+        $result = Collection::insert($insert);
+        return $result ? '1' : '0';
+   }
 }
