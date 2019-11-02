@@ -283,6 +283,9 @@ Route::group(['prefix' => 'adminfour','middleware' => ['admin.auth']],function()
     Route::any('usergroup/{id}','Adminfour\UsergroupController@usergroup');
     Route::any('usergroup/modify/{id}','Adminfour\UsergroupController@modify');
 
+    //报表收藏
+    Route::post('report/collection','Adminfour\ReportController@collection');
+
 });
 
 

@@ -9,6 +9,7 @@ use DB;
 use Auth;
 use Session;
 use App\Models\Admin\System;
+use App\Models\Admin\Collection;
 use App\Models\Admin\RelationReport;
 
 class ReportController extends Controller
@@ -274,6 +275,12 @@ class ReportController extends Controller
                     }else{
                         $vies['filter'] = "iframeSizedToWindow=true";
                     }
+                    $coll = Collection::where('report_id',$viesdata[$i]->id)->where('user_id',$user->id)->get()->first();
+                    if($coll){
+                        $vies['collection'] = '1';//如果为1表示被收藏
+                    }else{
+                        $vies['collection'] = '1';//如果为0表示未收藏
+                    }
                     $vies['view'] = $viesdata[$i];
                     $vies['project'] = $wok->project->name;
                     $vies['workBook'] = $wok->name;
@@ -282,5 +289,32 @@ class ReportController extends Controller
             }
         }
         return view('admin4.report.select',compact('p'));
+   }
+
+   //报表收藏
+   public function collection(Request $request){
+        if($user = Auth::guard('member')->user()){
+            $id = $user->id;
+            $type = '2';
+        }
+        if($manager = Auth::guard('admin')->user()){
+            $id = $manager->id;
+            $type = '1';
+        }
+        $value = $request->value;
+        if($value){
+            $insert['project_name'] = $value['project_name'];
+            $insert['workBook_name'] = $value['workBook_name'];
+            $insert['report_name'] = $value['view']->name;
+            $insert['report_id'] = $value['view']->id;
+            $insert['user_id'] = $id;
+            $insert['type'] = $type;
+            $insert['filter'] = $value['filter'];
+            $insert['contentUrl'] = $value['view']->contentUrl;
+        }else{
+            return '0';
+        }
+        $result = Collection::insert($insert);
+        return $result ? '1' : '0';
    }
 }

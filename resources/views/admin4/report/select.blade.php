@@ -32,6 +32,7 @@
     <table class="table table-border table-bordered table-hover table-bg table-sort">
         <thead>
             <tr class="text-c">
+                <th width="50">收藏</th>
                 <th width="100">项目名</th>
                 <th width="100">工作簿名</th>
                 <th width="100">报表名</th>
@@ -41,6 +42,13 @@
         <tbody>
             @foreach($p as $value)
                     <tr class="text-c">
+                        <td onclick="collection('{{$value}}')">
+                            @if($value['collection'] == '0')
+                                &#xe69e;
+                            @else
+                                &#xe630;
+                            @endif
+                        </td>
                         <td>{{$value['project']}}</td>
                         <td>{{$value['workBook']}}</td>
                         <td>{{$value['view']->name}}</td>
@@ -73,6 +81,30 @@ $(function(){
     });
 
 });
+
+function collection(value){
+    $.ajax({
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        type: 'delete',
+        url: '/adminfour/members/delete',
+        data:{'value':value},
+        dataType: 'json',
+        success: function(data){
+            if(data == '1')
+            {
+                layer.msg('收藏成功!',{icon:1,time:1000});
+                $('#collection').val() = "&#xe630;";
+                window.location = window.location;
+            }else{
+                layer.msg('收藏失败，请注意查看!',{icon:1,time:1000});
+            }
+        },
+        error:function(data) {
+            console.log(data.msg);
+        },
+    });
+}
+
 function member_auth(title,url,id,w,h){
     layer_show(title,url,w,h);
 }
