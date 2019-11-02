@@ -45,6 +45,7 @@
         </object>
     </div> -->
     <div class='tableauPlaceholder' style='width: 1016px; height: 1014px;'>
+        {{csrf_field()}}
         <button onClick="collection('{{$filter}}','{{$contentUrl}}','{{$report_id}}')" class="btn btn-primary radius" style="position:fixed;right:0;top:48%;bottom:0;">收藏</button>
         <object id="obj" class='tableauViz' width='500' height='1014' style='display:none;'>
             <param name="ticket" value="{{$ticket}}" />
