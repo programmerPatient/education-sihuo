@@ -103,7 +103,7 @@ function collectionpush(obj,project,workBook,report_name,report_id,contentUrl,fi
                 // console.log('sss');
                     layer.msg('收藏成功!',{icon:1,time:1000},function(){
                         // var index = parent.layer.getFrameIndex(window.name);
-                        obj.replaceWith('<i onClick="collectionpop('+'this'+project+','+workBook+','+report_name+','+report_id+','+contentUrl+','+filter+')" class="Hui-iconfont" id="collec">&#xe69e;</i>');
+                        obj.replaceWith('<i onClick="collectionpop('+'this'+','+project+','+workBook+','+report_name+','+report_id+','+contentUrl+','+filter+')" class="Hui-iconfont" id="collec">&#xe69e;</i>');
 
                         // $(this).find('i').remove();
                         // $(this).replaceWith('<i onClick="collectionpop('+'this'+'\''+report_id+'\''+')"'+' class="Hui-iconfont" id="collec"'+'>'+'&#xe630;</i>');
@@ -137,7 +137,9 @@ function collectionpop(obj,project,workBook,report_name,report_id,contentUrl,fil
                         // console.log('ssssss');
                         // obj.innerText = '&#xe69e;';
                         // $(this).remove();
-                        obj.replaceWith($('<i onClick="collectionpush('+'this'+project+','+workBook+','+report_name+','+report_id+','+contentUrl+','+filter+')" class="Hui-iconfont" id="collec">&#xe69e;</i>').html());
+                        obj.after('<i onClick="collectionpush('+'this'+','+project+','+workBook+','+report_name+','+report_id+','+contentUrl+','+filter+')" class="Hui-iconfont" id="collec">&#xe69e;</i>');
+                        obj.remove();
+                        // obj.replaceWith($('<i onClick="collectionpush('+'this'+','+project+','+workBook+','+report_name+','+report_id+','+contentUrl+','+filter+')" class="Hui-iconfont" id="collec">&#xe69e;</i>').html());
                         // $(this).text('&#xe69e;');
                         // parent.layer.close(index);
                     });
