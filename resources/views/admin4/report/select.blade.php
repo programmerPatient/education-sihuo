@@ -101,7 +101,8 @@ function collectionpush(project,workBook,report_name,report_id,contentUrl,filter
                     layer.msg('收藏成功!',{icon:1,time:1000},function(){
                         var index = parent.layer.getFrameIndex(window.name);
                         // $(this).find('i').remove();
-                        $(this).replaceWith('<i onClick="collectionpop('+'\''+report_id+'\''+')"'+' class="Hui-iconfont" id="collec"'+'>'+'&#xe630;</i>');
+                        // $(this).replaceWith('<i onClick="collectionpop('+'\''+report_id+'\''+')"'+' class="Hui-iconfont" id="collec"'+'>'+'&#xe630;</i>');
+                        $(this).text('&#xe630;');
                         parent.layer.close(index);
                     });
                 }else{
@@ -126,7 +127,8 @@ function collectionpop(project,workBook,report_name,report_id,contentUrl,filter)
                     layer.msg('取消收藏成功!',{icon:1,time:1000},function(){
                         var index = parent.layer.getFrameIndex(window.name);
                         // $(this).remove();
-                        $(this).replaceWith('<i onClick="collectionpush('+'\''+project+'\''+','+'\''+workBook+'\''+','+'\''+report_name+'\''+','+'\''+report_id+'\''+','+'\''+contentUrl+'\''+','+'\''+filter+'\''+')" class="Hui-iconfont" id="collec">&#xe69e;</i>');
+                        // $(this).replaceWith('<i onClick="collectionpush('+'\''+project+'\''+','+'\''+workBook+'\''+','+'\''+report_name+'\''+','+'\''+report_id+'\''+','+'\''+contentUrl+'\''+','+'\''+filter+'\''+')" class="Hui-iconfont" id="collec">&#xe69e;</i>');
+                        $(this).text('&#xe69e;');
                         parent.layer.close(index);
                     });
                 }else{
