@@ -88,7 +88,7 @@ function member_auth(title,url,id,w,h){
 }
 
 function collection(project,workBook,report_name,report_id,contentUrl,filter){
-    console.log($(this+':first-child').text());
+    console.log($(this).children().text());
     $.ajax({
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         type: 'POST',
