@@ -302,7 +302,7 @@ class ReportController extends Controller
             $type = '1';
         }
         $co = $request->co;
-        if($co){
+        if($co == 'true'){
             $insert['project_name'] = $request->project_name;
             $insert['workBook_name'] = $request->workBook_name;
             $insert['report_name'] = $request->report_name;
