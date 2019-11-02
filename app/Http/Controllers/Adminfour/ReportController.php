@@ -311,6 +311,7 @@ class ReportController extends Controller
             $insert['type'] = $type;
             $insert['filter'] = $request->filter;
             $insert['contentUrl'] = $request->contentUrl;
+            dd($insert);
             $result = Collection::insert($insert);
         }else{
             $rep = $request->report_id;
