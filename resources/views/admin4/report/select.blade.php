@@ -42,7 +42,7 @@
         <tbody>
             @foreach($p as $value)
                     <tr class="text-c">
-                        <td>&#xe69e;</td>
+                        <td> <i class="Hui-iconfont">&#xe69e;</i></td>
                         <td>{{$value['project']}}</td>
                         <td>{{$value['workBook']}}</td>
                         <td>{{$value['view']->name}}</td>
