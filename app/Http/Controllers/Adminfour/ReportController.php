@@ -132,7 +132,7 @@ class ReportController extends Controller
             $project_group = Input::get('project_group');
             foreach($project_group as $key=>$value){
                 if($value == null){
-                    unset($project_group[$key]);
+                    unset($project_group[$key]); ,
                 }
             }
             $project_group = implode("|",$project_group);
@@ -318,6 +318,6 @@ class ReportController extends Controller
             $result = Collection::where('report_id',$rep)->where('user_id',$id)->delete();
         }
 
-        return $result ? '1' : '0';
+        return '1';
    }
 }

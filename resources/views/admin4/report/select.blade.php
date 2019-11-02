@@ -109,7 +109,7 @@ function collectionpush(project,workBook,report_name,report_id,contentUrl,filter
                 }
         },
         error:function(data) {
-            alert('停用失败，请联系管理员是否存在相同的名称！');
+            alert('收藏失败！');
         },
     });
 }
