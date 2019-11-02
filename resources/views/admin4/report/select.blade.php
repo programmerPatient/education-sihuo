@@ -100,6 +100,7 @@ function collectionpush(project,workBook,report_name,report_id,contentUrl,filter
              if(data == '1'){
                     layer.msg('收藏成功!',{icon:1,time:1000},function(){
                         var index = parent.layer.getFrameIndex(window.name);
+                        console.log('ssssss');
                         // $(this).find('i').remove();
                         // $(this).replaceWith('<i onClick="collectionpop('+'\''+report_id+'\''+')"'+' class="Hui-iconfont" id="collec"'+'>'+'&#xe630;</i>');
                         $(this).text('&#xe630;');
@@ -126,6 +127,7 @@ function collectionpop(project,workBook,report_name,report_id,contentUrl,filter)
              if(data == '1'){
                     layer.msg('取消收藏成功!',{icon:1,time:1000},function(){
                         var index = parent.layer.getFrameIndex(window.name);
+                        console.log('ssssss');
                         // $(this).remove();
                         // $(this).replaceWith('<i onClick="collectionpush('+'\''+project+'\''+','+'\''+workBook+'\''+','+'\''+report_name+'\''+','+'\''+report_id+'\''+','+'\''+contentUrl+'\''+','+'\''+filter+'\''+')" class="Hui-iconfont" id="collec">&#xe69e;</i>');
                         $(this).text('&#xe69e;');
