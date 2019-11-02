@@ -42,13 +42,13 @@
         <tbody>
             @foreach($p as $value)
                     <tr class="text-c">
-                        <td onclick="collection('{{$value}}')">
+                        <!-- <td onClick="collection('{{$value}}')">
                             @if($value['collection'] == '0')
                                  <i class="Hui-iconfont">&#xe69e;</i>
                             @elseif($value['collection'] == '1')
                                  <i class="Hui-iconfont">&#xe630;</i>
                             @endif
-                        </td>
+                        </td> -->
                         <td>{{$value['project']}}</td>
                         <td>{{$value['workBook']}}</td>
                         <td>{{$value['view']->name}}</td>
