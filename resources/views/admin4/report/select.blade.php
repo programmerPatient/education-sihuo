@@ -44,9 +44,9 @@
                     <tr class="text-c">
                         <td onclick="collection('{{$value}}')">
                             @if($value['collection'] == '0')
-                                &#xe69e;
-                            @else
-                                &#xe630;
+                                 <i class="Hui-iconfont">&#xe69e;</i>
+                            @elseif($value['collection'] == '1')
+                                 <i class="Hui-iconfont">&#xe630;</i>
                             @endif
                         </td>
                         <td>{{$value['project']}}</td>
