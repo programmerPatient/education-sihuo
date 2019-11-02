@@ -42,7 +42,7 @@
         <tbody>
             @foreach($p as $value)
                     <tr class="text-c">
-                        <td onClick="collection('{{$value}}')"><i class="Hui-iconfont">&#xe69e;</i></td>
+                        <td onClick="collection('{{$value['project_name']}}')"><i class="Hui-iconfont">&#xe69e;</i></td>
                         <td>{{$value['project']}}</td>
                         <td>{{$value['workBook']}}</td>
                         <td>{{$value['view']->name}}</td>
