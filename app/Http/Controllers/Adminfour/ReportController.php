@@ -303,10 +303,12 @@ class ReportController extends Controller
         }
         $co = $request->co;
         if($co == 'true'){
-            $insert['project_name'] = $request->project_name;
-            $insert['workBook_name'] = $request->workBook_name;
-            $insert['report_name'] = $request->report_name;
-            $insert['report_id'] = $request->report_id;
+            $rep = $request->report_id;
+            $re = RelationReport::where('member_id',$id)->where('report_id',$rep_id)->get()->first();
+            $insert['project_name'] = $re->project_name;
+            $insert['workBook_name'] = $re->workBook_name;
+            $insert['report_name'] = $re->report_name;
+            $insert['report_id'] = $rep;
             $insert['user_id'] = $id;
             $insert['type'] = $type;
             $insert['filter'] = $request->filter;
@@ -318,5 +320,19 @@ class ReportController extends Controller
         }
 
         return $result ? '1' : '0';
+   }
+   //报表收藏
+   public function index(){
+        if($user = Auth::guard('member')->user()){
+            $id = $user->id;
+            $type = '2';
+        }
+        if($manager = Auth::guard('admin')->user()){
+            $id = $manager->id;
+            $type = '1';
+        }
+        $data = Collection::where('user_id',$id)->where('type',$type)->get();
+
+        return view('admin4.collection.index',compact('data'));
    }
 }

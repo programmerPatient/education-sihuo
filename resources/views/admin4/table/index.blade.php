@@ -45,7 +45,7 @@
         </object>
     </div> -->
     <div class='tableauPlaceholder' style='width: 1016px; height: 1014px;'>
-        <button class="btn btn-primary radius" style="position:fixed;right:0;top:48%;bottom:0;">收藏</button>
+        <button onClick="collection('{{$filter}}','{{$contentUrl}}','{{$report_id}}')" class="btn btn-primary radius" style="position:fixed;right:0;top:48%;bottom:0;">收藏</button>
         <object id="obj" class='tableauViz' width='500' height='1014' style='display:none;'>
             <param name="ticket" value="{{$ticket}}" />
             <param name='host_url' value='http%3A%2F%2Ftableau.kalaw.top%2F' />
@@ -90,6 +90,30 @@
     var height =  document.body.clientHeight;
     document.getElementById('obj').width = width;
     document.getElementById('obj').height = height;
+
+    function collection(filter,contentUrl,report_id){
+    // alter(obj);
+    // console.log(obj.html());
+    $.ajax({
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        type: 'POST',
+        url: '/adminfour/report/collection',
+        data:{'contentUrl':contentUrl,'filter':filter,'report_id':report_id,'co':true},
+        dataType: 'json',
+        success: function(data){
+             if(data == '1'){
+                // console.log('sss');
+                    layer.msg('收藏成功!',{icon:1,time:1000},function(){
+                    });
+                }else{
+                    layer.msg('收藏失败!',{icon:2,time:2000});
+                }
+        },
+        error:function(data) {
+            alert('收藏失败！');
+        },
+    });
+}
 
 </script>
 </html>

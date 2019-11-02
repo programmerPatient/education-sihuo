@@ -213,6 +213,7 @@ Route::group(['prefix' => 'adminfour','middleware' => ['admin.auth']],function()
 
     //报表收藏
     Route::post('report/collection','Adminfour\ReportController@collection');
+    Route::get('report/collection/index','Adminfour\ReportController@index');
 
     //用户报表位置的查询
     Route::get('report/select','Adminfour\ReportController@select');
