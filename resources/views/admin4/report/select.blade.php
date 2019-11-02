@@ -92,7 +92,7 @@ function collection(project,workBook,report_name,report_id,contentUrl,filter){
     $.ajax({
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         type: 'POST',
-        url: '/adminthree/report/collection',
+        url: '/adminfour/report/collection',
         data:{'project_name':project,'workBook_name':workBook,'report_id':report_id,'report_name':report_name,'contentUrl':contentUrl,'filter':filter},
         dataType: 'json',
         success: function(data){
