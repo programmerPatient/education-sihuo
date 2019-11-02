@@ -32,7 +32,7 @@
     <table class="table table-border table-bordered table-hover table-bg table-sort">
         <thead>
             <tr class="text-c">
-                <th width="10">收藏</th>
+                <!-- <th width="10">收藏</th> -->
                 <th width="100">项目名</th>
                 <th width="100">工作簿名</th>
                 <th width="100">报表名</th>
@@ -42,7 +42,7 @@
         <tbody>
             @foreach($p as $value)
                     <tr class="text-c">
-                        <td>
+                        <!-- <td>
                             @if($value['collection'] == '0')
                             <i onClick="collectionpush(this,'{{$value['project']}}','{{$value['workBook']}}','{{$value['view']->name}}','{{$value['view']->id}}','{{$value['view']->contentUrl}}','{{$value['filter']}}')" class="Hui-iconfont" id="collec">
                                 &#xe69e;
@@ -52,7 +52,7 @@
                                 &#xe630;
                             </i>
                             @endif
-                        </td>
+                        </td> -->
                         <td>{{$value['project']}}</td>
                         <td>{{$value['workBook']}}</td>
                         <td>{{$value['view']->name}}</td>
@@ -89,72 +89,72 @@ function member_auth(title,url,id,w,h){
     layer_show(title,url,w,h);
 }
 
-function collectionpush(obj,project,workBook,report_name,report_id,contentUrl,filter){
-    // alter(obj);
-    // console.log(obj.html());
-    $.ajax({
-        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-        type: 'POST',
-        url: '/adminfour/report/collection',
-        data:{'project_name':project,'workBook_name':workBook,'report_id':report_id,'report_name':report_name,'contentUrl':contentUrl,'filter':filter,'co':true},
-        dataType: 'json',
-        success: function(data){
-             if(data == '1'){
-                // console.log('sss');
-                    layer.msg('收藏成功!',{icon:1,time:1000},function(){
-                        window.location = window.location;
-                        // var index = parent.layer.getFrameIndex(window.name);
-                        // obj.replaceWith('<i onClick="collectionpop('+'this'+','+project+','+workBook+','+report_name+','+report_id+','+contentUrl+','+filter+')" class="Hui-iconfont" id="collec">&#xe69e;</i>');
+// function collectionpush(obj,project,workBook,report_name,report_id,contentUrl,filter){
+//     // alter(obj);
+//     // console.log(obj.html());
+//     $.ajax({
+//         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+//         type: 'POST',
+//         url: '/adminfour/report/collection',
+//         data:{'project_name':project,'workBook_name':workBook,'report_id':report_id,'report_name':report_name,'contentUrl':contentUrl,'filter':filter,'co':true},
+//         dataType: 'json',
+//         success: function(data){
+//              if(data == '1'){
+//                 // console.log('sss');
+//                     layer.msg('收藏成功!',{icon:1,time:1000},function(){
+//                         window.location = window.location;
+//                         // var index = parent.layer.getFrameIndex(window.name);
+//                         // obj.replaceWith('<i onClick="collectionpop('+'this'+','+project+','+workBook+','+report_name+','+report_id+','+contentUrl+','+filter+')" class="Hui-iconfont" id="collec">&#xe69e;</i>');
 
-                        // $(this).find('i').remove();
-                        // $(this).replaceWith('<i onClick="collectionpop('+'this'+'\''+report_id+'\''+')"'+' class="Hui-iconfont" id="collec"'+'>'+'&#xe630;</i>');
+//                         // $(this).find('i').remove();
+//                         // $(this).replaceWith('<i onClick="collectionpop('+'this'+'\''+report_id+'\''+')"'+' class="Hui-iconfont" id="collec"'+'>'+'&#xe630;</i>');
 
-                        // $(this).text('&#xe630;');
-                        // parent.layer.close(index);
-                    });
-                }else{
-                    layer.msg('收藏失败!',{icon:2,time:2000});
-                }
-        },
-        error:function(data) {
-            alert('收藏失败！');
-        },
-    });
-}
+//                         // $(this).text('&#xe630;');
+//                         // parent.layer.close(index);
+//                     });
+//                 }else{
+//                     layer.msg('收藏失败!',{icon:2,time:2000});
+//                 }
+//         },
+//         error:function(data) {
+//             alert('收藏失败！');
+//         },
+//     });
+// }
 
-function collectionpop(obj,project,workBook,report_name,report_id,contentUrl,filter){
-    console.log(obj.innerText);
-    $.ajax({
-        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-        type: 'POST',
-        url: '/adminfour/report/collection',
-        data:{'report_id':report_id,'co':false},
-        dataType: 'json',
-        success: function(data){
-             if(data == '1'){
-                // console.log('sss');
-                    layer.msg('取消收藏成功!',{icon:1,time:1000},function(){
-                        window.location = window.location;
-                        // var index = parent.layer.getFrameIndex(window.name);
-                        // console.log('ssssss');
-                        // obj.innerText = '&#xe69e;';
-                        // $(this).remove();
-                        // obj.after('<i onClick="collectionpush('+'this'+','+project+','+workBook+','+report_name+','+report_id+','+contentUrl+','+filter+')" class="Hui-iconfont" id="collec">&#xe69e;</i>');
-                        // obj.replaceWith("<i onClick="+"\""+"collectionpush()"+"\""+" class="+"\""+"Hui-iconfont"+"\""+" id="+"\""+"collec"+"\""+">&#xe69e;</i>");
-                        // obj.remove();
-                        // obj.replaceWith($('<i onClick="collectionpush('+'this'+','+project+','+workBook+','+report_name+','+report_id+','+contentUrl+','+filter+')" class="Hui-iconfont" id="collec">&#xe69e;</i>').html());
-                        // $(this).text('&#xe69e;');
-                        // parent.layer.close(index);
-                    });
-                }else{
-                    layer.msg('取消收藏失败!',{icon:2,time:2000});
-                }
-        },
-        error:function(data) {
-            alert('取消失败！');
-        },
-    });
-}
+// function collectionpop(obj,project,workBook,report_name,report_id,contentUrl,filter){
+//     console.log(obj.innerText);
+//     $.ajax({
+//         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+//         type: 'POST',
+//         url: '/adminfour/report/collection',
+//         data:{'report_id':report_id,'co':false},
+//         dataType: 'json',
+//         success: function(data){
+//              if(data == '1'){
+//                 // console.log('sss');
+//                     layer.msg('取消收藏成功!',{icon:1,time:1000},function(){
+//                         window.location = window.location;
+//                         // var index = parent.layer.getFrameIndex(window.name);
+//                         // console.log('ssssss');
+//                         // obj.innerText = '&#xe69e;';
+//                         // $(this).remove();
+//                         // obj.after('<i onClick="collectionpush('+'this'+','+project+','+workBook+','+report_name+','+report_id+','+contentUrl+','+filter+')" class="Hui-iconfont" id="collec">&#xe69e;</i>');
+//                         // obj.replaceWith("<i onClick="+"\""+"collectionpush()"+"\""+" class="+"\""+"Hui-iconfont"+"\""+" id="+"\""+"collec"+"\""+">&#xe69e;</i>");
+//                         // obj.remove();
+//                         // obj.replaceWith($('<i onClick="collectionpush('+'this'+','+project+','+workBook+','+report_name+','+report_id+','+contentUrl+','+filter+')" class="Hui-iconfont" id="collec">&#xe69e;</i>').html());
+//                         // $(this).text('&#xe69e;');
+//                         // parent.layer.close(index);
+//                     });
+//                 }else{
+//                     layer.msg('取消收藏失败!',{icon:2,time:2000});
+//                 }
+//         },
+//         error:function(data) {
+//             alert('取消失败！');
+//         },
+//     });
+// }
 
 /*报表批量映射*/
 function groups(){

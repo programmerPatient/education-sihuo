@@ -45,6 +45,7 @@
         </object>
     </div> -->
     <div class='tableauPlaceholder' style='width: 1016px; height: 1014px;'>
+        <button>收藏</button>
         <object id="obj" class='tableauViz' width='500' height='1014' style='display:none;'>
             <param name="ticket" value="{{$ticket}}" />
             <param name='host_url' value='http%3A%2F%2Ftableau.kalaw.top%2F' />
