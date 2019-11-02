@@ -293,7 +293,6 @@ class ReportController extends Controller
 
    //报表收藏
    public function collection(Request $request){
-        dd($request->all());
         if($user = Auth::guard('member')->user()){
             $id = $user->id;
             $type = '2';
@@ -312,7 +311,6 @@ class ReportController extends Controller
             $insert['type'] = $type;
             $insert['filter'] = $request->filter;
             $insert['contentUrl'] = $request->contentUrl;
-            dd($insert);
             $result = Collection::insert($insert);
         }else{
             $rep = $request->report_id;
