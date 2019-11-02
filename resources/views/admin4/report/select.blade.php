@@ -134,8 +134,9 @@ function collectionpop(obj,project,workBook,report_name,report_id,contentUrl,fil
                     layer.msg('取消收藏成功!',{icon:1,time:1000},function(){
                         // var index = parent.layer.getFrameIndex(window.name);
                         console.log('ssssss');
+                        obj.innerText = '&#xe69e;';
                         // $(this).remove();
-                        $(this).replaceWith('<i onClick="collectionpush('+'this'+'\''+project+'\''+','+'\''+workBook+'\''+','+'\''+report_name+'\''+','+'\''+report_id+'\''+','+'\''+contentUrl+'\''+','+'\''+filter+'\''+')" class="Hui-iconfont" id="collec">&#xe69e;</i>');
+                        // $(this).replaceWith('<i onClick="collectionpush('+'this'+'\''+project+'\''+','+'\''+workBook+'\''+','+'\''+report_name+'\''+','+'\''+report_id+'\''+','+'\''+contentUrl+'\''+','+'\''+filter+'\''+')" class="Hui-iconfont" id="collec">&#xe69e;</i>');
                         // $(this).text('&#xe69e;');
                         // parent.layer.close(index);
                     });
