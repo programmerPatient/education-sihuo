@@ -42,7 +42,7 @@
         <tbody>
             @foreach($p as $value)
                     <tr class="text-c">
-                        <td onClick="collection('{{$value['project']}}','{{$value['workBook']}}','{{$value['view']->name}}','{{$value['view']->id}}','{{$value['view']->contentUrl}}','{{$value['filter']}}')">
+                        <td id="par" onClick="collection('{{$value['project']}}','{{$value['workBook']}}','{{$value['view']->name}}','{{$value['view']->id}}','{{$value['view']->contentUrl}}','{{$value['filter']}}')">
                             <i class="Hui-iconfont" id="collec">
                                 @if($value['collection'] == '0')
                                 &#xe69e;
@@ -88,7 +88,7 @@ function member_auth(title,url,id,w,h){
 }
 
 function collection(project,workBook,report_name,report_id,contentUrl,filter){
-    console.log($(this).children().text());
+    console.log($('#par:first-child'));
     $.ajax({
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         type: 'POST',
