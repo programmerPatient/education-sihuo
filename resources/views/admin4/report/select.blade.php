@@ -102,13 +102,14 @@ function collectionpush(obj,project,workBook,report_name,report_id,contentUrl,fi
              if(data == '1'){
                 // console.log('sss');
                     layer.msg('收藏成功!',{icon:1,time:1000},function(){
+                        window.location = window.location;
                         // var index = parent.layer.getFrameIndex(window.name);
-                        obj.replaceWith('<i onClick="collectionpop('+'this'+','+project+','+workBook+','+report_name+','+report_id+','+contentUrl+','+filter+')" class="Hui-iconfont" id="collec">&#xe69e;</i>');
+                        // obj.replaceWith('<i onClick="collectionpop('+'this'+','+project+','+workBook+','+report_name+','+report_id+','+contentUrl+','+filter+')" class="Hui-iconfont" id="collec">&#xe69e;</i>');
 
                         // $(this).find('i').remove();
                         // $(this).replaceWith('<i onClick="collectionpop('+'this'+'\''+report_id+'\''+')"'+' class="Hui-iconfont" id="collec"'+'>'+'&#xe630;</i>');
 
-                        $(this).text('&#xe630;');
+                        // $(this).text('&#xe630;');
                         // parent.layer.close(index);
                     });
                 }else{
@@ -133,13 +134,14 @@ function collectionpop(obj,project,workBook,report_name,report_id,contentUrl,fil
              if(data == '1'){
                 // console.log('sss');
                     layer.msg('取消收藏成功!',{icon:1,time:1000},function(){
+                        window.location = window.location;
                         // var index = parent.layer.getFrameIndex(window.name);
                         // console.log('ssssss');
                         // obj.innerText = '&#xe69e;';
                         // $(this).remove();
                         // obj.after('<i onClick="collectionpush('+'this'+','+project+','+workBook+','+report_name+','+report_id+','+contentUrl+','+filter+')" class="Hui-iconfont" id="collec">&#xe69e;</i>');
-                        obj.replaceWith("<i onClick="+"\""+"collectionpush()"+"\""+" class="+"\""+"Hui-iconfont"+"\""+" id="+"\""+"collec"+"\""+">&#xe69e;</i>");
-                        obj.remove();
+                        // obj.replaceWith("<i onClick="+"\""+"collectionpush()"+"\""+" class="+"\""+"Hui-iconfont"+"\""+" id="+"\""+"collec"+"\""+">&#xe69e;</i>");
+                        // obj.remove();
                         // obj.replaceWith($('<i onClick="collectionpush('+'this'+','+project+','+workBook+','+report_name+','+report_id+','+contentUrl+','+filter+')" class="Hui-iconfont" id="collec">&#xe69e;</i>').html());
                         // $(this).text('&#xe69e;');
                         // parent.layer.close(index);
