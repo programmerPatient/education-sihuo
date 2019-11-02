@@ -105,7 +105,7 @@ function collectionpush(project,workBook,report_name,report_id,contentUrl,filter
                         // $(this).find('i').remove();
                         // $(this).replaceWith('<i onClick="collectionpop('+'\''+report_id+'\''+')"'+' class="Hui-iconfont" id="collec"'+'>'+'&#xe630;</i>');
                         $(this).text('&#xe630;');
-                        parent.layer.close(index);
+                        // parent.layer.close(index);
                     });
                 }else{
                     layer.msg('收藏失败!',{icon:2,time:2000});
@@ -131,9 +131,9 @@ function collectionpop(project,workBook,report_name,report_id,contentUrl,filter)
                         // var index = parent.layer.getFrameIndex(window.name);
                         console.log('ssssss');
                         // $(this).remove();
-                        // $(this).replaceWith('<i onClick="collectionpush('+'\''+project+'\''+','+'\''+workBook+'\''+','+'\''+report_name+'\''+','+'\''+report_id+'\''+','+'\''+contentUrl+'\''+','+'\''+filter+'\''+')" class="Hui-iconfont" id="collec">&#xe69e;</i>');
-                        $(this).text('&#xe69e;');
-                        parent.layer.close(index);
+                        $(this).replaceWith('<i onClick="collectionpush('+'\''+project+'\''+','+'\''+workBook+'\''+','+'\''+report_name+'\''+','+'\''+report_id+'\''+','+'\''+contentUrl+'\''+','+'\''+filter+'\''+')" class="Hui-iconfont" id="collec">&#xe69e;</i>');
+                        // $(this).text('&#xe69e;');
+                        // parent.layer.close(index);
                     });
                 }else{
                     layer.msg('取消收藏失败!',{icon:2,time:2000});
