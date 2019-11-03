@@ -383,6 +383,7 @@ class ReportController extends Controller
             }
             $insert['report_id'] = $rep;
             $insert['user_id'] = $id;
+            dd($id);
             $insert['type'] = $type;
             $insert['filter'] = $request->filter;
             $insert['contentUrl'] = $request->contentUrl;
