@@ -302,7 +302,6 @@ class ReportController extends Controller
             $type = '1';
         }
         $co = $request->co;
-        dd($request->all());
         if($co == 'true'){
             $rep = $request->report_id;
             /*拿到所有报表的数据*/
@@ -365,7 +364,6 @@ class ReportController extends Controller
                         $viesdata = json_decode($chilresponse)->workbook->views->view;
                         $wok = json_decode($chilresponse)->workbook;
                         foreach($viesdata as $k=>$value){
-                            dd($rep);
                             if($value->id == $rep){
                                 $insert['project_name'] = $wok->project->name;
                                 $insert['workBook_name'] = $wok->name;
@@ -378,6 +376,9 @@ class ReportController extends Controller
                             break;
                         }
                     }
+                }
+                if(!$cl){
+                    return '0';
                 }
             }
             $insert['report_id'] = $rep;
