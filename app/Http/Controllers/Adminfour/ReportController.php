@@ -293,6 +293,7 @@ class ReportController extends Controller
 
    //报表收藏
    public function collection(Request $request){
+    dd($request->all());
         if($user = Auth::guard('member')->user()){
             $id = $user->id;
             $type = '2';
