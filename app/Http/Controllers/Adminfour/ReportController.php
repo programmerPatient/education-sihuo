@@ -294,11 +294,11 @@ class ReportController extends Controller
    //报表收藏
    public function collection(Request $request){
         if($user = Auth::guard('member')->user()){
-            $id = $user->id;
+            $user_id = $user->id;
             $type = '2';
         }
         if($manager = Auth::guard('admin')->user()){
-            $id = $manager->id;
+            $user_id = $manager->id;
             $type = '1';
         }
         $co = $request->co;
@@ -382,12 +382,15 @@ class ReportController extends Controller
                 }
             }
             $insert['report_id'] = $rep;
-            $insert['user_id'] = $id;
-            dd($id);
+            $insert['user_id'] = $user_id;
             $insert['type'] = $type;
             $insert['filter'] = $request->filter;
             $insert['contentUrl'] = $request->contentUrl;
             $insert['created_at'] = date('Y-m-d H:i:s');
+            $has = Collection::where('user_id',$user_id)->where('report_id',$rep)->get()->first();
+            if($has){
+                return '0';
+            }
             $result = Collection::insert($insert);
         }else{
             $rep = $request->report_id;
@@ -399,7 +402,6 @@ class ReportController extends Controller
    //报表收藏
    public function collectindex(){
         if($user = Auth::guard('member')->user()){
-            dd($user);
             $id = $user->id;
             $type = '2';
         }
@@ -407,9 +409,7 @@ class ReportController extends Controller
             $id = $manager->id;
             $type = '1';
         }
-        dd($id);
         $data = Collection::where('user_id',$id)->where('type',$type)->get();
-        dd($data);
 
         return view('admin4.collection.index',compact('data'));
    }

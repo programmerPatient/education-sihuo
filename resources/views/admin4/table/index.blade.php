@@ -109,7 +109,7 @@
                     layer.msg('收藏成功!',{icon:1,time:1000},function(){
                     });
                 }else{
-                    layer.msg('收藏失败!',{icon:2,time:2000});
+                    layer.msg('收藏失败或已经收藏过!',{icon:2,time:2000});
                 }
         },
         error:function(data) {
