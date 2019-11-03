@@ -405,6 +405,7 @@ class ReportController extends Controller
             $id = $manager->id;
             $type = '1';
         }
+        dd($id);
         $data = Collection::where('user_id',$id)->where('type',$type)->get();
         dd($data);
 
