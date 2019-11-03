@@ -293,7 +293,6 @@ class ReportController extends Controller
 
    //报表收藏
    public function collection(Request $request){
-    dd($request->all());
         if($user = Auth::guard('member')->user()){
             $id = $user->id;
             $type = '2';
@@ -306,6 +305,7 @@ class ReportController extends Controller
         if($co == 'true'){
             $rep = $request->report_id;
             $re = RelationReport::where('member_id',$id)->where('report_id',$rep_id)->get()->first();
+            dd($re);
             $insert['project_name'] = $re->project_name;
             $insert['workBook_name'] = $re->workBook_name;
             $insert['report_name'] = $re->report_name;
