@@ -386,6 +386,7 @@ class ReportController extends Controller
             $insert['type'] = $type;
             $insert['filter'] = $request->filter;
             $insert['contentUrl'] = $request->contentUrl;
+            $insert['created_at'] = date('Y-m-d H:i:s');
             $result = Collection::insert($insert);
         }else{
             $rep = $request->report_id;

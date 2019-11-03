@@ -86,6 +86,7 @@
         vizElement.parentNode.insertBefore(scriptElement, vizElement);
     </script> -->
 </body>
+<script type="text/javascript" src="/admin/lib/layer/2.4/layer.js"></script>
 <script type="text/javascript">
     var width = document.body.clientWidth;
     var height =  document.body.clientHeight;
