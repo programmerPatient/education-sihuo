@@ -302,6 +302,7 @@ class ReportController extends Controller
             $type = '1';
         }
         $co = $request->co;
+        dd($request->all());
         if($co == 'true'){
             $rep = $request->report_id;
             /*拿到所有报表的数据*/
