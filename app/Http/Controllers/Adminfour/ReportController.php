@@ -364,6 +364,7 @@ class ReportController extends Controller
                         $viesdata = json_decode($chilresponse)->workbook->views->view;
                         $wok = json_decode($chilresponse)->workbook;
                         foreach($viesdata as $k=>$value){
+                            dd($rep);
                             if($value->id == $rep){
                                 $insert['project_name'] = $wok->project->name;
                                 $insert['workBook_name'] = $wok->name;
@@ -378,7 +379,6 @@ class ReportController extends Controller
                     }
                 }
             }
-            dd($insert);
             $insert['report_id'] = $rep;
             $insert['user_id'] = $id;
             $insert['type'] = $type;
