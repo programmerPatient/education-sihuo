@@ -96,7 +96,8 @@
     // alter(obj);
     // console.log(obj.html());
     $.ajax({
-        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        // headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        headers: {'X-CSRF-TOKEN': "{{csrf_token()}}"},
         type: 'POST',
         url: '/adminfour/report/collection',
         data:{'contentUrl':contentUrl,'filter':filter,'report_id':report_id,'co':true},
