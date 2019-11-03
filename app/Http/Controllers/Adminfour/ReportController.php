@@ -365,6 +365,7 @@ class ReportController extends Controller
                         $cl = false;
                         foreach($viesdata as $k=>$value){
                             if($value->id == $rep){
+                                dd($wok);
                                 $insert['project_name'] = $wok->project_name;
                                 $insert['workBook_name'] = $wok->name;
                                 $insert['report_name'] = $value->name;
