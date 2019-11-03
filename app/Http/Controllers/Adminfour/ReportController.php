@@ -304,11 +304,83 @@ class ReportController extends Controller
         $co = $request->co;
         if($co == 'true'){
             $rep = $request->report_id;
-            $re = RelationReport::where('member_id',$id)->where('report_id',$rep)->get()->first();
-            dd($re);
-            $insert['project_name'] = $re->project_name;
-            $insert['workBook_name'] = $re->workBook_name;
-            $insert['report_name'] = $re->report_name;
+            /*拿到所有报表的数据*/
+            $curlt = curl_init();
+
+            curl_setopt_array($curlt, array(
+            CURLOPT_URL =>  Session::get('tableau_domain')."/api/3.2/sites/".Session::get('credentials')."/workbooks/",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            // CURLOPT_COOKIE =>"token=".Session::get('token'),
+            CURLOPT_HTTPHEADER => array(
+                "X-Tableau-Auth: ".Session::get('token'),
+                "Accept: application/json",
+              ),
+            ));
+            $response = curl_exec($curlt);
+            if(!$response) {
+                    return view('admin4.error.index');
+            }
+            $err = curl_error($curlt);
+            curl_close($curlt);
+            if ($err) {
+              echo "cURL Error #:" . $err;
+            } else {
+              // $response = simplexml_load_string($response);
+                $data = json_decode($response)->workbooks->workbook;
+                $p = [];
+                $pageUrlIds=[];
+                // $rs = $response->toArray();
+                foreach($data as $key=>$val){
+                    $id = $val->project->id;
+                    $curlt = curl_init();
+                    curl_setopt_array($curlt, array(
+                    CURLOPT_URL => Session::get('tableau_domain')."/api/3.2/sites/".Session::get('credentials')."/workbooks/".$val->id,
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_ENCODING => "",
+                    CURLOPT_MAXREDIRS => 10,
+                    CURLOPT_TIMEOUT => 30,
+                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                    CURLOPT_CUSTOMREQUEST => "GET",
+                    CURLOPT_HTTPHEADER => array(
+                        "X-Tableau-Auth:".Session::get('token'),
+                        "Accept: application/json",
+                      ),
+                    ));
+                    $chilresponse = curl_exec($curlt);
+                    if(!$chilresponse) {
+                        return view('admin4.error.index');
+                    }
+                    $err = curl_error($curlt);
+                    curl_close($curlt);
+                    if ($err) {
+                      echo "cURL Error #:" . $err;
+                    } else {
+                        $viesdata = json_decode($chilresponse)->workbook->views->view;
+                        $wok = json_decode($chilresponse)->workbook;
+                        $cl = false;
+                        foreach($viesdata as $k=>$value){
+                            if($value->id == $rep){
+                                $insert['project_name'] = $wok->project_name;
+                                $insert['workBook_name'] = $wok->name;
+                                $insert['report_name'] = $value->name;
+                                $cl = true;
+                                break;
+                            }
+                        }
+                        if($cl){
+                            break;
+                        }
+                    }
+                }
+            }
+            if(!$cl){
+                return '0';
+            }
             $insert['report_id'] = $rep;
             $insert['user_id'] = $id;
             $insert['type'] = $type;
