@@ -398,6 +398,7 @@ class ReportController extends Controller
    //报表收藏
    public function collectindex(){
         if($user = Auth::guard('member')->user()){
+            dd($user);
             $id = $user->id;
             $type = '2';
         }
