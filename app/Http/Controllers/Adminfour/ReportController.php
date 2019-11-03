@@ -377,10 +377,8 @@ class ReportController extends Controller
                         }
                     }
                 }
-                if(!$cl){
-                    return '0';
-                }
             }
+            dd($insert);
             $insert['report_id'] = $rep;
             $insert['user_id'] = $id;
             $insert['type'] = $type;
