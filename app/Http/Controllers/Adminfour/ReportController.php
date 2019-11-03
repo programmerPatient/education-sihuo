@@ -406,6 +406,7 @@ class ReportController extends Controller
             $type = '1';
         }
         $data = Collection::where('user_id',$id)->where('type',$type)->get();
+        dd($data);
 
         return view('admin4.collection.index',compact('data'));
    }
