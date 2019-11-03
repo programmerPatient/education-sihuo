@@ -334,6 +334,7 @@ class ReportController extends Controller
                 $data = json_decode($response)->workbooks->workbook;
                 $p = [];
                 $pageUrlIds=[];
+                $cl = false;
                 // $rs = $response->toArray();
                 foreach($data as $key=>$val){
                     $id = $val->project->id;
@@ -362,11 +363,9 @@ class ReportController extends Controller
                     } else {
                         $viesdata = json_decode($chilresponse)->workbook->views->view;
                         $wok = json_decode($chilresponse)->workbook;
-                        $cl = false;
                         foreach($viesdata as $k=>$value){
                             if($value->id == $rep){
-                                dd($wok);
-                                $insert['project_name'] = $wok->project_name;
+                                $insert['project_name'] = $wok->project->name;
                                 $insert['workBook_name'] = $wok->name;
                                 $insert['report_name'] = $value->name;
                                 $cl = true;
@@ -378,9 +377,9 @@ class ReportController extends Controller
                         }
                     }
                 }
-            }
-            if(!$cl){
-                return '0';
+                if(!$cl){
+                    return '0';
+                }
             }
             $insert['report_id'] = $rep;
             $insert['user_id'] = $id;
