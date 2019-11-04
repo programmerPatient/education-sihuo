@@ -27,9 +27,9 @@
 <div class="page-container">
     <div class="cl pd-5 bg-1 bk-gray mt-20">
         <span class="l">
-            <a href="javascript:;" onclick="member_add('添加用户','/adminthree/member/add','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户
+            <a href="javascript:;" onclick="member_add('添加用户','/adminfour/member/add','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户
             </a>
-            <a href="javascript:;" onclick="members_add('批量添加用户','/adminthree/member/adds','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 批量添加用户
+            <a href="javascript:;" onclick="members_add('批量添加用户','/adminfour/member/adds','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 批量添加用户
             </a>
             <a href="javascript:;" onclick="auth()" class="btn btn-success radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量授权</a>
             <a href="javascript:;" onclick="mapping()" class="btn btn-success radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量映射</a>
@@ -87,13 +87,13 @@
                     @else
                     <a style="text-decoration:none" onClick="member_start(this,'{{$value->tableau_id}}','{{$value->id}}','1','{{$value->username}}')" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe631;</i></a>
                     @endif
-                    <a title="编辑" href="javascript:;" onclick="member_edit('编辑','/admin/member/modify/{{$value->id}}','4','','510')" class="ml-5" style="text-decoration:none">
+                    <a title="编辑" href="javascript:;" onclick="member_edit('编辑','/adminfour/member/modify/{{$value->id}}','4','','510')" class="ml-5" style="text-decoration:none">
                         <i class="Hui-iconfont">&#xe6df;</i>
                     </a>
                     <a title="删除" href="javascript:;" onclick="member_del(this,'{{$value->id}}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
                 </td>
                 <td class="td-status">
-                    <a onclick="member_auth('权限管理','/adminthree/table/auth/{{$value->id}}','4','','510')"><span class="label label-success radius">权限管理</span></a>
+                    <a onclick="member_auth('权限管理','/adminfour/table/auth/{{$value->id}}','4','','510')"><span class="label label-success radius">权限管理</span></a>
                     </span>
                 </td>
                 <!-- <td class="td-status">
@@ -101,7 +101,7 @@
                     </span>
                 </td> -->
                 <td class="td-status">
-                    <a onclick="member_auth('映射tableau用户','/adminthree/table/user/{{$value->id}}','4','','510')"><span class="label label-success radius">映射tableau用户</span></a>
+                    <a onclick="member_auth('映射tableau用户','/adminfour/table/user/{{$value->id}}','4','','510')"><span class="label label-success radius">映射tableau用户</span></a>
                     </span>
                 </td>
 
@@ -151,7 +151,7 @@ function member_stop(obj,tableau_id,id,type,name){
         $.ajax({
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             type: 'POST',
-            url: '/adminthree/table/status',
+            url: '/adminfour/table/status',
             data:{'id':id,'type':type},
             dataType: 'json',
             success: function(data){
