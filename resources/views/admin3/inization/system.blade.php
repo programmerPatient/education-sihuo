@@ -111,6 +111,18 @@
                     工具栏不显示
                 </div>
             </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2">
+                    <span class="c-red">*</span>
+                    tableau用户名密码是否自定义：
+                </label>
+                <div class="formControls col-xs-8 col-sm-9" id="same">
+                    <input type="checkbox" id="website-title" value="1" class="input-checkbox" name="same_tableau">
+                    是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" id="website-title" value="0" class="input-checkbox no_same" name="same_tableau" onClick="input(this)">
+                    否&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+            </div>
         </div>
         {{csrf_field()}}
         <div class="row cl">
@@ -134,6 +146,11 @@
 <script type="text/javascript" src="/admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript">
 $(function(){
+
+    $(".no_same").click(function(){
+        $("#same").append('<div class="row cl"><label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>tableau账户名：</label><div class="formControls col-xs-8 col-sm-9"><input type="text" id="website-title" placeholder="" value="" class="input-text" name="tableau_username"></div></div><div class="row cl"><label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>tableau密码：</label><div class="formControls col-xs-8 col-sm-9"><input type="text" id="website-title" placeholder="" value="" class="input-text" name="tableau_password"></div></div>');
+    });
+
     $('#toolbar').find('input[type=checkbox]').bind('click', function(){
 
        //当前的checkbox是否选中
@@ -221,6 +238,7 @@ $(function(){
         $('#cropedBigImg').attr('src',src);
     });
 });
+
 </script>
 <!--/请在上方写此页面业务相关的脚本-->
 </body>
