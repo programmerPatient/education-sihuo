@@ -10,6 +10,7 @@ use Input;
 use App\Models\Admin\Member;
 use App\Models\Admin\Manager;
 use App\Models\Admin\System;
+use App\Models\Admin\Collection;
 use App\Models\Admin\RelationReport;
 
 
