@@ -85,12 +85,17 @@
     </script> -->
 </body>
 <script type="text/javascript">
+    var width = document.body.clientWidth;
+    var height =  document.body.clientHeight;
+    document.getElementById('obj').width = width;
+    document.getElementById('obj').height = height;
     window.onresize = function(){
         //监听浏览器窗口的大小的改变
-        var width = document.body.clientWidth;
-        var height =  document.body.clientHeight;
+        width = document.body.clientWidth;
+        height =  document.body.clientHeight;
         document.getElementById('obj').width = width;
         document.getElementById('obj').height = height;
+        window.location.reload();
     }
 
 </script>

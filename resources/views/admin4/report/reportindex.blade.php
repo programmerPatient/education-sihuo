@@ -28,6 +28,7 @@
     <div class="cl pd-5 bg-1 bk-gray mt-20">
         <span class="l">
             <a href="javascript:;" onclick="groups()" class="btn btn-success radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量项目组映射</a>
+            <a href="javascript:;" onclick="usergroup()" class="btn btn-success radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量分配用户组</a>
         </span>
     </div>
     <table class="table table-border table-bordered table-hover table-bg table-sort">
@@ -106,6 +107,20 @@ function groups(){
         layer.msg('请选择要批量授权的对象!',{icon:1,time:1000});
     }else{
         member_auth('映射tableau用户','/adminfour/report/groups/'+ids,'4','','510');
+    }
+}
+
+
+/*项目组批量映射*/
+function usergroup(){
+    var ids =[];
+    $("input[name='ids']:checked").each(function(){
+        ids.push($(this).val());
+    });
+    if(ids == false){
+        layer.msg('请选择要批量授权的对象!',{icon:1,time:1000});
+    }else{
+        member_auth('映射tableau用户','/adminfour/usergroup/'+ids,'4','','510');
     }
 }
 </script>

@@ -83,8 +83,8 @@
         <dl id="menu-member">
             @if($type == '1')
             <li><a data-href="/admintwo/member/index" data-title="会员列表" href="javascript:;">会员列表</a></li>
-            <li><a data-href="/admintwo/system/update" data-title="系统设置" href="javascript:void(0)">系统设置</a></li>
             <li><a data-href="/admintwo/excel/insert" data-title="数据导入" href="javascript:;">数据导入</a></li>
+            <li><a data-href="/admintwo/system/update" data-title="系统设置" href="javascript:void(0)">系统设置</a></li>
             @endif
             <li><a data-href="/adminthree/report/select" data-title="报表查询" href="javascript:;">报表查询</a></li>
         </dl>

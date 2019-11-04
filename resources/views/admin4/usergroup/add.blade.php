@@ -24,7 +24,7 @@
 <![endif]-->
 <!--/meta 作为公共模版分离出去-->
 
-<title>添加用户组</title>
+<title>添加权限组</title>
 <meta name="keywords" content="H-ui.admin v3.1,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
 <meta name="description" content="H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
 </head>
@@ -32,13 +32,13 @@
 <article class="page-container">
     <form action="" method="post" class="form form-horizontal" id="form-member-add">
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户组名：</label>
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>权限组名：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <input type="text" class="input-text" value="" placeholder="" id="group_name" name="group_name">
             </div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>初始化工作组：</label>
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>权限参数：</label>
             <div class="formControls col-xs-8 col-sm-9" id="inputarray">
                 <textarea class="input-text" style="margin-bottom:20px;height:40px;width:500px;" value="" placeholder="" id="project_group" name="project_group[]"></textarea>
             </div>

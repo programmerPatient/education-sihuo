@@ -79,11 +79,13 @@ class UsergroupController extends Controller
     }
 
     public function usergroup($id){
-        $has = RelationReport::where('id',$id)->get()->first();
         if(Input::method() == 'POST'){
-            $usergroup_id = Input::get('usergroup_id');
-            $has->usergroup_id = $usergroup_id;
-            $result = $has->save();
+            foreach($id as $i=>$d){
+                $has = RelationReport::where('id',$d)->get()->first();
+                $usergroup_id = Input::get('usergroup_id');
+                $has->usergroup_id = $usergroup_id;
+                $result = $has->save();
+            }
             return $result ? '1' : '0';
         }else{
             $data = UserGroup::get();
