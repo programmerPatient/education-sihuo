@@ -195,7 +195,8 @@ class TableController extends Controller
             foreach($havereport as $p=>$vp){
                 $isha = false;
                 foreach($insert as $i=>$iv){
-                    if($vp->report_id == $iv->report_id){
+                    // dd()
+                    if($vp->report_id == $iv['report_id']){
                         $isha = true;
                         break;
                     }
