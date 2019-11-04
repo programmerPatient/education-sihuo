@@ -54,7 +54,7 @@ class TableController extends Controller
         }
 
         // $contentUrl = $request->all()['contentUrl'];
-        dd($contentUrl = $request->contentUrl);
+        $contentUrl = $request->contentUrl;
         if(!$request->filter){
           $filter = '';
         }else{
