@@ -24,7 +24,6 @@ class CreateSystemTable extends Migration
             $table->enum('same_tableau',[1,2]);//是否使用
             $table->string('tableau_username');//tablau账户名
             $table->string('tableau_password');//tablau密码
-            $table->string('toolbar');//tablau报表的操作位置
         });
     }
 
