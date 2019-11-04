@@ -95,6 +95,7 @@
         var height =  document.body.clientHeight;
         document.getElementById('obj').width = width;
         document.getElementById('obj').height = height;
+        console.log(width);
     }
 
 </script>
