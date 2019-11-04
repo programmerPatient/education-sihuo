@@ -118,6 +118,14 @@ class PublicController extends Controller
             $type = '2';
         }
         Session::put('user_type',$type);
+        $system = System::get()->first();
+        if($system->same_tableau == '1'){
+            $username = $system->tableau_username;
+            $password = $system->tableau_password;
+        }else{
+            $username = $admin->username;
+            $password = $request->password;
+        }
         //判断是否成功
         if($result){
             $curl = curl_init();
@@ -130,7 +138,7 @@ class PublicController extends Controller
             CURLOPT_TIMEOUT => 30,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => "{\"credentials\":{\"name\":\"" . $admin->username . "\",\"password\":\"admin\",\"site\":{\"contentUrl\":\"\"}}}",
+            CURLOPT_POSTFIELDS => "{\"credentials\":{\"name\":\"" . $username . "\",\"password\":\"".$password."\",\"site\":{\"contentUrl\":\"\"}}}",
             CURLOPT_HTTPHEADER => array(
                 "User-Agent: TabCommunicate",
                 "Content-Type: application/json",
