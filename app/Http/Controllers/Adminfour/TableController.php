@@ -200,7 +200,7 @@ class TableController extends Controller
                         break;
                     }
                 }
-                // dd($vp);
+                dd($vp);
                 if(!$isha){
                     $vp->delate();
                 }
