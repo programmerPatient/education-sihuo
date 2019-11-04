@@ -95,6 +95,7 @@
         height =  document.body.clientHeight;
         document.getElementById('obj').width = width;
         document.getElementById('obj').height = height;
+        window.lacation = window.location;
         console.log(document.getElementById('obj').width);
     }
 
