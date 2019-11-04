@@ -203,7 +203,7 @@ class TableController extends Controller
                 }
                 // dd($vp);
                 if(!$isha){
-                    Collection::where('id',$vp->id)->delate();
+                    Collection::where('id',$vp->id)->delete();
                 }
             }
             RelationReport::insert($insert);
