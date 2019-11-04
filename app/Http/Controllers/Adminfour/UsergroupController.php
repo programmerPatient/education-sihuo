@@ -80,6 +80,7 @@ class UsergroupController extends Controller
 
     public function usergroup($id){
         if(Input::method() == 'POST'){
+            dd($id);
             foreach($id as $i=>$d){
                 $has = RelationReport::where('id',$d)->get()->first();
                 $usergroup_id = Input::get('usergroup_id');
