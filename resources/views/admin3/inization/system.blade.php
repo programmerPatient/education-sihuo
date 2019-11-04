@@ -111,12 +111,12 @@
                     工具栏不显示
                 </div>
             </div>
-            <div class="row cl">
+            <div class="row cl" id="same">
                 <label class="form-label col-xs-4 col-sm-2">
                     <span class="c-red">*</span>
                     tableau用户名密码是否自定义：
                 </label>
-                <div class="formControls col-xs-8 col-sm-9" id="same">
+                <div class="formControls col-xs-8 col-sm-9" id="same_tableau">
                     <input type="checkbox" id="website-title" value="1" class="input-checkbox" name="same_tableau">
                     是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" id="website-title" value="0" class="input-checkbox no_same" name="same_tableau" onClick="input(this)">
@@ -148,7 +148,20 @@
 $(function(){
 
     $(".no_same").click(function(){
-        $("#same").append('<div class="row cl"><label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>tableau账户名：</label><div class="formControls col-xs-8 col-sm-9"><input type="text" id="website-title" placeholder="" value="" class="input-text" name="tableau_username"></div></div><div class="row cl"><label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>tableau密码：</label><div class="formControls col-xs-8 col-sm-9"><input type="text" id="website-title" placeholder="" value="" class="input-text" name="tableau_password"></div></div>');
+        if(this.checked){
+            $("#same").append('<div class="row cl"><label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>tableau账户名：</label><div class="formControls col-xs-8 col-sm-9"><input type="text" id="website-title" placeholder="" value="" class="input-text" name="tableau_username"></div></div><div class="row cl"><label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>tableau密码：</label><div class="formControls col-xs-8 col-sm-9"><input type="text" id="website-title" placeholder="" value="" class="input-text" name="tableau_password"></div></div>');
+        }else{
+            $('#same').children("div:last").remove();
+        }
+    });
+
+    $('#same_tableau').find('input[type=checkbox]').bind('click', function(){
+
+       //当前的checkbox是否选中
+        if(this.checked){
+            $('#same_tableau input[type="checkbox"]').prop("checked",false)
+            $(this).prop("checked",true)
+        }
     });
 
     $('#toolbar').find('input[type=checkbox]').bind('click', function(){
