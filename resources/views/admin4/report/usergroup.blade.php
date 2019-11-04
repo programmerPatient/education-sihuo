@@ -49,7 +49,11 @@
 
                                     <label id="checkboxarr">
                                         @foreach($data as $key=>$val)
+                                        @if($has)
                                         <input id="check{{$key}}" style="display: inline;" type="checkbox" value="{{$val->id}}" name="usergroup_id" @if($val->id == $has->usergroup_id) checked @endif>
+                                        @else
+                                        <input id="check{{$key}}" style="display: inline;" type="checkbox" value="{{$val->id}}" name="usergroup_id">
+                                        @endif
                                         {{$val->group_name}}
                                         </br>
                                         @endforeach
