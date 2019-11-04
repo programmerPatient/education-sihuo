@@ -44,8 +44,8 @@
             <param name='display_count' value='yes' />
         </object>
     </div> -->
-    <div id="obj" class='tableauPlaceholder' style='width: 1016px; height: 1014px;'>
-        <object  class='tableauViz' width='500' height='1014' style='display:none;'>
+    <div  class='tableauPlaceholder' style='width: 1016px; height: 1014px;'>
+        <object id="obj"  class='tableauViz' width='500' height='1014' style='display:none;'>
             <param name="ticket" value="{{$ticket}}" />
             <param name='host_url' value='http%3A%2F%2Ftableau.kalaw.top%2F' />
             <param name='embed_code_version' value='3' />
