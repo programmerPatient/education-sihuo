@@ -386,8 +386,9 @@ class ReportController extends Controller
             $insert['type'] = $type;
             if(!$request->filter){
                 $insert['filter'] = "iframeSizedToWindow=true";
+            }else{
+                $insert['filter'] = $request->filter;
             }
-            $insert['filter'] = $request->filter;
             $insert['contentUrl'] = $request->contentUrl;
             $insert['created_at'] = date('Y-m-d H:i:s');
             $has = Collection::where('user_id',$user_id)->where('report_id',$rep)->get()->first();
