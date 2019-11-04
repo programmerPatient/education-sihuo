@@ -135,6 +135,24 @@
 <script type="text/javascript" src="/admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript">
 $(function(){
+
+    $(".no_same").click(function(){
+        if(this.checked){
+            $("#tab-system").append('<div class="row cl checkinput"><label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>tableau账户名：</label><div class="formControls col-xs-8 col-sm-9"><input type="text" id="website-title" placeholder="" value="" class="input-text" name="tableau_username"></div></div><div class="row cl checkinput"><label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>tableau密码：</label><div class="formControls col-xs-8 col-sm-9"><input type="text" id="website-title" placeholder="" value="" class="input-text" name="tableau_password"></div></div>');
+        }else{
+            $(".checkinput").remove();
+        }
+    });
+
+    $('#same_tableau').find('input[type=checkbox]').bind('click', function(){
+
+       //当前的checkbox是否选中
+        if(this.checked){
+            $('#same_tableau input[type="checkbox"]').prop("checked",false)
+            $(this).prop("checked",true)
+        }
+    });
+
     $('#toolbar').find('input[type=checkbox]').bind('click', function(){
 
        //当前的checkbox是否选中
