@@ -384,6 +384,9 @@ class ReportController extends Controller
             $insert['report_id'] = $rep;
             $insert['user_id'] = $user_id;
             $insert['type'] = $type;
+            if(!$request->filter){
+                $insert['filter'] = "iframeSizedToWindow=true";
+            }
             $insert['filter'] = $request->filter;
             $insert['contentUrl'] = $request->contentUrl;
             $insert['created_at'] = date('Y-m-d H:i:s');
