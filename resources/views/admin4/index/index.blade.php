@@ -144,7 +144,7 @@
             <div style="display:none" class="loading"></div>
 
             <!-- 修改src引入地址 -->
-            <iframe scrolling="yes" frameborder="0" src="/adminfour/index/welcome"></iframe>
+            <iframe scrolling="yes" frameborder="0" src="/adminfour/report/collection/index"></iframe>
     </div>
 </div>
 </section>
