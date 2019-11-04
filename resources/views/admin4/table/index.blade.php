@@ -93,7 +93,7 @@
     document.getElementById('obj').width = width;
     document.getElementById('obj').height = height;
 
-    function collection(filter,contentUrl,report_id){
+    function collection(filter,hascontentUrl,report_id){
     // alter(obj);
     // console.log(obj.html());
     $.ajax({
@@ -101,7 +101,7 @@
         headers: {'X-CSRF-TOKEN': "{{csrf_token()}}"},
         type: 'POST',
         url: '/adminfour/report/collection',
-        data:{'contentUrl':contentUrl,'filter':filter,'report_id':report_id,'co':true},
+        data:{'contentUrl':hascontentUrl,'filter':filter,'report_id':report_id,'co':true},
         dataType: 'json',
         success: function(data){
              if(data == '1'){
