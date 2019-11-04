@@ -93,6 +93,10 @@
         document.getElementById('obj').width = width;
         document.getElementById('obj').height = height;
     }
+    var width = document.body.clientWidth;
+    var height =  document.body.clientHeight;
+    document.getElementById('obj').width = width;
+    document.getElementById('obj').height = height;
 
 </script>
 </html>
