@@ -62,7 +62,7 @@
                 <td>{{$value->workBook_name}}</td>
                 <td>{{$value->report_name}}</td>
                 <td>{{$value->created_at}}</td>
-                <td class="td-status"><a href="/adminfour/table/index?contentUrl={{$value->contentUrl}}&filter={{$value->filter}}" data-title="{{$value->name}}" href="javascript:;"><span class="label label-success radius">跳转</span></a></td>
+                <td class="td-status"><a href="/adminthree/table/index?contentUrl={{$value->contentUrl}}&filter={{$value->filter}}" data-title="{{$value->name}}" href="javascript:;"><span class="label label-success radius">跳转</span></a></td>
 
                 <td class="td-manage">
                     <a title="取消收藏" href="javascript:;" onclick="member_del(this,'{{$value->report_id}}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
