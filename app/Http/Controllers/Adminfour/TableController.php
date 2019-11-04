@@ -64,6 +64,7 @@ class TableController extends Controller
         array_splice($array,1,1);
         $contentUrl = implode("/", $array);
         // $ticket = Session::get('ticket');
+        dd($contentUrl);
         $report_id = $request->id;
         $toolbar = System::get()->first()->toolbar;
         return view('admin4.table.index',compact('contentUrl','ticket','filter','toolbar','report_id'));
