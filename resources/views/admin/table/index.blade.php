@@ -87,6 +87,7 @@
 <script type="text/javascript">
     window.onresize = function(){
         //监听浏览器窗口的大小的改变
+        alert('ss');
         var width = document.body.clientWidth;
         var height =  document.body.clientHeight;
         document.getElementById('obj').width = width;
