@@ -50,11 +50,11 @@ class TableController extends Controller
         if ($err) {
           echo "cURL Error #:" . $err;
         } else {
-            Session::put("ticket",$response);
+            $ticket = $response;
         }
 
         // $contentUrl = $request->all()['contentUrl'];
-         $contentUrl = $request->contentUrl;
+        $contentUrl = $request->contentUrl;
         if(!$request->filter){
           $filter = '';
         }else{
@@ -63,7 +63,7 @@ class TableController extends Controller
         $array = explode("/", $contentUrl);
         array_splice($array,1,1);
         $contentUrl = implode("/", $array);
-        $ticket = Session::get('ticket');
+        // $ticket = Session::get('ticket');
         $report_id = $request->id;
         $toolbar = System::get()->first()->toolbar;
         return view('admin4.table.index',compact('contentUrl','ticket','filter','toolbar','report_id'));
