@@ -385,7 +385,6 @@ class ReportController extends Controller
             $insert['user_id'] = $user_id;
             $insert['type'] = $type;
             $insert['filter'] = $request->filter;
-            dd($request->contentUrl);
             $insert['contentUrl'] = $request->contentUrl;
             $insert['created_at'] = date('Y-m-d H:i:s');
             $has = Collection::where('user_id',$user_id)->where('report_id',$rep)->get()->first();
@@ -395,7 +394,7 @@ class ReportController extends Controller
             $result = Collection::insert($insert);
         }else{
             $rep = $request->report_id;
-            $result = Collection::where('report_id',$rep)->where('user_id',$id)->delete();
+            $result = Collection::where('report_id',$rep)->where('user_id',$user_id)->delete();
         }
 
         return $result ? '1' : '0';
