@@ -190,13 +190,15 @@ class TableController extends Controller
                      RelationReport::find($gv->id)->delete();
                 }
             }
+
+            RelationReport::insert($insert);
             $havereport = Collection::where('user_id',$user->id)->get();
-            dd($insert);
+            $in = RelationReport::where('member_id',$user->id)->get();
             foreach($havereport as $p=>$vp){
                 $isha = false;
-                foreach($insert as $i=>$iv){
+                foreach($in as $i=>$iv){
                     // dd()
-                    if($vp->report_id == $iv['report_id']){
+                    if($vp->report_id == $iv->report_id){
                         $isha = true;
                         break;
                     }
@@ -206,7 +208,6 @@ class TableController extends Controller
                     Collection::where('id',$vp->id)->delete();
                 }
             }
-            RelationReport::insert($insert);
             $stringIds = implode(',',$hasTableauIds);
             $user -> tableauIds = $stringIds;
             $result = $user -> save();
