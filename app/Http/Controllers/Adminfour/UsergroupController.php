@@ -89,8 +89,12 @@ class UsergroupController extends Controller
             }
             return $result ? '1' : '0';
         }else{
-            $has = RelationReport::where('id',$id)->get()->first();
-            dd($id);
+            $ids = explode(',',$id);
+            if(count($ids)>1){
+                $has = null;
+            }else{
+                $has = RelationReport::where('id',$id)->get()->first();
+            }
             $data = UserGroup::get();
             return view('admin4.report.usergroup',compact('data','has'));
         }
