@@ -54,20 +54,19 @@ class TableController extends Controller
         }
 
         // $contentUrl = $request->all()['contentUrl'];
-        $contentUrl = $request->contentUrl;
+        $hascontentUrl = $request->contentUrl;
         if(!$request->filter){
           $filter = '';
         }else{
           $filter = implode('&',explode('@',$request->filter));
         }
-        $array = explode("/", $contentUrl);
+        $array = explode("/", $hascontentUrl);
         array_splice($array,1,1);
         $contentUrl = implode("/", $array);
         // $ticket = Session::get('ticket');
-        dd($contentUrl);
         $report_id = $request->id;
         $toolbar = System::get()->first()->toolbar;
-        return view('admin4.table.index',compact('contentUrl','ticket','filter','toolbar','report_id'));
+        return view('admin4.table.index',compact('contentUrl','ticket','filter','toolbar','report_id','hascontentUrl'));
     }
 
     public function status(){
