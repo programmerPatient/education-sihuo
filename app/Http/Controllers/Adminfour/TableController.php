@@ -190,6 +190,7 @@ class TableController extends Controller
                 }
             }
             $havereport = Collection::where('user_id',$id)->get();
+            dd($havereport);
             foreach($havereport as $p=>$vp){
                 $isha = false;
                 foreach($insert as $i=>$iv){
