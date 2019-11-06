@@ -38,7 +38,7 @@ class MemberController extends Controller
     public function add(){
         //判断请求类型
         if(Input::method() == 'POST'){
-            $data = Input::only(['username','password','gender','email']);
+            $data = Input::only(['username','password','gender','email','excel']);
             $data['created_at'] = date('Y-m-d H:i:s',time());
             $data['password'] = bcrypt($data['password']);
             $data['status'] = '1';
@@ -188,7 +188,6 @@ class MemberController extends Controller
             $user = Member::where('id',$id)->get()->first();
             $user->excel = Input::get('excel');
             $result = $user->save();
-
             return $result ? '1' : '0';
         }else{
             $user = Member::where('id',$id)->get()->first();

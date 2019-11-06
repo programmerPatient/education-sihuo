@@ -35,7 +35,7 @@
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>是否开启数据导入功能：</label>
             <div class="formControls col-xs-8 col-sm-9 skin-minimal">
                 <div class="radio-box">
-                    <input name="excel" type="radio" id="gender-1" checked value="1" @if($user->excel == '1') checked @endif>
+                    <input name="excel" type="radio" id="gender-1" value="1" @if($user->excel == '1') checked @endif>
                     <label for="gender-1">是</label>
                 </div>
                 <div class="radio-box">
