@@ -19,6 +19,7 @@ class SystemController extends Controller
                 $post['tableau_password'] = $request->tableau_password;
             }
             $post['same_tableau'] = $request->same_tableau;
+            dd($post);
             $tableau_domain = Input::only("tableau_domain")["tableau_domain"];
             $web_title = Input::only('web_title')['web_title'];
             $company = Input::only('company')['company'];
