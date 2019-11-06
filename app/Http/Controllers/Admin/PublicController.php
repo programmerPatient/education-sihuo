@@ -114,7 +114,7 @@ class PublicController extends Controller
                 ]);
             }
             $h = Auth::guard('member')->user();
-            $tableau_name = $h->tableau_id;
+            // $tableau_name = $h->tableau_id;
             $type = '2';
         }
         Session::put('user_type',$type);
