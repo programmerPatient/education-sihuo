@@ -21,13 +21,16 @@ class IndexController extends Controller
 
     //首页
     public function index(){
+        $isexcel = false;
 
         if($user = Auth::guard('member')->user()){
                 $name = $user->username;
                 $tableauIds = explode(',',$user -> tableauIds);
+                $isexcel = true;
         }else{
             $tableauIds = false;
             $name = Auth::guard('admin')->user()->username;
+            $isexcel = true;
 
         }
         $type = Session::get('user_type');
@@ -150,7 +153,7 @@ class IndexController extends Controller
             }
         }
         // FS1Wu4GJRVCaNdtzbAeHlw|j9JPkfLMU0wZtx8c1BB6pkPGuiEim0h
-        return view('admin4.index.index',compact('p','system','type','name'));
+        return view('admin4.index.index',compact('p','system','type','name','isexcel'));
     }
 
 
