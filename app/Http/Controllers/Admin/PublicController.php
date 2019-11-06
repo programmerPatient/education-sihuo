@@ -174,12 +174,12 @@ class PublicController extends Controller
                   echo "cURL Error #:" . $err;
                 } else {
                   // dd(json_decode($response));
-                    dd($response);
                     if(!$response) {
                         return view('admin.error.index');
                     }
                     $user = json_decode($response)->users->user;
                     $boole = true;
+                    dd($user);
                     foreach($user as $val){
                         if($tableau_name && $tableau_name == $val->name){
                             $boole = false;
