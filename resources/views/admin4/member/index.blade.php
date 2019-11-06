@@ -82,7 +82,7 @@
                     </span>
                 </td>
                 <td class="td-status">
-                    <a onclick="member_auth('数据导入','/adminfour/member/excel/{{$value->excel}}','4','','510')"><span class="label label-success radius">权限管理</span></a>
+                    <a onclick="member_auth('数据导入','/adminfour/member/excel/{{$value->excel}}','4','','510')"><span class="label label-success radius">是否开启数据导入</span></a>
                     </span>
                 </td>
                 <td class="td-manage">
