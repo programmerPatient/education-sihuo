@@ -20,7 +20,6 @@ class SystemController extends Controller
             'company' => 'required',
             'toolbar' => 'required',
             'model' => 'required',
-            'same_tableau'=>'required',
             'tableau_username'=>'required',
             'tableau_password'=>'required'
         // 'captcha' => 'required|size:4|captcha'
