@@ -114,7 +114,6 @@ class PublicController extends Controller
                 ]);
             }
             $h = Auth::guard('member')->user();
-            dd($h);
             $tableau_name = $h->tableau_id;
             $type = '2';
         }
@@ -135,7 +134,7 @@ class PublicController extends Controller
             CURLOPT_TIMEOUT => 30,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => "{\"credentials\":{\"name\":\"" . $username . "\",\"password\":\"admin\",\"site\":{\"contentUrl\":\"\"}}}",
+            CURLOPT_POSTFIELDS => "{\"credentials\":{\"name\":\"" . $username . "\",\"password\":\"".$password."\",\"site\":{\"contentUrl\":\"\"}}}",
             CURLOPT_HTTPHEADER => array(
                 "User-Agent: TabCommunicate",
                 "Content-Type: application/json",
@@ -194,6 +193,7 @@ class PublicController extends Controller
             }
             //跳转到后台首页
             $model = System::get()->first()->model;
+            dd($model);
             if($model == '1'){
                 return redirect('admin/index/index');
             }
