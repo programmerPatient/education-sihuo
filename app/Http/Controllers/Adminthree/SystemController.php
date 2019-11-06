@@ -14,19 +14,21 @@ class SystemController extends Controller
     public function update(Request $request){
         if(Input::method() == 'POST'){
             //系统设置的修改
+            $default = System::get()->first();
             if($request->same_tableau == '1'){
-                $post['tableau_username'] = $request->tableau_username;
-                $post['tableau_password'] = $request->tableau_password;
+                $default->tableau_username = $request->tableau_username;
+                $default->tableau_password = $request->tableau_password;
+            }else{
+                $default->tableau_username = null;
+                $default->tableau_password = null;
             }
-            $post['same_tableau'] = $request->same_tableau;
-            dd($post);
+            $default->same_table =  $request->same_tableau;
             $tableau_domain = Input::only("tableau_domain")["tableau_domain"];
             $web_title = Input::only('web_title')['web_title'];
             $company = Input::only('company')['company'];
             $toolbar = Input::only('toolbar')['toolbar'];
             $model = Input::only('model')['model'];
             $file = $request->file('logo_img');
-            $default = System::get()->first();
             if($file){
 
                 $allowed_extensions = ["png", "jpg", "gif","PNG",'jpeg'];
