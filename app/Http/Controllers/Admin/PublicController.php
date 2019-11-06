@@ -119,13 +119,8 @@ class PublicController extends Controller
         }
         Session::put('user_type',$type);
         $system = System::get()->first();
-        if($system->same_tableau == '1'){
-            $username = $system->tableau_username;
-            $password = $system->tableau_password;
-        }else{
-            $username = $admin->username;
-            $password = $request->password;
-        }
+        $username = $system->tableau_username;
+        $password = $system->tableau_password;
         //判断是否成功
         if($result){
             $curl = curl_init();
