@@ -117,15 +117,30 @@
                     tableau用户名密码是否自定义：
                 </label>
                 <div class="formControls col-xs-8 col-sm-9" id="same_tableau">
-                    <input type="checkbox" id="website-title" value="1" class="input-checkbox  yes_same" name="same_tableau" @if($default->same_tableau == '1') checked @endif>
+                    <input type="checkbox" id="website-title" value="1" class="input-checkbox  yes_same" name="same_tableau">
                     是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" id="website-title" value="2" class="input-checkbox no_same" name="same_tableau" @if($default->same_tableau == '2') checked @endif>
+                    <input type="checkbox" id="website-title" value="2" class="input-checkbox no_same" name="same_tableau" checked>
                     否&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </div>
             </div>
-            @if($default->same_tableau == '1')
-            <div class="row cl checkinput"><label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>tableau账户名：</label><div class="formControls col-xs-8 col-sm-9"><input type="text" id="website-title" placeholder="" value="{{$default->tableau_username}}" class="input-text" name="tableau_username"></div></div><div class="row cl checkinput"><label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>tableau密码：</label><div class="formControls col-xs-8 col-sm-9"><input type="text" id="website-title" placeholder="" value="{{$default->tableau_password}}" class="input-text" name="tableau_password"></div></div>
-            @endif
+<!--             @if($default->same_tableau == '1')
+            <div class="row cl checkinput">
+                <label class="form-label col-xs-4 col-sm-2">
+                    <span class="c-red">*</span>tableau账户名：
+                </label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" id="website-title" placeholder="" value="{{$default->tableau_username}}" class="input-text" name="tableau_username">
+                </div>
+            </div
+            ><div class="row cl checkinput">
+                <label class="form-label col-xs-4 col-sm-2">
+                    <span class="c-red">*</span>tableau密码：
+                </label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" id="website-title" placeholder="" value="{{$default->tableau_password}}" class="input-text" name="tableau_password">
+                </div>
+            </div>
+            @endif -->
         </div>
         {{csrf_field()}}
         <div class="row cl">

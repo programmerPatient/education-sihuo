@@ -20,16 +20,14 @@ class SystemController extends Controller
             'company' => 'required',
             'toolbar' => 'required',
             'model' => 'required',
-            'same_tableau'=>'required'
+            'same_tableau'=>'required',
+            'tableau_username'=>'required',
+            'tableau_password'=>'required'
         // 'captcha' => 'required|size:4|captcha'
         ]);
         $default = System::get()->first();
-        if($request->same_tableau == '1'){
-            $post['tableau_username'] = $request->tableau_username;
-        }else{
-            $post['tableau_password'] = $request->password;
-        }
-        $post['same_table'] =  $request->same_tableau;
+        $post['tableau_username'] = $request->tableau_username;
+        $post['tableau_password'] = $request->tableau_password;
         $tableau_domain = Input::only("tableau_domain")["tableau_domain"];
         $web_title = Input::only('web_title')['web_title'];
         $company = Input::only('company')['company'];
@@ -69,11 +67,7 @@ class SystemController extends Controller
             if($request->same_tableau == '1'){
                 $default->tableau_username = $request->tableau_username;
                 $default->tableau_password = $request->tableau_password;
-            }else{
-                $default->tableau_username = null;
-                $default->tableau_password = null;
             }
-            $default->same_tableau =  $request->same_tableau;
             $tableau_domain = Input::only("tableau_domain")["tableau_domain"];
             $web_title = Input::only('web_title')['web_title'];
             $company = Input::only('company')['company'];

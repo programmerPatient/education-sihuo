@@ -111,16 +111,32 @@
                     工具栏不显示
                 </div>
             </div>
-            <div class="row cl">
+            <!-- <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">
                     <span class="c-red">*</span>
-                    tableau用户名密码是否自定义：
+                    tableau用户名密码自定义：
                 </label>
                 <div class="formControls col-xs-8 col-sm-9" id="same_tableau">
                     <input type="checkbox" id="website-title" value="1" class="input-checkbox  no_same" name="same_tableau">
                     是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" id="website-title" value="0" class="input-checkbox" name="same_tableau">
                     否&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+            </div> -->
+            <div class="row cl checkinput">
+                <label class="form-label col-xs-4 col-sm-2">
+                    <span class="c-red">*</span>tableau账户名：
+                </label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" id="website-title" placeholder="" value="" class="input-text" name="tableau_username">
+                </div>
+            </div>
+            <div class="row cl checkinput">
+                <label class="form-label col-xs-4 col-sm-2">
+                    <span class="c-red">*</span>tableau密码：
+                </label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" id="website-title" placeholder="" value="" class="input-text" name="tableau_password">
                 </div>
             </div>
         </div>
@@ -147,13 +163,13 @@
 <script type="text/javascript">
 $(function(){
 
-    $(".no_same").click(function(){
-        if(this.checked){
-            $("#tab-system").append('<div class="row cl checkinput"><label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>tableau账户名：</label><div class="formControls col-xs-8 col-sm-9"><input type="text" id="website-title" placeholder="" value="" class="input-text" name="tableau_username"></div></div><div class="row cl checkinput"><label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>tableau密码：</label><div class="formControls col-xs-8 col-sm-9"><input type="text" id="website-title" placeholder="" value="" class="input-text" name="tableau_password"></div></div>');
-        }else{
-            $(".checkinput").remove();
-        }
-    });
+    // $(".no_same").click(function(){
+    //     if(this.checked){
+    //         $("#tab-system").append('<div class="row cl checkinput"><label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>tableau账户名：</label><div class="formControls col-xs-8 col-sm-9"><input type="text" id="website-title" placeholder="" value="" class="input-text" name="tableau_username"></div></div><div class="row cl checkinput"><label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>tableau密码：</label><div class="formControls col-xs-8 col-sm-9"><input type="text" id="website-title" placeholder="" value="" class="input-text" name="tableau_password"></div></div>');
+    //     }else{
+    //         $(".checkinput").remove();
+    //     }
+    // });
 
     $('#same_tableau').find('input[type=checkbox]').bind('click', function(){
 
@@ -212,7 +228,13 @@ $(function(){
             },
             toolbar:{
                 required:true,
-            }
+            },
+            tableau_username:{
+                required:true,
+            },
+            tableau_password:{
+                required:true,
+            },
         },
         onkeyup:false,
         focusCleanup:true,

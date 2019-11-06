@@ -18,11 +18,7 @@ class SystemController extends Controller
             if($request->same_tableau == '1'){
                 $default->tableau_username = $request->tableau_username;
                 $default->tableau_password = $request->tableau_password;
-            }else{
-                $default->tableau_username = null;
-                $default->tableau_password = null;
             }
-            $default->same_tableau =  $request->same_tableau;
             $tableau_domain = Input::only("tableau_domain")["tableau_domain"];
             $web_title = Input::only('web_title')['web_title'];
             $company = Input::only('company')['company'];
