@@ -187,6 +187,7 @@ class MemberController extends Controller
         if(Input::method() == 'POST'){
             $user = Member::where('id',$id)->get()->first();
             $user->excel = Input::get('excel');
+            dd($user);
             $result = $user->save();
             return $result ? '1' : '0';
         }else{
