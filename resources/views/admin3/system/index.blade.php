@@ -123,6 +123,9 @@
                     否&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </div>
             </div>
+            @if($default->same_tableau == '1')
+            <div class="row cl checkinput"><label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>tableau账户名：</label><div class="formControls col-xs-8 col-sm-9"><input type="text" id="website-title" placeholder="" value="{{$default->tableau_username}}" class="input-text" name="tableau_username"></div></div><div class="row cl checkinput"><label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>tableau密码：</label><div class="formControls col-xs-8 col-sm-9"><input type="text" id="website-title" placeholder="" value="{{$default->tableau_password}}" class="input-text" name="tableau_password"></div></div>
+            @endif
         </div>
         {{csrf_field()}}
         <div class="row cl">
