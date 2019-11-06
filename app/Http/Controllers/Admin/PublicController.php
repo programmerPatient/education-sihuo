@@ -179,7 +179,7 @@ class PublicController extends Controller
                     }
                     $user = json_decode($response)->users->user;
                     $boole = true;
-                    dd($user);
+                    dd($tableau_name);
                     foreach($user as $val){
                         if($tableau_name && $tableau_name == $val->name){
                             $boole = false;
