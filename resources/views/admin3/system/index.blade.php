@@ -167,7 +167,7 @@ $(function(){
 
     $(".yes_same").click(function(){
         if(this.checked){
-            $("#tab-system").append('<div class="row cl checkinput"><label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>tableau账户名：</label><div class="formControls col-xs-8 col-sm-9"><input type="text" id="website-title" placeholder="" @if($default->same_tableau == "1") value="{{$default->tableau_username}}" @else value="" @endif class="input-text" name="tableau_username"></div></div><div class="row cl checkinput"><label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>tableau密码：</label><div class="formControls col-xs-8 col-sm-9"><input type="text" id="website-title" placeholder="" @if($default->same_tableau == "2") value="{{$default->tableau_username}}" @else value="" @endif class="input-text" name="tableau_password"></div></div>');
+            $("#tab-system").append('<div class="row cl checkinput"><label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>tableau账户名：</label><div class="formControls col-xs-8 col-sm-9"><input type="text" id="website-title" placeholder="" value="{{$default->tableau_username}}" class="input-text" name="tableau_username"></div></div><div class="row cl checkinput"><label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>tableau密码：</label><div class="formControls col-xs-8 col-sm-9"><input type="text" id="website-title" placeholder="" value="{{$default->tableau_password}}" class="input-text" name="tableau_password"></div></div>');
         }else{
             $(".checkinput").remove();
         }
