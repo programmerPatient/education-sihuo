@@ -26,7 +26,8 @@ class SystemController extends Controller
         $default = System::get()->first();
         if($request->same_tableau == '1'){
             $post['tableau_username'] = $request->tableau_username;
-            $post['tableau_password'] = $request->tableau_password;
+        }else{
+            $post['tableau_password'] = $request->password;
         }
         $post['same_table'] =  $request->same_tableau;
         $tableau_domain = Input::only("tableau_domain")["tableau_domain"];

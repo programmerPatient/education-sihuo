@@ -117,6 +117,7 @@ class PublicController extends Controller
             $tableau_name = $h->tableau_id;
             $type = '2';
         }
+        dd(encrpty($admin->password));
         Session::put('user_type',$type);
         $system = System::get()->first();
         if($system->same_tableau == '1'){
