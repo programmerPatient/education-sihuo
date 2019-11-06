@@ -111,25 +111,13 @@
                     工具栏不显示
                 </div>
             </div>
-            <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">
-                    <span class="c-red">*</span>
-                    tableau用户名密码是否自定义：
-                </label>
-                <div class="formControls col-xs-8 col-sm-9" id="same">
-                    <input type="checkbox" id="website-title" value="1" class="input-checkbox" name="same_tableau">
-                    是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" id="website-title" value="0" class="input-checkbox no_same" name="same_tableau" onClick="input(this)">
-                    否&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                </div>
-            </div>
              <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">
                     <span class="c-red">*</span>
                     tableau用户名密码是否自定义：
                 </label>
                 <div class="formControls col-xs-8 col-sm-9" id="same_tableau">
-                    <input type="checkbox" id="website-title" value="1" class="input-checkbox  yes_same" name="same_tableau">
+                    <input type="checkbox" id="website-title" value="1" class="input-checkbox  yes_same" name="same_tableau" >
                     是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" id="website-title" value="0" class="input-checkbox no_same" name="same_tableau">
                     否&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
