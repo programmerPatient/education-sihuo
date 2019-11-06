@@ -48,6 +48,7 @@
                 <th width="150">邮箱</th>
                 <th width="130">加入时间</th>
                 <th width="70">状态</th>
+                <th width="100">是否拥有数据导入</th>
                 <!-- <th width="70">类型</th> -->
                 <th width="100">操作</th>
                 <th width="100">权限管理</th>
@@ -78,6 +79,10 @@
                     @else
                     <span class="label label radius">未启用</span>
                     @endif
+                    </span>
+                </td>
+                <td class="td-status">
+                    <a onclick="member_auth('数据导入','/adminfour/member/excel/{{$value->excel}}','4','','510')"><span class="label label-success radius">权限管理</span></a>
                     </span>
                 </td>
                 <td class="td-manage">

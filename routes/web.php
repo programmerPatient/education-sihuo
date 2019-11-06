@@ -240,6 +240,7 @@ Route::group(['prefix' => 'adminfour','middleware' => ['admin.auth']],function()
     Route::any('member/adds','Adminfour\MemberController@adds');
     Route::delete('member/delete','Adminfour\MemberController@delete');
     Route::any('member/modify/{id}','Adminfour\MemberController@modify');
+    Route::any('member/excel/{id}','Adminfour\MemberController@excel');
     //批量删除
     Route::delete('members/delete','Adminfour\MemberController@deletes');
     //异步头像上传

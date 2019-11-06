@@ -180,4 +180,19 @@ class MemberController extends Controller
             return view('admin4.report.index',compact('project_group'));
         }
     }
+
+
+    //用户是否拥有数据导入功能
+    public function excel($id){
+        if(Input::method() == 'POST'){
+            $user = Member::where('id',$id)->get()->first();
+            $user->excel = Input::get('excel');
+            $result = $user->save();
+
+            return $result ? '1' : '0';
+        }else{
+            $user = Member::where('id',$id)->get()->first();
+            return view('admin4.member.excel',compact('user'));
+        }
+    }
 }
