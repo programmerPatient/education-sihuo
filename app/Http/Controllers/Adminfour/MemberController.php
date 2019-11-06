@@ -191,6 +191,7 @@ class MemberController extends Controller
             return $result ? '1' : '0';
         }else{
             $user = Member::where('id',$id)->get()->first();
+            dd($user);
             return view('admin4.member.excel',compact('user'));
         }
     }
