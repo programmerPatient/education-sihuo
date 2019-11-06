@@ -174,6 +174,7 @@ class PublicController extends Controller
                   echo "cURL Error #:" . $err;
                 } else {
                   // dd(json_decode($response));
+                    dd($response);
                     if(!$response) {
                         return view('admin.error.index');
                     }
@@ -193,7 +194,6 @@ class PublicController extends Controller
             }
             //跳转到后台首页
             $model = System::get()->first()->model;
-            dd($model);
             if($model == '1'){
                 return redirect('admin/index/index');
             }
