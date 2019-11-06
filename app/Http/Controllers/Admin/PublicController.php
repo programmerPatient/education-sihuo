@@ -142,6 +142,7 @@ class PublicController extends Controller
               ),
             ));
             $response = curl_exec($curl);
+            dd($response);
             if(!$response) {
                 return view('admin.error.index');
             }
