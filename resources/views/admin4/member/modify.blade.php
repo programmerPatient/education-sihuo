@@ -56,19 +56,19 @@
                 </div>
                 <div class="radio-box">
                     @if($data->gender == '2')
-                    <input type="radio" id="gender-2" checked name="gender">
+                    <input type="radio" id="gender-2" checked name="gender"  value="2">
                     @else
-                    <input type="radio" id="gender-2"  name="gender">
+                    <input type="radio" id="gender-2"  name="gender"  value="2">
                     @endif
-                    <label for="gender-2" value="2">女</label>
+                    <label for="gender-2">女</label>
                 </div>
                 <div class="radio-box">
                     @if($data->gender == '3')
-                    <input type="radio" id="gender-3" checked name="gender">
+                    <input type="radio" id="gender-3" checked name="gender" value="3">
                     @else
-                    <input type="radio" id="gender-3" name="gender">
+                    <input type="radio" id="gender-3" name="gender" value="3">
                     @endif
-                    <label for="gender-3" value="13">保密</label>
+                    <label for="gender-3" >保密</label>
                 </div>
             </div>
         </div>

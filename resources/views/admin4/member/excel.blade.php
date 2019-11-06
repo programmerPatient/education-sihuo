@@ -39,8 +39,8 @@
                     <label for="gender-1">是</label>
                 </div>
                 <div class="radio-box">
-                    <input type="radio" id="gender-2" name="excel" @if($user->excel == '0') checked @endif>
-                    <label for="gender-2" value="0">否</label>
+                    <input type="radio" id="gender-2" name="excel" value="0" @if($user->excel == '0') checked @endif>
+                    <label for="gender-2" >否</label>
                 </div>
             </div>
         </div>

@@ -51,12 +51,12 @@
                     <label for="gender-1">男</label>
                 </div>
                 <div class="radio-box">
-                    <input type="radio" id="gender-2" name="gender">
-                    <label for="gender-2" value="2">女</label>
+                    <input type="radio" id="gender-2" name="gender" value="2">
+                    <label for="gender-2" >女</label>
                 </div>
                 <div class="radio-box">
-                    <input type="radio" id="gender-3" name="gender">
-                    <label for="gender-3" value="13">保密</label>
+                    <input type="radio" id="gender-3" name="gender" value="3">
+                    <label for="gender-3" >保密</label>
                 </div>
             </div>
         </div>
@@ -68,8 +68,8 @@
                     <label for="gender-1">是</label>
                 </div>
                 <div class="radio-box">
-                    <input type="radio" id="gender-2" name="excel">
-                    <label for="gender-2" value="0">否</label>
+                    <input type="radio" id="gender-2" name="excel" value="0">
+                    <label for="gender-2" >否</label>
                 </div>
             </div>
         </div>
