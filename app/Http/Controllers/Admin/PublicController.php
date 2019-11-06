@@ -108,6 +108,7 @@ class PublicController extends Controller
         if(!$result){
 
             $result = Auth::guard('member') -> attempt($data,$request -> get('online'));
+            dd($result);
             if(!$result){
                 return redirect('/') -> withErrors([
                 'loginError' => '用户名或密码错误或未授权，请联系管理员。'
@@ -142,7 +143,6 @@ class PublicController extends Controller
               ),
             ));
             $response = curl_exec($curl);
-            dd($response);
             if(!$response) {
                 return view('admin.error.index');
             }
