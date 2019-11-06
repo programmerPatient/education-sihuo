@@ -21,16 +21,18 @@ class IndexController extends Controller
 
     //首页
     public function index(){
-        $isexcel = false;
+        $isexcel = '0';
 
         if($user = Auth::guard('member')->user()){
                 $name = $user->username;
                 $tableauIds = explode(',',$user -> tableauIds);
-                $isexcel = true;
+                if($user->excel == '1'){
+                    $isexcel = '1';
+                }
         }else{
             $tableauIds = false;
             $name = Auth::guard('admin')->user()->username;
-            $isexcel = true;
+            $isexcel = '1';
 
         }
         $type = Session::get('user_type');
