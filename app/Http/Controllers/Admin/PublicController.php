@@ -121,6 +121,7 @@ class PublicController extends Controller
         $system = System::get()->first();
         $username = $system->tableau_username;
         $password = $system->tableau_password;
+        dd($password);
         //判断是否成功
         if($result){
             $curl = curl_init();
