@@ -183,7 +183,7 @@ class MemberController extends Controller
 
 
     //用户是否拥有数据导入功能
-    public function excel($id){
+    public function memberexcel($id){
         if(Input::method() == 'POST'){
             $user = Member::where('id',$id)->get()->first();
             $user->excel = Input::get('excel');

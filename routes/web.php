@@ -235,7 +235,7 @@ Route::group(['prefix' => 'adminfour','middleware' => ['admin.auth']],function()
     Route::any('role/add','Adminfour\RoleController@add');
 
     //会员模块
-    Route::any('member/excel/{id}','Adminfour\MemberController@excel');
+    Route::any('member/excel/{id}','Adminfour\MemberController@memberexcel');
     Route::get('member/index','Adminfour\MemberController@index');
     Route::any('member/add','Adminfour\MemberController@add');
     Route::any('member/adds','Adminfour\MemberController@adds');
