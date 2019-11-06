@@ -117,9 +117,9 @@
                     tableau用户名密码是否自定义：
                 </label>
                 <div class="formControls col-xs-8 col-sm-9" id="same_tableau">
-                    <input type="checkbox" id="website-title" value="1" class="input-checkbox  no_same" name="same_tableau" @if($default->same_tableau == "1") checked @endif>
+                    <input type="checkbox" id="website-title" value="1" class="input-checkbox  no_same" name="same_tableau" @if($default->same_tableau == '1') checked @endif>
                     是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" id="website-title" value="2" class="input-checkbox" name="same_tableau" @if($default->same_tableau == "2") checked @endif>
+                    <input type="checkbox" id="website-title" value="2" class="input-checkbox" name="same_tableau" @if($default->same_tableau == '2') checked @endif>
                     否&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </div>
             </div>
