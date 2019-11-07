@@ -24,7 +24,7 @@ class CreateMemberTable extends Migration
             $table->string('tableau_id')->nullable();//存放映射的用户id
             $table->timestamps();
             // $table->enum('type',[1,2])->notnull()->default('1');
-            $table->enum('status',[1,2])->notnull()->default('1');
+            $table->enum('status',[1,2])->notnull()->default('2');
             $table->enum('excel',[0,1])->notnull()->default('0');//是否显示数据导入接口
            $table->text('tableauIds')->nullable();//tableauid的集合
         });
