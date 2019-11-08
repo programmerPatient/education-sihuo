@@ -81,7 +81,7 @@
         </div>
     </div>
 </header>
-<aside class="Hui-aside">
+<aside class="Hui-aside" style="top:0">
     <div class="menu_dropdown bk_2">
         <dl id="menu-member">
             <li><a data-href="/adminfour/report/collection/index" data-title="收藏列表" href="javascript:;">收藏列表</a></li>
