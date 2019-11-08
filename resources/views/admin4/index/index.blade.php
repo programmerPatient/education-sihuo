@@ -88,7 +88,7 @@
 </aside>
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
 <section class="Hui-article-box" style="top:0">
-    <div class="navbar navbar-fixed-top" id="navtop" style="margin-right:0">
+    <div class="navbar navbar-fixed-top" id="navtop" style="right:0;left:auto">
         <div class="container-fluid cl">
             <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/adminfour/index/index">
                 <img src="{{$system->logo_url}}" alt="logo图片位置" style="width:100px;max-height:30px">
@@ -212,6 +212,7 @@ jQuery.Huifold = function(obj,obj_c,speed,obj_type,Event){
 //     })
 // }
 $(function(){
+    $("#navtop").css({"width":$("section").width()});
     //监听div大小变化
 $("section").resize(function(){
             $("#navtop").css({"width":$("section").width()});
