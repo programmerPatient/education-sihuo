@@ -216,6 +216,9 @@ $(function(){
         console.log($(".show_iframe").width())
         console.log($("#navtop").width())
     })
+    $("#show_iframe").resize(function(){
+        console.log($(".show_iframe").width())
+    })
     /*$("#min_title_list li").contextMenu('Huiadminmenu', {
         bindings: {
             'closethis': function(t) {
