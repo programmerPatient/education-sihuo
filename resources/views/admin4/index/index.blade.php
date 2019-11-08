@@ -36,7 +36,7 @@
     }
 </style>
 <body>
-<header class="navbar-wrapper">
+<header class="navbar-wrapper" style="z-index: 1">
     <div class="navbar navbar-fixed-top">
         <div class="container-fluid cl">
             <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/adminfour/index/index">
@@ -81,7 +81,7 @@
         </div>
     </div>
 </header>
-<aside class="Hui-aside">
+<aside class="Hui-aside" style="z-index: 1">
     <div class="menu_dropdown bk_2">
         <dl id="menu-member">
             <li><a data-href="/adminfour/report/collection/index" data-title="收藏列表" href="javascript:;">收藏列表</a></li>
