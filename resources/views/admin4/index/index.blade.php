@@ -294,6 +294,7 @@ $(function(){
 
 
 $("section").resize(function(){
+    alert($("section").width());
             $("#navtop").css({"width":$("section").width()});
 
 
