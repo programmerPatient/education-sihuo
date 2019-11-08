@@ -96,7 +96,6 @@
         document.getElementById('obj').width = width;
         document.getElementById('obj').height = height;
         window.location.reload();
-        console.log(document.getElementById('obj').width);
     }
 
 </script>

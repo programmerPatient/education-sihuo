@@ -93,7 +93,7 @@ class ReportController extends Controller
                 }
             }
             if(!$k){
-                $val->delete();
+                $vl->delete();
             }
         }
         // foreach($p as $u => $l){
