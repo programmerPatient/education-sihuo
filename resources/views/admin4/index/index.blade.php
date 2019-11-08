@@ -88,7 +88,7 @@
 </aside>
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
 <section class="Hui-article-box" style="top:0">
-    <div class="navbar navbar-fixed-top" id="navtop">
+    <div class="navbar navbar-fixed-top" id="navtop" style="float:right">
         <div class="container-fluid cl">
             <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/adminfour/index/index">
                 <img src="{{$system->logo_url}}" alt="logo图片位置" style="width:100px;max-height:30px">
