@@ -135,7 +135,7 @@
             <ul id="min_title_list" class="acrossTab cl">
                 <li class="active">
                     <!-- 修改src引入地址 -->
-                    <span title="我的收藏" data-href="/adminfour/index//admin/index/welcome">我的桌面</span>
+                    <!-- <span title="我的收藏" data-href="/adminfour/index//admin/index/welcome">我的桌面</span> -->
                     <em></em></li>
         </ul>
     </div>
