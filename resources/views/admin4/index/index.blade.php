@@ -86,7 +86,7 @@
 
     </div>
 </aside>
-<div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
+<div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);"></a></div>
 <section class="Hui-article-box" style="top:0">
     <div class="navbar navbar-fixed-top" id="navtop" style="float:right">
         <div class="container-fluid cl">
@@ -212,6 +212,7 @@ jQuery.Huifold = function(obj,obj_c,speed,obj_type,Event){
 // }
 $(function(){
     $(".pngfix").click(function(){
+        displaynavbar(this)
         $("#navtop").css({"width":$(".show_iframe").width()});
         console.log($(".show_iframe").width())
         console.log($("#navtop").width())
