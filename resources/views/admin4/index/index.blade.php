@@ -212,8 +212,9 @@ jQuery.Huifold = function(obj,obj_c,speed,obj_type,Event){
 // }
 $(function(){
     $(".pngfix").click(function(){
-        // $("#navtop").css({"width":$(".show_iframe").width()});
-        console.log($(".show_iframe").width())
+                console.log($("select").width())
+
+        $("#navtop").css({"width":$("select").width()});
         console.log($("#navtop").width())
     })
     $("#show_iframe").resize(function(){
