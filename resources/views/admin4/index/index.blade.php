@@ -102,7 +102,7 @@
     </div>
     <div id="iframe_box" class="Hui-article">
         <div class="show_iframe">
-                <div class="navbar navbar-fixed-top">
+                <div class="navbar navbar-fixed-top" style="width:100%">
         <div class="container-fluid cl">
             <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/adminfour/index/index">
                 <img src="{{$system->logo_url}}" alt="logo图片位置" style="width:100px;max-height:30px">
