@@ -53,7 +53,7 @@
             <param name='embed_code_version' value='3' />
             <param name='site_root' value='' />
             <param name='name' value='{{$contentUrl}}' />
-            <param name='tabs' value='yes' />
+            <param name='tabs' value='no' />
             <param name='toolbar' value='{{$toolbar}}' />
             <param name='showAppBanner' value='false' />
             <param name='filter' value='{{$filter}}' />
