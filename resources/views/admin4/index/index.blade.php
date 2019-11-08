@@ -166,6 +166,7 @@
 <!-- <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script> -->
  <script type="text/javascript" src="/admin/lib/layer/2.4/layer.js"></script>
 <script type="text/javascript" src="/admin/static/h-ui/js/H-ui.min.js"></script>
+<script type="text/javascript" src="/admin/static/h-ui/js/jquery.ba-resize.js"></script>
 <script type="text/javascript" src="/admin/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
 
 <!--请在下方写此页面业务相关的脚本-->
@@ -217,92 +218,9 @@ $(function(){
         console.log($("#navtop").width())
     });
     //监听div大小变化
-(function($, h, c) {
-    var a = $([]),
-    e = $.resize = $.extend($.resize, {}),
-    i,
-    k = "setTimeout",
-    j = "resize",
-    d = j + "-special-event",
-    b = "delay",
-    f = "throttleWindow";
-    e[b] = 250;
-    e[f] = true;
-    $.event.special[j] = {
-        setup: function() {
-            if (!e[f] && this[k]) {
-                return false;
-            }
-            var l = $(this);
-            a = a.add(l);
-            $.data(this, d, {
-                w: l.width(),
-                h: l.height()
-            });
-            if (a.length === 1) {
-                g();
-            }
-        },
-        teardown: function() {
-            if (!e[f] && this[k]) {
-                return false;
-            }
-            var l = $(this);
-            a = a.not(l);
-            l.removeData(d);
-            if (!a.length) {
-                clearTimeout(i);
-            }
-        },
-        add: function(l) {
-            if (!e[f] && this[k]) {
-                return false;
-            }
-            var n;
-            function m(s, o, p) {
-                var q = $(this),
-                r = $.data(this, d);
-                r.w = o !== c ? o: q.width();
-                r.h = p !== c ? p: q.height();
-                n.apply(this, arguments);
-            }
-            if ($.isFunction(l)) {
-                n = l;
-                return m;
-            } else {
-                n = l.handler;
-                l.handler = m;
-            }
-        }
-    };
-    function g() {
-        i = h[k](function() {
-            a.each(function() {
-                var n = $(this),
-                m = n.width(),
-                l = n.height(),
-                o = $.data(this, d);
-                if (m !== o.w || l !== o.h) {
-                    n.trigger(j, [o.w = m, o.h = l]);
-                }
-            });
-            g();
-        },
-        e[b]);
-    }
-})(jQuery, this);
-
-
 $("section").resize(function(){
     alert($("section").width());
             $("#navtop").css({"width":$("section").width()});
-
-
-
-    //当id为main的div大小变化时的处理函数写在这里.....
-
-
-    //当然了#main只不过是id选择器，你也可以换成任何jquery的选择器......
 
 
 });
