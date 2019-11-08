@@ -213,6 +213,8 @@ jQuery.Huifold = function(obj,obj_c,speed,obj_type,Event){
 $(function(){
     $(".pngfix").click(function(){
         $("#navtop").css({"width":$("#iframe_box").width()});
+        console.log($("#iframe_box").width())
+        console.log($("#navtop").width())
     })
     /*$("#min_title_list li").contextMenu('Huiadminmenu', {
         bindings: {
