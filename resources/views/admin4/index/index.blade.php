@@ -88,10 +88,10 @@
 </aside>
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
 <section class="Hui-article-box" style="top:0">
-    <div class="navbar navbar-fixed-top" id="navtop" style="right:0;left:auto;transition: width .2s;
--moz-transition: width .2s;  /* Firefox 4 */
--webkit-transition: width .2s;   /* Safari 和 Chrome */
--o-transition: width .2s;">
+    <div class="navbar navbar-fixed-top" id="navtop" style="right:0;left:auto;transition: width 0.02s;
+-moz-transition: width 0.02s;  /* Firefox 4 */
+-webkit-transition: width 0.02s;   /* Safari 和 Chrome */
+-o-transition: width 0.02s;">
         <div class="container-fluid cl">
             <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/adminfour/index/index">
                 <img src="{{$system->logo_url}}" alt="logo图片位置" style="width:100px;max-height:30px">
