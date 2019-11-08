@@ -88,21 +88,7 @@
 </aside>
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
 <section class="Hui-article-box" style="top:0">
-    <div id="Hui-tabNav" class="Hui-tabNav hidden-xs" style="display:none">
-        <div class="Hui-tabNav-wp">
-            <ul id="min_title_list" class="acrossTab cl">
-                <li class="active">
-                    <!-- 修改src引入地址 -->
-                    <span title="我的收藏" data-href="/adminfour/index//admin/index/welcome">我的桌面</span>
-                    <em></em>
-                </li>
-            </ul>
-        </div>
-        <div class="Hui-tabNav-more btn-group"><a id="js-tabNav-prev" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d4;</i></a><a id="js-tabNav-next" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d7;</i></a></div>
-    </div>
-    <div id="iframe_box" class="Hui-article">
-        <div class="show_iframe">
-                <div class="navbar navbar-fixed-top" style="width:100%">
+    <div class="navbar navbar-fixed-top">
         <div class="container-fluid cl">
             <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/adminfour/index/index">
                 <img src="{{$system->logo_url}}" alt="logo图片位置" style="width:100px;max-height:30px">
@@ -145,6 +131,21 @@
             </nav>
         </div>
     </div>
+    <div id="Hui-tabNav" class="Hui-tabNav hidden-xs" style="display:none">
+        <div class="Hui-tabNav-wp">
+            <ul id="min_title_list" class="acrossTab cl">
+                <li class="active">
+                    <!-- 修改src引入地址 -->
+                    <span title="我的收藏" data-href="/adminfour/index//admin/index/welcome">我的桌面</span>
+                    <em></em>
+                </li>
+            </ul>
+        </div>
+        <div class="Hui-tabNav-more btn-group"><a id="js-tabNav-prev" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d4;</i></a><a id="js-tabNav-next" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d7;</i></a></div>
+    </div>
+    <div id="iframe_box" class="Hui-article">
+        <div style="background-color: red;width:100%;height:100px;"></div>
+        <div class="show_iframe">
             <div style="display:none" class="loading"></div>
 
             <!-- 修改src引入地址 -->
