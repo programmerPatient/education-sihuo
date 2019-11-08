@@ -212,14 +212,11 @@ jQuery.Huifold = function(obj,obj_c,speed,obj_type,Event){
 // }
 $(function(){
     $(".pngfix").click(function(){
-                console.log($("select").width())
+                console.log($("section").width())
 
-        $("#navtop").css({"width":$("select").width()});
+        $("#navtop").css({"width":$("section").width()});
         console.log($("#navtop").width())
-    })
-    $("#show_iframe").resize(function(){
-        console.log($(".show_iframe").width())
-    })
+    });
     /*$("#min_title_list li").contextMenu('Huiadminmenu', {
         bindings: {
             'closethis': function(t) {
