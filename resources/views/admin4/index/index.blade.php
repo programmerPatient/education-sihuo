@@ -88,7 +88,7 @@
 </aside>
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
 <section class="Hui-article-box" style="top:0">
-    <div class="navbar navbar-fixed-top">
+    <div class="navbar navbar-fixed-top" id="navtop">
         <div class="container-fluid cl">
             <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/adminfour/index/index">
                 <img src="{{$system->logo_url}}" alt="logo图片位置" style="width:100px;max-height:30px">
@@ -173,6 +173,7 @@
 <script type="text/javascript">
 window.history.go(1);
 
+
 jQuery.Huifold = function(obj,obj_c,speed,obj_type,Event){
     if(obj_type == 2){
         $(obj+":first").find("b").html("-");
@@ -210,6 +211,7 @@ jQuery.Huifold = function(obj,obj_c,speed,obj_type,Event){
 //     })
 // }
 $(function(){
+    $("#navtop").css({"width":$("#iframe_box").width()});
     /*$("#min_title_list li").contextMenu('Huiadminmenu', {
         bindings: {
             'closethis': function(t) {
@@ -238,9 +240,6 @@ function myselfinfo(){
     });
 }
 
-function dd(){
-    console.log('ss');
-}
 
 function historyClear(){
     window.history.forward(1);
