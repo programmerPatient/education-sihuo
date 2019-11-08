@@ -129,7 +129,7 @@
     </div>
 </aside>
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
-<section class="Hui-article-box">
+<section class="Hui-article-box" style="top:15px">
     <div id="Hui-tabNav" class="Hui-tabNav hidden-xs" style="display:none">
         <div class="Hui-tabNav-wp">
             <ul id="min_title_list" class="acrossTab cl">
