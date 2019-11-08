@@ -4314,11 +4314,13 @@ function Huisethome(obj){
  * jQuery.Huisidenav.js 左侧菜单-隐藏显示
  * ======================================================================== */
 function displaynavbar(obj){
-    console.log('sss');
+    alert("sss");
     if($(obj).hasClass("open")){
+        alert("sss");
         $(obj).removeClass("open");
         $("body").removeClass("big-page");
     } else {
+        alert("sss");
         $(obj).addClass("open");
         $("body").addClass("big-page");
     }
