@@ -132,13 +132,13 @@
 <section class="Hui-article-box">
     <div id="Hui-tabNav" class="Hui-tabNav hidden-xs">
         <div class="Hui-tabNav-wp">
-            <!-- <ul id="min_title_list" class="acrossTab cl"> -->
-                <!-- <li class="active"> -->
+            <ul id="min_title_list" class="acrossTab cl">
+                <li class="active">
                     <!-- 修改src引入地址 -->
                     <span title="我的收藏" data-href="/adminfour/index//admin/index/welcome">我的桌面</span>
-                    <!-- <em></em> -->
-                <!-- </li> -->
-            <!-- </ul> -->
+                    <em></em>
+                </li>
+            </ul>
         </div>
         <div class="Hui-tabNav-more btn-group"><a id="js-tabNav-prev" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d4;</i></a><a id="js-tabNav-next" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d7;</i></a></div>
     </div>
