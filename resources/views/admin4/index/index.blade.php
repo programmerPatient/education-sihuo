@@ -42,7 +42,11 @@
         font-size: 16px;
     }
 
-    .tableau-workbook:hove, .item:hover{
+    .tableau-workbook:hover{
+        color:#fff;
+    }
+
+     .item:hover{
         color:#fff;
     }
 
