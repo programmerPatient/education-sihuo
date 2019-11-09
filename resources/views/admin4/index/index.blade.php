@@ -116,7 +116,6 @@
 
         <div class="show_iframe">
             <div style="display:none" class="loading"></div>
-            <a href="/admin/public/logout" onClick="historyClear()">退出</a>
 
             <!-- 修改src引入地址 -->
             <iframe scrolling="yes" frameborder="0" src="/adminfour/report/collection/index"></iframe>
