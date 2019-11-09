@@ -438,7 +438,6 @@ class ReportController extends Controller
             if(!$result){
                 $result = RelationReport::where('workBook_name',$conditions)->get();
             }
-            dd($result);
         }else{
             $result = RelationReport::where('report_name',$conditions)->where('member_id',$user->id)->get()->first();
             if(!$result){

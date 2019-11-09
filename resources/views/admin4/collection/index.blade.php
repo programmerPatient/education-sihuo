@@ -94,6 +94,9 @@ function InstantSearch(obj){
             dataType: 'json',
             success: function(data){
                 console.log(data);
+                $('table').remove();
+                $('.page-container').append('<span>'+data+'</span>');
+
             },
             error:function(data) {
                 alert('停用失败，请联系管理员是否已经授权');
