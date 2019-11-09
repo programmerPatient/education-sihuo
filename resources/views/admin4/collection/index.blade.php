@@ -97,11 +97,12 @@ $(function(){
 });
 
 function suaxin(){
-    // if (window != top)
-    //     top.location.href = location.href;
+    alert("ss");
+    if (window != top)
+        top.location.href = location.href;
     window.opener.document.location.reload();//刷新父级页面
 
-// window.parent.window.location.reload()
+window.parent.window.location.reload()
 }
 
 /*用户-添加*/
