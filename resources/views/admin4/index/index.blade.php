@@ -42,6 +42,11 @@
         background-color:#101117;
         color:#fff;
     }
+
+    .tableau-project:hover {
+        background-color:#101117;
+        color:#fff;
+    }
 </style>
 <body>
 <<!-- header class="navbar-wrapper" style="display:none">
@@ -68,7 +73,7 @@
         @if($p)
         @foreach($p as $val)
         <dl id="menu-article">
-            <dt style="text-overflow:ellipsis;"><i class="Hui-iconfont">&#xe616;</i>{{$val['name']}}<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dt style="text-overflow:ellipsis;" class="tableau-project"><i class="Hui-iconfont">&#xe616;</i>{{$val['name']}}<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul id="Huifold1" class="Huifold">
                     @foreach($val["project"] as $value)
