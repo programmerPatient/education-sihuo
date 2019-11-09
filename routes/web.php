@@ -17,7 +17,8 @@
 //后台路由
 Route::group(['prefix' => 'admin'],function(){
     //后台退出地址
-    Route::get('public/logout','Admin\PublicController@logout');
+    Route::get('public/logout','Adminfour\PublicController@logout');
+
 
     //后台登陆处理页面
     Route::post('public/check','Admin\PublicController@check');
