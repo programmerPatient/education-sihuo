@@ -31,7 +31,7 @@
     管理员管理
     <span class="c-gray en">&gt;</span>
     管理员列表
-    <a class="btn btn-danger radius r" style="line-height:1.6em;margin-top:3px;margin-right: 5px" href="javascript:;" title="退出账户" onClick="suaxin()" ><i class="Hui-iconfont">&#xe726;</i></a>
+    <a class="btn btn-danger radius r" style="line-height:1.6em;margin-top:3px;margin-left: 5px" href="javascript:;" title="退出账户" onClick="suaxin()" ><i class="Hui-iconfont">&#xe726;</i></a>
     <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" >
         <i class="Hui-iconfont">&#xe68f;</i>
     </a>

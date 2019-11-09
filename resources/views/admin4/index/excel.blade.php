@@ -28,7 +28,7 @@
 </head>
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页
-    excel数据导入<a class="btn btn-danger radius r" style="line-height:1.6em;margin-top:3px;margin-right: 5px" href="javascript:;" title="退出账户" onClick="suaxin()" ><i class="Hui-iconfont">&#xe726;</i></a>
+    excel数据导入<a class="btn btn-danger radius r" style="line-height:1.6em;margin-top:3px;margin-left: 5px" href="javascript:;" title="退出账户" onClick="suaxin()" ><i class="Hui-iconfont">&#xe726;</i></a>
 </nav>
 <div class="page-container">
     <form class="form form-horizontal" id="form-article-add">
