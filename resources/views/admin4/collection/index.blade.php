@@ -99,6 +99,7 @@ function InstantSearch(obj){
                 for (i=0;i<data.length;i++){
                     num += '<div class="col-xs-3 col-sm-3">'+data[i].project_name+'</div>'
                 }
+                console.log(num);
                 $('.page-container').append('<div class="col-xs-12 col-sm-12">'+num+'</div>');
 
             },
