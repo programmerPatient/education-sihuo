@@ -28,8 +28,7 @@
     outline-style: none ;
     border: 1px solid #ccc;
     border-radius: 3px;
-    padding: 13px 14px;
-    width: 620px;
+    width: 100px;
     font-size: 14px;
     font-weight: 700;
     font-family: "Microsoft soft";
