@@ -40,6 +40,7 @@
 
     #menu-member a:hover{
         background-color:#101117;
+        color:#fff;
     }
 </style>
 <body>
