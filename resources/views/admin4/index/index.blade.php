@@ -76,8 +76,8 @@
 <aside class="Hui-aside" style="top:0;background-color: #23262e">
     <div class="menu_dropdown bk_2" >
         <dl id="menu-member">
-            <li><a class="logo navbar-logo f-l mr-10 hidden-xs" href="/adminfour/index/index" style="width:100%;padding:4px 0;">
-                <img src="{{$system->logo_url}}" alt="logo图片位置" style="width:100px;max-height:30px;margin:0 auto;">
+            <li><a class="logo navbar-logo f-l mr-10 hidden-xs" href="/adminfour/index/index" style="width:100%;padding:4px 0;text-align: center;">
+                <img src="{{$system->logo_url}}" alt="logo图片位置" style="width:100px;max-height:30px;margin:0 auto;display: inline-block;">
             </a></li>
             <li><a data-href="/adminfour/report/collection/index" data-title="收藏列表" href="javascript:;">收藏列表</a></li>
             @if($type == '1')
