@@ -429,6 +429,7 @@ class ReportController extends Controller
         }else{
             $user = Auth::guard('member')->user();
         }
+        dd($ls);
 
         if($ls){
             $result = RelationReport::where('report_name',$conditions)->get()->first();
@@ -447,6 +448,7 @@ class ReportController extends Controller
                 $result = RelationReport::where('workBook_name',$conditions)->where('member_id',$user->id)->get();
             }
         }
+
         return $result;
    }
 }
