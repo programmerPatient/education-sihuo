@@ -36,7 +36,7 @@
     }
     #menu-member a{
         border-bottom:0px;
-        color:#bdbebb;
+        color:#3a3c43;
     }
 
     #menu-member a:hover{
@@ -75,20 +75,20 @@
         @if($p)
         @foreach($p as $val)
         <dl id="menu-article">
-            <dt style="text-overflow:ellipsis;border-bottom: 0px;color:#bdbebb" class="tableau-project"><i class="Hui-iconfont">&#xe616;</i>{{$val['name']}}<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dt style="text-overflow:ellipsis;border-bottom: 0px;color:#3a3c43" class="tableau-project"><i class="Hui-iconfont">&#xe616;</i>{{$val['name']}}<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul id="Huifold1" class="Huifold" style="padding:0px;">
                     @foreach($val["project"] as $value)
                     <li class="item">
-                        <h4 style="color:#909195;font-size:12px;font-weight:normal;text-overflow: ellipsis;display:inline-block;white-space: nowrap;width: 100%;padding:7px 0px;background-color:#bdbecb;border: 0px;">{{$value['name']}}</h4>
+                        <h4 style="color:#909195;font-size:12px;font-weight:normal;text-overflow: ellipsis;display:inline-block;white-space: nowrap;width: 100%;padding:7px 0px;background-color:#282a2f;border: 0px;">{{$value['name']}}</h4>
                         <div class="info">
                             <ul id="Huifold1" class="Huifold">
                                 @foreach($value['views'] as $vieVule)
                                 <li class="item">
                                     @if($type == '1')
-                                    <a  data-href="/adminfour/table/index?contentUrl={{$vieVule->contentUrl}}&filter=iframeSizedToWindow=true&id={{$vieVule->id}}"" data-title="{{$vieVule->name}}" href="javascript:;" style="text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px;background-color:#bdbeeb;">{{$vieVule->name}}</a>
+                                    <a  data-href="/adminfour/table/index?contentUrl={{$vieVule->contentUrl}}&filter=iframeSizedToWindow=true&id={{$vieVule->id}}"" data-title="{{$vieVule->name}}" href="javascript:;" style="text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px;background-color:#18191c;">{{$vieVule->name}}</a>
                                     @else
-                                    <a data-href="/adminfour/table/index?contentUrl={{$vieVule->contentUrl}}&filter={{$vieVule->filter}}&id={{$vieVule->id}}" data-title="{{$vieVule->name}}" href="javascript:;" style="text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px;background-color:#edbeeb;">{{$vieVule->name}}</a>
+                                    <a data-href="/adminfour/table/index?contentUrl={{$vieVule->contentUrl}}&filter={{$vieVule->filter}}&id={{$vieVule->id}}" data-title="{{$vieVule->name}}" href="javascript:;" style="text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px;background-color:#18191c;">{{$vieVule->name}}</a>
                                     @endif
                                 </li>
                                 @endforeach
