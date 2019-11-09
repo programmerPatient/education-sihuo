@@ -97,6 +97,8 @@ $(function(){
 });
 
 function shuaxin(){
+    if (window != top)
+        top.location.href = location.href;
     window.opener.document.location.reload();//刷新父级页面
 }
 
