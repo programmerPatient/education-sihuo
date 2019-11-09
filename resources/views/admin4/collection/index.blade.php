@@ -24,7 +24,7 @@
 </head>
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页  <span class="c-gray en">&gt;</span> 收藏列表<input type="text" placeholder="请输入搜索报表名称" onchange="InstantSearch(this)"> <a class="btn btn-danger radius r" style="line-height:1.6em;margin-top:3px;margin-left: 5px" href="javascript:;" title="退出账户" onClick="suaxin()" ><i class="Hui-iconfont">&#xe726;</i></a><a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
-<div class="page-container">
+<div class="page-container remove">
    <!--  <div class="cl pd-5 bg-1 bk-gray mt-20">
         <span class="l">
             <a href="javascript:;" onclick="member_add('添加用户','/adminthree/member/add','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户
@@ -37,7 +37,7 @@
         </span>
         <span class="r">共有数据：<strong>88</strong> 条</span> </div>
     <div class="mt-20"> -->
-    <table class="table table-border table-bordered table-hover table-bg table-sort remove">
+    <table class="table table-border table-bordered table-hover table-bg table-sort">
         <thead>
             <tr class="text-c">
                 <th width="25"><input type="checkbox" name="" value=""></th>
@@ -71,7 +71,6 @@
             @endforeach
         </tbody>
     </table>
-    </div>
 </div>
 <!--_footer 作为公共模版分离出去-->
 <script type="text/javascript" src="/admin/lib/jquery/1.9.1/jquery.min.js"></script>
@@ -95,6 +94,7 @@ function InstantSearch(obj){
             success: function(data){
                 console.log(data.project_name);
                 $('.remove').remove();
+                $('.dataTables_wrapper').remove();
                 var num = '';
                 var c = false;
                 for (i=0;i<data.length;i++){
