@@ -37,7 +37,7 @@
         </span>
         <span class="r">共有数据：<strong>88</strong> 条</span> </div>
     <div class="mt-20"> -->
-    <table class="table table-border table-bordered table-hover table-bg table-sort">
+    <table class="table table-border table-bordered table-hover table-bg table-sort remove">
         <thead>
             <tr class="text-c">
                 <th width="25"><input type="checkbox" name="" value=""></th>
@@ -94,7 +94,7 @@ function InstantSearch(obj){
             dataType: 'json',
             success: function(data){
                 console.log(data);
-                $('table').remove();
+                $('.remove').remove();
                 var num = '';
                 for (i=0;i<data.length;i++){
                     num += '<div class="col-xs-3 col-sm-3">'+data[i].project_name+'</div>'
