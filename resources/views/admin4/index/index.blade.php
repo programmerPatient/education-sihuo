@@ -44,7 +44,7 @@
     }
 
     .tableau-project{
-        border-bottom: 0px;
+
         color:#666;
     }
 
@@ -78,7 +78,7 @@
         @if($p)
         @foreach($p as $val)
         <dl id="menu-article">
-            <dt style="text-overflow:ellipsis;" class="tableau-project"><i class="Hui-iconfont">&#xe616;</i>{{$val['name']}}<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dt style="text-overflow:ellipsis;border-bottom: 0px;" class="tableau-project"><i class="Hui-iconfont">&#xe616;</i>{{$val['name']}}<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul id="Huifold1" class="Huifold">
                     @foreach($val["project"] as $value)
