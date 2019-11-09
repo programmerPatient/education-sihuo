@@ -94,13 +94,14 @@ function InstantSearch(obj){
             dataType: 'json',
             success: function(data){
                 console.log(data);
+                var data = JSON.parse(data);
                 $('.remove').remove();
                 var num = '';
                 for (i=0;i<data.length;i++){
                     num += '<div class="col-xs-3 col-sm-3">'+data[i].project_name+'</div>'
                 }
                 console.log(data.length);
-                $('.page-container').append('<div class="col-xs-12 col-sm-12">'+num+'</div>');
+                $('.page-container').append('<div class="col-xs-12 col-sm-12 remove">'+num+'</div>');
 
             },
             error:function(data) {
