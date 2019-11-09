@@ -37,6 +37,10 @@
     #menu-member a{
         border-bottom:0px;
     }
+
+    #menu-member a:hover{
+        background-color:#101117;
+    }
 </style>
 <body>
 <<!-- header class="navbar-wrapper" style="display:none">
