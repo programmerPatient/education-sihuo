@@ -96,10 +96,14 @@ function InstantSearch(obj){
                 console.log(data.project_name);
                 $('.remove').remove();
                 var num = '';
+                var c = false;
                 for (i=0;i<data.length;i++){
-                    num += '<div class="col-xs-3 col-sm-3">'+data[i].project_name+'</div>'
+                    num += '<div class="col-xs-3 col-sm-3">'+data[i].project_name+'</div>';
+                    c = true;
                 }
-                console.log(data.length);
+                if(!c){
+                    num = '<div class="col-xs-3 col-sm-3">'+data.project_name+'</div>'
+                }
                 $('.page-container').append('<div class="col-xs-12 col-sm-12 remove">'+num+'</div>');
 
             },
