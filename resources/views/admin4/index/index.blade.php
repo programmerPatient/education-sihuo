@@ -34,11 +34,11 @@
     .navbar-logo{
         margin-left: 10px;
     }
-    #menu-member a{
+    #menu-member li a{
         border-bottom:0px;
         color:#3a3c43;
         text-align：center;
-        padding:10px none;
+        padding:10px 15px;
         font-size: 16px;
     }
 
