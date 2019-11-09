@@ -152,7 +152,7 @@ window.history.go(1);
 
 jQuery.Huifold = function(obj,obj_c,speed,obj_type,Event){
     if(obj_type == 2){
-        $(obj+":first").find("b").html("-");
+        // $(obj+":first").find("b").html("-");
         $(obj_c+":first").show()}
     $(obj).bind(Event,function(){
         if($(this).next().is(":visible")){
@@ -160,17 +160,20 @@ jQuery.Huifold = function(obj,obj_c,speed,obj_type,Event){
                 return false}
             else{
                 $(this).next().slideUp(speed).end().removeClass("selected");
-                $(this).find("b").html("+")}
+                // $(this).find("b").html("+")
+            }
         }
         else{
             if(obj_type == 3){
                 $(this).next().slideDown(speed).end().addClass("selected");
-                $(this).find("b").html("-")}else{
+                $(this).find("b").html("-")
+            }else{
                 $(obj_c).slideUp(speed);
                 $(obj).removeClass("selected");
-                $(obj).find("b").html("+");
+                // $(obj).find("b").html("+");
                 $(this).next().slideDown(speed).end().addClass("selected");
-                $(this).find("b").html("-")}
+                // $(this).find("b").html("-")
+            }
         }
     })}
 // function ajaxindex(obj,contentUrl,filter){
