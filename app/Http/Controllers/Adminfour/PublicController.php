@@ -197,7 +197,7 @@ class PublicController extends Controller
 
 
         //跳转到登录界面
-        return $result ? '1':'0;
+        return '1';
     }
 
 }
