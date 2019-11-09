@@ -112,10 +112,11 @@
         </div>
         <div class="Hui-tabNav-more btn-group"><a id="js-tabNav-prev" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d4;</i></a><a id="js-tabNav-next" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d7;</i></a></div>
     </div>
-    <div id="iframe_box" class="Hui-article">
+    <div id="iframe_box" class="Hui-article" style="margin-top:0">
 
         <div class="show_iframe">
             <div style="display:none" class="loading"></div>
+            <a href="/admin/public/logout" onClick="historyClear()">退出</a>
 
             <!-- 修改src引入地址 -->
             <iframe scrolling="yes" frameborder="0" src="/adminfour/report/collection/index"></iframe>
