@@ -38,7 +38,7 @@
         border-bottom:0px;
         color:#3a3c43;
         text-align：center;
-        padding:10px 15px;
+        padding:4px 20px;
         font-size: 16px;
     }
 
@@ -78,7 +78,7 @@
         @if($p)
         @foreach($p as $val)
         <dl id="menu-article">
-            <dt style="text-overflow:ellipsis;border-bottom: 0px;color:#3a3c43;text-align：center" class="tableau-project"><i class="Hui-iconfont">&#xe616;</i>{{$val['name']}}<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dt style="text-overflow:ellipsis;border-bottom: 0px;color:#3a3c43;padding:4px 20px;" class="tableau-project"><i class="Hui-iconfont">&#xe616;</i>{{$val['name']}}<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul id="Huifold1" class="Huifold" style="padding:0px;">
                     @foreach($val["project"] as $value)
