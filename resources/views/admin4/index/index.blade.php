@@ -42,6 +42,9 @@
 <aside class="Hui-aside" style="top:0;background-color: #1d1e23">
     <div class="menu_dropdown bk_2" >
         <dl id="menu-member">
+            <li><a class="logo navbar-logo f-l mr-10 hidden-xs" href="/adminfour/index/index">
+                <img src="{{$system->logo_url}}" alt="logo图片位置" style="width:100px;max-height:30px">
+            </a></li>
             <li><a data-href="/adminfour/report/collection/index" data-title="收藏列表" href="javascript:;">收藏列表</a></li>
             @if($type == '1')
             <li><a data-href="/adminfour/member/index" data-title="会员列表" href="javascript:;">会员列表</a></li>
@@ -93,9 +96,7 @@
 -webkit-transition: width -1s;   /* Safari 和 Chrome */
 -o-transition: width 0s;">
         <div class="container-fluid cl">
-            <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/adminfour/index/index">
-                <img src="{{$system->logo_url}}" alt="logo图片位置" style="width:100px;max-height:30px">
-            </a>
+
             <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/adminfour/index/index">logo</a>
             <span class="logo navbar-slogan f-l mr-10 hidden-xs" style="width:40%;letter-spacing: 8px;margin-left:30%;font-size: 20px">{{$system->web_title}}</span>
             <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
@@ -215,7 +216,7 @@ jQuery.Huifold = function(obj,obj_c,speed,obj_type,Event){
 //     })
 // }
 $(function(){
-    $("#navtop").css({"width":$("section").width()});
+    // $("#navtop").css({"width":$("section").width()});
     //监听div大小变化
 $("section").resize(function(){
             $("#navtop").css({"width":$("section").width()});
