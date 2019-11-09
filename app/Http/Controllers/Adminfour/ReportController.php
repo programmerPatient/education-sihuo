@@ -417,4 +417,36 @@ class ReportController extends Controller
 
         return view('admin4.collection.index',compact('data'));
    }
+
+
+   //实时报表搜索
+   public function search(Rquest $request){
+        $conditions = $request->conditions;
+        $user = Auth::guard('manager')->user();
+        $ls = false;
+        if($user){
+            $ls = true;
+        }else{
+            $user = Auth::guard('member')->user();
+        }
+
+        if($ls){
+            $result = RelationReport::where('report_name',$conditions)->get()->first();
+            if(!$result){
+                $result = RelationReport::where('project_name',$conditions)->get();
+            }
+            if(!$result){
+                $result = RelationReport::where('workBook_name',$conditions)->get();
+            }
+        }else{
+            $result = RelationReport::where('report_name',$conditions)->where('member_id',$user->id)->get()->first();
+            if(!$result){
+                $result = RelationReport::where('project_name',$conditions)->where('member_id',$user->id)->get();
+            }
+            if(!$result){
+                $result = RelationReport::where('workBook_name',$conditions)->where('member_id',$user->id)->get();
+            }
+        }
+        return $result;
+   }
 }

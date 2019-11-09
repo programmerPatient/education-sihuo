@@ -291,6 +291,10 @@ Route::group(['prefix' => 'adminfour','middleware' => ['admin.auth']],function()
     Route::any('usergroup/modify/{id}','Adminfour\UsergroupController@modify');
 
 
+    //实时搜索用户的报表
+    Route::post('search/report','Adminfour\ReportController@search');
+
+
 });
 
 

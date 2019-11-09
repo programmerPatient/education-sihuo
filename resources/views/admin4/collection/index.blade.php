@@ -85,7 +85,20 @@
 <script type="text/javascript" src="/admin/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
 function InstantSearch(obj){
-    console.log(obj.value);
+    var conditions = obj.value;
+    $.ajax({
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            type: 'POST',
+            url: '/adminfour/search/report',
+            data:{'conditions':conditions,},
+            dataType: 'json',
+            success: function(data){
+                console.log(data);
+            },
+            error:function(data) {
+                alert('停用失败，请联系管理员是否已经授权');
+            },
+        });
 }
 
 $(function(){
