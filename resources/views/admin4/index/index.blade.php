@@ -39,6 +39,7 @@
         color:#3a3c43;
         text-align：center;
         padding:10px none;
+        font-size: 16px;
     }
 
     #menu-member a:hover{
