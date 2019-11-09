@@ -23,7 +23,7 @@
 <title>收藏列表</title>
 </head>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页  <span class="c-gray en">&gt;</span> 收藏列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a><a href="/admin/public/logout" onClick="suaxin()">退出</a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页  <span class="c-gray en">&gt;</span> 收藏列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a><a href="" onClick="suaxin()">退出</a></nav>
 <div class="page-container">
    <!--  <div class="cl pd-5 bg-1 bk-gray mt-20">
         <span class="l">
@@ -97,12 +97,44 @@ $(function(){
 });
 
 function suaxin(){
-    alert("ss");
-    if (window != top)
-        top.location.href = top.location.href;
-    // window.opener.document.location.reload();//刷新父级页面
+    layer.confirm('确认要退出账户吗？',function(index){
+        $.ajax({
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            type: 'POST',
+            url: '/admin/public/logout',
+            // data:{'id':id,'type':type},
+            dataType: 'json',
+            success: function(data){
+                if(data == '1'){
+                        // layer.msg('停用成功!',{icon:1,time:1000},function(){
+                            // var index = parent.layer.getFrameIndex(window.name);
+                            //刷新
+                            // this.window.location = this.window.location;
+                            // parent.layer.close(index);
+                                                         // window.location.reload();
 
-window.parent.window.location.reload()
+                        // });
+                        top.location.href = top.location.href;
+                        // window.location = window.location;
+                        // $(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_start(this,'+'\''+this->tableau_id+'\''+','+'\''+id+'\''+','+'\''+2+'\''+','+'\''+username+'\''+')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a>');
+                        // $(obj).parents("tr").find(".td-status").html('<span class="label label radius">已停用</span>');
+                        // $(obj).remove();
+                        // layer.msg('已停用!',{icon: 6,time:1000});
+                    // }else{
+                        // layer.msg('停用失败!',{icon:2,time:2000});
+                    }
+            },
+            error:function(data) {
+                alert('停用失败，请联系管理员是否已经授权');
+            },
+        });
+    });
+//     alert("ss");
+//     if (window != top)
+//         top.location.href = top.location.href;
+//     // window.opener.document.location.reload();//刷新父级页面
+
+// window.parent.window.location.reload()
 }
 
 /*用户-添加*/
