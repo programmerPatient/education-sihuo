@@ -97,7 +97,7 @@ $(function(){
 });
 
 function shuaxin(){
-    parent.location.reload();//刷新父级页面
+    window.opener.document.location.reload();//刷新父级页面
 }
 
 /*用户-添加*/
