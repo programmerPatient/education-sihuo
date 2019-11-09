@@ -42,7 +42,7 @@
         font-size: 16px;
     }
 
-    #menu-article h4:hover{
+    #menu-article dd .Huifold .item h4:hover{
         color:#fff;
     }
 
