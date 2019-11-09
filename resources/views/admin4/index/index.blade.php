@@ -46,7 +46,7 @@
         color:#fff;
     }
 
-    .tableau-workbook-a:hover{
+    .Hui-aside .menu_dropdown li a:hover{
         color:#fff;
     }
 
