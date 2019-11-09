@@ -94,12 +94,12 @@ function InstantSearch(obj){
             dataType: 'json',
             success: function(data){
                 console.log(data);
-                $('table').remove();
-                var num = '';
-                for var i=0;i<data.length;i++{
-                    num += '<div class="col-xs-3 col-sm-3">'+data[i].project_name+'</div>'
-                }
-                $('.page-container').append('<div class="col-xs-12 col-sm-12">'+num+'</div>');
+                // $('table').remove();
+                // var num = '';
+                // for var i=0;i<data.length;i++{
+                //     num += '<div class="col-xs-3 col-sm-3">'+data[i].project_name+'</div>'
+                // }
+                // $('.page-container').append('<div class="col-xs-12 col-sm-12">'+num+'</div>');
 
             },
             error:function(data) {
