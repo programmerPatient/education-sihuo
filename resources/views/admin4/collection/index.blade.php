@@ -100,7 +100,7 @@ function suaxin(){
     layer.confirm('确认要退出账户吗？',function(index){
         $.ajax({
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-            type: 'POST',
+            type: 'GET',
             url: '/admin/public/logout',
             // data:{'id':id,'type':type},
             dataType: 'json',
