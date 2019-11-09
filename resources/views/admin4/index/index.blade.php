@@ -94,9 +94,9 @@
 </aside>
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
 <section class="Hui-article-box" style="top:0">
-    <div class="navbar navbar-fixed-top" id="navtop" style="width:100%;right:0;left:auto;transition: width 0s;
+    <div class="navbar navbar-fixed-top" id="navtop" style="right:0;left:auto;transition: width 0s;
 -moz-transition: width 0s;  /* Firefox 4 */
--webkit-transition: width -1s;   /* Safari 和 Chrome */
+-webkit-transition: width 0.1s;   /* Safari 和 Chrome */
 -o-transition: width 0s;">
         <div class="container-fluid cl">
 
@@ -219,7 +219,7 @@ jQuery.Huifold = function(obj,obj_c,speed,obj_type,Event){
 //     })
 // }
 $(function(){
-    // $("#navtop").css({"width":$("section").width()});
+$("#navtop").css({"width":$("section").width()});
     //监听div大小变化
 $("section").resize(function(){
             $("#navtop").css({"width":$("section").width()});
