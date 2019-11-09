@@ -84,8 +84,9 @@
 <script type="text/javascript" src="/admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="/admin/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
-function InstantSearch(){
-
+function InstantSearch(obj){
+    console.log(ss);
+    console.log(obj.value);
 }
 
 $(function(){
@@ -97,10 +98,6 @@ $(function(){
           {"orderable":false,"aTargets":[0,7]}// 制定列不参与排序
         ]
     });
-
-    function InstantSearch(obj){
-        console.log(obj.value());
-    }
 
 });
 
