@@ -82,13 +82,13 @@
                     <li class="item">
                         <h4 style="color:#909195;font-size:12px;font-weight:normal;text-overflow: ellipsis;display:inline-block;white-space: nowrap;width: 100%;padding:7px 0px;background-color:#282a2f;border: 0px;">{{$value['name']}}</h4>
                         <div class="info">
-                            <ul id="Huifold1" class="Huifold">
+                            <ul id="Huifold1" class="Huifold" style="padding:10px 0px;">
                                 @foreach($value['views'] as $vieVule)
-                                <li class="item">
+                                <li class="item" style="background-color:#18191c;">
                                     @if($type == '1')
-                                    <a  data-href="/adminfour/table/index?contentUrl={{$vieVule->contentUrl}}&filter=iframeSizedToWindow=true&id={{$vieVule->id}}"" data-title="{{$vieVule->name}}" href="javascript:;" style="text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px;background-color:#18191c;">{{$vieVule->name}}</a>
+                                    <a  data-href="/adminfour/table/index?contentUrl={{$vieVule->contentUrl}}&filter=iframeSizedToWindow=true&id={{$vieVule->id}}"" data-title="{{$vieVule->name}}" href="javascript:;" style="text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px;">{{$vieVule->name}}</a>
                                     @else
-                                    <a data-href="/adminfour/table/index?contentUrl={{$vieVule->contentUrl}}&filter={{$vieVule->filter}}&id={{$vieVule->id}}" data-title="{{$vieVule->name}}" href="javascript:;" style="text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px;background-color:#18191c;">{{$vieVule->name}}</a>
+                                    <a data-href="/adminfour/table/index?contentUrl={{$vieVule->contentUrl}}&filter={{$vieVule->filter}}&id={{$vieVule->id}}" data-title="{{$vieVule->name}}" href="javascript:;" style="text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px;">{{$vieVule->name}}</a>
                                     @endif
                                 </li>
                                 @endforeach
