@@ -29,6 +29,7 @@
     border: 1px solid #ccc;
     border-radius: 3px;
     width: 200px;
+    padding:5px 5px;
     font-size: 10px;
     font-weight: 700;
     font-family: "Microsoft soft";
