@@ -63,9 +63,20 @@
     }
 </style>
 <body>
-<<!-- header class="navbar-wrapper" style="display:none">
+<header class="navbar-wrapper" style="display:none">
+   <div class="navbar navbar-fixed-top">
+        <div class="container-fluid cl">
+            <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/adminthree/index/index">
+                <img src="{{$system->logo_url}}" alt="logo图片位置" style="width:100px;max-height:30px">
+            </a>
+            <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/adminthree/index/index">logo</a>
+            <span class="logo navbar-slogan f-l mr-10 hidden-xs" style="width:40%;letter-spacing: 8px;margin-left:30%;font-size: 20px">{{$system->web_title}}</span>
+            <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
+            <!-- <div style="color:white;font-size:15px;">{{$system->web_title}}</div> -->
+        </div>
+    </div>
 
-</header> -->
+</header>
 <aside class="Hui-aside" style="top:0;background-color: #23262e">
     <div class="menu_dropdown bk_2" >
         <dl id="menu-member">
