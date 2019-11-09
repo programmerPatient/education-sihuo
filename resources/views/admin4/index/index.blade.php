@@ -83,11 +83,11 @@
                 <ul id="Huifold1" class="Huifold" style="padding:0px;">
                     @foreach($val["project"] as $value)
                     <li class="item">
-                        <h4 style="color:#909195;font-size:12px;font-weight:normal;text-overflow: ellipsis;display:inline-block;white-space: nowrap;width: 100%;padding:7px 20px;background-color:#282a2f;border: 0px;font-size:16px">{{$value['name']}}</h4>
+                        <h4 style="color:#909195;font-size:12px;font-weight:normal;text-overflow: ellipsis;display:inline-block;white-space: nowrap;width: 100%;padding:7px 20px;background-color:#1a1a1d;border: 0px;font-size:16px">{{$value['name']}}</h4>
                         <div class="info" style="padding:0px">
-                            <ul id="Huifold1" class="Huifold" style="">
+                            <ul id="Huifold1" class="Huifold" style="padding:0px">
                                 @foreach($value['views'] as $vieVule)
-                                <li class="item" style="background-color:#18191c;">
+                                <li class="item" style="background-color:#18191c;padding:5px 0px">
                                     @if($type == '1')
                                     <a  data-href="/adminfour/table/index?contentUrl={{$vieVule->contentUrl}}&filter=iframeSizedToWindow=true&id={{$vieVule->id}}"" data-title="{{$vieVule->name}}" href="javascript:;" style="text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:13px;padding-left:20px">{{$vieVule->name}}</a>
                                     @else
