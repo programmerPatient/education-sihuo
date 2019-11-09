@@ -28,8 +28,8 @@
     outline-style: none ;
     border: 1px solid #ccc;
     border-radius: 3px;
-    width: 100px;
-    font-size: 14px;
+    width: 200px;
+    font-size: 10px;
     font-weight: 700;
     font-family: "Microsoft soft";
 }
