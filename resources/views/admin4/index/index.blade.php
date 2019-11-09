@@ -42,7 +42,7 @@
         font-size: 16px;
     }
 
-    .tableau-workbook:hover{
+    #menu-article h4:hover{
         color:#fff;
     }
 
