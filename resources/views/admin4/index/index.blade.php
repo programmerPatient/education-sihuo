@@ -46,7 +46,7 @@
         color:#fff;
     }
 
-     .item:hover{
+    .Huifold a:hover{
         color:#fff;
     }
 
