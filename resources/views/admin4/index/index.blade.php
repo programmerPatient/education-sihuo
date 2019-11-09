@@ -53,7 +53,7 @@
 <<!-- header class="navbar-wrapper" style="display:none">
 
 </header> -->
-<aside class="Hui-aside" style="top:0;background-color: #1d1e23">
+<aside class="Hui-aside" style="top:0;background-color: #23262e">
     <div class="menu_dropdown bk_2" >
         <dl id="menu-member">
             <li><a class="logo navbar-logo f-l mr-10 hidden-xs" href="/adminfour/index/index">
@@ -79,7 +79,7 @@
                 <ul id="Huifold1" class="Huifold">
                     @foreach($val["project"] as $value)
                     <li class="item">
-                        <h4 style="color:#333;font-size:12px;font-weight:normal;text-overflow: ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;padding:7px 0px;"><i class="Hui-iconfont">&#xe681;</i>{{$value['name']}}<b></b></h4>
+                        <h4 style="color:#333;font-size:12px;font-weight:normal;text-overflow: ellipsis;display:inline-block;white-space: nowrap;width: 100%;padding:7px 0px;background-color:#393d49"><i class="Hui-iconfont">&#xe681;</i>{{$value['name']}}<b></b></h4>
                         <div class="info">
                             <ul id="Huifold1" class="Huifold">
                                 @foreach($value['views'] as $vieVule)
