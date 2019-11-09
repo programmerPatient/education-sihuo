@@ -36,6 +36,7 @@
     }
     #menu-member a{
         border-bottom:0px;
+        color:#bdbebb;
     }
 
     #menu-member a:hover{
@@ -74,12 +75,12 @@
         @if($p)
         @foreach($p as $val)
         <dl id="menu-article">
-            <dt style="text-overflow:ellipsis;border-bottom: 0px;color:#666;" class="tableau-project"><i class="Hui-iconfont">&#xe616;</i>{{$val['name']}}<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dt style="text-overflow:ellipsis;border-bottom: 0px;color:#bdbebb" class="tableau-project"><i class="Hui-iconfont">&#xe616;</i>{{$val['name']}}<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul id="Huifold1" class="Huifold">
                     @foreach($val["project"] as $value)
                     <li class="item">
-                        <h4 style="color:#333;font-size:12px;font-weight:normal;text-overflow: ellipsis;display:inline-block;white-space: nowrap;width: 100%;padding:7px 0px;background-color:#393d49"><i class="Hui-iconfont">&#xe681;</i>{{$value['name']}}<b></b></h4>
+                        <h4 style="color:#909195;font-size:12px;font-weight:normal;text-overflow: ellipsis;display:inline-block;white-space: nowrap;width: 100%;padding:7px 0px;background-color:#393d49;border-bottom: 0px;"><i class="Hui-iconfont">&#xe681;</i>{{$value['name']}}<b></b></h4>
                         <div class="info">
                             <ul id="Huifold1" class="Huifold">
                                 @foreach($value['views'] as $vieVule)
