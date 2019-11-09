@@ -422,6 +422,7 @@ class ReportController extends Controller
    //实时报表搜索
    public function search(Rquest $request){
         $conditions = $request->conditions;
+        dd($conditions);
         $user = Auth::guard('manager')->user();
         $ls = false;
         if($user){
