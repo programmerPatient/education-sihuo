@@ -61,6 +61,10 @@
         background-color:#101117;
         color:#fff;
     }
+
+    .Hui-aside #menu-member #log a:hover{
+        background-color:#23262e;
+    }
 </style>
 <body>
 <header class="navbar-wrapper">
@@ -76,7 +80,13 @@
 <aside class="Hui-aside" style="top:0;background-color: #23262e">
     <div class="menu_dropdown bk_2" >
         <dl id="menu-member">
-            <li><a class="logo navbar-logo f-l mr-10 hidden-xs" href="/adminfour/index/index" style="width:100%;padding:4px 0;text-align: center;">
+            <li id="logo"><a class="logo navbar-logo f-l mr-10 hidden-xs" href="/adminfour/index/index" style="width:100%;padding:4px 0;text-align: center;box-shadow: 10px 10px 10px rgba(0,0,0,.5);
+
+                 /*考虑浏览器兼容性*/
+
+                 -moz-box-shadow: 10px 10px 10px rgba(0,0,0,.5);
+
+                 -webkit-box-shadow: 10px 10px 10px rgba(0,0,0,.5);">
                 <img src="{{$system->logo_url}}" alt="logo图片位置" style="width:100px;max-height:30px;margin:0 auto;display: inline-block;">
             </a></li>
             <li><a data-href="/adminfour/report/collection/index" data-title="收藏列表" href="javascript:;">收藏列表</a></li>
