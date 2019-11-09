@@ -43,6 +43,11 @@
         color:#fff;
     }
 
+    .tableau-project{
+        border-bottom: 0px;
+        color:#666;
+    }
+
     .tableau-project:hover {
         background-color:#101117;
         color:#fff;
@@ -86,7 +91,7 @@
                                     @if($type == '1')
                                     <a  data-href="/adminfour/table/index?contentUrl={{$vieVule->contentUrl}}&filter=iframeSizedToWindow=true&id={{$vieVule->id}}"" data-title="{{$vieVule->name}}" href="javascript:;" style="text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px">{{$vieVule->name}}</a>
                                     @else
-                                        <a data-href="/adminfour/table/index?contentUrl={{$vieVule->contentUrl}}&filter={{$vieVule->filter}}&id={{$vieVule->id}}" data-title="{{$vieVule->name}}" href="javascript:;" style="text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px">{{$vieVule->name}}</a>
+                                    <a data-href="/adminfour/table/index?contentUrl={{$vieVule->contentUrl}}&filter={{$vieVule->filter}}&id={{$vieVule->id}}" data-title="{{$vieVule->name}}" href="javascript:;" style="text-overflow:ellipsis;display:inline-block;white-space: nowrap;width: 100%;overflow:hidden;font-size:10px">{{$vieVule->name}}</a>
                                     @endif
                                 </li>
                                 @endforeach
