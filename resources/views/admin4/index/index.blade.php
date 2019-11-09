@@ -47,6 +47,7 @@
     }
 
     .Hui-aside .menu_dropdown li a:hover{
+        background-color:#000;
         color:#fff;
     }
 
