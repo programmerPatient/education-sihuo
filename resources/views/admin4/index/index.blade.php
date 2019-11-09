@@ -34,6 +34,9 @@
     .navbar-logo{
         margin-left: 10px;
     }
+    #menu-member a{
+        border-bottom:0px;
+    }
 </style>
 <body>
 <<!-- header class="navbar-wrapper" style="display:none">
