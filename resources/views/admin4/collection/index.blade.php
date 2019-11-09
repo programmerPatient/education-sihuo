@@ -23,7 +23,7 @@
 <title>收藏列表</title>
 </head>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页  <span class="c-gray en">&gt;</span> 收藏列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a><a href="javascript:;" onClick="suaxin()">退出</a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页  <span class="c-gray en">&gt;</span> 收藏列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a><a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:;" title="退出账户" onClick="suaxin()" ><i class="Hui-iconfont">&#xe726;</i></a></nav>
 <div class="page-container">
    <!--  <div class="cl pd-5 bg-1 bk-gray mt-20">
         <span class="l">
@@ -101,7 +101,7 @@ function suaxin(){
         $.ajax({
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             type: 'GET',
-            url: '/admin/public/logout',
+            url: '/adminfour/public/logout',
             // data:{'id':id,'type':type},
             dataType: 'json',
             success: function(data){
@@ -120,8 +120,8 @@ function suaxin(){
                         // $(obj).parents("tr").find(".td-status").html('<span class="label label radius">已停用</span>');
                         // $(obj).remove();
                         // layer.msg('已停用!',{icon: 6,time:1000});
-                    // }else{
-                        // layer.msg('停用失败!',{icon:2,time:2000});
+                    }else{
+                        layer.msg('停用失败!',{icon:2,time:2000});
                     }
             },
             error:function(data) {
