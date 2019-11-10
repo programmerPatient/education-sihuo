@@ -489,6 +489,8 @@ class ReportController extends Controller
           // $response = simplexml_load_string($response);
 
         }
+        $encode = mb_detect_encoding($response, array("ASCII",'UTF-8',"GB2312","GBK",'BIG5'));
+        dd($encode);
         $result['image'] = $response;
         return $result;
    }
