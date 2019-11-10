@@ -450,6 +450,7 @@ class ReportController extends Controller
         }
         foreach($result as $k=>$value){
             $c = AllReport::where('report_id',$value->report_id)->get()->first();
+            dd($c);
             $result[$k]['contentUrl'] = $c->contentUrl;
         }
 
