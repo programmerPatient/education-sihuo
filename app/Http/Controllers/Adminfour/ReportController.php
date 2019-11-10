@@ -464,7 +464,7 @@ class ReportController extends Controller
 
         /*获取用户的信息*/
         curl_setopt_array($curlt, array(
-        CURLOPT_URL =>  Session::get('tableau_domain')."/api/3.2/sites/".Session::get('credentials')."/views/01f71909-2e3e-46c1-9d75-980814aa7c2c/image",
+        CURLOPT_URL =>  Session::get('tableau_domain')."/api/3.2/sites/".Session::get('credentials')."/workbooks/1a1b1c1d-2e2f-2a2b-3c3d-3e3f4a4b4c4d/previewImage",
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => "",
         CURLOPT_MAXREDIRS => 10,
@@ -489,8 +489,9 @@ class ReportController extends Controller
           // $response = simplexml_load_string($response);
 
         }
-        $encode = mb_detect_encoding($response, array("ASCII",'UTF-8',"GB2312","GBK",'BIG5'));
-        $str_encode = mb_convert_encoding($response, 'UTF-8', $encode);
+        dd($response);
+        // $encode = mb_detect_encoding($response, array("ASCII",'UTF-8',"GB2312","GBK",'BIG5'));
+        // $str_encode = mb_convert_encoding($response, 'UTF-8', $encode);
         // dd($str_encode);
         $result['image'] = $str_encode;
         return $result;
