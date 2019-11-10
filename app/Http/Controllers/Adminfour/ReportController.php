@@ -490,7 +490,6 @@ class ReportController extends Controller
 
         }
         $result['image'] = $response;
-        dd($result);
 
 
         return $result;
