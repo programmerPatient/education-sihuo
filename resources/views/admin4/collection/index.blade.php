@@ -34,6 +34,10 @@
     font-weight: 700;
     font-family: "Microsoft soft";
 }
+#addindex a:hover {
+    text-decoration: none;
+    color:write;
+}
 </style>
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页  <span class="c-gray en">&gt;</span> 收藏列表<input type="text" placeholder="请输入搜索报表名称" onchange="InstantSearch(this)"> <a class="btn btn-danger radius r" style="line-height:1.6em;margin-top:3px;margin-left: 5px" href="javascript:;" title="退出账户" onClick="suaxin()" ><i class="Hui-iconfont">&#xe726;</i></a><a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
@@ -117,7 +121,7 @@ function InstantSearch(obj){
                 if(!c){
                     num = '<div class="col-xs-3 col-sm-3 " style="text-align:center;height:250px;padding:15px;"><a href="/adminfour/table/index?contentUrl='+data.contentUrl+'&filter='+data.filter+'"><img style="width:100%;height:80%" src="/images/siXaqiL5bi.jpg"><p style="line-height:50px;">'+data.report_name+'</p></a></div>';
                 }
-                $('.page-container').append('<div class="col-xs-12 col-sm-12 remove">'+num+'</div>');
+                $('.page-container').append('<div id="addindex" class="col-xs-12 col-sm-12 remove">'+num+'</div>');
 
             },
             error:function(data) {
