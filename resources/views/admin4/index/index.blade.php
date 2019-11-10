@@ -91,7 +91,7 @@
                  -moz-box-shadow: 10px 10px 10px rgba(0,0,0,.5);
 
                  -webkit-box-shadow: 10px 10px 10px rgba(0,0,0,.5);">
-                <img src="{{$system->logo_url}}" alt="logo图片位置" style="width:100px;max-height:30px;margin:0 auto;display: inline-block;">
+                <img src="{{$system->logo_url}}" alt="logo图片位置" style="width:80%;max-height:30px;margin:0 auto;display: inline-block;">
             </a></li>
             <li><a data-href="/adminfour/report/collection/index" data-title="收藏列表" href="javascript:;">收藏列表</a></li>
             @if($type == '1')
