@@ -444,7 +444,7 @@ class ReportController extends Controller
                 }
             }else{
                 $e = AllReport::where('report_id',$result->report_id)->get()->first();
-                    $result['contentUrl'] = $c->contentUrl;
+                    $result['contentUrl'] = $e->contentUrl;
             }
 
         }else{
