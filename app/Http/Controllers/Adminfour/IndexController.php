@@ -116,7 +116,7 @@ class IndexController extends Controller
                         $ds['report_name'] = $vaies->name;
                         $ds['contentUrl'] = $vaies->contentUrl;
                         $ds['project_name'] = $wok->project->name;
-                        $ds['workbook_name'] =  $wok->name;
+                        $ds['workBook_name'] =  $wok->name;
                         AllReport::insert($ds);
                     }
                     if($user){
