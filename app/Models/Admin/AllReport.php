@@ -9,7 +9,7 @@ class AllReport extends Model
     //
     protected $table = 'allreport';
 
-    protected $fillable = ['report_name','report_id','contentUrl'];
+    protected $fillable = ['report_name','report_id','contentUrl','project_name','workBook_name'];
 
     public $timestamps = false;
 }
