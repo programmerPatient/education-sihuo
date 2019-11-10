@@ -17,6 +17,8 @@ class CreateAllreportTable extends Migration
             $table->increments('id');
             $table->string('report_name');//报表名
             $table->string('report_id');//报表id
+            $table->string('workBook_name');//报表名
+            $table->string('project_id');//报表id
             $table->string('contentUrl');//报表contenturl
         });
     }

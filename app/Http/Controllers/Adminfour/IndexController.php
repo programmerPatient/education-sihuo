@@ -109,12 +109,14 @@ class IndexController extends Controller
                   echo "cURL Error #:" . $err;
                 } else {
                     $viesdata = json_decode($chilresponse)->workbook->views->view;
-
+                    $wok = json_decode($chilresponse)->workbook;
                     $ds = array();
                     foreach($viesdata as $keys => $vaies){//数据存入报表表
                         $ds['report_id'] = $vaies->id;
                         $ds['report_name'] = $vaies->name;
                         $ds['contentUrl'] = $vaies->contentUrl;
+                        $ds['project_name'] = $wok->project->name;
+                        $ds['workbook_name'] =  $wok->name;
                         AllReport::insert($ds);
                     }
                     if($user){

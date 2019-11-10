@@ -435,23 +435,29 @@ class ReportController extends Controller
             $result = RelationReport::where('report_name',$conditions)->get()->first();
             if(!$result){
                 $result = RelationReport::where('project_name',$conditions)->get();
+                if(!$result){
+                    $result = RelationReport::where('workBook_name',$conditions)->get();
+                }
+                foreach($result as $k=>$value){
+                    $c = AllReport::where('report_id',$value->report_id)->get()->first();
+                    $result[$k]['contentUrl'] = $c->contentUrl;
+                }
+            }else{
+                $e = AllReport::where('report_id',$result->report_id)->get()->first();
+                    $result['contentUrl'] = $c->contentUrl;
             }
-            if(!$result){
-                $result = RelationReport::where('workBook_name',$conditions)->get();
-            }
+
         }else{
-            $result = RelationReport::where('report_name',$conditions)->where('member_id',$user->id)->get()->first();
+            $result = AllReport::where('report_name',$conditions)->get()->first();
             if(!$result){
-                $result = RelationReport::where('project_name',$conditions)->where('member_id',$user->id)->get();
+                $result = AllReport::where('project_name',$conditions)->get();
+                if(!$result){
+                    $result = AllReport::where('workBook_name',$conditions)->get();
+                }
             }
-            if(!$result){
-                $result = RelationReport::where('workBook_name',$conditions)->where('member_id',$user->id)->get();
-            }
+
         }
-        foreach($result as $k=>$value){
-            $c = AllReport::where('report_id',$value->report_id)->get()->first();
-            $result[$k]['contentUrl'] = $c->contentUrl;
-        }
+
 
         return $result;
    }
