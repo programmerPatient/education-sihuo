@@ -66,7 +66,7 @@
         background-color:#23262e;
     }
 
-    .Hui-aside .menu-gropdown #menu-member #logo a:hover {
+    #menu-member #logo a:hover {
         background-color:#23262e;
     }
 </style>
