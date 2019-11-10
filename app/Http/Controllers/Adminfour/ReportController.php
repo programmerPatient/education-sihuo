@@ -489,8 +489,8 @@ class ReportController extends Controller
           // $response = simplexml_load_string($response);
 
         }
-        $result['image'] = $data;
-        dd($response);
+        $result['image'] = $response;
+        dd($result);
 
 
         return $result;
