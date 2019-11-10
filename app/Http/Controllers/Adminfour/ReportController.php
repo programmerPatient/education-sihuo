@@ -457,7 +457,7 @@ class ReportController extends Controller
             }
 
         }
-        dd($result);
+        // dd($result);
 
 
         //获取缩略图
@@ -465,7 +465,7 @@ class ReportController extends Controller
 
         /*获取用户的信息*/
         curl_setopt_array($curlt, array(
-        CURLOPT_URL =>  Session::get('tableau_domain')."/api/3.2/sites/".Session::get('credentials')."/workbooks/1a1b1c1d-2e2f-2a2b-3c3d-3e3f4a4b4c4d/previewImage",
+        CURLOPT_URL =>  Session::get('tableau_domain')."/api/3.2/sites/".Session::get('credentials')."/workbooks/e51bfd80-8148-49fb-8a23-b177a73beb60/previewImage",
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => "",
         CURLOPT_MAXREDIRS => 10,
