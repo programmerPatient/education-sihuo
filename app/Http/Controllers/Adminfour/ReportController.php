@@ -490,7 +490,7 @@ class ReportController extends Controller
 
         }
         $result['image'] = $response;
-        echo '<img style="width:100%;height:80%" src="'.$response.'"><p style="line-height:50px;">'
+        echo '<img style="width:100%;height:80%" src="'.$response.'"><p style="line-height:50px;">';
 
         return $result;
    }
