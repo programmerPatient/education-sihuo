@@ -457,6 +457,7 @@ class ReportController extends Controller
             }
 
         }
+        dd($result);
 
 
         //获取缩略图
