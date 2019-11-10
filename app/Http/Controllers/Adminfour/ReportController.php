@@ -432,11 +432,11 @@ class ReportController extends Controller
         }
 
         if(!$ls){
-            $result = RelationReport::where('report_name',$conditions)->get()->first();
+            $result = RelationReport::where('report_name',$conditions)->where('member_id',$user->id)->get()->first();
             if(!$result){
-                $result = RelationReport::where('project_name',$conditions)->get();
+                $result = RelationReport::where('project_name',$conditions)->where('member_id',$user->id)->get();
                 if(!$result){
-                    $result = RelationReport::where('workBook_name',$conditions)->get();
+                    $result = RelationReport::where('workBook_name',$conditions)->where('member_id',$user->id)->get();
                 }
                 foreach($result as $k=>$value){
                     $c = AllReport::where('report_id',$value->report_id)->get()->first();
