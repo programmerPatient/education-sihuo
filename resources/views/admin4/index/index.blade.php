@@ -65,6 +65,10 @@
     .Hui-aside #menu-member #log a:hover{
         background-color:#23262e;
     }
+
+    .Hui-aside .menu-gropdown #menu-member #logo a:hover {
+        background-color:#23262e;
+    }
 </style>
 <body>
 <header class="navbar-wrapper">
