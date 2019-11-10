@@ -79,6 +79,10 @@ class IndexController extends Controller
             //     $data = $u;
             // }
             // $rs = $response->toArray();
+            $allreport = AllReport::get();
+            foreach($allreport as $all=>$repo){
+                $repo->delete();
+            }
             foreach($data as $key=>$val){
                 $id = $val->project->id;
                 $curlt = curl_init();
@@ -105,10 +109,7 @@ class IndexController extends Controller
                   echo "cURL Error #:" . $err;
                 } else {
                     $viesdata = json_decode($chilresponse)->workbook->views->view;
-                    $allreport = AllReport::get();
-                    foreach($allreport as $all=>$repo){
-                        $repo->delete();
-                    }
+
                     $ds = array();
                     foreach($viesdata as $keys => $vaies){//数据存入报表表
                         $ds['report_id'] = $vaies->id;

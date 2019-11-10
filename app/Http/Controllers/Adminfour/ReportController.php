@@ -448,10 +448,8 @@ class ReportController extends Controller
                 $result = RelationReport::where('workBook_name',$conditions)->where('member_id',$user->id)->get();
             }
         }
-        dd($result);
         foreach($result as $k=>$value){
             $c = AllReport::where('report_id',$value->report_id)->get()->first();
-            dd($c);
             $result[$k]['contentUrl'] = $c->contentUrl;
         }
 
