@@ -447,6 +447,10 @@ class ReportController extends Controller
                 $result = RelationReport::where('workBook_name',$conditions)->where('member_id',$user->id)->get();
             }
         }
+        foreach($result as $k=>$value){
+            $c = AllReport::where('report_id',$value->report_id)->get()->first();
+            $result[$k]['contentUrl'] = $c->contentUrl;
+        }
 
         return $result;
    }
