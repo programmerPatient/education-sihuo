@@ -110,7 +110,7 @@ function InstantSearch(obj){
             dataType: 'json',
             success: function(data){
 
-                console.log(data);
+                // console.log(data);
                 $('.remove').remove();
                 $('.dataTables_wrapper').remove();
                 var num = '';
