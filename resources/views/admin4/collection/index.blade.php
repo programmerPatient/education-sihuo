@@ -121,7 +121,7 @@ function InstantSearch(obj){
                 }
                 if(!c){
                     // num = '<div class="col-xs-3 col-sm-3 " style="text-align:center;height:250px;padding:15px;"><a href="/adminfour/table/index?contentUrl='+data.contentUrl+'&filter='+data.filter+'"><img style="width:100%;height:80%" src="/images/siXaqiL5bi.jpg"><p style="line-height:50px;">'+data.report_name+'</p></a></div>';
-                    num = '<div class="col-xs-3 col-sm-3 " style="text-align:center;height:250px;padding:15px;"><a href="/adminfour/table/index?contentUrl='+data.contentUrl+'&filter='+data.filter+'"><img style="width:100%;height:80%" src="'+data.image+'"><p style="line-height:50px;">'+data.report_name+'</p></a></div>';
+                    num = '<div class="col-xs-3 col-sm-3 " style="text-align:center;height:250px;padding:15px;"><a href="/adminfour/table/index?contentUrl='+data.contentUrl+'&filter='+data.filter+'"><img style="width:100%;height:80%" src="'+encodeURI(data.image)+'"><p style="line-height:50px;">'+data.report_name+'</p></a></div>';
                 }
                 $('.page-container').append('<div id="addindex" class="col-xs-12 col-sm-12 remove">'+num+'</div>');
 
