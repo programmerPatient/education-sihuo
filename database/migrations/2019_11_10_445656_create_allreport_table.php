@@ -13,7 +13,7 @@ class CreateAllreportTable extends Migration
      */
     public function up()
     {
-        Schema::create('allerport', function (Blueprint $table) {
+        Schema::create('allreport', function (Blueprint $table) {
             $table->increments('id');
             $table->string('report_name');//报表名
             $table->string('report_id');//报表id
