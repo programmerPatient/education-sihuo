@@ -104,6 +104,7 @@ class IndexController extends Controller
                   echo "cURL Error #:" . $err;
                 } else {
                     $viesdata = json_decode($chilresponse)->workbook->views->view;
+                    dd($viesdata);
                     if($user){
                         $member_group = RelationReport::where('member_id',$user->id)->get();
                     }
