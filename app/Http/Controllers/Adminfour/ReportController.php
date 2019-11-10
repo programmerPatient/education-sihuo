@@ -431,7 +431,7 @@ class ReportController extends Controller
             $user = Auth::guard('member')->user();
         }
 
-        if($ls){
+        if(!$ls){
             $result = RelationReport::where('report_name',$conditions)->get()->first();
             if(!$result){
                 $result = RelationReport::where('project_name',$conditions)->get();
