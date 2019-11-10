@@ -490,6 +490,7 @@ class ReportController extends Controller
             $data = json_decode($response);
         }
         $result['image'] = $data;
+        dd($data);
 
 
         return $result;
