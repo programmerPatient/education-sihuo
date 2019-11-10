@@ -109,7 +109,8 @@ function InstantSearch(obj){
             data:{'conditions':conditions,},
             dataType: 'json',
             success: function(data){
-                console.log(data.project_name);
+
+                console.log(data);
                 $('.remove').remove();
                 $('.dataTables_wrapper').remove();
                 var num = '';
