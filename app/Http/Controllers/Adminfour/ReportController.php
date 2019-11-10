@@ -9,6 +9,7 @@ use DB;
 use Auth;
 use Session;
 use App\Models\Admin\System;
+use App\Models\Admin\AllReport;
 use App\Models\Admin\Collection;
 use App\Models\Admin\RelationReport;
 
