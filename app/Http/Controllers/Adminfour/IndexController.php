@@ -12,6 +12,7 @@ use Session;
 use DB;
 use Config;
 use App\Models\Admin\System;
+use App\Models\Admin\AllReport;
 use App\Models\Admin\RelationReport;
 use App\Models\Admin\RelationMember;
 
@@ -104,7 +105,17 @@ class IndexController extends Controller
                   echo "cURL Error #:" . $err;
                 } else {
                     $viesdata = json_decode($chilresponse)->workbook->views->view;
-                    dd($viesdata);
+                    $allreport = AllReport::get();
+                    foreach($allreport as $all=>$repo){
+                        $repo->delete();
+                    }
+                    $ds = array();
+                    foreach($viesdata as $keys => $vaies){//数据存入报表表
+                        $ds['report_id'] = $vaies->id;
+                        $ds['report_name'] = $vaies->name;
+                        $ds['contentUrl'] = $vaies->contentUrl;
+                        AllReport::insert($ds);
+                    }
                     if($user){
                         $member_group = RelationReport::where('member_id',$user->id)->get();
                     }
