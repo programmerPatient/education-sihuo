@@ -111,7 +111,7 @@ function InstantSearch(obj){
                 var num = '';
                 var c = false;
                 for (i=0;i<data.length;i++){
-                    num += '<div class="col-xs-3 col-sm-3" style="background-color:red;text-align:center;">'+data[i].project_name+'</div>';
+                    num += '<div class="col-xs-3 col-sm-3 " style="background-color:red;text-align:center;height:100px;"><img style="width:100%;height:100%" src="/images/siXaqiL5bi.jpg"></div>';
                     c = true;
                 }
                 if(!c){
