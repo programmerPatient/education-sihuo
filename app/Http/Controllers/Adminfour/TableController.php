@@ -27,6 +27,7 @@ class TableController extends Controller
         }else{
             $username = $name->tableau_id;
         }
+        dd($username);
 
         $curl = curl_init();
 
