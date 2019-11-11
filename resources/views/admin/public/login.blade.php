@@ -31,7 +31,7 @@
 <div class="loginWraper" style="background:#e0e5e8">
   <div id="loginform" class="loginBox" style="padding-top:0;background:#fff">
     <div class="formControls" style="text-align:center;">
-      <h4 style="padding-top:20px;">{{$system->web_title}}</h4>
+      <h4 style="padding-top:10px;">{{$system->web_title}}</h4>
     </div>
     <form class="form form-horizontal" action="/admin/public/check" method="post">
         <div class="row cl" style="margin-left:145px;line-height:41px;">
