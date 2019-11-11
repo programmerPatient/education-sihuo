@@ -31,7 +31,7 @@
 <div class="loginWraper" style="background:#d8dee1">
   <div id="loginform" class="loginBox" style="padding-top:0;background:#fff">
     <div class="formControls" style="text-align:center;">
-      <h4>{{$system->web_title}}</h4>
+      <h4 style="padding-top:20px;">{{$system->web_title}}</h4>
     </div>
     <form class="form form-horizontal" action="/admin/public/check" method="post">
         <div class="row cl" style="margin-left:145px;line-height:41px;">
@@ -73,7 +73,7 @@
     </form>
   </div>
 </div>
-<div class="footer" style="background:#d8dee1;color:#fff">{{$system->company}}</div>
+<div class="footer" style="background:#d8dee1;color:#000">{{$system->company}}</div>
 <script type="text/javascript" src="/admin/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="/admin/static/h-ui/js/H-ui.min.js"></script>
 <script type="text/javascript" src="/admin/lib/layer/2.4/layer.js"></script>
