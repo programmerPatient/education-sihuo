@@ -28,7 +28,7 @@ class TableController extends Controller
             $username = $name->tableau_id;
         }
         // echo "".$username."and".Session::get('tableau_domain');
-        dd(Session::get('tableau_domain'));
+        // dd(Session::get('tableau_domain'));
 
         $curl = curl_init();
 
@@ -47,6 +47,7 @@ class TableController extends Controller
             "Accept: application/json",
           ),
         ));
+        dd($response);
         $response = curl_exec($curl);
         if(!$response) {
                 return view('admin4.error.index');
