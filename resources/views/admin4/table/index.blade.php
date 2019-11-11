@@ -45,7 +45,7 @@
             <param name='display_count' value='yes' />
         </object>
     </div> -->
-    <div class='tableauPlaceholder' style='width: 1016px; height: 1014px;'>
+    <div class='tableauPlaceholder'>
         <button onClick="collection('{{$filter}}','{{$hascontentUrl}}','{{$report_id}}')" class="btn btn-primary radius" style="position:fixed;right:0;top:48%;bottom:0;">收藏</button>
         <object id="obj" class='tableauViz' width='500' height='1014' style='display:none;'>
             <param name="ticket" value="{{$ticket}}" />
@@ -98,7 +98,7 @@
     var width = document.body.clientWidth;
     var height =  window.screen.availHeight;
     document.getElementById('obj').width = width;
-    document.getElementById('obj').height = height-100;
+    document.getElementById('obj').height = height;
     window.onresize = function(){
         //监听浏览器窗口的大小的改变
         width = document.body.clientWidth;
