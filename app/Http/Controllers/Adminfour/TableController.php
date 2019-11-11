@@ -47,8 +47,8 @@ class TableController extends Controller
             "Accept: application/json",
           ),
         ));
-        dd($response);
         $response = curl_exec($curl);
+        dd($response);
         if(!$response) {
                 return view('admin4.error.index');
         }
