@@ -57,7 +57,7 @@ class TableController extends Controller
           echo "cURL Error #:" . $err;
         } else {
             $ticket = $response;
-            // dd($response);
+            dd($response);
         }
 
         // $contentUrl = $request->all()['contentUrl'];
