@@ -34,6 +34,10 @@
     font-weight: 700;
     font-family: "Microsoft soft";
 }
+#addindex a:hover {
+    text-decoration: none;
+    color:write;
+}
 </style>
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户中心 <span class="c-gray en">&gt;</span> 用户管理 <input id="search" type="text" placeholder="请输入搜索报表名称" onchange="InstantSearch(this)"><a class="btn btn-danger radius r" style="line-height:1.6em;margin-top:3px;margin-left:5px;" href="javascript:;" title="退出账户" onClick="suaxin()" ><i class="Hui-iconfont">&#xe726;</i></a><a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>

@@ -39,6 +39,10 @@
     font-weight: 700;
     font-family: "Microsoft soft";
 }
+#addindex a:hover {
+    text-decoration: none;
+    color:write;
+}
 </style>
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页
