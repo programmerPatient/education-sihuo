@@ -432,20 +432,20 @@ class ReportController extends Controller
         }
 
         if(!$ls){
-            $result = RelationReport::where('report_name',$conditions)->where('member_id',$user->id)->get()->first();
-            if(!$result){
-                $result = RelationReport::where('project_name',$conditions)->where('member_id',$user->id)->get();
-                if(!$result){
-                    $result = RelationReport::where('workBook_name',$conditions)->where('member_id',$user->id)->get();
-                }
+            $result = RelationReport::where('report_name','like','%'.$conditions.'%')->orwhere('project_name','like','%'.$conditions.'%')->orwhere('workBook_name','like','%'.$conditions.'%')->where('member_id',$user->id)->get()->first();
+            // if(!$result){
+            //     $result = RelationReport::where('project_name',$conditions)->where('member_id',$user->id)->get();
+            //     if(!$result){
+            //         $result = RelationReport::where('workBook_name',$conditions)->where('member_id',$user->id)->get();
+            //     }
                 foreach($result as $k=>$value){
                     $c = AllReport::where('report_id',$value->report_id)->get()->first();
                     $result[$k]['contentUrl'] = $c->contentUrl;
                 }
-            }else{
-                $e = AllReport::where('report_id',$result->report_id)->get()->first();
-                    $result['contentUrl'] = $e->contentUrl;
-            }
+            // }else{
+            //     $e = AllReport::where('report_id',$result->report_id)->get()->first();
+            //         $result['contentUrl'] = $e->contentUrl;
+            // }
 
         }else{
             $result = AllReport::where('report_name','like','%'.$conditions.'%')->orwhere('project_name','like','%'.$conditions.'%')->orwhere('workBook_name','like','%'.$conditions.'%')->get();
