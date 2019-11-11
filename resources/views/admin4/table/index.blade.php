@@ -89,16 +89,10 @@
 <script type="text/javascript" src="/admin/lib/layer/2.4/layer.js"></script>
 <script type="text/javascript">
 
-
-    console.log(document.body.scrollHeight);
-    console.log(document.body.offsetHeight);
-    console.log(window.screen.availHeight);
-    console.log(document.body.clientHeight);
-
     var width = document.body.clientWidth;
     var height =  window.screen.availHeight;
     document.getElementById('obj').width = width;
-    document.getElementById('obj').height = height-100;
+    document.getElementById('obj').height = height;
     window.onresize = function(){
         //监听浏览器窗口的大小的改变
         width = document.body.clientWidth;
