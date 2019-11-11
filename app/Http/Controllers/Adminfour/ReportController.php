@@ -448,7 +448,7 @@ class ReportController extends Controller
             }
 
         }else{
-            $result = AllReport::where('report_name','like','%'.$conditions.'%')->orwhere('project_name','like','%'.$conditions.'%')->oewhere('workBook_name','like','%'.$conditions.'%')->get();
+            $result = AllReport::where('report_name','like','%'.$conditions.'%')->orwhere('project_name','like','%'.$conditions.'%')->orwhere('workBook_name','like','%'.$conditions.'%')->get();
             // if(!$result){
             //     $result = AllReport::where('project_name',$conditions)->get();
             //     if(!$result){
