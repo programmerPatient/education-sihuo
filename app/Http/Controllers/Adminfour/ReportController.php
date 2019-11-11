@@ -432,7 +432,7 @@ class ReportController extends Controller
         }
 
         if(!$ls){
-            $result = RelationReport::->where('member_id',$user->id)->where(function($query){
+            $result = RelationReport::where('member_id',$user->id)->where(function($query){
                 $query->where('report_name','like','%'.$conditions.'%')->orwhere('project_name','like','%'.$conditions.'%')->orwhere('workBook_name','like','%'.$conditions.'%')->
             })->get();
             // dd($result);
