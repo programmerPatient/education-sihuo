@@ -26,12 +26,25 @@
 
 <title>excel数据导入</title>
 </head>
+<style>
+    input{
+        margin-left:20px;
+    outline-style: none ;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 200px;
+    padding:5px 5px;
+    font-size: 10px;
+    font-weight: 700;
+    font-family: "Microsoft soft";
+}
+</style>
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页
-    excel数据导入<a class="btn btn-danger radius r" style="line-height:1.6em;margin-top:3px;margin-left: 5px" href="javascript:;" title="退出账户" onClick="suaxin()" ><i class="Hui-iconfont">&#xe726;</i></a>
+    excel数据导入<input id="search" type="text" placeholder="请输入搜索报表名称" onchange="InstantSearch(this)"><a class="btn btn-danger radius r" style="line-height:1.6em;margin-top:3px;margin-left: 5px" href="javascript:;" title="退出账户" onClick="suaxin()" ><i class="Hui-iconfont">&#xe726;</i></a>
 </nav>
 <div class="page-container">
-    <form class="form form-horizontal" id="form-article-add">
+    <form class="form form-horizontal  remove" id="form-article-add">
         <div id="tab-system" class="HuiTab">
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">
@@ -138,6 +151,39 @@
 <script type="text/javascript" src="/admin/lib/jquery.validation/1.14.0/validate-methods.js"></script>
 <script type="text/javascript" src="/admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript">
+
+function InstantSearch(obj){
+    var conditions = obj.value;
+    $.ajax({
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            type: 'POST',
+            url: '/adminfour/search/report',
+            data:{'conditions':conditions,},
+            dataType: 'json',
+            success: function(data){
+
+                // console.log(data);
+                $('.remove').remove();
+                $('.dataTables_wrapper').remove();
+                var num = '';
+                var c = false;
+                for (i=0;i<data.length;i++){
+                    num += '<div class="col-xs-3 col-sm-3 " style="text-align:center;height:250px;padding:15px;"><a href="/adminfour/table/index?contentUrl='+data[i].contentUrl+'&filter='+data[i].filter+'"><img style="width:100%;height:80%" src="/images/siXaqiL5bi.jpg"><p style="line-height:50px;">'+data[i].report_name+'</p></a></div>';
+                    c = true;
+                }
+                if(!c){
+                    // num = '<div class="col-xs-3 col-sm-3 " style="text-align:center;height:250px;padding:15px;"><a href="/adminfour/table/index?contentUrl='+data.contentUrl+'&filter='+data.filter+'"><img style="width:100%;height:80%" src="/images/siXaqiL5bi.jpg"><p style="line-height:50px;">'+data.report_name+'</p></a></div>';
+                    num = '<div class="col-xs-3 col-sm-3 " style="text-align:center;height:250px;padding:15px;"><a href="/adminfour/table/index?contentUrl='+data.contentUrl+'&filter='+data.filter+'"><img style="width:100%;height:80%" src="'+'{{Session::get('tableau_domain')}}'+'/api/3.2/sites/'+'{{Session::get('credentials')}}'+'/workbooks/e51bfd80-8148-49fb-8a23-b177a73beb60/previewImage2'+'"><p style="line-height:50px;">'+data.report_name+'</p></a></div>';
+                }
+                $('.page-container').append('<div id="addindex" class="col-xs-12 col-sm-12 remove">'+num+'</div>');
+
+            },
+            error:function(data) {
+                alert('停用失败，请联系管理员是否已经授权');
+            },
+        });
+}
+
 function suaxin(){
     layer.confirm('确认要退出账户吗？',function(index){
         $.ajax({

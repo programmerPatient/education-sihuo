@@ -22,16 +22,29 @@
 <![endif]-->
 <title>报表管理</title>
 </head>
+<style>
+    #search{
+        margin-left:20px;
+    outline-style: none ;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 200px;
+    padding:5px 5px;
+    font-size: 10px;
+    font-weight: 700;
+    font-family: "Microsoft soft";
+}
+</style>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 报表管理 <a class="btn btn-danger radius r" style="line-height:1.6em;margin-top:3px;margin-left:5px;" href="javascript:;" title="退出账户" onClick="suaxin()" ><i class="Hui-iconfont">&#xe726;</i></a><a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 报表管理 <input id="search" type="text" placeholder="请输入搜索报表名称" onchange="InstantSearch(this)"><a class="btn btn-danger radius r" style="line-height:1.6em;margin-top:3px;margin-left:5px;" href="javascript:;" title="退出账户" onClick="suaxin()" ><i class="Hui-iconfont">&#xe726;</i></a><a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
-    <div class="cl pd-5 bg-1 bk-gray mt-20">
+    <div class="cl pd-5 bg-1 bk-gray mt-20 remove">
         <span class="l">
             <a href="javascript:;" onclick="groups()" class="btn btn-success radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量项目组映射</a>
             <a href="javascript:;" onclick="usergroup()" class="btn btn-success radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量分配用户组</a>
         </span>
     </div>
-    <table class="table table-border table-bordered table-hover table-bg table-sort">
+    <table class="table table-border table-bordered table-hover table-bg table-sort remove">
         <thead>
             <tr class="text-c">
                 <th width="25"><input type="checkbox" name="" value=""></th>
@@ -69,7 +82,6 @@
             @endforeach
         </tbody>
     </table>
-    </div>
 </div>
 <!--_footer 作为公共模版分离出去-->
 <script type="text/javascript" src="/admin/lib/jquery/1.9.1/jquery.min.js"></script>
@@ -82,6 +94,39 @@
 <script type="text/javascript" src="/admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="/admin/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
+
+function InstantSearch(obj){
+    var conditions = obj.value;
+    $.ajax({
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            type: 'POST',
+            url: '/adminfour/search/report',
+            data:{'conditions':conditions,},
+            dataType: 'json',
+            success: function(data){
+
+                // console.log(data);
+                $('.remove').remove();
+                $('.dataTables_wrapper').remove();
+                var num = '';
+                var c = false;
+                for (i=0;i<data.length;i++){
+                    num += '<div class="col-xs-3 col-sm-3 " style="text-align:center;height:250px;padding:15px;"><a href="/adminfour/table/index?contentUrl='+data[i].contentUrl+'&filter='+data[i].filter+'"><img style="width:100%;height:80%" src="/images/siXaqiL5bi.jpg"><p style="line-height:50px;">'+data[i].report_name+'</p></a></div>';
+                    c = true;
+                }
+                if(!c){
+                    // num = '<div class="col-xs-3 col-sm-3 " style="text-align:center;height:250px;padding:15px;"><a href="/adminfour/table/index?contentUrl='+data.contentUrl+'&filter='+data.filter+'"><img style="width:100%;height:80%" src="/images/siXaqiL5bi.jpg"><p style="line-height:50px;">'+data.report_name+'</p></a></div>';
+                    num = '<div class="col-xs-3 col-sm-3 " style="text-align:center;height:250px;padding:15px;"><a href="/adminfour/table/index?contentUrl='+data.contentUrl+'&filter='+data.filter+'"><img style="width:100%;height:80%" src="'+'{{Session::get('tableau_domain')}}'+'/api/3.2/sites/'+'{{Session::get('credentials')}}'+'/workbooks/e51bfd80-8148-49fb-8a23-b177a73beb60/previewImage2'+'"><p style="line-height:50px;">'+data.report_name+'</p></a></div>';
+                }
+                $('.page-container').append('<div id="addindex" class="col-xs-12 col-sm-12 remove">'+num+'</div>');
+
+            },
+            error:function(data) {
+                alert('停用失败，请联系管理员是否已经授权');
+            },
+        });
+}
+
 function suaxin(){
     layer.confirm('确认要退出账户吗？',function(index){
         $.ajax({
