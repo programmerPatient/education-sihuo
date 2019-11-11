@@ -92,7 +92,7 @@
     var width = document.body.clientWidth;
     var height =  window.screen.availHeight;
     document.getElementById('obj').width = width;
-    document.getElementById('obj').height = height;
+    document.getElementById('obj').height = height-100;
     window.onresize = function(){
         //监听浏览器窗口的大小的改变
         width = document.body.clientWidth;
