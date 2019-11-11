@@ -84,7 +84,7 @@
 <aside class="Hui-aside" style="top:0;background-color: #23262e">
     <div class="menu_dropdown bk_2" >
         <dl id="menu-member">
-            <li id="logo"><a class="logo navbar-logo f-l mr-10 hidden-xs" href="/adminfour/index/index" style="width:100%;padding:4px 0;text-align: center;box-shadow: 10px 10px 10px rgba(0,0,0,.5);
+            <li id="logo"><a class="logo navbar-logo f-l mr-10 hidden-xs" data-href="/adminfour/index/index" style="width:100%;padding:4px 0;text-align: center;box-shadow: 10px 10px 10px rgba(0,0,0,.5);
 
                  /*考虑浏览器兼容性*/
 
