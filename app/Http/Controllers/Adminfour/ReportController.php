@@ -448,13 +448,13 @@ class ReportController extends Controller
             }
 
         }else{
-            $result = AllReport::where('report_name',$conditions)->get()->first();
-            if(!$result){
-                $result = AllReport::where('project_name',$conditions)->get();
-                if(!$result){
-                    $result = AllReport::where('workBook_name',$conditions)->get();
-                }
-            }
+            $result = AllReport::when('report_name','like','%'.$conditions.'%')->orwhen('project_name','like','%'.$conditions.'%')->oewhen('workBook_name','like','%'.$conditions.'%')->get();
+            // if(!$result){
+            //     $result = AllReport::where('project_name',$conditions)->get();
+            //     if(!$result){
+            //         $result = AllReport::where('workBook_name',$conditions)->get();
+            //     }
+            // }
 
         }
         // dd($result);
