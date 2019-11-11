@@ -151,7 +151,6 @@ class PublicController extends Controller
               echo "cURL Error #:" . $err;
             } else {
                 $res = json_decode($response);
-                dd()
                 Session::put('token',$res->credentials->token);
                 Session::put('credentials',$res->credentials->site->id);
                 /*获取用户列表*/
