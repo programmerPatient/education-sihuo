@@ -96,13 +96,13 @@
     console.log(document.body.clientHeight);
 
     var width = document.body.clientWidth;
-    var height =  document.body.clientHeight;
+    var height =  window.screen.availHeight;
     document.getElementById('obj').width = width;
     document.getElementById('obj').height = height-100;
     window.onresize = function(){
         //监听浏览器窗口的大小的改变
         width = document.body.clientWidth;
-        height =  document.body.clientHeight-100;
+        height =  window.screen.availHeight;
         document.getElementById('obj').width = width;
         document.getElementById('obj').height = height;
         window.location.reload();
