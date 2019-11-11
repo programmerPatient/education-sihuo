@@ -27,7 +27,7 @@ class TableController extends Controller
         }else{
             $username = $name->tableau_id;
         }
-        echo "".$username."and".Session::get('tableau_domain');
+        // echo "".$username."and".Session::get('tableau_domain');
 
         $curl = curl_init();
 
@@ -56,6 +56,7 @@ class TableController extends Controller
           echo "cURL Error #:" . $err;
         } else {
             $ticket = $response;
+            dd($response);
         }
 
         // $contentUrl = $request->all()['contentUrl'];
