@@ -174,7 +174,6 @@ class PublicController extends Controller
                   echo "cURL Error #:" . $err;
                 } else {
                   // dd(json_decode($response));
-                    dd($response);
                     if(!$response) {
                         return view('admin.error.index');
                     }
