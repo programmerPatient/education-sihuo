@@ -28,7 +28,6 @@ class TableController extends Controller
             $username = $name->tableau_id;
         }
 
-        dd(Session::get('tableau_domain'));
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
@@ -39,7 +38,7 @@ class TableController extends Controller
         CURLOPT_TIMEOUT => 30,
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         CURLOPT_CUSTOMREQUEST => "POST",
-        CURLOPT_POSTFIELDS => "{\"username\":\"admin\"}",
+        CURLOPT_POSTFIELDS => "{\"username\":\"".$username."\"}",
         CURLOPT_HTTPHEADER => array(
             "User-Agent: TabCommunicate",
             "Content-Type: application/json",
