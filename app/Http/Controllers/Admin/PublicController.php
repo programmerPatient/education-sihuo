@@ -121,7 +121,6 @@ class PublicController extends Controller
         $system = System::get()->first();
         $username = $system->tableau_username;
         $password = $system->tableau_password;
-        dd($password);
         // dd($password);
         //判断是否成功
         if($result){
@@ -143,6 +142,7 @@ class PublicController extends Controller
               ),
             ));
             $response = curl_exec($curl);
+            dd($response);
             if(!$response) {
                 return view('admin.error.index');
             }
@@ -151,6 +151,7 @@ class PublicController extends Controller
               echo "cURL Error #:" . $err;
             } else {
                 $res = json_decode($response);
+                dd()
                 Session::put('token',$res->credentials->token);
                 Session::put('credentials',$res->credentials->site->id);
                 /*获取用户列表*/
