@@ -432,7 +432,7 @@ class ReportController extends Controller
         }
 
         if(!$ls){
-            $result = RelationReport::where('report_name','like','%'.$conditions.'%')->orwhere('project_name','like','%'.$conditions.'%')->orwhere('workBook_name','like','%'.$conditions.'%')->where('member_id',$user->id)->get()->first();
+            $result = RelationReport::where('report_name','like','%'.$conditions.'%')->orwhere('project_name','like','%'.$conditions.'%')->orwhere('workBook_name','like','%'.$conditions.'%')->where('member_id',$user->id)->get();
             // dd($result);
             // if(!$result){
             //     $result = RelationReport::where('project_name',$conditions)->where('member_id',$user->id)->get();
