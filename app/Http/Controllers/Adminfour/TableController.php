@@ -20,7 +20,10 @@ class TableController extends Controller
         // $name = Manager::get()->first();
         $name = Auth::guard('member')->user();
         if(!$name){
-            $username = Auth::guard('admin')->user()->username;
+            $user = Auth::guard('admin')->user();
+            if($user){
+                $username = System::get()->first()->tableau_username;
+            }
         }else{
             $username = $name->tableau_id;
         }
