@@ -35,7 +35,7 @@
     </div>
     <form class="form form-horizontal" action="/admin/public/check" method="post">
         <div class="row cl" style="margin-left:145px;line-height:41px;">
-          <label class="form-label col-xs-8"><img src="{{$system->logo_url}}" alt="" style="height:41px;width:360px;"></label>
+          <label class="form-label col-xs-8"><img src="{{$system->logo_url}}" alt="" style="height:70px;width:360px;"></label>
         </div>
         <div class="row cl">
           <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60d;</i></label>
