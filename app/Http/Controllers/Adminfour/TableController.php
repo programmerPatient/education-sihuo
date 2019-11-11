@@ -27,8 +27,8 @@ class TableController extends Controller
         }else{
             $username = $name->tableau_id;
         }
-        echo "".$username."and".Session::get('tableau_domain');
-        // dd(Session::get('tableau_domain'));
+        // echo "".$username."and".Session::get('tableau_domain');
+        dd($username);
 
         $curl = curl_init();
 
