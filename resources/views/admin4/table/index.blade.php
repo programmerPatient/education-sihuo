@@ -49,7 +49,7 @@
         <button onClick="collection('{{$filter}}','{{$hascontentUrl}}','{{$report_id}}')" class="btn btn-primary radius" style="position:fixed;right:0;top:48%;bottom:0;">收藏</button>
         <object id="obj" class='tableauViz' width='500' height='1014' style='display:none;'>
             <param name="ticket" value="{{$ticket}}" />
-            <param name='host_url' value='{{Session::get("tableau_domain")}}' />
+            <param name='host_url' value='{{Session::get("tableau_domain")}}/' />
             <param name='embed_code_version' value='3' />
             <param name='site_root' value='' />
             <param name='name' value='{{$contentUrl}}' />
