@@ -48,7 +48,7 @@ class TableController extends Controller
           ),
         ));
         $response = curl_exec($curl);
-        dd($response);
+        // dd($response);
         if(!$response) {
                 return view('admin4.error.index');
         }
