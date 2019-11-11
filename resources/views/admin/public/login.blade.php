@@ -21,14 +21,14 @@
 <title>后台登录</title>
 <meta name="keywords" content="H-ui.admin v3.1,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
 <meta name="description" content="H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
-</hea45
+</header>
 <script>
   window.history.go(1);
 </script>
 <body>
 <input type="hidden" id="TenantId" name="TenantId" value="" />
 <!-- <div class="header"></div> -->
-<div class="loginWraper">
+<div class="loginWraper" style="background-color:#d8dee1">
   <div id="loginform" class="loginBox" style="padding-top:0">
     <div class="formControls" style="text-align:center;">
       <h4>{{$system->web_title}}</h4>
@@ -73,7 +73,7 @@
     </form>
   </div>
 </div>
-<div class="footer">{{$system->company}}</div>
+<div class="footer" style="background-color:#d8dee1;color:#fff">{{$system->company}}</div>
 <script type="text/javascript" src="/admin/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="/admin/static/h-ui/js/H-ui.min.js"></script>
 <script type="text/javascript" src="/admin/lib/layer/2.4/layer.js"></script>
