@@ -142,7 +142,6 @@ class PublicController extends Controller
               ),
             ));
             $response = curl_exec($curl);
-            dd($response);
             if(!$response) {
                 return view('admin.error.index');
             }
@@ -151,6 +150,7 @@ class PublicController extends Controller
               echo "cURL Error #:" . $err;
             } else {
                 $res = json_decode($response);
+                dd($res);
                 Session::put('token',$res->credentials->token);
                 Session::put('credentials',$res->credentials->site->id);
                 /*获取用户列表*/
