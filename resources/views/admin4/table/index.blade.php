@@ -89,6 +89,12 @@
 <script type="text/javascript" src="/admin/lib/layer/2.4/layer.js"></script>
 <script type="text/javascript">
 
+
+    console.log(document.body.scrollHeight);
+    console.log(document.body.offsetHeight);
+    console.log(window.screen.availHeight);
+    console.log(document.body.clientHeight);
+
     var width = document.body.clientWidth;
     var height =  window.screen.availHeight;
     document.getElementById('obj').width = width;
