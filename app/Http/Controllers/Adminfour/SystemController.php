@@ -23,7 +23,7 @@ class SystemController extends Controller
             $web_title = Input::only('web_title')['web_title'];
             $company = Input::only('company')['company'];
             $toolbar = Input::only('toolbar')['toolbar'];
-            $model = Input::only('model')['model'];
+            // $model = Input::only('model')['model'];
             $file = $request->file('logo_img');
             $back = $request->file('background_url');
 
@@ -64,7 +64,7 @@ class SystemController extends Controller
             $default->web_title = $web_title;
             $default->company = $company;
             $default->toolbar = $toolbar;
-            $default->model = $model;
+            // $default->model = $model;
             return $default->save() ? '1':'0';
             // //修改config配置
             // $data =  System::get()->first();
