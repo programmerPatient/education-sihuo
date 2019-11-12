@@ -33,7 +33,7 @@
                 background-position: center center;
                 overflow: auto;">
 
-  <div id="loginform" class="loginBox" style="padding-top:0;border:2px solid #1e3b5e">
+  <div id="loginform" class="loginBox" style="padding-top:0;border-bottom:2px solid #6b8db6">
     <div class="formControls" style="text-align:center;">
       <h4 style="padding-top:10px;margin-bottom:5px;color:#fff">{{$system->web_title}}</h4>
     </div>
@@ -42,15 +42,17 @@
           <label class="form-label col-xs-8"><img src="{{$system->logo_url}}" alt="" style="height:80px;width:360px;"></label>
         </div>
         <div class="row cl">
-          <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60d;</i></label>
+          <label class="form-label col-xs-3"><i class="Hui-iconfont" style="color:#f7f7f7">&#xe60d;</i></label>
           <div class="formControls col-xs-8">
-            <input id="" name="username" type="text" placeholder="账户" class="input-text size-L">
+            <input id="" name="username" type="text" placeholder="账户" style="border: 3px solid #3a77b9;
+    border-radius: 10px;background-color:#000" class="input-text size-L">
           </div>
         </div>
         <div class="row cl">
-          <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60e;</i></label>
+          <label class="form-label col-xs-3"><i class="Hui-iconfont" style="color:#f7f7f7">&#xe60e;</i></label>
           <div class="formControls col-xs-8">
-            <input id="" name="password" type="password" placeholder="密码" class="input-text size-L">
+            <input id="" name="password" type="password" placeholder="密码" style="border: 3px solid #3a77b9;
+    border-radius: 10px;" class="input-text size-L">
           </div>
         </div>
   <!--       <div class="row cl">
@@ -70,7 +72,7 @@
         <div class="row cl">
           <div class="formControls col-xs-8 col-xs-offset-3">
             <input name="" type="submit" class="btn btn-success radius size-L" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;">
-            <input name="" type="reset" class="btn btn-default radius size-L" value="&nbsp;取&nbsp;&nbsp;&nbsp;&nbsp;消&nbsp;">
+            <input name="" type="reset" class="btn btn-default radius size-L" style="float:right;margin-right:40px;" value="&nbsp;取&nbsp;&nbsp;&nbsp;&nbsp;消&nbsp;">
           </div>
         </div>
       </div>
