@@ -28,7 +28,9 @@
 <body>
 <input type="hidden" id="TenantId" name="TenantId" value="" />
 <!-- <div class="header"></div> -->
-<div class="loginWraper" style="background:#e0e5e8">
+<!-- <div class="loginWraper" style="background:#e0e5e8"> -->
+<div class="loginWraper" style="background:url({{$system->background_url}})">
+
   <div id="loginform" class="loginBox" style="padding-top:0;background:#fff">
     <div class="formControls" style="text-align:center;">
       <h4 style="padding-top:10px;margin-bottom:5px;">{{$system->web_title}}</h4>

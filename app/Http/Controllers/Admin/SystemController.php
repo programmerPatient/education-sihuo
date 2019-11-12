@@ -33,6 +33,7 @@ class SystemController extends Controller
         $toolbar = Input::only('toolbar')['toolbar'];
         $model = Input::only('model')['model'];
         $file = $request->file('logo_img');
+        $back = $request->file('background_url');
         $post['system_domain'] = $tableau_domain;
         $post['web_title'] = $web_title;
         $post['company']= $company;
@@ -51,6 +52,20 @@ class SystemController extends Controller
             $filePath = asset($destinationPath.$fileName);
             $post['logo_url'] ='/'.$destinationPath.$fileName;
         }
+        if($back){
+
+                $alloweds = ["png", "jpg", "gif","PNG",'jpeg'];
+                if ($file->getClientOriginalExtension() && !in_array($file->getClientOriginalExtension(), $alloweds)) {
+                    return ['error' => 'You may only upload png, jpg , PNG , jpeg or gif.'];
+                }
+                $destinationPat = 'background/'; //public 文件夹下面建 imges 文件夹
+
+                $extensio = $back->getClientOriginalExtension();
+                $fileNam = str_random(10).'.'.$extensio;
+                $back->move($destinationPat, $fileNam);
+                $filePat = asset($destinationPat.$fileNam);
+                $post['background_url'] = '/'.$destinationPat.$fileNam;
+            }
         // $post['type'] = '1';
 
         // $default -> type = '0';

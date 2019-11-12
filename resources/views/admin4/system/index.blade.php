@@ -87,6 +87,21 @@
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">
                     <span class="c-red">*</span>
+                    背景图片：
+                </label>
+                <div class="ormControls col-xs-8 col-sm-9">
+                    <label>选择图片</label>
+                    <div class="file-loading">
+                        <input id="file-fr" name="background_url" type="file" multiple value="">
+                        <div>
+                            <img id="cropedBigImg" src="{{$default->background_url}}" value='custom' alt="lorem ipsum dolor sit" data-address='' title="logo图片" width="100" height="100"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2">
+                    <span class="c-red">*</span>
                     网站标题：
                 </label>
                 <div class="formControls col-xs-8 col-sm-9">
