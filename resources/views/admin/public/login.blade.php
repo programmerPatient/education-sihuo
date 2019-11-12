@@ -71,8 +71,8 @@
         </div> -->
         <div class="row cl">
           <div class="formControls col-xs-8 col-xs-offset-3">
-            <input name="" type="submit" class="btn btn-success radius size-L" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;">
-            <input name="" type="reset" class="btn btn-default radius size-L" style="float:right;margin-right:40px;" value="&nbsp;取&nbsp;&nbsp;&nbsp;&nbsp;消&nbsp;">
+            <input name="" type="submit" class="btn btn-success radius size-L" style="background-color:#49d3de;border:0;color:#fff" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;">
+            <input name="" type="reset" class="btn btn-default radius size-L" style="float:right;margin-right:40px;background-color:#141b47;border:0;color:#fff" value="&nbsp;取&nbsp;&nbsp;&nbsp;&nbsp;消&nbsp;">
           </div>
         </div>
       </div>
