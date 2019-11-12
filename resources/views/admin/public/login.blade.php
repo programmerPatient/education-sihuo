@@ -35,7 +35,7 @@
 
   <div id="loginform" class="loginBox" style="padding-top:0;border-bottom:2px solid #6b8db6">
     <div class="formControls" style="text-align:center;">
-      <h4 style="padding-top:10px;margin-bottom:5px;color:#fff">{{$system->web_title}}</h4>
+      <h4 style="padding-top:10px;margin-bottom:5px;color:#fff;margin-left:50px;">{{$system->web_title}}</h4>
     </div>
     <form class="form form-horizontal" action="/admin/public/check" method="post">
         <div class="row cl" style="margin-left:145px;line-height:41px;">
@@ -44,15 +44,15 @@
         <div class="row cl">
           <label class="form-label col-xs-3"><i class="Hui-iconfont" style="color:#f7f7f7">&#xe60d;</i></label>
           <div class="formControls col-xs-8">
-            <input id="" name="username" type="text" placeholder="账户" style="border: 3px solid #3a77b9;
-    border-radius: 10px;background-color:#141b47" class="input-text size-L">
+            <input id="" name="username" type="text" placeholder="账户" style="border: 2px solid #49d3de;
+    border-radius: 5px;background-color:#141b47" class="input-text size-L">
           </div>
         </div>
         <div class="row cl">
           <label class="form-label col-xs-3"><i class="Hui-iconfont" style="color:#f7f7f7">&#xe60e;</i></label>
           <div class="formControls col-xs-8">
-            <input id="" name="password" type="password" placeholder="密码" style="border: 3px solid #3a77b9;
-    border-radius: 10px;background-color:#141b47" class="input-text size-L">
+            <input id="" name="password" type="password" placeholder="密码" style="border: 2px solid #49d3de;
+    border-radius: 5px;background-color:#141b47" class="input-text size-L">
           </div>
         </div>
   <!--       <div class="row cl">
