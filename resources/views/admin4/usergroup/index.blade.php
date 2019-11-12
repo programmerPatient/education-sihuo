@@ -44,7 +44,7 @@
 <div class="page-container">
     <div class="cl pd-5 bg-1 bk-gray mt-20 remove">
         <span class="l">
-            <a href="javascript:;" onclick="member_add('添加用户','/adminfour/usergroup/add','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户组
+            <a href="javascript:;" onclick="member_add('添加用户','/adminfour/usergroup/add','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加权限组
             </a>
         </span>
         <span class="r">共有数据：<strong>88</strong> 条</span> </div>
