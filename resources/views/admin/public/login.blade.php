@@ -45,14 +45,14 @@
           <label class="form-label col-xs-3"><i class="Hui-iconfont" style="color:#f7f7f7">&#xe60d;</i></label>
           <div class="formControls col-xs-8">
             <input id="" name="username" type="text" placeholder="账户" style="border: 3px solid #3a77b9;
-    border-radius: 10px;background-color:#000" class="input-text size-L">
+    border-radius: 10px;background-color:#141b47" class="input-text size-L">
           </div>
         </div>
         <div class="row cl">
           <label class="form-label col-xs-3"><i class="Hui-iconfont" style="color:#f7f7f7">&#xe60e;</i></label>
           <div class="formControls col-xs-8">
             <input id="" name="password" type="password" placeholder="密码" style="border: 3px solid #3a77b9;
-    border-radius: 10px;" class="input-text size-L">
+    border-radius: 10px;background-color:#141b47" class="input-text size-L">
           </div>
         </div>
   <!--       <div class="row cl">
