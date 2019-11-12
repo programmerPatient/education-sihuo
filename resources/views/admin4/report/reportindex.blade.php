@@ -44,8 +44,8 @@
 <div class="page-container">
     <div class="cl pd-5 bg-1 bk-gray mt-20 remove">
         <span class="l">
-            <a href="javascript:;" onclick="groups()" class="btn btn-success radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量项目组映射</a>
-            <a href="javascript:;" onclick="usergroup()" class="btn btn-success radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量分配用户组</a>
+            <a href="javascript:;" onclick="groups()" class="btn btn-success radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量权限映射</a>
+            <a href="javascript:;" onclick="usergroup()" class="btn btn-success radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量权限组映射</a>
         </span>
     </div>
     <table class="table table-border table-bordered table-hover table-bg table-sort remove">
