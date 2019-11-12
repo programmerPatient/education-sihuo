@@ -25,7 +25,7 @@ class SystemController extends Controller
             $toolbar = Input::only('toolbar')['toolbar'];
             $model = Input::only('model')['model'];
             $file = $request->file('logo_img');
-            $back = $request->file('background_img');
+            $back = $request->file('background_url');
             if($file){
 
                 $allowed_extensions = ["png", "jpg", "gif","PNG",'jpeg'];
