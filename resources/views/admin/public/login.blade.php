@@ -75,7 +75,7 @@
     </form>
   </div>
 </div>
-<div style="color:#fff;font-size:15px;text-align:center;display:flex;bottom:0">{{$system->company}}</div>
+<div style="color:#fff;font-size:15px;text-align:center;position:fixed;bottom:0;width:100%">{{$system->company}}</div>
 <script type="text/javascript" src="/admin/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="/admin/static/h-ui/js/H-ui.min.js"></script>
 <script type="text/javascript" src="/admin/lib/layer/2.4/layer.js"></script>
