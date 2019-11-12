@@ -73,7 +73,7 @@
         </div>
       </div>
     </form>
-      <div class="footer" style="color:#000;font-size:15px;">{{$system->company}}</div>
+      <div  style="color:#000;font-size:15px;">{{$system->company}}</div>
 
   </div>
 </div>
