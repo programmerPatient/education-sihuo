@@ -31,9 +31,9 @@
 <!-- <div class="loginWraper" style="background:#e0e5e8"> -->
 <div class="loginWraper" style="background:url({{$system->background_url}});background-size: 100% 100%;
                 background-position: center center;
-                overflow: auto;border:2px solid #1e3b5e">
+                overflow: auto;">
 
-  <div id="loginform" class="loginBox" style="padding-top:0">
+  <div id="loginform" class="loginBox" style="padding-top:0;border:2px solid #1e3b5e">
     <div class="formControls" style="text-align:center;">
       <h4 style="padding-top:10px;margin-bottom:5px;color:#fff">{{$system->web_title}}</h4>
     </div>
