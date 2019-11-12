@@ -71,9 +71,9 @@
                 <div class="ormControls col-xs-8 col-sm-9">
                     <label>选择图片</label>
                     <div class="file-loading">
-                        <input id="file-frs" name="background_url" type="file" multiple value="">
+                        <input id="file-fr" name="background_url" type="file" multiple value="">
                         <div>
-                            <img id="cropedBigImgs" src="" value='custom' alt="lorem ipsum dolor sit" data-address='' title="logo图片" width="100" height="100"/>
+                            <img id="cropedBigImg" src="" value='custom' alt="lorem ipsum dolor sit" data-address='' title="logo图片" width="100" height="100"/>
                         </div>
                     </div>
                 </div>
