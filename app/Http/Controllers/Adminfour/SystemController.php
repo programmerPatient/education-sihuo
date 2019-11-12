@@ -27,7 +27,7 @@ class SystemController extends Controller
             $file = $request->file('logo_img');
             $back = $request->file('background_url');
 
-            dd("ss");
+
             if($file){
 
                 $allowed_extensions = ["png", "jpg", "gif","PNG",'jpeg'];
@@ -56,6 +56,7 @@ class SystemController extends Controller
                 $filePat = asset($destinationPat.$fileNam);
                 $default->background_url = '/'.$destinationPat.$fileNam;
             }
+            dd("ss");
             // $post['type'] = '1';
 
             // $default -> type = '0';
