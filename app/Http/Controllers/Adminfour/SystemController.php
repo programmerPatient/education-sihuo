@@ -45,7 +45,7 @@ class SystemController extends Controller
             if($back){
 
                 $alloweds = ["png", "jpg", "gif","PNG",'jpeg'];
-                if ($file->getClientOriginalExtension() && !in_array($file->getClientOriginalExtension(), $alloweds)) {
+                if ($back->getClientOriginalExtension() && !in_array($back->getClientOriginalExtension(), $alloweds)) {
                     return ['error' => 'You may only upload png, jpg , PNG , jpeg or gif.'];
                 }
                 $destinationPat = 'background/'; //public 文件夹下面建 imges 文件夹
@@ -56,7 +56,6 @@ class SystemController extends Controller
                 $filePat = asset($destinationPat.$fileNam);
                 $default->background_url = '/'.$destinationPat.$fileNam;
             }
-            dd("ss");
             // $post['type'] = '1';
 
             // $default -> type = '0';
