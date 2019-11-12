@@ -29,7 +29,9 @@
 <input type="hidden" id="TenantId" name="TenantId" value="" />
 <!-- <div class="header"></div> -->
 <!-- <div class="loginWraper" style="background:#e0e5e8"> -->
-<div class="loginWraper" style="background:url({{$system->background_url}})">
+<div class="loginWraper" style="background:url({{$system->background_url}});background-size: 100% 100%;
+                background-position: center center;
+                overflow: auto;">
 
   <div id="loginform" class="loginBox" style="padding-top:0;background:#fff">
     <div class="formControls" style="text-align:center;">
