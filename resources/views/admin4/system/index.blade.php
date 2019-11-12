@@ -117,7 +117,7 @@
                     <input type="text" id="website-title" placeholder="新信息" value="{{$default->company}}" class="input-text" name="company">
                 </div>
             </div>
-            <div class="row cl">
+          <!--   <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">
                     <span class="c-red">*</span>
                     模式选择：
@@ -132,7 +132,7 @@
                     <input type="checkbox" id="website-title" value="4" class="input-checkbox" name="model"@if($default->model == '4') checked @endif>
                     模式四
                 </div>
-            </div>
+            </div> -->
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">
                     <span class="c-red">*</span>

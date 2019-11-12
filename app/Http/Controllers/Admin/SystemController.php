@@ -55,7 +55,7 @@ class SystemController extends Controller
         if($back){
 
                 $alloweds = ["png", "jpg", "gif","PNG",'jpeg'];
-                if ($file->getClientOriginalExtension() && !in_array($file->getClientOriginalExtension(), $alloweds)) {
+                if ($back->getClientOriginalExtension() && !in_array($back->getClientOriginalExtension(), $alloweds)) {
                     return ['error' => 'You may only upload png, jpg , PNG , jpeg or gif.'];
                 }
                 $destinationPat = 'background/'; //public 文件夹下面建 imges 文件夹
@@ -88,6 +88,7 @@ class SystemController extends Controller
             $toolbar = Input::only('toolbar')['toolbar'];
             $model = Input::only('model')['model'];
             $file = $request->file('logo_img');
+            $back = $request->file('background_url');
             if($file){
 
                 $allowed_extensions = ["png", "jpg", "gif","PNG",'jpeg'];
@@ -103,6 +104,20 @@ class SystemController extends Controller
                 $post['logo_url'] = $destinationPath.$fileName;
                 $post['system_domain'] = $tableau_domain;
                 $default->logo_url = '/'.$destinationPath.$fileName;
+            }
+            if($back){
+
+                $alloweds = ["png", "jpg", "gif","PNG",'jpeg'];
+                if ($back->getClientOriginalExtension() && !in_array($back->getClientOriginalExtension(), $alloweds)) {
+                    return ['error' => 'You may only upload png, jpg , PNG , jpeg or gif.'];
+                }
+                $destinationPat = 'background/'; //public 文件夹下面建 imges 文件夹
+
+                $extensio = $back->getClientOriginalExtension();
+                $fileNam = str_random(10).'.'.$extensio;
+                $back->move($destinationPat, $fileNam);
+                $filePat = asset($destinationPat.$fileNam);
+                $default->background_url = '/'.$destinationPat.$fileNam;
             }
             // $post['type'] = '1';
 

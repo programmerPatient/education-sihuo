@@ -90,7 +90,7 @@
             <li><a data-href="/adminfour/report/collection/index" data-title="收藏列表" href="javascript:;">收藏列表</a></li>
             @if($type == '1')
             <li><a data-href="/adminfour/member/index" data-title="会员列表" href="javascript:;">会员列表</a></li>
-            <li><a data-href="/adminfour/user/group" data-title="用户组列表" href="javascript:;">用户组列表</a></li>
+            <li><a data-href="/adminfour/user/group" data-title="用户组列表" href="javascript:;">权限组</a></li>
             <li><a data-href="/adminfour/report/index" data-title="报表列表" href="javascript:;">权限控制</a></li>
             <li><a data-href="/adminfour/system/update" data-title="系统设置" href="javascript:void(0)">系统设置</a></li>
             @endif

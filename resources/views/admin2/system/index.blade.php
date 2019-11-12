@@ -56,9 +56,9 @@
                 <div class="ormControls col-xs-8 col-sm-9">
                     <label>修改图片</label>
                     <div class="file-loading">
-                        <input id="file-fr" name="logo_img" type="file" multiple value="">
+                        <input id="file-fr" class="file-frs" name="background_url" type="file" multiple value="">
                         <div>
-                            <img id="cropedBigImg" src="{{$default->logo_url}}" value='custom' alt="lorem ipsum dolor sit" data-address='' title="logo图片" width="100" height="100"/>
+                            <img id="cropedBigImg" class="cropedBigImgs" src="{{$default->logo_url}}" value='custom' alt="lorem ipsum dolor sit" data-address='' title="logo图片" width="100" height="100"/>
                         </div>
                     </div>
                 </div>
@@ -266,7 +266,7 @@ $(function(){
         }
     });
 
-     $('#file-fr').on('change',function(){
+     $('.file-frs').on('change',function(){
         var filePath = $(this).val(),         //获取到input的value，里面是文件的路径
             fileFormat = filePath.substring(filePath.lastIndexOf(".")).toLowerCase(),
             src = window.URL.createObjectURL(this.files[0]); //转成可以在本地预览的格式
@@ -277,7 +277,7 @@ $(function(){
             return;
         }
 
-        $('#cropedBigImg').attr('src',src);
+        $('.cropedBigImgs').attr('src',src);
     });
 });
 </script>
