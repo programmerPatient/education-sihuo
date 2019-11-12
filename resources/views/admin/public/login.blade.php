@@ -38,7 +38,7 @@
       <h4 style="padding-top:10px;margin-bottom:5px;color:#fff;margin-left:50px;">{{$system->web_title}}</h4>
     </div>
     <form class="form form-horizontal" action="/admin/public/check" method="post">
-        <div class="row cl" style="margin-left:145px;line-height:41px;">
+        <div class="row cl" style="margin-left:145px;line-height:41px;margin-top:10px;">
           <label class="form-label col-xs-8"><img src="{{$system->logo_url}}" alt="" style="height:80px;width:360px;"></label>
         </div>
         <div class="row cl">
