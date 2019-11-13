@@ -62,7 +62,16 @@
         color:#fff;
     }
 
-    .Hui-aside .menu_dropdown #menu-article dt:hover{
+    .Hui-aside .menu_dropdown .parent dt:hover{
+        color:#fff;
+    }
+
+    .Hui-aside .menu_dropdown .parent dd ul .item h4:hover{
+        background-color:#2d8cf0;
+        color:#fff;
+    }
+    .Hui-aside .menu_dropdown .parent dd ul .item .info .Huifold .item a:hover{
+        background-color:#2d8cf0;
         color:#fff;
     }
 
@@ -105,7 +114,7 @@
         </dl>
         @if($p)
         @foreach($p as $val)
-        <dl id="menu-article">
+        <dl id="menu-article" class="parent">
             <dt style="text-overflow:ellipsis;border-bottom: 0px;color:#b5b7c2;padding:4px 20px;font-size:16px" class="tableau-project"><i class="Hui-iconfont">&#xe616;</i>{{$val['name']}}<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul id="Huifold1" class="Huifold" style="padding:0px;">
