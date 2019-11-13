@@ -58,7 +58,7 @@
 
 
     .tableau-project:hover {
-        background-color:#101117;
+        background-color:#2d8cf0;
         color:#fff;
     }
 
