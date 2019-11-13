@@ -120,7 +120,7 @@
                 <ul id="Huifold1" class="Huifold" style="padding:0px;">
                     @foreach($val["project"] as $value)
                     <li class="item">
-                        <h4 class="tableau-workbook" style="color:#909195;font-size:12px;font-weight:normal;text-overflow: ellipsis;display:inline-block;white-space: nowrap;width: 100%;padding:12px 20px;background-color:#1a1a1d;border: 0px;font-size:16px">{{$value['name']}}</h4>
+                        <h4 class="tableau-workbook" style="color:#909195;font-size:12px;font-weight:normal;text-overflow: ellipsis;display:inline-block;white-space: nowrap;width: 100%;padding:12px 20px;background-color:#1a1a1d;border: 0px;font-size:16px;color:#fff">{{$value['name']}}</h4>
                         <div class="info" style="padding:0px">
                             <ul id="Huifold1" class="Huifold" style="padding:0px">
                                 @foreach($value['views'] as $vieVule)
