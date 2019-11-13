@@ -33,7 +33,7 @@
                 background-position: center center;
                 overflow: auto;">
   <div class="formControls" style="text-align:center;">
-      <h4 style="padding-top:10px;margin-bottom:5px;color:#fff;margin-left:50px;">{{$system->web_title}}</h4>
+      <h4 style="padding-top:10px;margin-bottom:5px;color:#fff;margin-left:50px;width:50%">{{$system->web_title}}</h4>
     </div>
 
   <div id="loginform" class="loginBox" style="padding-top:0;border-bottom:2px solid #6b8db6">
