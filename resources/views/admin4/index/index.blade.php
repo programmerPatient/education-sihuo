@@ -166,7 +166,7 @@
 
     </div>
 </aside>
-<div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
+<div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)" style="opacity: 0.5;"></a></div>
 <section class="Hui-article-box" style="top:0">
 
     <div id="Hui-tabNav" class="Hui-tabNav hidden-xs" style="display:none">
