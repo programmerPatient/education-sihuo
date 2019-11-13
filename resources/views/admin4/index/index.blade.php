@@ -56,7 +56,7 @@
         color:#fff;
     }
 
-    .tableau-project{
+    .Hui-aside .parent .tableau-project{
         text-overflow:ellipsis;
         border-bottom: 0px;
         color:#b5b7c2;
