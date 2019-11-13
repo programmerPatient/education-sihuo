@@ -333,12 +333,6 @@ $(function(){
             tableau_domain:{
                 required:true,
             },
-           web_title:{
-                required:true,
-            },
-            company:{
-                required:true,
-            },
             log_img:{
                 required:true,
             },
