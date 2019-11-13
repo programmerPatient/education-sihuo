@@ -62,6 +62,10 @@
         color:#fff;
     }
 
+    .tableau-project:hover #menu-article dt{
+        color:#fff;
+    }
+
     .Hui-aside #menu-member #log a:hover{
         background-color:#23262e;
     }
