@@ -66,7 +66,7 @@
         color:#fff;
     }
 
-    .Hui-aside .menu_dropdown .parent dd ul .item h4:hover{
+    .Hui-aside .parent dd ul .item h4:hover{
         background-color:#2d8cf0;
         color:#fff;
     }
