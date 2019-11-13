@@ -33,7 +33,7 @@
                 background-position: center center;
                 overflow: auto;">
 
-  <div class="row cl" style="margin-left:70px;line-height:41px;margin-top:40px;">
+  <div class="row cl" style="margin-left:70px;line-height:41px;margin-top:40px;margin-right:0;">
           <label class="form-label col-xs-8"><img src="{{$system->logo_url}}" alt="" style="height:80px;width:190px;"></label>
         </div>
 
