@@ -40,7 +40,7 @@
 
   <div id="loginform" class="loginBox" style="padding-top:0;border-bottom:2px solid #6b8db6;width:500px;height:280px;border-right:2px solid #6b8db6;top:55%;left:70%">
     <div class="formControls  toptitle" style="text-align:center;top:10px">
-      <h4 style="padding-top:10px;margin-bottom:40px;color:#fff;margin-left:20px;font-size: 27px;">{{$system->web_title}}</h4>
+      <h4 style="padding-top:10px;margin-bottom:40px;color:#49d3de;margin-left:20px;font-size: 27px;">{{$system->web_title}}</h4>
     </div>
     <form class="form form-horizontal" action="/admin/public/check" method="post">
         <div class="row cl" style="margin-left:-80px;">
