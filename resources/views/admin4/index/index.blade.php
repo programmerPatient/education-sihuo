@@ -56,6 +56,14 @@
         color:#fff;
     }
 
+    .tableau-project{
+        text-overflow:ellipsis;
+        border-bottom: 0px;
+        color:#b5b7c2;
+        padding:4px 20px;
+        font-size:16px;
+    }
+
 
     .tableau-project:hover {
         background-color:#2d8cf0;
@@ -64,6 +72,20 @@
 
     .Hui-aside .menu_dropdown .parent dt:hover{
         color:#fff;
+    }
+
+    .tableau-workbook{
+        color:#909195;
+        font-size:12px;
+        font-weight:normal;
+        text-overflow: ellipsis;
+        display:inline-block;
+        white-space: nowrap;
+        width: 100%;
+        padding:12px 20px;
+        background-color:#1a1a1d;
+        border: 0px;
+        font-size:16px;
     }
 
     .Hui-aside .parent .Huifold .item .tableau-workbook:hover{
@@ -115,12 +137,12 @@
         @if($p)
         @foreach($p as $val)
         <dl id="menu-article" class="parent">
-            <dt style="text-overflow:ellipsis;border-bottom: 0px;color:#b5b7c2;padding:4px 20px;font-size:16px" class="tableau-project"><i class="Hui-iconfont">&#xe616;</i>{{$val['name']}}<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dt style="" class="tableau-project"><i class="Hui-iconfont">&#xe616;</i>{{$val['name']}}<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul id="Huifold1" class="Huifold" style="padding:0px;">
                     @foreach($val["project"] as $value)
                     <li class="item">
-                        <h4 class="tableau-workbook" style="color:#909195;font-size:12px;font-weight:normal;text-overflow: ellipsis;display:inline-block;white-space: nowrap;width: 100%;padding:12px 20px;background-color:#1a1a1d;border: 0px;font-size:16px;color:#fff">{{$value['name']}}</h4>
+                        <h4 class="tableau-workbook" style="">{{$value['name']}}</h4>
                         <div class="info" style="padding:0px">
                             <ul id="Huifold1" class="Huifold" style="padding:0px">
                                 @foreach($value['views'] as $vieVule)
