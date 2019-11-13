@@ -25,7 +25,7 @@
 <script>
   window.history.go(1);
 </script>
-<body>
+<body style="overflow:-Scroll;overflow-x:hidden">
 <input type="hidden" id="TenantId" name="TenantId" value="" />
 <!-- <div class="header"></div> -->
 <!-- <div class="loginWraper" style="background:#e0e5e8"> -->
