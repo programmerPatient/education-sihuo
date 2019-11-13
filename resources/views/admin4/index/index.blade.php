@@ -74,7 +74,7 @@
         color:#fff;
     }
 
-    .tableau-workbook{
+    .Hui-aside .parent .Huifold .item .tableau-workbook{
         color:#909195;
         font-size:12px;
         font-weight:normal;
