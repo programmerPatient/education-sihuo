@@ -107,7 +107,7 @@ function InstantSearch(obj){
             type: 'POST',
             url: '/adminfour/search/report',
             data:{'conditions':conditions,},
-            dataType: 'json',
+            dataType: 'utf-8',
             success: function(data){
 
                 // console.log(data);
