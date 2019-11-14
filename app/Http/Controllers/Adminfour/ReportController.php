@@ -490,7 +490,7 @@ class ReportController extends Controller
         if ($err) {
           echo "cURL Error #:" . $err;
         } else {
-          $response = simplexml_load_string($response);
+          // $response = simplexml_load_string($response);
           $result['image'] = $response;
 
         }
