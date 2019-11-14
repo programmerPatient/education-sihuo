@@ -503,7 +503,7 @@ class ReportController extends Controller
         // dd($str_encode);
         // $ncode = json_decode($response);
         // dd($str_encode);
-        $result['image'] = $str_encode;
+        $result = $response;
         // dd($result);
         return $result;
    }
