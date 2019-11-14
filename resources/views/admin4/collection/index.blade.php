@@ -115,10 +115,11 @@ function InstantSearch(obj){
                 $('.dataTables_wrapper').remove();
                 var num = '';
                 var c = false;
-                for (i=0;i<data.length;i++){
-                    num += '<div class="col-xs-3 col-sm-3 " style="text-align:center;height:250px;padding:15px;"><a href="/adminfour/table/index?contentUrl='+data[i].contentUrl+'&filter='+data[i].filter+'"><img style="width:100%;height:80%" src="/images/siXaqiL5bi.jpg"><p style="line-height:50px;">'+data[i].report_name+'</p></a></div>';
-                    c = true;
-                }
+                num += '<div class="col-xs-3 col-sm-3 " style="text-align:center;height:250px;padding:15px;"><a href="/adminfour/table/index?contentUrl=&filter="><img style="width:100%;height:80%" src="data:image/jpeg;base64,'+data+'"><p style="line-height:50px;"></p></a></div>';
+                // for (i=0;i<data.length;i++){
+                //     num += '<div class="col-xs-3 col-sm-3 " style="text-align:center;height:250px;padding:15px;"><a href="/adminfour/table/index?contentUrl='+data[i].contentUrl+'&filter='+data[i].filter+'"><img style="width:100%;height:80%" src="/images/siXaqiL5bi.jpg"><p style="line-height:50px;">'+data[i].report_name+'</p></a></div>';
+                //     c = true;
+                // }
                 if(!c){
                     if(data.report_name){
                             // num = '<div class="col-xs-3 col-sm-3 " style="text-align:center;height:250px;padding:15px;"><a href="/adminfour/table/index?contentUrl='+data.contentUrl+'&filter='+data.filter+'"><img style="width:100%;height:80%" src="/images/siXaqiL5bi.jpg"><p style="line-height:50px;">'+data.report_name+'</p></a></div>';
