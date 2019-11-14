@@ -499,7 +499,7 @@ class ReportController extends Controller
         $str_encode = mb_convert_encoding($response, 'UTF-8', $encode);
         // dd($str_encode);
         $result['image'] = $str_encode;
-        dd($result);
+        // dd($result);
         return $result;
    }
 }
