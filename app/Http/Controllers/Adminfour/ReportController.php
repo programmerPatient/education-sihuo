@@ -501,9 +501,10 @@ class ReportController extends Controller
         // $ss = mb_detect_encoding($str_encode, array("ASCII",'UTF-8',"GB2312","GBK",'BIG5'));
         // dd($ss);
         // dd($str_encode);
-        // $ncode = json_decode($response);
+        $ncode = json_decode($str_encode);
+
         // dd($str_encode);
-        $result = $response;
+        $result = $ncode;
         // dd($result);
         return $result;
    }
