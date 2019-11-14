@@ -490,15 +490,15 @@ class ReportController extends Controller
         if ($err) {
           echo "cURL Error #:" . $err;
         } else {
-            dd($response);
+            // dd($response);
           // $response = simplexml_load_string($response);
 
         }
         // dd($response);
-        $encode = mb_detect_encoding($response, array("ASCII",'UTF-8',"GB2312","GBK",'BIG5'));
-        $str_encode = mb_convert_encoding($response, 'UTF-8', $encode);
+        // $encode = mb_detect_encoding($response, array("ASCII",'UTF-8',"GB2312","GBK",'BIG5'));
+        // $str_encode = mb_convert_encoding($response, 'UTF-8', $encode);
         // dd($str_encode);
-        $result['image'] = $str_encode;
+        $result['image'] = $response;
         return $result;
    }
 }
