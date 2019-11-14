@@ -502,8 +502,6 @@ class ReportController extends Controller
         // dd($ss);
         // dd($str_encode);
         $ncode = json_encode($str_encode);
-
-        dd($ncode);
         $result = $ncode;
         // dd($result);
         return $result;
