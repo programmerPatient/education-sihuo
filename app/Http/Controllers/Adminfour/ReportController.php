@@ -495,7 +495,8 @@ class ReportController extends Controller
 
         }
         // dd($response);
-        $encode = mb_detect_encoding($response, array("ASCII",'UTF-8',"GB2312","GBK",'BIG5'));
+        $encode = mb_detect_encoding($response, array("ASCII",'UTF-8',"GB2312","GBK",'BIG5','blob'));
+        dd($encode);
         $str_encode = mb_convert_encoding($response, 'UTF-8', $encode);
         // dd($str_encode);
         $image = $response;
