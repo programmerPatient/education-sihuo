@@ -496,14 +496,14 @@ class ReportController extends Controller
         }
         // dd($response);
         $encode = mb_detect_encoding($response, array("ASCII",'UTF-8',"GB2312","GBK",'BIG5'));
-        dd($encode);
+        // dd($encode);
         $str_encode = mb_convert_encoding($response, 'UTF-8', $encode);
         // $ss = mb_detect_encoding($str_encode, array("ASCII",'UTF-8',"GB2312","GBK",'BIG5'));
         // dd($ss);
         // dd($str_encode);
-        $str_encode = json_decode($str_encode);
-        dd($str_encode);
-        $image = $response;
+        // $str_encode = json_decode($str_encode);
+        // dd($str_encode);
+        $image = $str_encode;
         // dd($result);
         return $image;
    }
