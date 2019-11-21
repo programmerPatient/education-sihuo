@@ -495,6 +495,7 @@ class ReportController extends Controller
                 // dd($encode);
                 $str_encode = mb_convert_encoding($response, 'UTF-8', $encode);
                 $result[$key]['suoluetu'] = $str_encode;
+                var_dump($str_encode);
             }
         }
         // dd($result);
