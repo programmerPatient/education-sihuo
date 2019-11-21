@@ -460,7 +460,39 @@ class ReportController extends Controller
             // }
 
         }
-        dd($result);
+        foreach($result as $key=>$val){
+
+
+            //获取缩略图
+            $curlt = curl_init();
+
+            /*获取用户的信息*/
+            curl_setopt_array($curlt, array(
+            CURLOPT_URL =>  Session::get('tableau_domain')."/api/3.2/sites/".Session::get('credentials')."/workbooks/e51bfd80-8148-49fb-8a23-b177a73beb60/previewImage",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            // CURLOPT_COOKIE =>"token=".Session::get('token'),
+            CURLOPT_HTTPHEADER => array(
+                "X-Tableau-Auth: ".Session::get('token'),
+                "Accept: application/json",
+              ),
+            ));
+            $response = curl_exec($curlt);
+            if(!$response) {
+                    return view('admin4.error.index');
+            }
+            $err = curl_error($curlt);
+            curl_close($curlt);
+            if ($err) {
+              echo "cURL Error #:" . $err;
+            } else {
+                $result[$key]['suoluetu'] = $response;
+            }
+        }
         return $result;
    }
 }
