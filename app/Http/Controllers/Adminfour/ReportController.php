@@ -491,11 +491,12 @@ class ReportController extends Controller
             if ($err) {
               echo "cURL Error #:" . $err;
             } else {
+                var_dump($response);
                 $encode = mb_detect_encoding($response, array("ASCII",'UTF-8',"GB2312","GBK",'BIG5'));
                 // dd($encode);
                 $str_encode = mb_convert_encoding($response, 'UTF-8', $encode);
                 $result[$key]['suoluetu'] = $str_encode;
-                var_dump($str_encode);
+
             }
         }
         // dd($result);
