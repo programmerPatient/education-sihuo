@@ -480,6 +480,7 @@ class ReportController extends Controller
             CURLOPT_HTTPHEADER => array(
                 "X-Tableau-Auth: ".Session::get('token'),
                 "Accept: application/json",
+                'Content-type: image/png'
               ),
             ));
             $response = curl_exec($curlt);
