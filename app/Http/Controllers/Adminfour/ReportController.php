@@ -492,7 +492,7 @@ class ReportController extends Controller
             if ($err) {
               echo "cURL Error #:" . $err;
             } else {
-                var_dump($response);
+                var_dump(base64_decode($response));
                 $encode = mb_detect_encoding($response, array("ASCII",'UTF-8',"GB2312","GBK",'BIG5'));
                 // dd($encode);
                 $str_encode = mb_convert_encoding($response, 'UTF-8', $encode);
