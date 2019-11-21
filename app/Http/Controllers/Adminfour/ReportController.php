@@ -490,7 +490,8 @@ class ReportController extends Controller
         if ($err) {
           echo "cURL Error #:" . $err;
         } else {
-            dd($response);
+            header("Content-type: " . $response);
+            echo($response);
 
         }
         return $result;
