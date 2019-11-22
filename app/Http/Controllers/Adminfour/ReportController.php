@@ -461,45 +461,52 @@ class ReportController extends Controller
 
         }
 
-        // foreach($result as $key=>$val){
+        foreach($result as $key=>$val){
 
 
-        //     //获取缩略图
-        //     $curlt = curl_init();
+            //获取缩略图
+            $curlt = curl_init();
 
-        //     /*获取用户的信息*/
-        //     curl_setopt_array($curlt, array(
-        //     CURLOPT_URL =>  Session::get('tableau_domain')."/api/3.2/sites/".Session::get('credentials')."/workbooks/e51bfd80-8148-49fb-8a23-b177a73beb60/previewImage",
-        //     CURLOPT_RETURNTRANSFER => true,
-        //     CURLOPT_ENCODING => "",
-        //     CURLOPT_MAXREDIRS => 10,
-        //     CURLOPT_TIMEOUT => 30,
-        //     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        //     CURLOPT_CUSTOMREQUEST => "GET",
-        //     // CURLOPT_COOKIE =>"token=".Session::get('token'),
-        //     CURLOPT_HTTPHEADER => array(
-        //         "X-Tableau-Auth: ".Session::get('token'),
-        //         "Accept: application/json",
-        //         'Content-type: image/png'
-        //       ),
-        //     ));
-        //     $response = curl_exec($curlt);
-        //     if(!$response) {
-        //             return view('admin4.error.index');
-        //     }
-        //     $err = curl_error($curlt);
-        //     curl_close($curlt);
-        //     if ($err) {
-        //       echo "cURL Error #:" . $err;
-        //     } else {
-        //         var_dump(base64_decode($response));
-        //         $encode = mb_detect_encoding($response, array("ASCII",'UTF-8',"GB2312","GBK",'BIG5'));
-        //         // dd($encode);
-        //         $str_encode = mb_convert_encoding($response, 'UTF-8', $encode);
-        //         $result[$key]['suoluetu'] = $str_encode;
-
-        //     }
-        // }
+            /*获取用户的信息*/
+            curl_setopt_array($curlt, array(
+            CURLOPT_URL =>  Session::get('tableau_domain')."/api/3.2/sites/".Session::get('credentials')."/workbooks/e51bfd80-8148-49fb-8a23-b177a73beb60/previewImage",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            // CURLOPT_COOKIE =>"token=".Session::get('token'),
+            CURLOPT_HTTPHEADER => array(
+                "X-Tableau-Auth: ".Session::get('token'),
+                "Accept: application/json",
+                'Content-type: image/png'
+              ),
+            ));
+            $response = curl_exec($curlt);
+            if(!$response) {
+                    return view('admin4.error.index');
+            }
+            $err = curl_error($curlt);
+            curl_close($curlt);
+            if ($err) {
+              echo "cURL Error #:" . $err;
+            } else {
+                // var_dump(base64_decode($response));
+                // $encode = mb_detect_encoding($response, array("ASCII",'UTF-8',"GB2312","GBK",'BIG5'));
+                // // dd($encode);
+                // $str_encode = mb_convert_encoding($response, 'UTF-8', $encode);
+                // $result[$key]['suoluetu'] = $str_encode;
+                $imgDir = 'images/suoluetu';
+                $filename = date("Ym")."/".md5(time().mt_rand(10, 99)).".png"; //新图片名称
+                $newFilePath = $imgDir.$filename;
+                $data = $response;
+                $newFile = fopen($newFilePath,"w"); //打开文件准备写入
+                fwrite($newFile,$data); //写入二进制流到文件
+                fclose($newFile); //关闭文件
+                $result[$key]['suoluetu'] = $newFilePath;
+            }
+        }
         // dd($result);
 
 
