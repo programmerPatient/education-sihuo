@@ -497,13 +497,14 @@ class ReportController extends Controller
                 // // dd($encode);
                 // $str_encode = mb_convert_encoding($response, 'UTF-8', $encode);
                 // $result[$key]['suoluetu'] = $str_encode;
-                $imgDir = 'images/suoluetu';
-                $filename = date("Ym")."/".md5(time().mt_rand(10, 99)).".png"; //新图片名称
+                $imgDir = 'images/suoluetu/';
+                $filename = date("Ym").''.md5(time().mt_rand(10, 99)).".png"; //新图片名称
                 $newFilePath = $imgDir.$filename;
                 $data = $response;
-                $newFile = fopen($newFilePath,"w"); //打开文件准备写入
-                fwrite($newFile,$data); //写入二进制流到文件
-                fclose($newFile); //关闭文件
+                $file = file_put_contents($newFilePath,$data);
+                // $newFile = fopen($newFilePath,"w"); //打开文件准备写入
+                // fwrite($newFile,$data); //写入二进制流到文件
+                // fclose($newFile); //关闭文件
                 $result[$key]['suoluetu'] = $newFilePath;
             }
         }
