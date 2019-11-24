@@ -501,10 +501,10 @@ class ReportController extends Controller
                 $filename = date("Ym").''.md5(time().mt_rand(10, 99)).".png"; //新图片名称
                 $newFilePath = $imgDir.$filename;
                 $data = $response;
-                $file = file_put_contents($newFilePath,$data);
-                // $newFile = fopen($newFilePath,"w"); //打开文件准备写入
-                // fwrite($newFile,$data); //写入二进制流到文件
-                // fclose($newFile); //关闭文件
+                // $file = file_put_contents($newFilePath,$data);
+                $newFile = fopen($newFilePath,"w"); //打开文件准备写入
+                fwrite($newFile,$data); //写入二进制流到文件
+                fclose($newFile); //关闭文件
                 $result[$key]['suoluetu'] = $newFilePath;
             }
         }
