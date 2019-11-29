@@ -109,7 +109,7 @@
 <header class="navbar-wrapper">
    <div class="navbar navbar-fixed-top">
         <div class="container-fluid cl">
-            <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/adminthree/index/index">logo</a>
+            <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/adminfour/index/index">logo</a>
             <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
 
         </div>
