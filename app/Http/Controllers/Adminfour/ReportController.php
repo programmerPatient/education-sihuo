@@ -450,7 +450,7 @@ class ReportController extends Controller
                     $c = AllReport::where('report_id',$value->report_id)->get()->first();
                     $result[$k]['contentUrl'] = $c->contentUrl;
                     if($value->usergroup_id){
-                        $result['project_group'] = $value->usergroup->project_group;
+                        $result[$k]['project_group'] = $value->usergroup->project_group;
                     }
                 }
             // }else{
