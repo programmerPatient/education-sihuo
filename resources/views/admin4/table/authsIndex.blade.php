@@ -37,24 +37,43 @@
             </div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-3 col-sm-2">
+            <label class="form-label col-xs-4 col-sm-3">项目分配：</label>
+            <!-- <label class="form-label col-xs-3 col-sm-2">
 
                 <h4>项目分配</h4>
-            </label>
+            </label> -->
             <div class="formControls col-xs-8 col-sm-9">
+                @foreach($p as $value)
                 <dl class="permission-list">
+                    <dt>
+                        <label>
+                            <input type="checkbox" value="" name="user-Character-0" id="user-Character-0">
+                            {{$value['name']}}
+                        </label>
+                    </dt>
                     <dd>
+                        @foreach($value['project'] as $VieValue)
                         <dl class="cl permission-list2">
-                            <label>
-                                    @foreach($data as $val)
-                                        <input type="checkbox" style="display: inline" value="{{$val->id}}" name="tableauIds[]">
-                                        {{$val->project->name}}
-                                        </br>
-                                    @endforeach
-                            </label>
+                            <dt>
+                                <label class="col-xs-12 col-sm-12">
+                                    <input type="checkbox" value="" name="user-Character-0-1" id="user-Character-0-1">
+                                    {{$VieValue['name']}}
+                                </label>
+                            </dt>
+                            </br>
+                            <dd>
+                                @foreach($VieValue['views'] as $view)
+                                <label class="col-xs-12 col-sm-12">
+                                    <input type="checkbox" value="{{$view->id}}" name="tableauIds[]">
+                                    {{$view->name}}
+                                </label>
+                                @endforeach
+                            </dd>
                         </dl>
+                        @endforeach
                     </dd>
                 </dl>
+                @endforeach
             </div>
         </div>
         {{csrf_field()}}

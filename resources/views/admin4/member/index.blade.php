@@ -390,7 +390,7 @@ function auth(){
     if(ids == false){
         layer.msg('请选择要批量授权的对象!',{icon:1,time:1000});
     }else{
-        member_auth('批量授权','/adminthree/table/auths/'+ids,'4','','510');
+        member_auth('批量授权','/adminfour/table/auths/'+ids,'4','','510');
     }
 }
 /*用户批量映射*/

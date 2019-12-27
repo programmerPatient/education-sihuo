@@ -120,6 +120,7 @@ class IndexController extends Controller
                         $ds['workBook_id'] = $wok->id;
                         AllReport::insert($ds);
                     }
+
                     if($user){
                         $member_group = RelationReport::where('member_id',$user->id)->get();
                     }
