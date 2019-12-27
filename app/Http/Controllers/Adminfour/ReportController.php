@@ -500,7 +500,6 @@ class ReportController extends Controller
             if ($err) {
               echo "cURL Error #:" . $err;
             } else {
-                //dd(base64_encode($response));
                 $data = 'data:image/png;base64,'.base64_encode($response);
                 $result[$key]['img'] = $data;
             }
