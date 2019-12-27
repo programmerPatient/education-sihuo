@@ -121,7 +121,6 @@ class PublicController extends Controller
         $system = System::get()->first();
         $username = $system->tableau_username;
         $password = $system->tableau_password;
-        // dd($password);
         //判断是否成功
         if($result){
             $curl = curl_init();
@@ -173,7 +172,6 @@ class PublicController extends Controller
                 if ($err) {
                   echo "cURL Error #:" . $err;
                 } else {
-                  // dd(json_decode($response));
                     if(!$response) {
                         return view('admin.error.index');
                     }

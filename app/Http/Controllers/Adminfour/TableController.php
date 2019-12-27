@@ -300,13 +300,9 @@ class TableController extends Controller
     public function auths($ids){
         $id = explode(',',$ids);
         if(Input::method() == 'POST'){
-            foreach($id as $key=>$vals){
-                $user = Member::where('id',$vals)->get()->first();
+            foreach($id as $key=>$id){
+                $user = Member::where('id',$id)->get()->first();
                 $group = RelationReport::where('member_id',$user->id)->get();
-                // $tableauIds = Input::get('tableauIds');
-                // $stringIds = implode(',',$tableauIds);
-                // $user -> tableauIds = $stringIds;
-                // $result = $user -> save();
                 $tableauIds = Input::get('tableauIds');
                 if($tableauIds){
                     $hasTableauIds = $tableauIds;
@@ -434,7 +430,6 @@ class TableController extends Controller
                 $stringIds = implode(',',$hasTableauIds);
                 $user -> tableauIds = $stringIds;
                 $result = $user -> save();
-                return $result ? '1':'0';
             }
             return $result ? '1':'0';
         }else{
