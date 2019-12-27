@@ -129,7 +129,8 @@ function InstantSearch(obj){
                 }
                 if(!c){
                     if(data.report_name){
-                            num = '<div class="col-xs-3 col-sm-3 " style="text-align:center;height:250px;padding:15px;"><a href="/adminfour/table/index?contentUrl='+data.contentUrl+'&filter='+data.filter+'"><img style="width:100%;height:80%" src="/images/siXaqiL5bi.jpg"><p style="line-height:50px;">'+data.report_name+'</p></a></div>';
+                        var imgurl = data['img'];
+                            num = '<div class="col-xs-3 col-sm-3 " style="text-align:center;height:250px;padding:15px;"><a href="/adminfour/table/index?contentUrl='+data.contentUrl+'&filter='+data.filter+'"><img style="width:100%;height:80%" src="'+imgurl+'"><p style="line-height:50px;">'+data.report_name+'</p></a></div>';
                             // var a = new FileReader();
                             //  a.readAsDataURL(data.suoluetu);//读取文件保存在result中
                             //  a.onload = function (e) {
