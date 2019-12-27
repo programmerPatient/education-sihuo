@@ -116,21 +116,15 @@ function InstantSearch(obj){
                 $('.dataTables_wrapper').remove();
                 var num = '';
                 var c = false;
-                console.log(data);
+                //console.log(data);
                 // var bytes = new Uint8Array(data);
                 // var blob = new Blob([bytes], { type: "image/png" });
                 // var url = URL.createObjectURL(blob);
                 // num += '<div class="col-xs-3 col-sm-3 " style="text-align:center;height:250px;padding:15px;"><a href="/adminfour/table/index?contentUrl=&filter="><img style="width:100%;height:80%" src="data:image/*;base64,'+data+'"><p style="line-height:50px;"></p></a></div>';
                 for (i=0;i<data.length;i++){
-                     // function blobToDataURI(blob, callback) {
-                            var reader = new FileReader();
-                            // reader.onload = function (e) {
-                            //     callback(e.target.result);
-                            // }
-                            var reu = reader.readAsDataURL(data[i].suoluetu);
-                            console.log(reu);
-                        // }
-                    num += '<div class="col-xs-3 col-sm-3 " style="text-align:center;height:250px;padding:15px;"><a href="/adminfour/table/index?contentUrl='+data[i].contentUrl+'&filter='+data[i].filter+'"><img style="width:100%;height:80%" src="/images/siXaqiL5bi.jpg"><p style="line-height:50px;">'+data[i].report_name+'</p></a></div>';
+                    var imgurl = data[i]['img'];
+                    console.log(data[i]);
+                    num += '<div class="col-xs-3 col-sm-3 " style="text-align:center;height:250px;padding:15px;"><a href="/adminfour/table/index?contentUrl='+data[i].contentUrl+'&filter='+data[i].filter+'"><img style="width:100%;height:80%" src="'+imgurl+'"><p style="line-height:50px;">'+data[i].report_name+'</p></a></div>';
                     c = true;
                 }
                 if(!c){
